@@ -3,10 +3,13 @@ import styled from 'styled-components';
 
 const StyledWrapper = styled.div`
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  max-height: 100%;
   background: ${({ theme }) => theme.colors.darkWhite};
   display: flex;
+  flex-direction: column;
   align-items: center;
+  letter-spacing: 2px;
   justify-content: center;
 `;
 

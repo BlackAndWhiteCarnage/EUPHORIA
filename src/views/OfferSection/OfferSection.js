@@ -1,10 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ReactComponent as Logo } from 'assets/icons/logo.svg';
-import Navigation from 'components/Navigation/Navigation';
 import { ReactComponent as CartIcon } from 'assets/icons/cart-icon.svg';
 import { ReactComponent as DarkmodeIcon } from 'assets/icons/darkmode-icon.svg';
+import Navigation from 'components/Navigation/Navigation';
 import Offer from 'components/Offer/Offer';
+import SocksImage from 'assets/images/socks.png';
+import PantiesImage from 'assets/images/panties.png';
+import PremiumImage from 'assets/images/premium.png';
+import TightsImage from 'assets/images/tights.png';
+import SetsImage from 'assets/images/sets.png';
+import SessionsImage from 'assets/images/sessions.png';
 
 const Wrapper = styled.section`
   width: 1700px;
@@ -34,7 +40,7 @@ const CartWrapper = styled.div`
   align-items: center;
   justify-content: space-around;
   background: ${({ theme }) => theme.colors.white};
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
 `;
 
 const StyledLogo = styled(Logo)`
@@ -51,10 +57,10 @@ const OffersWrapper = styled.div`
   height: calc(100% - 30px - 90px - 20px - 15px);
   display: grid;
   grid-template-areas:
-    'SKARPETKI MAJTKI MAJTKI MAJTKI INNE INNE SESJE SESJE'
-    'SKARPETKI MAJTKI MAJTKI MAJTKI INNE INNE SESJE SESJE'
-    'SKARPETKI PREMIUM PREMIUM RAJSTOPY RAJSTOPY RAJSTOPY SESJE SESJE'
-    'SKARPETKI PREMIUM PREMIUM RAJSTOPY RAJSTOPY RAJSTOPY SESJE SESJE';
+    'SKARPETKI SKARPETKI MAJTKI MAJTKI MAJTKI INNE INNE SESJE SESJE'
+    'SKARPETKI SKARPETKI MAJTKI MAJTKI MAJTKI INNE INNE SESJE SESJE'
+    'SKARPETKI SKARPETKI PREMIUM PREMIUM RAJSTOPY RAJSTOPY RAJSTOPY SESJE SESJE'
+    'SKARPETKI SKARPETKI PREMIUM PREMIUM RAJSTOPY RAJSTOPY RAJSTOPY SESJE SESJE';
   @media screen and (max-width: 1700px) {
     grid-template-areas: none;
     display: flex;
@@ -76,12 +82,12 @@ const OfferSection = () => {
       </CartAndLogoWrapper>
       <Navigation />
       <OffersWrapper>
-        <Offer content='SKARPETKI' gridArea='SKARPETKI' />
-        <Offer content='MAJTKI' gridArea='MAJTKI' />
-        <Offer content='PREMIUM' gridArea='PREMIUM' />
-        <Offer content='RAJSTOPY I POŃCZOCHY' gridArea='RAJSTOPY' />
-        <Offer content='INNE' gridArea='INNE' />
-        <Offer content='SESJE, FOTKI I NAGRANIA' gridArea='SESJE' />
+        <Offer image={SocksImage} content='SKARPETKI' gridArea='SKARPETKI' />
+        <Offer image={PantiesImage} content='MAJTKI' gridArea='MAJTKI' />
+        <Offer image={PremiumImage} content='PREMIUM' gridArea='PREMIUM' />
+        <Offer image={TightsImage} content='RAJSTOPY I POŃCZOCHY' gridArea='RAJSTOPY' />
+        <Offer image={SetsImage} content='INNE' gridArea='INNE' />
+        <Offer image={SessionsImage} content='SESJE, FOTKI I NAGRANIA' gridArea='SESJE' />
       </OffersWrapper>
     </Wrapper>
   );
