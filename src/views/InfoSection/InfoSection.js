@@ -1,120 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
+import { Wrapper, WhoAmI, HowToBuy, Step, Contact, Form } from './InfoSection.styles';
 import Step1 from 'assets/icons/1step.svg';
 import Step2 from 'assets/icons/2step.svg';
 import Step3 from 'assets/icons/3step.svg';
 import Step4 from 'assets/icons/4step.svg';
 import Step5 from 'assets/icons/5step.svg';
-
-const Wrapper = styled.section`
-  width: 100%;
-  height: 100vh;
-  background: ${({ theme }) => theme.colors.darkWhite};
-  position: relative;
-  h1 {
-    font-size: ${({ theme }) => theme.fontSize.xl};
-    margin-bottom: 40px;
-    font-weight: bolder;
-    letter-spacing: 2px;
-  }
-  line-height: 160%;
-`;
-const WhoAmI = styled.div`
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 95%;
-  height: 660px;
-  background: ${({ theme }) => theme.colors.crimsonRed};
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
-  div {
-    position: absolute;
-    top: 50%;
-    left: 25%;
-    transform: translate(-25%, -50%);
-    width: 80%;
-    height: 70%;
-    color: ${({ theme }) => theme.colors.white};
-  }
-`;
-const HowToBuy = styled.div`
-  position: absolute;
-  right: 0;
-  top: 35%;
-  width: 80%;
-  height: 650px;
-  background: ${({ theme }) => theme.colors.darkGrey};
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
-  div {
-    position: absolute;
-    top: 50%;
-    right: 20%;
-    width: 60%;
-    height: 85%;
-    transform: translate(20%, -50%);
-    color: ${({ theme }) => theme.colors.white};
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
-  li {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    p {
-      margin: 25px;
-    }
-  }
-`;
-const Contact = styled.div`
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 40%;
-  height: 650px;
-  background: ${({ theme }) => theme.colors.white};
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  div {
-    width: 80%;
-    height: 80%;
-  }
-`;
-const Step = styled.img``;
-const Form = styled.form`
-  position: relative;
-  width: 100%;
-  height: 90%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  font-size: ${({ theme }) => theme.fontSize.m};
-  label {
-    margin: 15px 0;
-    font-weight: bolder;
-  }
-  input {
-    width: 100%;
-    height: 40px;
-    border: 2px solid ${({ theme }) => theme.colors.darkGrey};
-  }
-  button {
-    position: absolute;
-    width: 110px;
-    height: 40px;
-    border: none;
-    right: 0;
-    bottom: 0;
-    font-size: ${({ theme }) => theme.fontSize.m};
-    background: ${({ theme }) => theme.colors.crimsonRed};
-    color: ${({ theme }) => theme.colors.darkWhite};
-    font-weight: bolder;
-    letter-spacing: 2px;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
-  }
-`;
 
 const InfoSection = () => {
   return (
@@ -161,14 +51,14 @@ const InfoSection = () => {
       </HowToBuy>
       <Contact>
         <div>
-          <h1>KONTAKT</h1>
           <Form>
+            <h1>KONTAKT</h1>
             <label>IMIĘ</label>
             <input></input>
             <label>EMAIL</label>
             <input></input>
             <label>WIADOMOŚĆ</label>
-            <input></input>
+            <textarea></textarea>
             <button>WYŚLIJ</button>
           </Form>
         </div>

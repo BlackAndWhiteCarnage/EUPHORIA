@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ReactComponent as Logo } from 'assets/icons/logo.svg';
-import { ReactComponent as CartIcon } from 'assets/icons/cart-icon.svg';
-import { ReactComponent as DarkmodeIcon } from 'assets/icons/darkmode-icon.svg';
+import CartIcon from 'assets/icons/cart-icon.svg';
+import DarkmodeIcon from 'assets/icons/darkmode-icon.svg';
 import Navigation from 'components/Navigation/Navigation';
 import Offer from 'components/Offer/Offer';
 import SocksImage from 'assets/images/socks.png';
@@ -13,9 +13,8 @@ import SetsImage from 'assets/images/sets.png';
 import SessionsImage from 'assets/images/sessions.png';
 
 const Wrapper = styled.section`
-  width: 1700px;
+  width: 80%;
   height: 780px;
-  /* border: 1px solid blueviolet; */
   position: relative;
   @media screen and (max-width: 1200px) {
     width: 100%;
@@ -26,13 +25,21 @@ const Wrapper = styled.section`
 const CartAndLogoWrapper = styled.div`
   width: 100%;
   height: 90px;
-  /* border: 1px solid blueviolet; */
+  @media screen and (max-width: 1200px) {
+    position: relative;
+    width: 95%;
+    margin: auto;
+  }
+  @media screen and (max-width: 620px) {
+    position: relative;
+    width: 95%;
+    margin: 15px auto auto auto;
+  }
 `;
 
 const CartWrapper = styled.div`
   width: 75px;
   height: 30px;
-  /* border: 1px solid blueviolet; */
   position: absolute;
   top: 0;
   right: 0;
@@ -41,6 +48,14 @@ const CartWrapper = styled.div`
   justify-content: space-around;
   background: ${({ theme }) => theme.colors.white};
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+  @media screen and (max-width: 620px) {
+    position: fixed;
+    z-index: 5;
+    top: 25px;
+    right: 15px;
+    width: 85px;
+    height: 40px;
+  }
 `;
 
 const StyledLogo = styled(Logo)`
@@ -49,7 +64,12 @@ const StyledLogo = styled(Logo)`
   position: absolute;
   top: 0;
   left: 0;
-  /* border: 1px solid blueviolet; */
+  @media screen and (max-width: 620px) {
+    width: 220px;
+  }
+  @media screen and (max-width: 340px) {
+    width: 180px;
+  }
 `;
 
 const OffersWrapper = styled.div`
@@ -70,14 +90,18 @@ const OffersWrapper = styled.div`
   }
 `;
 
+const Icon = styled.img`
+  min-width: 18px;
+`;
+
 const OfferSection = () => {
   return (
     <Wrapper>
       <CartAndLogoWrapper>
         <StyledLogo />
         <CartWrapper>
-          <CartIcon />
-          <DarkmodeIcon />
+          <Icon src={CartIcon} />
+          <Icon src={DarkmodeIcon} />
         </CartWrapper>
       </CartAndLogoWrapper>
       <Navigation />

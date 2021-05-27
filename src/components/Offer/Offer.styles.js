@@ -66,5 +66,11 @@ export const StyledImage = styled.img`
       left: 50%;
       transform: translate(-50%, 0) rotate(-90deg);
     }
+    @media screen and (min-width: 1920px) {
+      width: 90%;
+    }
+    @media screen and (min-width: 2480px) {
+      width: 70%;
+    }
   }
 `;
