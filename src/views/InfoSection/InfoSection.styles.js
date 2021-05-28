@@ -5,7 +5,7 @@ export const Wrapper = styled.section`
   height: 100vh;
   background: ${({ theme }) => theme.colors.darkWhite};
   position: relative;
-  h1 {
+  header {
     font-size: ${({ theme }) => theme.fontSize.xl};
     margin-bottom: 40px;
     font-weight: bolder;
@@ -15,7 +15,8 @@ export const Wrapper = styled.section`
     }
   }
   line-height: 160%;
-  div {
+  div,
+  article {
     @media screen and (max-width: 1360px) {
       position: static;
       width: 100%;
@@ -23,7 +24,7 @@ export const Wrapper = styled.section`
   }
 `;
 
-export const WhoAmI = styled.div`
+export const WhoAmI = styled.article`
   position: absolute;
   left: 0;
   top: 0;
@@ -60,7 +61,7 @@ export const WhoAmI = styled.div`
   }
 `;
 
-export const HowToBuy = styled.div`
+export const HowToBuy = styled.article`
   position: absolute;
   right: 0;
   top: 35%;
@@ -107,6 +108,7 @@ export const HowToBuy = styled.div`
     }
   }
 `;
+
 export const Contact = styled.div`
   position: absolute;
   left: 0;
@@ -131,7 +133,9 @@ export const Contact = styled.div`
     }
   }
 `;
+
 export const Step = styled.img``;
+
 export const Form = styled.form`
   position: relative;
   height: 90%;

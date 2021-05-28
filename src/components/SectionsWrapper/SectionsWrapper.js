@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const StyledWrapper = styled.div`
   width: 100%;
@@ -14,5 +15,9 @@ const StyledWrapper = styled.div`
 `;
 
 const Wrapper = ({ children }) => <StyledWrapper>{children}</StyledWrapper>;
+
+Wrapper.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default Wrapper;
