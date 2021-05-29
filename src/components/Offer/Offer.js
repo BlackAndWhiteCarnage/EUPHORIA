@@ -4,7 +4,7 @@ import { Wrapper, OfferTitle, StyledImage } from './Offer.styles';
 // PROPTYPES
 import PropTypes from 'prop-types';
 
-const Offer = ({ gridArea, content, image }) => {
+const Offer = ({ gridArea, content, image, linkTo }) => {
   const [toggleTitle, setToggleTitle] = useState(false);
 
   const toggleTitleHandler = () => {
@@ -12,7 +12,7 @@ const Offer = ({ gridArea, content, image }) => {
   };
 
   return (
-    <Wrapper props={gridArea} onMouseEnter={toggleTitleHandler} onMouseLeave={toggleTitleHandler}>
+    <Wrapper props={gridArea} onMouseEnter={toggleTitleHandler} onMouseLeave={toggleTitleHandler} to={linkTo}>
       <OfferTitle className={toggleTitle && 'toggleTitle'}>{content}</OfferTitle>
       <StyledImage src={image} className={gridArea === 'RAJSTOPY' && 'tights'} />
     </Wrapper>

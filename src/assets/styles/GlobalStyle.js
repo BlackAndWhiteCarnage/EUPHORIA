@@ -6,20 +6,22 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
     }
+    html{
+        scroll-behavior: smooth;
+    }
     body{
         font-family: 'Montserrat', sans-serif;
         color: ${({ theme }) => theme.colors.darkGrey};
         overflow-x: hidden;
+        background: ${({ theme }) => theme.colors.darkWhite};
     }
     ::-webkit-scrollbar {
-    width: 15px;
+    width: 10px;
     background: ${({ theme }) => theme.colors.darkWhite};
-    border-left: 4px dashed;
     }
     ::-webkit-scrollbar-track {
-    width: 15px;
+    width: 10px;
     background: ${({ theme }) => theme.colors.darkWhite};
-    border-left: 4px dashed;
 
     }
     ::-webkit-scrollbar-thumb {

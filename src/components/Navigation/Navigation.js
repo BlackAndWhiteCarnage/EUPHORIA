@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import InstagramIcon from 'assets/icons/instagram-icon.svg';
 import WhatsAppIcon from 'assets/icons/whatsapp-icon.svg';
 import EmailIcon from 'assets/icons/email-icon.svg';
+import CartIcon from 'assets/icons/cart-icon.svg';
+import DarkmodeIcon from 'assets/icons/darkmode-icon.svg';
 // STYLES
 import {
   Wrapper,
@@ -16,6 +18,9 @@ import {
   ModalLinksWrapper,
   ModalLink,
   StyledDot,
+  CartAndLogoWrapper,
+  StyledLogo,
+  CartWrapper,
 } from './Navigation.styles';
 
 const Navigation = () => {
@@ -28,18 +33,23 @@ const Navigation = () => {
   return (
     <nav>
       <Wrapper>
-        {/* NAVIGATION FOR DESKTOPS */}
+        <CartAndLogoWrapper>
+          <StyledLogo />
+          <CartWrapper>
+            <Icon src={CartIcon} />
+            <Icon src={DarkmodeIcon} />
+          </CartWrapper>
+        </CartAndLogoWrapper>
         <NavItems>
-          <NavItem>OFERTA</NavItem>
-          <NavItem>CZYM SIĘ ZAJMUJĘ</NavItem>
-          <NavItem>JAK WYGLĄDA ZAKUP</NavItem>
-          <NavItem>KONTAKT</NavItem>
+          <NavItem></NavItem>
+          <NavItem>
+            <SocialMediaWrapper>
+              <Icon src={InstagramIcon} />
+              <Icon src={EmailIcon} />
+              <Icon src={WhatsAppIcon} />
+            </SocialMediaWrapper>
+          </NavItem>
         </NavItems>
-        <SocialMediaWrapper>
-          <Icon src={InstagramIcon} />
-          <Icon src={EmailIcon} />
-          <Icon src={WhatsAppIcon} />
-        </SocialMediaWrapper>
       </Wrapper>
       {/* HAMBURGER MENU */}
       <HamburgerMenu onClick={toggleModalHandler} className={toggleModal && 'toggle'}>
@@ -51,11 +61,19 @@ const Navigation = () => {
       </HamburgerMenu>
       {/* MODAL */}
       <Modal className={toggleModal && 'toggle'}>
-        <ModalLinksWrapper>
-          <ModalLink className={toggleModal && 'toggle'}>OFERTA</ModalLink>
-          <ModalLink className={toggleModal && 'toggle'}>CZYM SIĘ ZAJMUJĘ</ModalLink>
-          <ModalLink className={toggleModal && 'toggle'}>JAK WYGLĄDA ZAKUP</ModalLink>
-          <ModalLink className={toggleModal && 'toggle'}>KONTAKT</ModalLink>
+        <ModalLinksWrapper onClick={toggleModalHandler}>
+          <ModalLink className={toggleModal && 'toggle'} href='#offer'>
+            OFERTA
+          </ModalLink>
+          <ModalLink className={toggleModal && 'toggle'} href='#whoAmI'>
+            CZYM SIĘ ZAJMUJĘ
+          </ModalLink>
+          <ModalLink className={toggleModal && 'toggle'} href='#howToBuy'>
+            JAK WYGLĄDA ZAKUP
+          </ModalLink>
+          <ModalLink className={toggleModal && 'toggle'} href='#contact'>
+            KONTAKT
+          </ModalLink>
           <StyledDot className={toggleModal && 'toggle'} />
         </ModalLinksWrapper>
       </Modal>

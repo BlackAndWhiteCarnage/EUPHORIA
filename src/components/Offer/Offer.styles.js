@@ -1,20 +1,7 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-const getNumber = () => Math.floor(Math.random() * 4);
-
-const randomDirectionHandler = (randomNumber) => {
-  if (randomNumber === 0) {
-    return '0';
-  } else if (randomNumber === 1) {
-    return '1';
-  } else if (randomNumber === 2) {
-    return '2';
-  } else {
-    return '3';
-  }
-};
-
-export const Wrapper = styled.div`
+export const Wrapper = styled(Link)`
   background: ${({ theme }) => theme.colors.white};
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
   /* PROPS FROM OFFER SECTION TO DEFINE GRID BY OFFER NAME*/

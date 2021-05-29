@@ -1,12 +1,8 @@
 import React from 'react';
 // STYLES
-import { Wrapper, CartAndLogoWrapper, StyledLogo, CartWrapper, Icon, OffersWrapper } from './OfferSection.styles';
+import { Wrapper, OffersWrapper } from './OfferSection.styles';
 // COMPONENTS
-import Navigation from 'components/Navigation/Navigation';
 import Offer from 'components/Offer/Offer';
-// ICONS
-import CartIcon from 'assets/icons/cart-icon.svg';
-import DarkmodeIcon from 'assets/icons/darkmode-icon.svg';
 // IMAGES
 import SocksImage from 'assets/images/socks.png';
 import PantiesImage from 'assets/images/panties.png';
@@ -17,21 +13,13 @@ import SessionsImage from 'assets/images/sessions.png';
 
 const OfferSection = () => (
   <Wrapper>
-    <CartAndLogoWrapper>
-      <StyledLogo />
-      <CartWrapper>
-        <Icon src={CartIcon} />
-        <Icon src={DarkmodeIcon} />
-      </CartWrapper>
-    </CartAndLogoWrapper>
-    <Navigation />
-    <OffersWrapper>
-      <Offer image={SocksImage} content='SKARPETKI' gridArea='SKARPETKI' />
-      <Offer image={PantiesImage} content='MAJTKI' gridArea='MAJTKI' />
-      <Offer image={PremiumImage} content='PREMIUM' gridArea='PREMIUM' />
-      <Offer image={TightsImage} content='RAJSTOPY I POŃCZOCHY' gridArea='RAJSTOPY' />
-      <Offer image={SetsImage} content='INNE' gridArea='INNE' />
-      <Offer image={SessionsImage} content='SESJE, FOTKI I NAGRANIA' gridArea='SESJE' />
+    <OffersWrapper id='offer'>
+      <Offer image={SocksImage} content='SKARPETKI' gridArea='SKARPETKI' linkTo='skarpetki' />
+      <Offer image={PantiesImage} content='MAJTKI' gridArea='MAJTKI' linkTo='majtki' />
+      <Offer image={PremiumImage} content='PREMIUM' gridArea='PREMIUM' linkTo='premium' />
+      <Offer image={TightsImage} content='RAJSTOPY I POŃCZOCHY' gridArea='RAJSTOPY' linkTo='rajstopy-i-pończochy' />
+      <Offer image={SetsImage} content='INNE' gridArea='INNE' linkTo='inne' />
+      <Offer image={SessionsImage} content='SESJE, FOTKI I NAGRANIA' gridArea='SESJE' linkTo='sesje-fotki-i-nagrania' />
     </OffersWrapper>
   </Wrapper>
 );

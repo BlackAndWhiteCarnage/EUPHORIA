@@ -1,35 +1,110 @@
 import styled, { keyframes } from 'styled-components';
+import { ReactComponent as Logo } from 'assets/icons/logo.svg';
 
-export const Wrapper = styled.nav`
-  width: 100%;
-  height: 40px;
+export const Wrapper = styled.div`
+  position: relative;
+  width: 80%;
+  min-height: 30vh;
   display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   border-bottom: 2px solid ${({ theme }) => theme.colors.crimsonRed};
-  margin-bottom: 15px;
+  margin: auto;
   @media screen and (max-width: 1200px) {
-    display: none;
+    width: 95%;
+    min-height: 100px;
+    border-bottom: none;
   }
+`;
+
+export const CartAndLogoWrapper = styled.div`
+  height: 100%;
+  position: relative;
+  width: 100%;
+  @media screen and (max-width: 1200px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 55px;
+    background: ${({ theme }) => theme.colors.darkWhite};
+    z-index: 200;
+    border-bottom: 2px solid ${({ theme }) => theme.colors.crimsonRed};
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+  }
+  @media screen and (max-width: 620px) {
+    height: 45px;
+  }
+`;
+
+export const CartWrapper = styled.div`
+  width: 75px;
+  height: 30px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: ${({ theme }) => theme.colors.white};
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+  @media screen and (max-width: 1200px) {
+    position: fixed;
+    z-index: 5;
+    top: 25px;
+    right: 15px;
+    width: 85px;
+    height: 40px;
+  }
+`;
+
+export const StyledLogo = styled(Logo)`
+  width: 270px;
+  height: 50px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  @media screen and (max-width: 620px) {
+    width: 220px;
+  }
+  @media screen and (max-width: 340px) {
+    width: 180px;
+  }
+  /* @media screen and (max-width: 1200px) {
+    position: fixed;
+    z-index: 5;
+    top: 25px;
+    right: 15px;
+    width: 220px;
+  } */
 `;
 
 export const NavItems = styled.ul`
-  width: 60%;
+  height: 50px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   list-style: none;
   font-size: ${({ theme }) => theme.fontSize.m};
   font-weight: bolder;
-  @media screen and (max-width: 1550px) {
-    width: 80%;
+  transition: 1s ease;
+  @media screen and (max-width: 1200px) {
+    &:last-child {
+      display: none;
+    }
   }
 `;
 
-export const NavItem = styled.li`
+export const NavItem = styled.a`
+  position: relative;
   cursor: pointer;
-  height: 100%;
+  height: 60%;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 2;
+  color: ${({ theme }) => theme.colors.darkGrey};
+  text-decoration: none;
 `;
 
 export const SocialMediaWrapper = styled.div`
@@ -37,8 +112,9 @@ export const SocialMediaWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 110px;
-  height: 100%;
-  margin-left: auto;
+  &.toggleNavigation {
+    margin-right: 50px;
+  }
 `;
 
 export const Icon = styled.img`
@@ -158,13 +234,14 @@ export const ModalLinksWrapper = styled.ul`
   list-style: none;
 `;
 
-export const ModalLink = styled.li`
+export const ModalLink = styled.a`
   font-size: ${({ theme }) => theme.fontSize.l};
   text-align: center;
   font-weight: bolder;
   color: ${({ theme }) => theme.colors.darkGrey};
   transform: scale(0);
   transition: 0.5s ease;
+  text-decoration: none;
   &.toggle {
     transform: scale(1);
     transition: 1.2s ease;
