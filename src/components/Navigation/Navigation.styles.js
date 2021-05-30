@@ -1,5 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 import { ReactComponent as Logo } from 'assets/icons/logo.svg';
+import { NavLink } from 'react-router-dom';
 
 export const Wrapper = styled.div`
   position: relative;
@@ -10,7 +11,7 @@ export const Wrapper = styled.div`
   justify-content: flex-end;
   border-bottom: 2px solid ${({ theme }) => theme.colors.crimsonRed};
   margin: auto;
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1250px) {
     width: 95%;
     min-height: 100px;
     border-bottom: none;
@@ -21,7 +22,7 @@ export const CartAndLogoWrapper = styled.div`
   height: 100%;
   position: relative;
   width: 100%;
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1250px) {
     position: fixed;
     top: 0;
     left: 0;
@@ -47,7 +48,7 @@ export const CartWrapper = styled.div`
   justify-content: space-around;
   background: ${({ theme }) => theme.colors.white};
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1250px) {
     position: fixed;
     z-index: 5;
     top: 25px;
@@ -69,13 +70,6 @@ export const StyledLogo = styled(Logo)`
   @media screen and (max-width: 340px) {
     width: 180px;
   }
-  /* @media screen and (max-width: 1200px) {
-    position: fixed;
-    z-index: 5;
-    top: 25px;
-    right: 15px;
-    width: 220px;
-  } */
 `;
 
 export const NavItems = styled.ul`
@@ -88,14 +82,14 @@ export const NavItems = styled.ul`
   font-size: ${({ theme }) => theme.fontSize.m};
   font-weight: bolder;
   transition: 1s ease;
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1250px) {
     &:last-child {
       display: none;
     }
   }
 `;
 
-export const NavItem = styled.a`
+export const NavItem = styled(NavLink).attrs({ activeClassName: 'active-link' })`
   position: relative;
   cursor: pointer;
   height: 60%;
@@ -105,6 +99,13 @@ export const NavItem = styled.a`
   z-index: 2;
   color: ${({ theme }) => theme.colors.darkGrey};
   text-decoration: none;
+  transition: 0.5s ease;
+  &.active-link {
+    background: ${({ theme }) => theme.colors.darkGrey};
+    transition: 0.5s ease;
+    color: ${({ theme }) => theme.colors.darkWhite};
+    padding: 10px;
+  }
 `;
 
 export const SocialMediaWrapper = styled.div`
@@ -112,6 +113,7 @@ export const SocialMediaWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 110px;
+  margin-bottom: 5px;
   &.toggleNavigation {
     margin-right: 50px;
   }
@@ -127,10 +129,10 @@ export const Modal = styled.div`
   width: 100%;
   height: 100%;
   top: -100vh;
-  z-index: 9;
+  z-index: 999;
   background: ${({ theme }) => theme.colors.darkWhite};
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   &.toggle {
     top: 0;
@@ -157,7 +159,7 @@ export const HamburgerMenu = styled.div`
   transition: 0.8s ease;
   cursor: pointer;
   padding: 20px;
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1250px) {
     display: none;
   }
   &.toggle {
@@ -226,7 +228,7 @@ export const StyledDot = styled.div`
 
 export const ModalLinksWrapper = styled.ul`
   width: 95%;
-  height: 80%;
+  height: 85%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -258,5 +260,38 @@ export const ModalLink = styled.a`
     &:nth-child(4) {
       transition: 1.6s ease;
     }
+  }
+`;
+
+export const ModalNavItem = styled(NavLink).attrs({ activeClassName: 'active-link' })`
+  font-size: ${({ theme }) => theme.fontSize.l};
+  text-align: center;
+  font-weight: bolder;
+  color: ${({ theme }) => theme.colors.darkGrey};
+  transform: scale(0);
+  transition: 0.5s ease;
+  text-decoration: none;
+  &.toggle {
+    transform: scale(1);
+    transition: 1.2s ease;
+    color: ${({ theme }) => theme.colors.darkWhite};
+    &:nth-child(1) {
+      transition: 0.8s ease;
+    }
+    &:nth-child(2) {
+      transition: 1s ease;
+    }
+    &:nth-child(3) {
+      transition: 1.2s ease;
+    }
+    &:nth-child(4) {
+      transition: 1.6s ease;
+    }
+  }
+  &.active-link {
+    background: ${({ theme }) => theme.colors.darkGrey};
+    transition: 0.5s ease;
+    color: ${({ theme }) => theme.colors.darkWhite};
+    padding: 10px;
   }
 `;
