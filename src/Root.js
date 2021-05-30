@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { GlobalStyle } from 'assets/styles/GlobalStyle';
-import styled, { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import { theme } from 'assets/styles/theme';
+import AmazingCursor from 'components/AmazingCursor/AmazingCursor';
 import OfferSection from 'views/OfferSection/OfferSection';
 import InfoSection from 'views/InfoSection/InfoSection';
 import Navigation from 'components/Navigation/Navigation';
@@ -13,6 +14,7 @@ const Root = () => {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Navigation />
+        <AmazingCursor />
         <Switch>
           <Route exact path='/'>
             <OfferSection />

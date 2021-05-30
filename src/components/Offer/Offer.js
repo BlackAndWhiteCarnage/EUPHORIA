@@ -12,9 +12,11 @@ const Offer = ({ gridArea, content, image, linkTo }) => {
   };
 
   return (
-    <Wrapper props={gridArea} onMouseEnter={toggleTitleHandler} onMouseLeave={toggleTitleHandler} to={linkTo}>
-      <OfferTitle className={toggleTitle && 'toggleTitle'}>{content}</OfferTitle>
-      <StyledImage src={image} className={gridArea === 'RAJSTOPY' && 'tights'} />
+    <Wrapper props={gridArea} onMouseEnter={toggleTitleHandler} onMouseLeave={toggleTitleHandler} to={linkTo} id='active'>
+      <OfferTitle className={toggleTitle && 'toggleTitle'} id='active'>
+        {content}
+      </OfferTitle>
+      <StyledImage src={image} className={gridArea === 'RAJSTOPY' && 'tights'} id='offerItem' />
     </Wrapper>
   );
 };
