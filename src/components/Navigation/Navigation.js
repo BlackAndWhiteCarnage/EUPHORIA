@@ -54,22 +54,22 @@ const Navigation = () => {
               <NavItem to='/' exact>
                 STRONA GŁÓWNA
               </NavItem>
-              <NavItem to='/majtki' exact>
+              <NavItem to='/sklepik/majtki' exact>
                 MAJTKI
               </NavItem>
-              <NavItem to='/skarpetki' exact>
+              <NavItem to='/sklepik/skarpetki' exact>
                 SKARPETKI
               </NavItem>
-              <NavItem to='/premium' exact>
+              <NavItem to='/sklepik/premium' exact>
                 PREMIUM
               </NavItem>
-              <NavItem to='/inne' exact>
+              <NavItem to='/sklepik/inne' exact>
                 INNE
               </NavItem>
-              <NavItem to='/rajstopy' exact>
+              <NavItem to='/sklepik/rajstopy' exact>
                 RAJSTOPY I POŃCZOCHY
               </NavItem>
-              <NavItem to='/fotki i nagrania' exact>
+              <NavItem to='/sklepik/fotki i nagrania' exact>
                 SESJE, FOTKI I NAGRANIA
               </NavItem>
             </>
@@ -112,22 +112,22 @@ const Navigation = () => {
               <ModalNavItem className={toggleModal && 'toggle'} to='/' exact>
                 STRONA GŁÓWNA
               </ModalNavItem>
-              <ModalNavItem className={toggleModal && 'toggle'} to='/majtki' exact>
+              <ModalNavItem className={toggleModal && 'toggle'} to='/sklepik/majtki' exact>
                 MAJTKI
               </ModalNavItem>
-              <ModalNavItem className={toggleModal && 'toggle'} to='/skarpetki' exact>
+              <ModalNavItem className={toggleModal && 'toggle'} to='/sklepik/skarpetki' exact>
                 SKARPETKI
               </ModalNavItem>
-              <ModalNavItem className={toggleModal && 'toggle'} to='/premium' exact>
+              <ModalNavItem className={toggleModal && 'toggle'} to='/sklepik/premium' exact>
                 PREMIUM
               </ModalNavItem>
-              <ModalNavItem className={toggleModal && 'toggle'} to='/inne' exact>
+              <ModalNavItem className={toggleModal && 'toggle'} to='/sklepik/inne' exact>
                 INNE
               </ModalNavItem>
-              <ModalNavItem className={toggleModal && 'toggle'} to='/rajstopy' exact>
+              <ModalNavItem className={toggleModal && 'toggle'} to='/sklepik/rajstopy' exact>
                 RAJSTOPY I POŃCZOCHY
               </ModalNavItem>
-              <ModalNavItem className={toggleModal && 'toggle'} to='/fotki i nagrania' exact>
+              <ModalNavItem className={toggleModal && 'toggle'} to='/sklepik/fotki i nagrania' exact>
                 SESJE, FOTKI I NAGRANIA
               </ModalNavItem>
             </>

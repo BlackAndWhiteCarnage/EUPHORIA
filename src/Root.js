@@ -9,6 +9,7 @@ import OfferSection from 'views/OfferSection/OfferSection';
 import InfoSection from 'views/InfoSection/InfoSection';
 import Navigation from 'components/Navigation/Navigation';
 import Shop from 'views/Shop/Shop';
+import Product from 'views/Product/Product';
 
 const Root = () => {
   return (
@@ -22,8 +23,11 @@ const Root = () => {
             <OfferSection />
             <InfoSection />
           </Route>
-          <Route>
+          <Route path='/sklepik/:id' exact>
             <Shop />
+          </Route>
+          <Route path='/:id' exact>
+            <Product />
           </Route>
         </Switch>
       </ThemeProvider>

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Wrapper = styled.div`
   width: 80%;
@@ -13,7 +14,7 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const ProductWrapper = styled.div`
+export const ProductWrapper = styled(Link)`
   position: relative;
   width: 400px;
   height: 500px;
@@ -24,6 +25,7 @@ export const ProductWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
   &::before {
     position: absolute;
     bottom: -100%;

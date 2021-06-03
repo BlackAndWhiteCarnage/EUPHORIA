@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
+import { GlobalStyle } from 'assets/styles/GlobalStyle';
 
 const Cursor = styled.div`
   width: 50px;

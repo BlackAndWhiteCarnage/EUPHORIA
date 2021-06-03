@@ -29,7 +29,7 @@ const Wrapper = styled.button`
   }
   &:hover {
     transition: 0.5s ease;
-    width: 100%;
+    transform: scale(0.95);
     &::before {
       width: calc(100% + 200px);
       height: calc(100% + 200px);
@@ -41,10 +41,15 @@ const Wrapper = styled.button`
   }
 `;
 
-const Button = ({ text }) => <Wrapper>{text}</Wrapper>;
+const Button = ({ text, className, click }) => (
+  <Wrapper className={className} onClick={click}>
+    {text}
+  </Wrapper>
+);
 
 Button.propTypes = {
   text: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };
 
 export default Button;
