@@ -41,8 +41,8 @@ const Wrapper = styled.button`
   }
 `;
 
-const Button = ({ text, className, click }) => (
-  <Wrapper className={className} onClick={click}>
+const Button = ({ text, className, click, id }) => (
+  <Wrapper className={className} onClick={click} id={id}>
     {text}
   </Wrapper>
 );
@@ -50,6 +50,8 @@ const Button = ({ text, className, click }) => (
 Button.propTypes = {
   text: PropTypes.string.isRequired,
   className: PropTypes.string,
+  click: PropTypes.func,
+  id: PropTypes.string,
 };
 
 export default Button;

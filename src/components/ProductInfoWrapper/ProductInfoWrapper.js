@@ -13,7 +13,7 @@ import {
   StyledButton,
 } from './ProductInfoWrapper.styles';
 
-const ProductInfoWrapper = ({ data, extrasDataAndTimes, toggleExtrasHandler, setExtrasDataAndTimes, toggleExtras }) => {
+const ProductInfoWrapper = ({ data, extrasDataAndTimes, toggleExtrasHandler, setExtrasDataAndTimes, toggleExtras, setToggleExtras }) => {
   return (
     <Wrapper>
       <InfoWrapper>
@@ -33,6 +33,7 @@ const ProductInfoWrapper = ({ data, extrasDataAndTimes, toggleExtrasHandler, set
               <StyledButton
                 text={`${extrasDataAndTimes === undefined ? 'SPYTAJ KONIECZNIE O DODATKI PRZY SKŁADANIU ZAMÓWIENIA' : 'WYBIERZ DODATKI'}`}
                 click={toggleExtrasHandler}
+                id='extras'
               />
             )}
             <StyledButton text='DODAJ DO KOSZYKA' />
@@ -40,11 +41,23 @@ const ProductInfoWrapper = ({ data, extrasDataAndTimes, toggleExtrasHandler, set
         )}
       </InfoWrapper>
       <ImagesWrapper data={data} desktop />
-      <ExtrasWrapper data={data} setExtrasDataAndTimes={setExtrasDataAndTimes} extrasDataAndTimes={extrasDataAndTimes} toggleExtras={toggleExtras} />
+      <ExtrasWrapper
+        data={data}
+        setExtrasDataAndTimes={setExtrasDataAndTimes}
+        extrasDataAndTimes={extrasDataAndTimes}
+        toggleExtras={toggleExtras}
+        setToggleExtras={setToggleExtras}
+      />
     </Wrapper>
   );
 };
 
-ProductInfoWrapper.propTypes = {};
+ProductInfoWrapper.propTypes = {
+  data: PropTypes.object.isRequired,
+  extrasDataAndTimes: PropTypes.object,
+  toggleExtrasHandler: PropTypes.func.isRequired,
+  setExtrasDataAndTimes: PropTypes.func.isRequired,
+  toggleExtras: PropTypes.bool.isRequired,
+};
 
 export default ProductInfoWrapper;

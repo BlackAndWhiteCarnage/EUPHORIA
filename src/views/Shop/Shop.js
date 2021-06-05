@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, Route, useParams, Switch } from 'react-router-dom';
+import { useLocation, Switch } from 'react-router-dom';
 import { Wrapper, ProductWrapper, ProductImage, ProductName } from './Shop.styles';
 import LoadingIcon from 'components/LoadingIcon/LoadingIcon';
 import Product from 'views/Product/Product';

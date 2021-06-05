@@ -39,6 +39,7 @@ const Product = () => {
             extrasDataAndTimes={extrasDataAndTimes}
             toggleExtrasHandler={toggleExtrasHandler}
             toggleExtras={toggleExtras}
+            setToggleExtras={setToggleExtras}
             setExtrasDataAndTimes={setExtrasDataAndTimes}
           />
           {window.innerWidth > 1250 && (
@@ -47,6 +48,7 @@ const Product = () => {
                 <StyledButton
                   text={`${extrasDataAndTimes === undefined ? 'SPYTAJ KONIECZNIE O DODATKI PRZY SKŁADANIU ZAMÓWIENIA' : 'WYBIERZ DODATKI'}`}
                   click={toggleExtrasHandler}
+                  id='extras'
                 />
               )}
               <StyledButton text='DODAJ DO KOSZYKA' />

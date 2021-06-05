@@ -37,6 +37,9 @@ const ImagesWrapper = ({ data, desktop }) => {
   );
 };
 
-ImagesWrapper.propTypes = {};
+ImagesWrapper.propTypes = {
+  data: PropTypes.object.isRequired,
+  desktop: PropTypes.bool,
+};
 
 export default ImagesWrapper;

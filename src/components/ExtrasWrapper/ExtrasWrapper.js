@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { panties, socks, premium, tights } from 'data/extras';
 import { Wrapper, ExtrasInfoWrapper, ExtrasInfo, ExtrasOption } from './ExtrasWrapper.styles';
 
-const ExtrasWrapper = ({ data, setExtrasDataAndTimes, extrasDataAndTimes, toggleExtras }) => {
+const ExtrasWrapper = ({ data, setExtrasDataAndTimes, extrasDataAndTimes, toggleExtras, setToggleExtras }) => {
   const [pickExtras, setPickExtras] = useState({
     price: 0,
     pickedExtras: [],
@@ -11,8 +11,19 @@ const ExtrasWrapper = ({ data, setExtrasDataAndTimes, extrasDataAndTimes, toggle
 
   useEffect(() => {
     data !== undefined && getExtrasHandler();
+
     return () => {};
   }, [data]);
+
+  useEffect(() => {
+    window.addEventListener('click', (e) => {
+      if (e.target.id !== 'extras') {
+        setToggleExtras(false);
+      }
+    });
+
+    return;
+  }, []);
 
   const getExtrasHandler = () => {
     const name = data.category.name;
@@ -62,19 +73,24 @@ const ExtrasWrapper = ({ data, setExtrasDataAndTimes, extrasDataAndTimes, toggle
   return (
     <>
       {extrasDataAndTimes !== null && extrasDataAndTimes !== undefined && (
-        <Wrapper className={toggleExtras && 'toggle'}>
-          <ExtrasInfoWrapper>
+        <Wrapper className={toggleExtras && 'toggle'} id='extras'>
+          <ExtrasInfoWrapper id='extras'>
             {extrasDataAndTimes.times < 5 ? (
-              <ExtrasInfo>WYBIERZ {extrasDataAndTimes.times + 1} DODATKI, KAŻDY KOLEJNY DODATKOWO PŁATNY +10zł</ExtrasInfo>
+              <ExtrasInfo id='extras'>WYBIERZ {extrasDataAndTimes.times + 1} DODATKI, KAŻDY KOLEJNY DODATKOWO PŁATNY +10zł</ExtrasInfo>
             ) : (
-              <ExtrasInfo>DO MAJTECZEK PREMIUM MOŻESZ WYBRAĆ ILE CHCESZ DODATKÓW</ExtrasInfo>
+              <ExtrasInfo id='extras'>DO MAJTECZEK PREMIUM MOŻESZ WYBRAĆ ILE CHCESZ DODATKÓW</ExtrasInfo>
             )}
             {pickExtras.pickedExtras.length > extrasDataAndTimes.times + 1 && extrasDataAndTimes.times < 5 && (
-              <ExtrasInfo>DODATKOWO DO ZAPŁATY {pickExtras.price} zł</ExtrasInfo>
+              <ExtrasInfo id='extras'>DODATKOWO DO ZAPŁATY {pickExtras.price} zł</ExtrasInfo>
             )}
           </ExtrasInfoWrapper>
           {extrasDataAndTimes.data.map((extras) => (
-            <ExtrasOption onClick={() => extrasToPickHandler(extras)} className={pickExtras.pickedExtras.includes(extras) && 'added'} key={extras}>
+            <ExtrasOption
+              onClick={() => extrasToPickHandler(extras)}
+              className={pickExtras.pickedExtras.includes(extras) && 'added'}
+              key={extras}
+              id='extras'
+            >
               {extras}
             </ExtrasOption>
           ))}
@@ -84,6 +100,11 @@ const ExtrasWrapper = ({ data, setExtrasDataAndTimes, extrasDataAndTimes, toggle
   );
 };
 
-ExtrasWrapper.propTypes = {};
+ExtrasWrapper.propTypes = {
+  data: PropTypes.object.isRequired,
+  setExtrasDataAndTimes: PropTypes.func.isRequired,
+  extrasDataAndTimes: PropTypes.object,
+  toggleExtras: PropTypes.bool.isRequired,
+};
 
 export default ExtrasWrapper;
