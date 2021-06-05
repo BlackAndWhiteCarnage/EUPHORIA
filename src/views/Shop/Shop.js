@@ -21,17 +21,20 @@ const Shop = () => {
   return (
     <Wrapper>
       {data.length > 0 ? (
-        data.map(({ name, id, images }) => (
-          <>
-            <ProductWrapper key={id} name={name} to={`/${id}`}>
-              <ProductImage src={images[0].url} id='active'></ProductImage>
-              <ProductName>{name}</ProductName>
-            </ProductWrapper>
-            <Switch>
-              <Product id={id} data={data} path={`/${id}`} />
-            </Switch>
-          </>
-        ))
+        data
+          .slice(0)
+          .reverse()
+          .map(({ name, id, images }) => (
+            <>
+              <ProductWrapper key={id} name={name} to={`/${id}`}>
+                {images.length > 0 && <ProductImage src={images[0].url} id='active'></ProductImage>}
+                <ProductName>{name}</ProductName>
+              </ProductWrapper>
+              <Switch>
+                <Product id={id} data={data} path={`/${id}`} />
+              </Switch>
+            </>
+          ))
       ) : (
         <LoadingIcon />
       )}

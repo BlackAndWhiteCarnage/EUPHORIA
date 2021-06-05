@@ -58,7 +58,7 @@ const Navigation = () => {
                 MAJTKI
               </NavItem>
               <NavItem to='/sklepik/skarpetki' exact>
-                SKARPETKI
+                SKARPETKI I POŃCZOCHY
               </NavItem>
               <NavItem to='/sklepik/premium' exact>
                 PREMIUM
@@ -67,7 +67,7 @@ const Navigation = () => {
                 INNE
               </NavItem>
               <NavItem to='/sklepik/rajstopy' exact>
-                RAJSTOPY I POŃCZOCHY
+                RAJSTOPY
               </NavItem>
               <NavItem to='/sklepik/fotki i nagrania' exact>
                 SESJE, FOTKI I NAGRANIA
@@ -116,7 +116,7 @@ const Navigation = () => {
                 MAJTKI
               </ModalNavItem>
               <ModalNavItem className={toggleModal && 'toggle'} to='/sklepik/skarpetki' exact>
-                SKARPETKI
+                SKARPETKI I POŃCZOCHY
               </ModalNavItem>
               <ModalNavItem className={toggleModal && 'toggle'} to='/sklepik/premium' exact>
                 PREMIUM
@@ -125,7 +125,7 @@ const Navigation = () => {
                 INNE
               </ModalNavItem>
               <ModalNavItem className={toggleModal && 'toggle'} to='/sklepik/rajstopy' exact>
-                RAJSTOPY I POŃCZOCHY
+                RAJSTOPY
               </ModalNavItem>
               <ModalNavItem className={toggleModal && 'toggle'} to='/sklepik/fotki i nagrania' exact>
                 SESJE, FOTKI I NAGRANIA
