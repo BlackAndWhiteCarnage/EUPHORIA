@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 // ICONS
 import InstagramIcon from 'assets/icons/instagram-icon.svg';
 import WhatsAppIcon from 'assets/icons/whatsapp-icon.svg';
@@ -23,12 +23,21 @@ import {
   StyledLogo,
   CartWrapper,
   ModalNavItem,
+  Count,
+  CartValue,
 } from './Navigation.styles';
 
 const Navigation = ({ cart }) => {
   const [toggleModal, setToggleModal] = useState(false);
 
-  console.log(cart);
+  let cartValues = cart.map((item) => {
+    return item.price;
+  });
+
+  let summary = () => {
+    let values = cartValues.reduce((a, b) => a + b).toFixed(2);
+    return values;
+  };
 
   const location = useLocation();
 
@@ -42,9 +51,13 @@ const Navigation = ({ cart }) => {
         <CartAndLogoWrapper>
           <StyledLogo />
           <CartWrapper>
-            <Icon src={CartIcon} />
+            <Link to='/koszyk' id='active'>
+              <Icon src={CartIcon} />
+            </Link>
             <Icon src={DarkmodeIcon} />
           </CartWrapper>
+          <Count className={cart.length > 0 && 'show'}>{cart.length}</Count>
+          <CartValue className={cart.length > 0 && 'show'}>RAZEM {cart.length > 0 && summary()} ZŁ</CartValue>
         </CartAndLogoWrapper>
         <NavItems>
           {location.pathname === '/' ? (

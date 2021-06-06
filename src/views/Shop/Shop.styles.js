@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { ReactComponent as DoneIcon } from 'assets/icons/done-icon.svg';
 
 export const Wrapper = styled.div`
   width: 80%;
@@ -34,6 +35,19 @@ export const ProductWrapper = styled(Link)`
     transition: 0.5s ease;
     content: '';
     z-index: -1;
+  }
+  &.added {
+    &::after {
+      position: absolute;
+      content: '';
+      transition: 0.5s ease;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      bottom: 0;
+      opacity: 1;
+      z-index: 20;
+    }
   }
   &:hover {
     &::before {
@@ -97,4 +111,11 @@ export const ProductName = styled.h4`
   @media screen and (max-width: 830px) {
     font-size: ${({ theme }) => theme.fontSize.m};
   }
+`;
+
+export const StyledDoneIcon = styled(DoneIcon)`
+  position: absolute;
+  width: 40%;
+  height: 40%;
+  z-index: 25;
 `;

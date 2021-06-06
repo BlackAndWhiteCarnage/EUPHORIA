@@ -29,11 +29,10 @@ export const CartAndLogoWrapper = styled.div`
     height: 55px;
     background: ${({ theme }) => theme.colors.darkWhite};
     z-index: 200;
-    border-bottom: 2px solid ${({ theme }) => theme.colors.crimsonRed};
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
   }
   @media screen and (max-width: 620px) {
-    height: 45px;
+    height: 40px;
   }
 `;
 
@@ -51,10 +50,76 @@ export const CartWrapper = styled.div`
   @media screen and (max-width: 1250px) {
     position: fixed;
     z-index: 5;
-    top: 25px;
-    right: 15px;
+    top: 0;
+    right: 0;
     width: 85px;
     height: 40px;
+  }
+`;
+
+export const Count = styled.div`
+  position: absolute;
+  bottom: 0;
+  right: 75px;
+  z-index: -1;
+  width: 0;
+  height: 30px;
+  background: ${({ theme }) => theme.colors.crimsonRed};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${({ theme }) => theme.colors.darkWhite};
+  font-size: ${({ theme }) => theme.fontSize.M};
+  transition: 0.5s ease;
+  &.show {
+    width: 80px;
+    transition: 0.5s ease;
+  }
+  @media screen and (max-width: 1250px) {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 40px;
+    &.show {
+      width: 70px;
+      right: 85px;
+      transition: 0.5s ease;
+    }
+  }
+`;
+
+export const CartValue = styled.div`
+  position: absolute;
+  bottom: 30px;
+  right: 0;
+  z-index: -1;
+  width: 155px;
+  height: 0;
+  background: ${({ theme }) => theme.colors.darkGrey};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${({ theme }) => theme.colors.darkWhite};
+  font-size: ${({ theme }) => theme.fontSize.m};
+  transition: 0.5s ease;
+  &.show {
+    transition: 0.5s ease;
+    height: 30px;
+  }
+  @media screen and (max-width: 1250px) {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 40px;
+    &.show {
+      top: 40px;
+      width: 155px;
+      transition: 0.5s ease;
+    }
   }
 `;
 
@@ -64,11 +129,9 @@ export const StyledLogo = styled(Logo)`
   position: absolute;
   bottom: 0;
   left: 0;
-  @media screen and (max-width: 620px) {
-    width: 220px;
-  }
-  @media screen and (max-width: 340px) {
-    width: 180px;
+  @media screen and (max-width: 1250px) {
+    width: 140px;
+    margin: 0 5px;
   }
 `;
 

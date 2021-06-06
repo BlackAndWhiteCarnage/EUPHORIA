@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, Switch } from 'react-router-dom';
-import { Wrapper, ProductWrapper, ProductImage, ProductName } from './Shop.styles';
+import { Wrapper, ProductWrapper, ProductImage, ProductName, StyledDoneIcon } from './Shop.styles';
 import LoadingIcon from 'components/LoadingIcon/LoadingIcon';
 import Product from 'views/Product/Product';
 
-const Shop = () => {
+const Shop = ({ cart }) => {
   const [data, setData] = useState([]);
   const location = useLocation();
   const path = location.pathname.replace('/sklepik/', '');
@@ -18,6 +18,14 @@ const Shop = () => {
     fetchData();
   }, [location.pathname]);
 
+  const checkIDHandler = (itemID) => {
+    if (cart !== undefined && cart !== false) {
+      if (cart.find((item) => item.id === itemID)) {
+        return 'added';
+      }
+    }
+  };
+
   return (
     <Wrapper>
       {data.length > 0 ? (
@@ -26,9 +34,10 @@ const Shop = () => {
           .reverse()
           .map(({ name, id, images }) => (
             <>
-              <ProductWrapper key={id} name={name} to={`/${id}`}>
+              <ProductWrapper key={id} name={name} to={`/${id}`} className={checkIDHandler(id)}>
                 {images.length > 0 && <ProductImage src={images[0].url} id='active'></ProductImage>}
                 <ProductName>{name}</ProductName>
+                {checkIDHandler(id) && <StyledDoneIcon />}
               </ProductWrapper>
               <Switch>
                 <Product id={id} data={data} path={`/${id}`} />

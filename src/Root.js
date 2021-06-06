@@ -10,6 +10,7 @@ import InfoSection from 'views/InfoSection/InfoSection';
 import Navigation from 'components/Navigation/Navigation';
 import Shop from 'views/Shop/Shop';
 import Product from 'views/Product/Product';
+import Cart from 'views/Cart/Cart';
 
 const Root = () => {
   const [cart, setCart] = useState([]);
@@ -25,8 +26,11 @@ const Root = () => {
             <OfferSection />
             <InfoSection />
           </Route>
+          <Route path='/koszyk' exact>
+            <Cart cart={cart} setCart={setCart} />
+          </Route>
           <Route path='/sklepik/:id' exact>
-            <Shop />
+            <Shop cart={cart} />
           </Route>
           <Route path='/:id' exact>
             <Product cart={cart} setCart={setCart} />
