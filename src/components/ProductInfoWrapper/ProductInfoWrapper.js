@@ -13,7 +13,19 @@ import {
   StyledButton,
 } from './ProductInfoWrapper.styles';
 
-const ProductInfoWrapper = ({ data, extrasDataAndTimes, toggleExtrasHandler, setExtrasDataAndTimes, toggleExtras, setToggleExtras }) => {
+const ProductInfoWrapper = ({
+  data,
+  extrasDataAndTimes,
+  toggleExtrasHandler,
+  setExtrasDataAndTimes,
+  toggleExtras,
+  setToggleExtras,
+  pickExtras,
+  setPickExtras,
+  addToCartHandler,
+  warn,
+  cart,
+}) => {
   return (
     <Wrapper>
       <InfoWrapper>
@@ -36,7 +48,7 @@ const ProductInfoWrapper = ({ data, extrasDataAndTimes, toggleExtrasHandler, set
                 id='extras'
               />
             )}
-            <StyledButton text='DODAJ DO KOSZYKA' />
+            <StyledButton text='DODAJ DO KOSZYKA' click={addToCartHandler} className={warn && 'warn'} cart={cart} itemID={data.id} />
           </ButtonsWrapper>
         )}
       </InfoWrapper>
@@ -47,6 +59,8 @@ const ProductInfoWrapper = ({ data, extrasDataAndTimes, toggleExtrasHandler, set
         extrasDataAndTimes={extrasDataAndTimes}
         toggleExtras={toggleExtras}
         setToggleExtras={setToggleExtras}
+        pickExtras={pickExtras}
+        setPickExtras={setPickExtras}
       />
     </Wrapper>
   );

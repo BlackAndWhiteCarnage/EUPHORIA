@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { panties, socks, premium, tights } from 'data/extras';
 import { Wrapper, ExtrasInfoWrapper, ExtrasInfo, ExtrasOption } from './ExtrasWrapper.styles';
 
-const ExtrasWrapper = ({ data, setExtrasDataAndTimes, extrasDataAndTimes, toggleExtras, setToggleExtras }) => {
-  const [pickExtras, setPickExtras] = useState({
-    price: 0,
-    pickedExtras: [],
-  });
+const ExtrasWrapper = ({ data, setExtrasDataAndTimes, extrasDataAndTimes, toggleExtras, setToggleExtras, pickExtras, setPickExtras }) => {
+  // const [pickExtras, setPickExtras] = useState({
+  //   price: 0,
+  //   pickedExtras: [],
+  // });
 
   useEffect(() => {
     data !== undefined && getExtrasHandler();

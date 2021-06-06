@@ -25,8 +25,10 @@ import {
   ModalNavItem,
 } from './Navigation.styles';
 
-const Navigation = () => {
+const Navigation = ({ cart }) => {
   const [toggleModal, setToggleModal] = useState(false);
+
+  console.log(cart);
 
   const location = useLocation();
 
