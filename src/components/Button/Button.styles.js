@@ -69,7 +69,7 @@ export const Wrapper = styled.button`
     }
   }
   &.added {
-    pointer-events: none;
+    /* pointer-events: none; */
 
     &::after {
       transition: 0.5s ease;

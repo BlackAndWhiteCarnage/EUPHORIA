@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 // ICONS
 import InstagramIcon from 'assets/icons/instagram-icon.svg';
@@ -38,6 +38,12 @@ const Navigation = ({ cart }) => {
     let values = cartValues.reduce((a, b) => a + b).toFixed(2);
     return values;
   };
+
+  useEffect(() => {
+    if (cart.length > 0) {
+      summary();
+    }
+  }, [cart]);
 
   const location = useLocation();
 

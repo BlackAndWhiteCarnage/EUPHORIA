@@ -25,6 +25,7 @@ const ProductInfoWrapper = ({
   addToCartHandler,
   warn,
   cart,
+  setCart,
 }) => {
   return (
     <Wrapper>
@@ -54,6 +55,9 @@ const ProductInfoWrapper = ({
       </InfoWrapper>
       <ImagesWrapper data={data} desktop />
       <ExtrasWrapper
+        addToCartHandler={addToCartHandler}
+        cart={cart}
+        setCart={setCart}
         data={data}
         setExtrasDataAndTimes={setExtrasDataAndTimes}
         extrasDataAndTimes={extrasDataAndTimes}

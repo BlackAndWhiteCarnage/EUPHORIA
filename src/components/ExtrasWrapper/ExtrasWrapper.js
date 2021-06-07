@@ -1,13 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
 import { panties, socks, premium, tights } from 'data/extras';
 import { Wrapper, ExtrasInfoWrapper, ExtrasInfo, ExtrasOption } from './ExtrasWrapper.styles';
 
-const ExtrasWrapper = ({ data, setExtrasDataAndTimes, extrasDataAndTimes, toggleExtras, setToggleExtras, pickExtras, setPickExtras }) => {
-  // const [pickExtras, setPickExtras] = useState({
-  //   price: 0,
-  //   pickedExtras: [],
-  // });
+const ExtrasWrapper = ({
+  data,
+  setExtrasDataAndTimes,
+  extrasDataAndTimes,
+  toggleExtras,
+  setToggleExtras,
+  pickExtras,
+  setPickExtras,
+  cart,
+  addToCartHandler,
+  setCart,
+}) => {
+  const [prevCartItem, setPrevCartItem] = useState();
 
   useEffect(() => {
     data !== undefined && getExtrasHandler();
@@ -22,8 +30,32 @@ const ExtrasWrapper = ({ data, setExtrasDataAndTimes, extrasDataAndTimes, toggle
       }
     });
 
+    const foundItem = cart.find((item) => item.id === data.id);
+
+    if (foundItem !== undefined) {
+      console.log(foundItem);
+      setPickExtras({
+        price: foundItem.price - foundItem.initialPrice,
+        pickedExtras: [...foundItem.pickedExtras],
+      });
+      // setPickExtras({
+      //   ...pickExtras,
+      //   pickedExtras: [...foundItem.pickedExtras],
+      // });
+    }
+
     return;
   }, []);
+
+  console.log(pickExtras);
+
+  useEffect(() => {
+    const findInCart = cart.find((item) => item.id === data.id);
+
+    if (cart.find((item) => item.id === data.id)) {
+      setCart([...cart], (findInCart.pickedExtras = pickExtras.pickedExtras));
+    }
+  }, [pickExtras]);
 
   const getExtrasHandler = () => {
     const name = data.category.name;
@@ -69,6 +101,24 @@ const ExtrasWrapper = ({ data, setExtrasDataAndTimes, extrasDataAndTimes, toggle
       });
     }
   };
+
+  useLayoutEffect(() => {
+    setPrevCartItem(cart.find((item) => item.id === data.id) && cart.find((item) => item.id === data.id).pickedExtras);
+
+    if (prevCartItem) {
+      const findInCart = cart.find((item) => item.id === data.id);
+
+      if (prevCartItem.length > cart.find((item) => item.id === data.id).pickedExtras.length && findInCart.price > findInCart.initialPrice) {
+        setCart([...cart], (findInCart.price = findInCart.price - 10));
+      } else if (
+        prevCartItem.length < cart.find((item) => item.id === data.id).pickedExtras.length &&
+        findInCart.price >= findInCart.initialPrice &&
+        findInCart.pickedExtras.length > findInCart.extrasNumber
+      ) {
+        setCart([...cart], (findInCart.price = findInCart.price + 10));
+      }
+    }
+  }, [cart]);
 
   return (
     <>

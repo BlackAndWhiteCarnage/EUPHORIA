@@ -45,11 +45,12 @@ const Product = ({ cart, setCart }) => {
     const newItem = {
       name: data.name,
       images: data.images,
-      price: data.price,
+      price: pickExtras.price !== false ? data.price + pickExtras.price : data.price,
       id: data.id,
       pickedExtras: pickExtras.pickedExtras,
+      extrasNumber: extrasDataAndTimes && extrasDataAndTimes.times + 1,
+      initialPrice: data.price,
     };
-
     if (!extrasDataAndTimes) {
       setCart([...cart, newItem]);
     } else if (newItem.pickedExtras.length !== 0) {
@@ -76,6 +77,7 @@ const Product = ({ cart, setCart }) => {
             addToCartHandler={addToCartHandler}
             warn={warn}
             cart={cart}
+            setCart={setCart}
           />
           {window.innerWidth > 1250 && (
             <ButtonsWrapper>

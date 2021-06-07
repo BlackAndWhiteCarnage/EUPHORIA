@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { GlobalStyle } from 'assets/styles/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
@@ -14,6 +14,23 @@ import Cart from 'views/Cart/Cart';
 
 const Root = () => {
   const [cart, setCart] = useState([]);
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('cartItem', JSON.stringify(cart));
+  }, [cart]);
+
+  const getProducts = () => {
+    if (localStorage.getItem('cartItem') === null) {
+      localStorage.setItem('cartItem', JSON.stringify([]));
+    } else {
+      let cartLocal = JSON.parse(localStorage.getItem('cartItem'));
+      setCart(cartLocal);
+    }
+  };
 
   return (
     <BrowserRouter>
