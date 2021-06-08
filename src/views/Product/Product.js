@@ -9,7 +9,6 @@ import styled from 'styled-components';
 const Product = ({ cart, setCart }) => {
   const [data, setData] = useState();
   const [toggleExtras, setToggleExtras] = useState(false);
-  const [warn, setWarn] = useState(false);
   const [extrasDataAndTimes, setExtrasDataAndTimes] = useState({
     data: [],
     times: 0,
@@ -35,12 +34,6 @@ const Product = ({ cart, setCart }) => {
     setToggleExtras(!toggleExtras);
   };
 
-  if (warn) {
-    setTimeout(() => {
-      setWarn(!warn);
-    }, 2000);
-  }
-
   const addToCartHandler = () => {
     const newItem = {
       name: data.name,
@@ -51,13 +44,8 @@ const Product = ({ cart, setCart }) => {
       extrasNumber: extrasDataAndTimes && extrasDataAndTimes.times + 1,
       initialPrice: data.price,
     };
-    if (!extrasDataAndTimes) {
-      setCart([...cart, newItem]);
-    } else if (newItem.pickedExtras.length !== 0) {
-      setCart([...cart, newItem]);
-    } else {
-      setWarn(true);
-    }
+
+    setCart([...cart, newItem]);
   };
 
   return (
@@ -75,7 +63,6 @@ const Product = ({ cart, setCart }) => {
             pickExtras={pickExtras}
             setPickExtras={setPickExtras}
             addToCartHandler={addToCartHandler}
-            warn={warn}
             cart={cart}
             setCart={setCart}
           />
@@ -88,7 +75,7 @@ const Product = ({ cart, setCart }) => {
                   id='extras'
                 />
               )}
-              <StyledButton text='DODAJ DO KOSZYKA' click={addToCartHandler} className={warn && 'warn'} itemID={data.id} cart={cart} />
+              <StyledButton text='DODAJ DO KOSZYKA' click={addToCartHandler} itemID={data.id} cart={cart} />
             </ButtonsWrapper>
           )}
         </ProductWrapper>

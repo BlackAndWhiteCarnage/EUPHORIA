@@ -119,3 +119,14 @@ export const StyledDoneIcon = styled(DoneIcon)`
   height: 40%;
   z-index: 25;
 `;
+
+export const SeasonOfferInfo = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: ${({ theme }) => theme.fontSize.xl};
+  text-align: center;
+  letter-spacing: 5px;
+  color: ${({ theme }) => theme.colors.darkGrey};
+`;

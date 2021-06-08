@@ -5,6 +5,7 @@ import InstagramIcon from 'assets/icons/instagram-icon.svg';
 import WhatsAppIcon from 'assets/icons/whatsapp-icon.svg';
 import EmailIcon from 'assets/icons/email-icon.svg';
 import CartIcon from 'assets/icons/cart-icon.svg';
+import OnlyfansIcon from 'assets/icons/onlyfans-icon.svg';
 import DarkmodeIcon from 'assets/icons/darkmode-icon.svg';
 // STYLES
 import {
@@ -25,6 +26,8 @@ import {
   ModalNavItem,
   Count,
   CartValue,
+  OnlyFans,
+  OnlyFansWrapper,
 } from './Navigation.styles';
 
 const Navigation = ({ cart }) => {
@@ -53,6 +56,9 @@ const Navigation = ({ cart }) => {
 
   return (
     <nav>
+      <OnlyFansWrapper>
+        <OnlyFans src={OnlyfansIcon} />
+      </OnlyFansWrapper>
       <Wrapper>
         <CartAndLogoWrapper>
           <StyledLogo />
@@ -79,7 +85,7 @@ const Navigation = ({ cart }) => {
                 MAJTKI
               </NavItem>
               <NavItem to='/sklepik/skarpetki' exact>
-                SKARPETKI I POŃCZOCHY
+                SKARPETKI
               </NavItem>
               <NavItem to='/sklepik/premium' exact>
                 PREMIUM
@@ -88,7 +94,7 @@ const Navigation = ({ cart }) => {
                 INNE
               </NavItem>
               <NavItem to='/sklepik/rajstopy' exact>
-                RAJSTOPY
+                RAJSTOPY I POŃCZOCHY
               </NavItem>
               <NavItem to='/sklepik/fotki i nagrania' exact>
                 SESJE, FOTKI I NAGRANIA
@@ -137,7 +143,7 @@ const Navigation = ({ cart }) => {
                 MAJTKI
               </ModalNavItem>
               <ModalNavItem className={toggleModal && 'toggle'} to='/sklepik/skarpetki' exact>
-                SKARPETKI I POŃCZOCHY
+                SKARPETKI
               </ModalNavItem>
               <ModalNavItem className={toggleModal && 'toggle'} to='/sklepik/premium' exact>
                 PREMIUM
@@ -146,14 +152,13 @@ const Navigation = ({ cart }) => {
                 INNE
               </ModalNavItem>
               <ModalNavItem className={toggleModal && 'toggle'} to='/sklepik/rajstopy' exact>
-                RAJSTOPY
+                RAJSTOPY I POŃCZOCHY
               </ModalNavItem>
               <ModalNavItem className={toggleModal && 'toggle'} to='/sklepik/fotki i nagrania' exact>
                 SESJE, FOTKI I NAGRANIA
               </ModalNavItem>
             </>
           )}
-
           <StyledDot className={toggleModal && 'toggle'} />
         </ModalLinksWrapper>
       </Modal>

@@ -35,7 +35,7 @@ export const showDirection = keyframes`
 export const Image = styled.img`
   position: fixed;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   object-fit: cover;
   z-index: 1;
   transition: 0.5s ease;

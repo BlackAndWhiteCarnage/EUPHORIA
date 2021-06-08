@@ -358,3 +358,22 @@ export const ModalNavItem = styled(NavLink).attrs({ activeClassName: 'active-lin
     padding: 10px;
   }
 `;
+
+export const OnlyFansWrapper = styled.div`
+  position: fixed;
+  right: 0;
+  top: 50%;
+  background: ${({ theme }) => theme.colors.white};
+  width: 50px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+  z-index: 20000;
+`;
+
+export const OnlyFans = styled.img`
+  height: 130px;
+`;

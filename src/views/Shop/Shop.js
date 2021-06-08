@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, Switch } from 'react-router-dom';
-import { Wrapper, ProductWrapper, ProductImage, ProductName, StyledDoneIcon } from './Shop.styles';
+import { Wrapper, ProductWrapper, ProductImage, ProductName, StyledDoneIcon, SeasonOfferInfo } from './Shop.styles';
 import LoadingIcon from 'components/LoadingIcon/LoadingIcon';
 import Product from 'views/Product/Product';
 
@@ -26,9 +26,15 @@ const Shop = ({ cart }) => {
     }
   };
 
+  console.log(!data.length && path === 'rajstopy');
+
   return (
     <Wrapper>
-      {data.length > 0 ? (
+      {!data.length && path === 'rajstopy' ? (
+        <SeasonOfferInfo>
+          PRZEPRASZAM CIĘ NAJMOCNIEJ, RAJSTOPKI I POŃCZOSZKI U MNIE SĄ OFERTĄ SEZONOWĄ TERAZ JEST NA NIE TROSZECZKĘ ZA GORĄCO 😉
+        </SeasonOfferInfo>
+      ) : data.length > 0 ? (
         data
           .slice(0)
           .reverse()

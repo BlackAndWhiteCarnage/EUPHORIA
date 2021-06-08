@@ -23,7 +23,6 @@ const ProductInfoWrapper = ({
   pickExtras,
   setPickExtras,
   addToCartHandler,
-  warn,
   cart,
   setCart,
 }) => {
@@ -49,7 +48,7 @@ const ProductInfoWrapper = ({
                 id='extras'
               />
             )}
-            <StyledButton text='DODAJ DO KOSZYKA' click={addToCartHandler} className={warn && 'warn'} cart={cart} itemID={data.id} />
+            <StyledButton text='DODAJ DO KOSZYKA' click={addToCartHandler} cart={cart} itemID={data.id} />
           </ButtonsWrapper>
         )}
       </InfoWrapper>
