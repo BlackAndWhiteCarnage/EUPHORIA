@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { ImageWrapper, Image, StyledScrollIcon, StyledScrollIconDark } from './ImagesWrapper.styles';
+import { ImageWrapper, Image, StyledScrollIcon, StyledScrollIconDark, ScrollInfoWrapper, Dot } from './ImagesWrapper.styles';
 
 const ImagesWrapper = ({ data, desktop }) => {
   const [current, setCurrent] = useState(0);
@@ -28,10 +28,9 @@ const ImagesWrapper = ({ data, desktop }) => {
         />
       ))}
       {!desktop && (
-        <>
-          <StyledScrollIcon />
-          <StyledScrollIconDark />
-        </>
+        <ScrollInfoWrapper>
+          <Dot />
+        </ScrollInfoWrapper>
       )}
     </ImageWrapper>
   );

@@ -39,10 +39,10 @@ export const Wrapper = styled.button`
     }
   }
   &::after {
-    top: -100%;
+    top: -120%;
     left: 0;
     position: absolute;
-    content: 'WYBIERZ PRZYJAMNIEJ 1 DODATEK';
+    content: '';
     width: 100%;
     height: 100%;
     background: ${({ theme }) => theme.colors.darkGrey};
@@ -51,7 +51,7 @@ export const Wrapper = styled.button`
     justify-content: center;
     transition: 0.5s ease;
   }
-  &.warn {
+  /* &.warn {
     width: 50%;
     transition: 0.5s ease;
     &::after {
@@ -67,9 +67,10 @@ export const Wrapper = styled.button`
       align-items: center;
       justify-content: center;
     }
-  }
+  } */
   &.added {
     pointer-events: none;
+    transition: 0.5 ease;
     &::after {
       transition: 0.5s ease;
       top: 0;

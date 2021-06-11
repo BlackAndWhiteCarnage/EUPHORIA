@@ -177,25 +177,33 @@ export const SocialMediaWrapper = styled.div`
   justify-content: space-between;
   width: 110px;
   margin-bottom: 5px;
-  &.toggleNavigation {
-    margin-right: 50px;
+  @media screen and (max-width: 1250px) {
+    /* background: black; */
+    width: 100%;
+    height: auto;
+    justify-content: space-around;
+    border-top: 3px solid ${({ theme }) => theme.colors.darkGrey};
+    padding-top: 20px;
   }
 `;
 
 export const Icon = styled.img`
   min-width: 18px;
+  @media screen and (max-width: 1250px) {
+    min-width: 25px;
+  }
 `;
 
 export const Modal = styled.div`
   transition: 0.5s ease;
   position: fixed;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   top: -100vh;
-  z-index: 999;
+  z-index: 9999;
   background: ${({ theme }) => theme.colors.darkWhite};
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   &.toggle {
     top: 0;
@@ -208,12 +216,14 @@ export const Modal = styled.div`
 
 export const HamburgerMenu = styled.div`
   position: fixed;
-  width: 40%;
+  width: 100%;
+  /* width: 40%; */
   height: 35px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
   background: ${({ theme }) => theme.colors.white};
   transform: translate(-50%, 0);
-  bottom: 30px;
+  /* bottom: 30px; */
+  bottom: 0;
   left: 50%;
   z-index: 99999;
   display: flex;
@@ -221,7 +231,7 @@ export const HamburgerMenu = styled.div`
   justify-content: center;
   transition: 0.8s ease;
   cursor: pointer;
-  padding: 20px;
+  padding: 10px;
   @media screen and (min-width: 1250px) {
     display: none;
   }
@@ -297,16 +307,24 @@ export const ModalLinksWrapper = styled.ul`
   align-items: center;
   justify-content: space-around;
   list-style: none;
+  @media screen and (max-width: 680px) {
+    align-items: flex-start;
+    width: 80%;
+  }
 `;
 
 export const ModalLink = styled.a`
   font-size: ${({ theme }) => theme.fontSize.l};
-  text-align: center;
+  /* text-align: center; */
   font-weight: bolder;
   color: ${({ theme }) => theme.colors.darkGrey};
   transform: scale(0);
   transition: 0.5s ease;
   text-decoration: none;
+  @media screen and (max-width: 680px) {
+    text-align: left;
+    font-size: ${({ theme }) => theme.fontSize.m};
+  }
   &.toggle {
     transform: scale(1);
     transition: 1.2s ease;
@@ -357,23 +375,8 @@ export const ModalNavItem = styled(NavLink).attrs({ activeClassName: 'active-lin
     color: ${({ theme }) => theme.colors.darkWhite};
     padding: 10px;
   }
-`;
-
-export const OnlyFansWrapper = styled.div`
-  position: fixed;
-  right: 0;
-  top: 50%;
-  background: ${({ theme }) => theme.colors.white};
-  width: 50px;
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
-  z-index: 20000;
-`;
-
-export const OnlyFans = styled.img`
-  height: 130px;
+  @media screen and (max-width: 680px) {
+    text-align: left;
+    font-size: ${({ theme }) => theme.fontSize.m};
+  }
 `;

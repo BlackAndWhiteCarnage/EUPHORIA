@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 
 const VectorSvg = styled.svg`
   position: fixed;
-  width: 800px;
-  height: 800px;
+  width: 90%;
+  max-height: 1000px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

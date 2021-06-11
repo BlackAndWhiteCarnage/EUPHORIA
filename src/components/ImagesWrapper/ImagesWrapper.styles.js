@@ -1,6 +1,4 @@
 import styled, { keyframes } from 'styled-components';
-import { ReactComponent as ScrollIcon } from 'assets/icons/scroll-icon-white.svg';
-import { ReactComponent as ScrollIconDark } from 'assets/icons/scroll-icon.svg';
 
 export const ImageWrapper = styled.div`
   position: relative;
@@ -17,18 +15,13 @@ export const ImageWrapper = styled.div`
 
 export const showDirection = keyframes`
   0% {
-      transform: translate(-50%, -50%);
+      top: 0;
   }
-  50% {
-      transform: translate(-50%, -50%);
-      top: 80%;
-  }
-  70% {
-      transform: translate(-50%, -50%) scale(1.1);
-      top: 85%
+  30% {
+      top: 50%;
   }
   100% {
-      transform: translate(-50%, -50%) scale(1);
+      top: 0;
   }
 `;
 
@@ -72,42 +65,33 @@ export const Image = styled.img`
   }
 `;
 
-export const StyledScrollIcon = styled(ScrollIcon)`
-  position: fixed;
-  top: 85%;
-  left: 50%;
-  transform: translate(-50%, -80%);
-  width: 25px;
-  height: 25px;
-  z-index: 2;
-  transform-origin: center;
-  animation: ${showDirection} 4s ease-in-out infinite;
-  transition: 0.5s ease;
-  @media screen and (min-width: 860px) {
-    width: 40px;
-    height: 40px;
-  }
-  @media screen and (min-width: 1250px) {
-    display: none;
-  }
-`;
-
-export const StyledScrollIconDark = styled(ScrollIconDark)`
+export const ScrollInfoWrapper = styled.div`
   position: fixed;
   top: 85%;
   left: 50%;
   transform: translate(-50%, -70%);
   width: 25px;
-  height: 25px;
+  height: 55px;
   z-index: 2;
   transform-origin: center;
-  animation: ${showDirection} 4s 0.2s ease-in-out infinite;
+  border-radius: 25px;
+  border: 2px solid ${({ theme }) => theme.colors.darkWhite};
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
   transition: 0.5s ease;
-  @media screen and (min-width: 860px) {
-    width: 40px;
-    height: 40px;
-  }
   @media screen and (min-width: 1250px) {
     display: none;
   }
+`;
+
+export const Dot = styled.div`
+  position: absolute;
+  min-width: 13px;
+  min-height: 13px;
+  margin: 5px;
+  background: ${({ theme }) => theme.colors.darkWhite};
+  animation: ${showDirection} 1.5s 0.2s ease-in-out infinite;
+  border-radius: 50%;
+  transition: 0.5s ease;
 `;

@@ -5,7 +5,6 @@ import InstagramIcon from 'assets/icons/instagram-icon.svg';
 import WhatsAppIcon from 'assets/icons/whatsapp-icon.svg';
 import EmailIcon from 'assets/icons/email-icon.svg';
 import CartIcon from 'assets/icons/cart-icon.svg';
-import OnlyfansIcon from 'assets/icons/onlyfans-icon.svg';
 import DarkmodeIcon from 'assets/icons/darkmode-icon.svg';
 // STYLES
 import {
@@ -56,15 +55,14 @@ const Navigation = ({ cart }) => {
 
   return (
     <nav>
-      <OnlyFansWrapper>
-        <OnlyFans src={OnlyfansIcon} />
-      </OnlyFansWrapper>
       <Wrapper>
         <CartAndLogoWrapper>
-          <StyledLogo />
+          <Link to='/'>
+            <StyledLogo id='active' />
+          </Link>
           <CartWrapper>
-            <Link to='/koszyk' id='active'>
-              <Icon src={CartIcon} />
+            <Link to='/koszyk'>
+              <Icon src={CartIcon} id='active' />
             </Link>
             <Icon src={DarkmodeIcon} />
           </CartWrapper>
@@ -133,6 +131,11 @@ const Navigation = ({ cart }) => {
               <ModalLink className={toggleModal && 'toggle'} href='#contact'>
                 KONTAKT
               </ModalLink>
+              <SocialMediaWrapper>
+                <Icon src={InstagramIcon} />
+                <Icon src={EmailIcon} />
+                <Icon src={WhatsAppIcon} />
+              </SocialMediaWrapper>
             </>
           ) : (
             <>
@@ -157,6 +160,11 @@ const Navigation = ({ cart }) => {
               <ModalNavItem className={toggleModal && 'toggle'} to='/sklepik/fotki i nagrania' exact>
                 SESJE, FOTKI I NAGRANIA
               </ModalNavItem>
+              <SocialMediaWrapper>
+                <Icon src={InstagramIcon} />
+                <Icon src={EmailIcon} />
+                <Icon src={WhatsAppIcon} />
+              </SocialMediaWrapper>
             </>
           )}
           <StyledDot className={toggleModal && 'toggle'} />

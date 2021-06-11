@@ -1,6 +1,6 @@
 import React from 'react';
 // STYLES
-import { Wrapper, OffersWrapper } from './OfferSection.styles';
+import { Wrapper, OffersWrapper, OnlyFansWrapper, OnlyFans } from './OfferSection.styles';
 // COMPONENTS
 import Offer from 'components/Offer/Offer';
 // IMAGES
@@ -10,9 +10,14 @@ import PremiumImage from 'assets/images/premium.png';
 import TightsImage from 'assets/images/tights.png';
 import SetsImage from 'assets/images/sets.png';
 import SessionsImage from 'assets/images/sessions.png';
+// ICONS
+import OnlyfansIcon from 'assets/icons/onlyfans-icon.svg';
 
 const OfferSection = () => (
   <Wrapper>
+    <OnlyFansWrapper>
+      <OnlyFans src={OnlyfansIcon} />
+    </OnlyFansWrapper>
     <OffersWrapper id='offer'>
       <Offer image={SocksImage} content='SKARPETKI' gridArea='SKARPETKI' linkTo='skarpetki' />
       <Offer image={PantiesImage} content='MAJTKI' gridArea='MAJTKI' linkTo='majtki' />

@@ -4,12 +4,14 @@ import { ReactComponent as ArrowIcon } from 'assets/icons/arrow-icon.svg';
 import { ReactComponent as ExtrasIcon } from 'assets/icons/extras-icon.svg';
 import { ReactComponent as XMarkIcon } from 'assets/icons/xmark-icon.svg';
 import { ReactComponent as AlertIcon } from 'assets/icons/alert-icon.svg';
+import { ReactComponent as ArrowDown } from 'assets/icons/arrow-down-icon.svg';
+import { Link } from 'react-router-dom';
 
 export const Wrapper = styled.div`
   position: relative;
   width: 80%;
   max-width: 1600px;
-  height: 55vh;
+  height: 58vh;
   display: flex;
   flex-wrap: nowrap;
   margin: auto;
@@ -17,9 +19,10 @@ export const Wrapper = styled.div`
   margin-top: 20px;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
   @media screen and (max-width: 1200px) {
+    margin-top: 0;
     flex-wrap: wrap;
     width: 100%;
-    height: 65vh;
+    height: 70vh;
   }
 `;
 
@@ -86,6 +89,7 @@ export const ItemImage = styled.img`
     margin: 0;
     height: 100%;
     min-width: 40%;
+    box-shadow: none;
   }
 `;
 
@@ -112,7 +116,7 @@ export const ItemInfoWrapper = styled.div`
   }
   @media screen and (max-width: 460px) {
     padding: 0 10px;
-    font-size: ${({ theme }) => theme.fontSize.s};
+    /* font-size: ${({ theme }) => theme.fontSize.s}; */
   }
 `;
 
@@ -120,6 +124,11 @@ export const PickedExtras = styled.div`
   font-size: ${({ theme }) => theme.fontSize.m};
   text-align: center;
   margin: 5px 0;
+  &.itsAlert {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 export const PickedExtrasWrapper = styled.div`
@@ -139,6 +148,21 @@ export const PickedExtrasWrapper = styled.div`
     width: calc(100% - 60px);
     transition: 0.5s ease;
     overflow-y: scroll;
+    @media screen and (max-width: 780px) {
+      width: 100%;
+    }
+  }
+  &.showAlert {
+    opacity: 1;
+    width: calc(100% - 60px);
+    transition: 0.5s ease;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: ${({ theme }) => theme.colors.darkWhite};
+    color: ${({ theme }) => theme.colors.crimsonRed};
     @media screen and (max-width: 780px) {
       width: 100%;
     }
@@ -172,6 +196,7 @@ export const HrefAndDeleteWrapper = styled.div`
 `;
 
 export const FormWrapper = styled.div`
+  position: relative;
   width: 70%;
   background: ${({ theme }) => theme.colors.darkGrey};
   height: 100%;
@@ -186,6 +211,51 @@ export const FormWrapper = styled.div`
   }
 `;
 
+export const HeaderInfoWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  margin-bottom: 10px;
+  max-height: 60px;
+  @media screen and (max-width: 1250px) {
+    max-height: unset;
+  }
+`;
+export const Header = styled.h2`
+  color: ${({ theme }) => theme.colors.darkWhite};
+  width: 70%;
+  @media screen and (min-width: 680px) {
+    width: 80%;
+  }
+`;
+export const Discounts = styled.div`
+  position: absolute;
+  right: 0;
+  width: 50px;
+  height: 30%;
+  background: ${({ theme }) => theme.colors.crimsonRed};
+  writing-mode: vertical-rl;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${({ theme }) => theme.colors.darkWhite};
+  transition: 0.5s ease;
+  &.show {
+    width: 100%;
+    height: 100%;
+    transition: 0.5s ease;
+    writing-mode: unset;
+    p {
+      margin: 25px;
+    }
+  }
+  @media screen and (max-width: 1250px) {
+    bottom: 30px;
+    width: 100%;
+    height: 50px;
+    writing-mode: unset;
+  }
+`;
+
 export const Form = styled.form`
   width: 50%;
   height: 60%;
@@ -194,9 +264,41 @@ export const Form = styled.form`
   @media screen and (max-width: 1600px) {
     width: 80%;
     margin-top: 20px;
+    height: 60%;
   }
   @media screen and (max-width: 460px) {
     width: 90%;
+  }
+`;
+
+export const Info = styled.div`
+  position: absolute;
+  bottom: 35px;
+  width: 100%;
+  height: 50px;
+  background: ${({ theme }) => theme.colors.crimsonRed};
+  color: ${({ theme }) => theme.colors.darkWhite};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: ${({ theme }) => theme.fontSize.m};
+  text-transform: uppercase;
+  transition: 0.5s ease;
+  z-index: 20;
+  padding: 0 20px;
+  &.show {
+    transition: 0.5s ease;
+    height: calc(100% - 35px);
+  }
+  @media screen and (min-width: 1250px) {
+    width: 150px;
+    top: 0;
+    right: 0;
+    &.show {
+      transition: 0.5s ease;
+      height: 100%;
+      width: 100%;
+    }
   }
 `;
 
@@ -229,10 +331,10 @@ export const TextArea = styled.textarea`
 export const CostsInfoWrapper = styled.div`
   position: absolute;
   width: auto;
-  height: 50px;
+  height: 70px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   bottom: -80px;
   font-weight: bolder;
   span {
@@ -246,7 +348,7 @@ export const CostsInfoWrapper = styled.div`
     width: 100%;
     background: ${({ theme }) => theme.colors.darkWhite};
     text-align: right;
-    padding-right: 10px;
+    padding: 10px;
   }
 `;
 
@@ -283,4 +385,32 @@ export const StyledArrowIcon = styled(ArrowIcon)`
 `;
 export const StyledAlertIcon = styled(AlertIcon)`
   min-width: 18px;
+`;
+export const StyledArrowDown = styled(ArrowDown)`
+  width: 30%;
+  height: 80px;
+  @media screen and (min-width: 680px) {
+    width: 20%;
+  }
+`;
+export const StyledAlertLink = styled(Link)`
+  text-decoration: none;
+  color: ${({ theme }) => theme.colors.crimsonRed};
+`;
+export const EmptyCartInfo = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 90%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bolder;
+  font-size: ${({ theme }) => theme.fontSize.xl};
+  text-align: center;
+  @media screen and (max-width: 1250px) {
+    position: fixed;
+  }
 `;

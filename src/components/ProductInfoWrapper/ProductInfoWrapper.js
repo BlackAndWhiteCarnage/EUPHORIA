@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import ImagesWrapper from 'components/ImagesWrapper/ImagesWrapper';
 import ExtrasWrapper from 'components/ExtrasWrapper/ExtrasWrapper';
@@ -11,6 +11,8 @@ import {
   ProductPrice,
   ButtonsWrapper,
   StyledButton,
+  Discounts,
+  DiscountsWrapper,
 } from './ProductInfoWrapper.styles';
 
 const ProductInfoWrapper = ({
@@ -26,8 +28,22 @@ const ProductInfoWrapper = ({
   cart,
   setCart,
 }) => {
+  const [toggleDiscounts, setToggleDiscounts] = useState(false);
+
+  const setToggleDiscountsHandler = () => {
+    setToggleDiscounts(!toggleDiscounts);
+  };
+
   return (
     <Wrapper>
+      <Discounts onClick={setToggleDiscountsHandler} className={toggleDiscounts && 'showDiscounts'}>
+        <span className={toggleDiscounts && 'showDiscounts'}>RABATY %</span>
+        <DiscountsWrapper className={toggleDiscounts && 'showDiscounts'}>
+          <p>OD 150zł RABAT -5%</p>
+          <p>OD 250zł RABAT -10%</p>
+          <p>OD 500zł RABAT -15%</p>
+        </DiscountsWrapper>
+      </Discounts>
       <InfoWrapper>
         <ProductName>{data.name}</ProductName>
         <ProductDescription>{data.description}</ProductDescription>

@@ -26,8 +26,6 @@ const Shop = ({ cart }) => {
     }
   };
 
-  console.log(!data.length && path === 'rajstopy');
-
   return (
     <Wrapper>
       {!data.length && path === 'rajstopy' ? (

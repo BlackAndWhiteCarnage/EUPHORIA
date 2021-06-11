@@ -33,3 +33,32 @@ export const OffersWrapper = styled.div`
     height: 100%;
   }
 `;
+
+export const OnlyFansWrapper = styled.div`
+  position: fixed;
+  right: 0;
+  top: 50%;
+  background: rgba(255, 255, 255, 100%);
+  width: 50px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  z-index: 2000;
+  @media screen and (max-width: 1200px) {
+    background: rgba(255, 255, 255, 40%);
+    width: 40px;
+  }
+  @media screen and (max-width: 680px) {
+    width: 25px;
+  }
+`;
+
+export const OnlyFans = styled.img`
+  height: 130px;
+  @media screen and (max-width: 680px) {
+    height: 100%;
+  }
+`;

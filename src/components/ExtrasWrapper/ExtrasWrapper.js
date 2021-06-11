@@ -38,16 +38,10 @@ const ExtrasWrapper = ({
         price: foundItem.price - foundItem.initialPrice,
         pickedExtras: [...foundItem.pickedExtras],
       });
-      // setPickExtras({
-      //   ...pickExtras,
-      //   pickedExtras: [...foundItem.pickedExtras],
-      // });
     }
 
     return;
   }, []);
-
-  console.log(pickExtras);
 
   useEffect(() => {
     const findInCart = cart.find((item) => item.id === data.id);
