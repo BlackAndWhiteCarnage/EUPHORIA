@@ -34,6 +34,9 @@ export const CartAndLogoWrapper = styled.div`
   @media screen and (max-width: 620px) {
     height: 40px;
   }
+  img {
+    margin: 0;
+  }
 `;
 
 export const CartWrapper = styled.div`
@@ -52,7 +55,7 @@ export const CartWrapper = styled.div`
     z-index: 5;
     top: 0;
     right: 0;
-    width: 85px;
+    width: 50px;
     height: 40px;
   }
 `;
@@ -74,6 +77,7 @@ export const Count = styled.div`
   &.show {
     width: 80px;
     transition: 0.5s ease;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
   }
   @media screen and (max-width: 1250px) {
     position: fixed;
@@ -83,9 +87,52 @@ export const Count = styled.div`
     width: 20px;
     height: 40px;
     &.show {
-      width: 70px;
-      right: 85px;
+      width: 105px;
+      right: 50px;
       transition: 0.5s ease;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+    }
+  }
+`;
+
+export const Discount = styled.div`
+  position: absolute;
+  bottom: 0;
+  right: 75px;
+  z-index: -1;
+  width: 0;
+  height: 30px;
+  background: ${({ theme }) => theme.colors.white};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${({ theme }) => theme.colors.darkGrey};
+  font-size: ${({ theme }) => theme.fontSize.M};
+  transition: 0.5s ease;
+  &.show {
+    width: 50px;
+    top: -60px;
+    right: 155px;
+    height: 60px;
+    transition: 0.5s ease;
+    background: ${({ theme }) => theme.colors.white};
+    color: ${({ theme }) => theme.colors.darkGrey};
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+  }
+  @media screen and (max-width: 1250px) {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 40px;
+    &.show {
+      width: 45px;
+      height: 25px;
+      right: 0;
+      top: 70px;
+      transition: 0.5s ease;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
     }
   }
 `;
@@ -107,6 +154,7 @@ export const CartValue = styled.div`
   &.show {
     transition: 0.5s ease;
     height: 30px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
   }
   @media screen and (max-width: 1250px) {
     position: fixed;
@@ -119,6 +167,7 @@ export const CartValue = styled.div`
       top: 40px;
       width: 155px;
       transition: 0.5s ease;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
     }
   }
 `;
@@ -179,11 +228,13 @@ export const SocialMediaWrapper = styled.div`
   margin-bottom: 5px;
   @media screen and (max-width: 1250px) {
     /* background: black; */
-    width: 100%;
-    height: auto;
-    justify-content: space-around;
-    border-top: 3px solid ${({ theme }) => theme.colors.darkGrey};
-    padding-top: 20px;
+    flex-direction: column;
+    position: absolute;
+    height: 70%;
+    justify-content: flex-start;
+    top: 50%;
+    transform: translate(0, -50%);
+    right: 0;
   }
 `;
 
@@ -191,6 +242,7 @@ export const Icon = styled.img`
   min-width: 18px;
   @media screen and (max-width: 1250px) {
     min-width: 25px;
+    margin-bottom: 50px;
   }
 `;
 
@@ -301,11 +353,11 @@ export const StyledDot = styled.div`
 
 export const ModalLinksWrapper = styled.ul`
   width: 95%;
-  height: 85%;
+  height: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   list-style: none;
   @media screen and (max-width: 680px) {
     align-items: flex-start;

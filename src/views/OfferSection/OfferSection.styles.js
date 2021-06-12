@@ -37,7 +37,7 @@ export const OffersWrapper = styled.div`
 export const OnlyFansWrapper = styled.div`
   position: fixed;
   right: 0;
-  top: 50%;
+  top: 50vh;
   background: rgba(255, 255, 255, 100%);
   width: 50px;
   height: auto;
@@ -45,20 +45,20 @@ export const OnlyFansWrapper = styled.div`
   align-items: center;
   justify-content: center;
   padding: 10px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: ${({ theme }) => theme.colors.white};
   z-index: 2000;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
   @media screen and (max-width: 1200px) {
-    background: rgba(255, 255, 255, 40%);
     width: 40px;
   }
   @media screen and (max-width: 680px) {
-    width: 25px;
+    width: 30px;
   }
 `;
 
 export const OnlyFans = styled.img`
   height: 130px;
   @media screen and (max-width: 680px) {
-    height: 100%;
+    height: 80px;
   }
 `;

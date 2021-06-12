@@ -68,7 +68,23 @@ const Cart = ({ cart, setCart }) => {
 
   let summary = () => {
     let values = cartValues.reduce((a, b) => a + b).toFixed(2);
-    return values;
+    if (cartValues.length !== 0 && values < 150) {
+      return values;
+    } else if (values >= 150 && values < 250) {
+      return ((values / 100) * 95).toFixed(2);
+    } else if (values >= 250 && values < 500) {
+      return ((values / 100) * 90).toFixed(2);
+    } else if (values >= 500) {
+      return ((values / 100) * 85).toFixed(2);
+    } else {
+      return '0';
+    }
+  };
+
+  let discountValue = () => {
+    let values = cartValues.reduce((a, b) => a + b).toFixed(2);
+
+    return values - summary();
   };
 
   useEffect(() => {
@@ -154,7 +170,7 @@ const Cart = ({ cart, setCart }) => {
           </FormWrapper>
           <CostsInfoWrapper>
             <p>
-              RAZEM <span>{cart.length > 0 && summary()}</span> ZŁ
+              RAZEM <span>{cart.length > 0 && summary()}</span> ZŁ {summary() >= 142.5 && `W TYM RABAT ${discountValue()} ZŁ`}
             </p>
             <p>
               <span>DARMOWA</span> WYSYŁKA

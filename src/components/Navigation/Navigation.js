@@ -27,6 +27,7 @@ import {
   CartValue,
   OnlyFans,
   OnlyFansWrapper,
+  Discount,
 } from './Navigation.styles';
 
 const Navigation = ({ cart }) => {
@@ -37,8 +38,20 @@ const Navigation = ({ cart }) => {
   });
 
   let summary = () => {
-    let values = cartValues.reduce((a, b) => a + b).toFixed(2);
-    return values;
+    if (cart.length > 0) {
+      let values = cartValues.reduce((a, b) => a + b).toFixed(2);
+      if (cartValues.length !== 0 && values < 150) {
+        return values;
+      } else if (values >= 150 && values < 250) {
+        return ((values / 100) * 95).toFixed(2);
+      } else if (values >= 250 && values < 500) {
+        return ((values / 100) * 90).toFixed(2);
+      } else if (values >= 500) {
+        return ((values / 100) * 85).toFixed(2);
+      } else {
+        return '0';
+      }
+    }
   };
 
   useEffect(() => {
@@ -64,10 +77,14 @@ const Navigation = ({ cart }) => {
             <Link to='/koszyk'>
               <Icon src={CartIcon} id='active' />
             </Link>
-            <Icon src={DarkmodeIcon} />
           </CartWrapper>
           <Count className={cart.length > 0 && 'show'}>{cart.length}</Count>
           <CartValue className={cart.length > 0 && 'show'}>RAZEM {cart.length > 0 && summary()} ZŁ</CartValue>
+          {summary() >= 142.5 && (
+            <Discount className={cart.length > 0 && 'show'}>
+              {summary() < 225 ? '-5%' : summary() >= 225 && summary() < 425 ? '-10%' : '-15%'}
+            </Discount>
+          )}
         </CartAndLogoWrapper>
         <NavItems>
           {location.pathname === '/' ? (

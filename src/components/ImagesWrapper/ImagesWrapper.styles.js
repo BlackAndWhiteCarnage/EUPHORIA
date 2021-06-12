@@ -67,9 +67,9 @@ export const Image = styled.img`
 
 export const ScrollInfoWrapper = styled.div`
   position: fixed;
-  top: 85%;
+  top: 80vh;
   left: 50%;
-  transform: translate(-50%, -70%);
+  transform: translate(-50%, 0);
   width: 25px;
   height: 55px;
   z-index: 2;

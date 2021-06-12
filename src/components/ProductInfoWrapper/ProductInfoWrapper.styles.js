@@ -26,7 +26,7 @@ export const Discounts = styled.div`
   right: 0;
   background: ${({ theme }) => theme.colors.crimsonRed};
   width: 40px;
-  height: 150px;
+  height: 110px;
   z-index: 10;
   writing-mode: vertical-rl;
   display: flex;
@@ -104,6 +104,7 @@ export const ProductName = styled.div`
   text-transform: uppercase;
   letter-spacing: 5px;
   margin: 40px 0;
+  width: 70%;
   @media screen and (min-width: 860px) {
     margin: 60px 0;
   }
