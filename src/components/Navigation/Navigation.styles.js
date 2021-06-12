@@ -11,10 +11,38 @@ export const Wrapper = styled.div`
   justify-content: flex-end;
   border-bottom: 2px solid ${({ theme }) => theme.colors.crimsonRed};
   margin: auto;
+  transition: 0.5s ease;
+  z-index: 999999;
+  background: ${({ theme }) => theme.colors.darkWhite};
   @media screen and (max-width: 1250px) {
     width: 95%;
     min-height: 100px;
     border-bottom: none;
+  }
+  &.stickyNavbar {
+    transition: 0.5s ease;
+    position: fixed;
+    top: -50%;
+    left: 0;
+    transform: translate(0, 100%);
+    width: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 5px 80px;
+    height: 330px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+  }
+`;
+
+export const FakeWrapper = styled.div`
+  position: absolute;
+  width: 80%;
+  min-height: 30vh;
+  margin: auto;
+  @media screen and (max-width: 1250px) {
+    display: none;
+  }
+  &.changePosition {
+    position: static;
   }
 `;
 
@@ -74,7 +102,9 @@ export const Count = styled.div`
   color: ${({ theme }) => theme.colors.darkWhite};
   font-size: ${({ theme }) => theme.fontSize.M};
   transition: 0.5s ease;
+  opacity: 0;
   &.show {
+    opacity: 1;
     width: 80px;
     transition: 0.5s ease;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
@@ -151,10 +181,12 @@ export const CartValue = styled.div`
   color: ${({ theme }) => theme.colors.darkWhite};
   font-size: ${({ theme }) => theme.fontSize.m};
   transition: 0.5s ease;
+  opacity: 0;
   &.show {
     transition: 0.5s ease;
     height: 30px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+    opacity: 1;
   }
   @media screen and (max-width: 1250px) {
     position: fixed;
@@ -227,10 +259,10 @@ export const SocialMediaWrapper = styled.div`
   width: 110px;
   margin-bottom: 5px;
   @media screen and (max-width: 1250px) {
-    /* background: black; */
+    margin-top: 20px;
     flex-direction: column;
     position: absolute;
-    height: 70%;
+    height: 100%;
     justify-content: flex-start;
     top: 50%;
     transform: translate(0, -50%);
@@ -255,7 +287,7 @@ export const Modal = styled.div`
   z-index: 9999;
   background: ${({ theme }) => theme.colors.darkWhite};
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   &.toggle {
     top: 0;
@@ -353,15 +385,16 @@ export const StyledDot = styled.div`
 
 export const ModalLinksWrapper = styled.ul`
   width: 95%;
-  height: 70%;
+  height: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   list-style: none;
+  margin-top: 20px;
   @media screen and (max-width: 680px) {
     align-items: flex-start;
-    width: 80%;
+    width: 90%;
   }
 `;
 

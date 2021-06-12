@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
+import { matchMedia } from 'helpers/matchMedia';
+import { useInView } from 'react-intersection-observer';
 // ICONS
 import InstagramIcon from 'assets/icons/instagram-icon.svg';
 import WhatsAppIcon from 'assets/icons/whatsapp-icon.svg';
@@ -28,10 +30,12 @@ import {
   OnlyFans,
   OnlyFansWrapper,
   Discount,
+  FakeWrapper,
 } from './Navigation.styles';
 
 const Navigation = ({ cart }) => {
   const [toggleModal, setToggleModal] = useState(false);
+  const [element, view] = useInView({ threshold: 0.5 });
 
   let cartValues = cart.map((item) => {
     return item.price;
@@ -68,16 +72,17 @@ const Navigation = ({ cart }) => {
 
   return (
     <nav>
-      <Wrapper>
+      <FakeWrapper ref={element} className={!view && matchMedia.matches && 'changePosition'} />
+      <Wrapper className={!view && matchMedia.matches && 'stickyNavbar'}>
         <CartAndLogoWrapper>
           <Link to='/'>
             <StyledLogo id='active' />
           </Link>
-          <CartWrapper>
-            <Link to='/koszyk'>
+          <Link to='/koszyk'>
+            <CartWrapper>
               <Icon src={CartIcon} id='active' />
-            </Link>
-          </CartWrapper>
+            </CartWrapper>
+          </Link>
           <Count className={cart.length > 0 && 'show'}>{cart.length}</Count>
           <CartValue className={cart.length > 0 && 'show'}>RAZEM {cart.length > 0 && summary()} ZŁ</CartValue>
           {summary() >= 142.5 && (

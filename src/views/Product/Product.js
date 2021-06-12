@@ -6,7 +6,7 @@ import ImagesWrapper from 'components/ImagesWrapper/ImagesWrapper';
 import ProductInfoWrapper from 'components/ProductInfoWrapper/ProductInfoWrapper';
 import styled from 'styled-components';
 
-const Product = ({ cart, setCart }) => {
+const Product = ({ cart, setCart, element }) => {
   const [data, setData] = useState();
   const [toggleExtras, setToggleExtras] = useState(false);
   const [extrasDataAndTimes, setExtrasDataAndTimes] = useState({

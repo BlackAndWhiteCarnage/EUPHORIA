@@ -13,8 +13,8 @@ import SessionsImage from 'assets/images/sessions.png';
 // ICONS
 import OnlyfansIcon from 'assets/icons/onlyfans-icon.svg';
 
-const OfferSection = () => (
-  <Wrapper>
+const OfferSection = ({ element }) => (
+  <Wrapper ref={element}>
     <OnlyFansWrapper>
       <OnlyFans src={OnlyfansIcon} />
     </OnlyFansWrapper>
