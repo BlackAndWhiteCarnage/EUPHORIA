@@ -72,7 +72,7 @@ const Navigation = ({ cart }) => {
 
   return (
     <nav>
-      <FakeWrapper ref={element} className={!view && matchMedia.matches && 'changePosition'} />
+      {matchMedia.matches && <FakeWrapper ref={element} className={!view && 'changePosition'} />}
       <Wrapper className={!view && matchMedia.matches && 'stickyNavbar'}>
         <CartAndLogoWrapper>
           <Link to='/'>

@@ -15,7 +15,8 @@ export const Wrapper = styled.div`
   z-index: 999999;
   background: ${({ theme }) => theme.colors.darkWhite};
   @media screen and (max-width: 1250px) {
-    width: 95%;
+    width: 0;
+    z-index: 99;
     min-height: 100px;
     border-bottom: none;
   }

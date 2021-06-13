@@ -1,8 +1,32 @@
+const getRandomMainColor = () => {
+  let random = Math.floor(Math.random() * 9);
+
+  if (random === 0) {
+    return '#B80202';
+  } else if (random === 1) {
+    return '#ED9C00';
+  } else if (random === 2) {
+    return '#EC744E';
+  } else if (random === 3) {
+    return '#D387EE';
+  } else if (random === 4) {
+    return '#CB1557';
+  } else if (random === 5) {
+    return '#641E8E';
+  } else if (random === 6) {
+    return '#5D8A4D';
+  } else if (random === 7) {
+    return '#2B4890';
+  } else if (random === 8) {
+    return '#55BFED';
+  }
+};
+
 export const theme = {
   colors: {
     white: '#FFFFFF',
     black: '#000000',
-    crimsonRed: '#B80202',
+    crimsonRed: getRandomMainColor(),
     darkGrey: '#2D2D2D',
     darkWhite: '#F9F9F9',
   },
