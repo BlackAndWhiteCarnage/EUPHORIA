@@ -170,7 +170,7 @@ const Cart = ({ cart, setCart }) => {
           </FormWrapper>
           <CostsInfoWrapper>
             <p>
-              RAZEM <span>{cart.length > 0 && summary()}</span> ZŁ {summary() >= 142.5 && `W TYM RABAT ${discountValue()} ZŁ`}
+              RAZEM <span>{cart.length > 0 && summary()}</span> ZŁ {summary() >= 142.5 && `W TYM RABAT ${discountValue().toFixed(2)} ZŁ`}
             </p>
             <p>
               <span>DARMOWA</span> WYSYŁKA

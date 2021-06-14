@@ -41,6 +41,13 @@ const Navigation = ({ cart }) => {
     return item.price;
   });
 
+  let cartValueHandler = () => {
+    if (cart.length > 0) {
+      let values = cartValues.reduce((a, b) => a + b).toFixed(2);
+      return values;
+    }
+  };
+
   let summary = () => {
     if (cart.length > 0) {
       let values = cartValues.reduce((a, b) => a + b).toFixed(2);
@@ -70,6 +77,8 @@ const Navigation = ({ cart }) => {
     setToggleModal(!toggleModal);
   };
 
+  console.log(cartValueHandler());
+
   return (
     <nav>
       {matchMedia.matches && <FakeWrapper ref={element} className={!view && 'changePosition'} />}
@@ -85,9 +94,9 @@ const Navigation = ({ cart }) => {
           </Link>
           <Count className={cart.length > 0 && 'show'}>{cart.length}</Count>
           <CartValue className={cart.length > 0 && 'show'}>RAZEM {cart.length > 0 && summary()} ZŁ</CartValue>
-          {summary() >= 142.5 && (
+          {cartValueHandler() >= 150 && (
             <Discount className={cart.length > 0 && 'show'}>
-              {summary() < 225 ? '-5%' : summary() >= 225 && summary() < 425 ? '-10%' : '-15%'}
+              {cartValueHandler() < 250 ? '-5%' : cartValueHandler() >= 250 && cartValueHandler() < 500 ? '-10%' : '-15%'}
             </Discount>
           )}
         </CartAndLogoWrapper>
