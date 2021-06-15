@@ -294,6 +294,7 @@ export const Info = styled.div`
   transition: 0.5s ease;
   z-index: 20;
   padding: 0 20px;
+  cursor: pointer;
   &.show {
     transition: 0.5s ease;
     height: calc(100% - 35px);
@@ -314,6 +315,7 @@ export const Label = styled.label`
   margin: 25px 0 5px 0;
   width: 100%;
   color: ${({ theme }) => theme.colors.darkWhite};
+  cursor: pointer;
 `;
 
 export const Input = styled.input`
@@ -362,6 +364,7 @@ export const Checkbox = styled.input`
   min-width: 25px;
   min-height: 25px;
   margin-left: 10px;
+  cursor: pointer;
 `;
 
 export const SendingInProgress = styled.div`
@@ -459,6 +462,7 @@ export const StyledButton = styled(Button)`
 export const StyledXMarkIcon = styled(XMarkIcon)`
   min-width: 18px;
   transition: 0.3s ease;
+  cursor: pointer;
   &:hover {
     transform: scale(1.5) rotate(360deg);
     transition: 0.5s ease;
@@ -467,6 +471,7 @@ export const StyledXMarkIcon = styled(XMarkIcon)`
 export const StyledExtrasIcon = styled(ExtrasIcon)`
   min-width: 18px;
   transition: 0.3s ease;
+  cursor: pointer;
   &:hover {
     transform: rotate(70deg) skew(20deg) scale(1.5);
     transition: 0.5s ease;
@@ -475,6 +480,7 @@ export const StyledExtrasIcon = styled(ExtrasIcon)`
 export const StyledArrowIcon = styled(ArrowIcon)`
   min-width: 18px;
   transition: 0.3s ease;
+  cursor: pointer;
   &:hover {
     transform: translateX(5px) rotate(-10deg) scale(1.5);
     transition: 0.5s ease;
@@ -483,6 +489,7 @@ export const StyledArrowIcon = styled(ArrowIcon)`
 export const StyledAlertIcon = styled(AlertIcon)`
   min-width: 18px;
   transition: 0.3s ease;
+  cursor: pointer;
   &:hover {
     transform: scale(1.5);
     transition: 0.5s ease;
@@ -491,6 +498,7 @@ export const StyledAlertIcon = styled(AlertIcon)`
 export const StyledArrowDown = styled(ArrowDown)`
   width: 30%;
   height: 80px;
+  cursor: pointer;
   @media screen and (min-width: 680px) {
     width: 20%;
   }

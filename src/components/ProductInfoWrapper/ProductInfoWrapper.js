@@ -39,9 +39,9 @@ const ProductInfoWrapper = ({
       <Discounts onClick={setToggleDiscountsHandler} className={toggleDiscounts && 'showDiscounts'}>
         <span className={toggleDiscounts && 'showDiscounts'}>RABATY %</span>
         <DiscountsWrapper className={toggleDiscounts && 'showDiscounts'}>
-          <p>OD 150zł RABAT -5%</p>
-          <p>OD 250zł RABAT -10%</p>
-          <p>OD 500zł RABAT -15%</p>
+          <p id='active'>OD 150zł RABAT -5%</p>
+          <p id='active'>OD 250zł RABAT -10%</p>
+          <p id='active'>OD 500zł RABAT -15%</p>
         </DiscountsWrapper>
       </Discounts>
       <InfoWrapper>

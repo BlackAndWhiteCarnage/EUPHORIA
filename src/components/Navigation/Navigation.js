@@ -85,17 +85,21 @@ const Navigation = ({ cart }) => {
       <Wrapper className={!view && matchMedia.matches && 'stickyNavbar'}>
         <CartAndLogoWrapper>
           <Link to='/'>
-            <StyledLogo id='active' />
+            <StyledLogo id='active' title='EUPHORIA NOSZONA I UŻYWANA BIELIZNA' />
           </Link>
           <Link to='/koszyk'>
             <CartWrapper>
-              <Icon src={CartIcon} id='active' />
+              <Icon src={CartIcon} id='active' title='KOSZYK' />
             </CartWrapper>
           </Link>
-          <Count className={cart.length > 0 && 'show'}>{cart.length}</Count>
-          <CartValue className={cart.length > 0 && 'show'}>RAZEM {cart.length > 0 && summary()} ZŁ</CartValue>
+          <Count className={cart.length > 0 && 'show'} title='LICZBA PRZEDMIOTÓW W KOSZYKU'>
+            {cart.length}
+          </Count>
+          <CartValue className={cart.length > 0 && 'show'} title='ŁĄCZNA WARTOŚĆ KOSZYKA'>
+            RAZEM {cart.length > 0 && summary()} ZŁ
+          </CartValue>
           {cartValueHandler() >= 150 && (
-            <Discount className={cart.length > 0 && 'show'}>
+            <Discount className={cart.length > 0 && 'show'} title='OBECNY RABAT'>
               {cartValueHandler() < 250 ? '-5%' : cartValueHandler() >= 250 && cartValueHandler() < 500 ? '-10%' : '-15%'}
             </Discount>
           )}
@@ -131,13 +135,17 @@ const Navigation = ({ cart }) => {
             </>
           )}
           <SocialMediaWrapper>
-            <a href='https://allegro.pl/uzytkownik/EUPHORIA_2001?bmatch=cl-e2101-d3794-c3683-uni-1-1-0611' target='_blank'>
+            <a
+              href='https://allegro.pl/uzytkownik/EUPHORIA_2001?bmatch=cl-e2101-d3794-c3683-uni-1-1-0611'
+              target='_blank'
+              title='PRZEJDŹ DO KONTA NA ALLEGRO'
+            >
               <Icon src={AllegroIcon} />
             </a>
-            <a href='mailto:weronikarepsch@gmail.com' target='_blank'>
+            <a href='mailto:weronikarepsch@gmail.com' target='_blank' title='WYŚLIJ MAILA'>
               <Icon src={EmailIcon} />
             </a>
-            <a href='https://wa.me/+48661488428' target='_blank'>
+            <a href='https://wa.me/+48661488428' target='_blank' title='NAPISZ NA WHATSAPP'>
               <Icon src={WhatsAppIcon} />
             </a>
           </SocialMediaWrapper>

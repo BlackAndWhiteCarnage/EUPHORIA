@@ -147,8 +147,10 @@ export const Form = styled.form`
     font-size: ${({ theme }) => theme.fontSize.s};
   }
   label {
-    margin: 15px 0;
-    font-weight: bolder;
+    margin: 25px 0 5px 0;
+    width: 100%;
+    color: ${({ theme }) => theme.colors.darkGrey};
+    cursor: pointer;
   }
   input {
     width: 100%;

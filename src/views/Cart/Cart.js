@@ -228,13 +228,13 @@ const Cart = ({ cart, setCart }) => {
                   <p>{item.price} ZŁ</p>
                 </ItemInfoWrapper>
                 <HrefAndDeleteWrapper>
-                  <StyledXMarkIcon onClick={() => deleteItemHandler(item)} />
+                  <StyledXMarkIcon onClick={() => deleteItemHandler(item)} title='USUŃ PRODUKT Z KOSZYKA' />
                   {item.extrasNumber === null || item.extrasNumber === undefined ? null : item.pickedExtras.length !== 0 ? (
-                    <StyledExtrasIcon onClick={() => togglePreviewExtrasHandler(item.id)} id='extras' />
+                    <StyledExtrasIcon onClick={() => togglePreviewExtrasHandler(item.id)} id='extras' title='WYBRANE DODATKI' />
                   ) : (
-                    <StyledAlertIcon onClick={() => toggleAlertHandler(item.id)} id='extras' />
+                    <StyledAlertIcon onClick={() => toggleAlertHandler(item.id)} id='extras' title='NIE WYBRAŁEŚ ŻADNYCH DODATKÓW' />
                   )}
-                  <Link to={`/${item.id}`}>
+                  <Link to={`/${item.id}`} title='PRZEJDŹ DO TEGO PRODUKTU'>
                     <StyledArrowIcon />
                   </Link>
                 </HrefAndDeleteWrapper>

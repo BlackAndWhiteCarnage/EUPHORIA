@@ -15,7 +15,7 @@ import OnlyfansIcon from 'assets/icons/onlyfans-icon.svg';
 
 const OfferSection = ({ element }) => (
   <Wrapper ref={element}>
-    <OnlyFansWrapper href='https://onlyfans.com/u147186729' target='_blank'>
+    <OnlyFansWrapper href='https://onlyfans.com/u147186729' target='_blank' title='PRZEJDŹ DO ONLYFANS'>
       <OnlyFans src={OnlyfansIcon} id='active' />
     </OnlyFansWrapper>
     <OffersWrapper id='offer'>

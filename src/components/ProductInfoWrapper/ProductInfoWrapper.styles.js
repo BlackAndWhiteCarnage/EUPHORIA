@@ -35,9 +35,10 @@ export const Discounts = styled.div`
   color: ${({ theme }) => theme.colors.darkWhite};
   transition: 0.5s ease-in-out;
   overflow: hidden;
+  cursor: pointer;
   &:hover {
-    width: 50px;
-    transition: 0.3 ease;
+    /* width: 50px;
+    transition: 0.3 ease; */
   }
   @media screen and (max-width: 1250px) {
     top: 0;

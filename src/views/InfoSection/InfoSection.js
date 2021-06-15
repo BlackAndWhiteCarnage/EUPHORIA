@@ -128,6 +128,7 @@ const InfoSection = () => {
               onChange={nameHandler}
               name='name'
               className={`${feedback === 2 && !validName && 'ERROR'} ${validName && 'VALID'}`}
+              placeholder='PRZYNAJMNEJ 5 ZNAKÓW'
             ></input>
             <label htmlFor='Email'>EMAIL</label>
             <input
@@ -135,6 +136,7 @@ const InfoSection = () => {
               onChange={emailHandler}
               className={`${feedback === 2 && !validEmail && 'ERROR'} ${validEmail && 'VALID'}`}
               name='email'
+              placeholder={'EMAIL'}
             ></input>
             <label htmlFor='Message'>WIADOMOŚĆ</label>
             <textarea
@@ -142,6 +144,7 @@ const InfoSection = () => {
               className={`${feedback === 2 && !validMessage && 'ERROR'} ${validMessage && 'VALID'}`}
               onChange={messageHandler}
               name='message'
+              placeholder={'PRZYNEJMNIEJ 20 ZNAKÓW'}
             ></textarea>
             <StyledButton text='WYŚLIJ' className={feedback === 1 ? 'OK' : feedback === 2 && 'ERROR'} type='submit' click={checkValid} />
           </Form>
