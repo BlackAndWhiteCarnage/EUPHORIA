@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import emailjs from 'emailjs-com';
+import ValidIcon from 'assets/icons/valid-icon.svg';
+
 import {
   Wrapper,
   CartItems,
@@ -27,6 +30,11 @@ import {
   EmptyCartInfo,
   Discounts,
   Info,
+  Checkbox,
+  CheckboxWrapper,
+  SendingInProgress,
+  StyledProgressIcon,
+  StyledCheckIcon,
 } from './Cart.styles';
 import { matchMedia } from 'helpers/matchMedia';
 import ArrowIcon from 'assets/icons/arrow-icon.svg';
@@ -35,6 +43,17 @@ const Cart = ({ cart, setCart }) => {
   const [togglePreviewExtras, setTogglePreviewExtras] = useState();
   const [toggleAlert, setToggleAlert] = useState();
   const [toggleInfo, setToggleInfo] = useState(false);
+  const [deletingItem, setDeletingItem] = useState('');
+  const [emailSend, setEmailSend] = useState(false);
+  const [checkbox, setCheckbox] = useState(false);
+  const [validEmail, setValidEmail] = useState(false);
+  const [validName, setValidName] = useState(false);
+  const [validMessage, setValidMessage] = useState(false);
+  const [validCart, setValidCart] = useState(false);
+  const [feedback, setFeedback] = useState(null);
+  const [sending, setSending] = useState(false);
+
+  console.log(feedback);
 
   const togglePreviewExtrasHandler = (id) => {
     if (id === togglePreviewExtras) {
@@ -46,7 +65,11 @@ const Cart = ({ cart, setCart }) => {
   };
 
   const deleteItemHandler = (item) => {
-    setCart(cart.filter((i) => i.id !== item.id));
+    setDeletingItem(item.id);
+    setTimeout(() => {
+      setDeletingItem('');
+      setCart(cart.filter((i) => i.id !== item.id));
+    }, 500);
   };
 
   const toggleAlertHandler = (id) => {
@@ -104,13 +127,78 @@ const Cart = ({ cart, setCart }) => {
     return;
   }, []);
 
+  //Form and emailjs logic
+  const emailHandler = (e) => {
+    const valid = /\S+@\S+\.\S+/;
+    if (valid.test(e.target.value)) {
+      setValidEmail(true);
+    } else {
+      setValidEmail(false);
+    }
+  };
+
+  const nameHandler = (e) => {
+    console.log(e.target.value);
+    if (e.target.value.length >= 5) {
+      setValidName(true);
+    } else {
+      setValidName(false);
+    }
+  };
+
+  const messageHandler = (e) => {
+    if (e.target.value.length >= 20) {
+      setValidMessage(true);
+    } else {
+      setValidMessage(false);
+    }
+  };
+
+  function sendEmail(e) {
+    e.preventDefault();
+
+    if (validEmail && validMessage && checkbox && validName && validCart) {
+      emailjs.sendForm('service_pkn9ez9', 'template_btr6t4a', e.target, 'user_wfAnEXgFR6wa0u7anAPJf').then(
+        (result) => {
+          console.log(result.text);
+          setEmailSend(true);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+    }
+  }
+
+  const checkValid = () => {
+    if (validEmail && validMessage && checkbox && validName && validCart) {
+      setFeedback(1);
+    } else {
+      setFeedback(2);
+      setTimeout(() => {
+        setFeedback(0);
+      }, 2000);
+    }
+  };
+
+  //After checkbox marked, assign carts ID's as a input value
+  const cartItemsHandler = (e) => {
+    setCheckbox(!checkbox);
+    setValidCart(!validCart);
+    let ids = cart.map((item) => {
+      return item.images[0].url + ' + DODATKI:' + item.pickedExtras;
+    });
+    let sum = summary();
+    e.target.value = ids + ' cena ' + sum;
+  };
+
   return (
     <Wrapper>
       {cart.length > 0 ? (
         <>
           <CartItems>
             {cart.map((item) => (
-              <CartItem>
+              <CartItem className={item.id === deletingItem && 'deleting'}>
                 <ItemImage src={item.images[0].url} />
                 <ItemInfoWrapper>
                   <p>{item.name}</p>
@@ -155,15 +243,49 @@ const Cart = ({ cart, setCart }) => {
             ))}
           </CartItems>
           <FormWrapper>
-            <Form>
-              <Label>IMIĘ</Label>
-              <Input />
-              <Label>EMAIL</Label>
-              <Input />
-              <Label>WIADOMOŚĆ</Label>
-              <TextArea />
+            <SendingInProgress className={feedback === 1 && 'SENDING'}>
+              {!emailSend && <StyledProgressIcon />}
+              {emailSend && <StyledCheckIcon />}
+            </SendingInProgress>
+            <Form onSubmit={sendEmail}>
+              <Label className={validName && 'valid'} htmlFor='name'>
+                IMIĘ
+              </Label>
+              <Input
+                onChange={nameHandler}
+                id='name'
+                name='name'
+                className={`${feedback === 2 && !validName && 'ERROR'} ${validName && 'VALID'}`}
+                placeholder='PRZYNAJMNEJ 5 ZNAKÓW'
+              />
+              <Label className={validName && 'valid'} htmlFor='email'>
+                EMAIL
+              </Label>
+              <Input
+                onChange={emailHandler}
+                className={`${feedback === 2 && !validEmail && 'ERROR'} ${validEmail && 'VALID'}`}
+                name='email'
+                id='email'
+                placeholder={'EMAIL'}
+              />
+              <Label className={validName && 'valid'} htmlFor='message'>
+                WIADOMOŚĆ
+              </Label>
+              <TextArea
+                className={`${feedback === 2 && !validMessage && 'ERROR'} ${validMessage && 'VALID'}`}
+                onChange={messageHandler}
+                name='message'
+                id='message'
+                placeholder={'PRZYNEJMNIEJ 20 ZNAKÓW'}
+              />
+              <CheckboxWrapper className={feedback === 2 && !validCart && 'ERROR'}>
+                <p>WYRAŻAM ZGODĘ NA PRZETWAŻANIE MOJEGO KOSZYKA</p>
+                <Checkbox type='checkbox' onChange={cartItemsHandler} name='cart' />
+              </CheckboxWrapper>
+              <StyledButton text='ZAMAWIAM' className={feedback === 1 ? 'OK' : feedback === 2 && 'ERROR'} type='submit' click={checkValid} />
             </Form>
-            {!matchMedia.matches && <StyledButton text='ZAMAWIAM' />}
+            {/* {!matchMedia.matches && ( */}
+            {/* )} */}
             <Info onClick={toggleInfoHandler} className={toggleInfo && 'show'}>
               {/* <img src={ArrowIcon} /> */}Informacje
             </Info>
@@ -176,7 +298,9 @@ const Cart = ({ cart, setCart }) => {
               <span>DARMOWA</span> WYSYŁKA
             </p>
           </CostsInfoWrapper>
-          {matchMedia.matches && <StyledButton text='ZAMAWIAM' />}
+          {/* {matchMedia.matches && (
+            <StyledButton text='ZAMAWIAM' className={feedback === 1 ? 'OK' : feedback === 2 && 'ERROR'} type='submit' click={checkValid} />
+          )} */}
         </>
       ) : (
         <EmptyCartInfo>TWÓJ KOSZYK JEST PUSTY</EmptyCartInfo>

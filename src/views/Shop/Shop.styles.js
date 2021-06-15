@@ -27,6 +27,7 @@ export const ProductWrapper = styled(Link)`
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  transition: 0.3s ease;
   &::before {
     position: absolute;
     bottom: -100%;
@@ -50,6 +51,8 @@ export const ProductWrapper = styled(Link)`
     }
   }
   &:hover {
+    transform: scale(0.95);
+    transition: 0.5s ease;
     &::before {
       content: '';
       transition: 0.5s ease;

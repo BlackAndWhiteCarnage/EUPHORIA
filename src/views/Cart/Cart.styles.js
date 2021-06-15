@@ -1,10 +1,12 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Button from 'components/Button/Button';
 import { ReactComponent as ArrowIcon } from 'assets/icons/arrow-icon.svg';
 import { ReactComponent as ExtrasIcon } from 'assets/icons/extras-icon.svg';
 import { ReactComponent as XMarkIcon } from 'assets/icons/xmark-icon.svg';
 import { ReactComponent as AlertIcon } from 'assets/icons/alert-icon.svg';
 import { ReactComponent as ArrowDown } from 'assets/icons/arrow-down-icon.svg';
+import { ReactComponent as ProgressIcon } from 'assets/icons/progress-icon.svg';
+import { ReactComponent as CheckIcon } from 'assets/icons/check-icon.svg';
 import { Link } from 'react-router-dom';
 
 export const Wrapper = styled.div`
@@ -70,6 +72,11 @@ export const CartItem = styled.div`
     /* flex-wrap: wrap; */
     min-height: 300px;
     margin: 40px 0;
+  }
+  &.deleting {
+    transition: 0.5s;
+    transform: scale(0) translateY(-300px);
+    opacity: 0;
   }
 `;
 
@@ -205,7 +212,7 @@ export const FormWrapper = styled.div`
   justify-content: center;
   @media screen and (max-width: 1200px) {
     width: 100%;
-    min-height: 700px;
+    min-height: 750px;
     flex-direction: column;
     justify-content: flex-start;
   }
@@ -257,14 +264,15 @@ export const Discounts = styled.div`
 `;
 
 export const Form = styled.form`
-  width: 50%;
-  height: 60%;
+  width: 60%;
+  /* height: 70%; */
   display: flex;
   flex-direction: column;
+  color: white;
   @media screen and (max-width: 1600px) {
     width: 80%;
     margin-top: 20px;
-    height: 60%;
+    /* height: 60%; */
   }
   @media screen and (max-width: 460px) {
     width: 90%;
@@ -303,29 +311,103 @@ export const Info = styled.div`
 `;
 
 export const Label = styled.label`
-  margin: 20px 0 5px 0;
+  margin: 25px 0 5px 0;
   width: 100%;
   color: ${({ theme }) => theme.colors.darkWhite};
 `;
 
 export const Input = styled.input`
   width: 100%;
-  border: 2px solid ${({ theme }) => theme.colors.darkWhite};
+  /* border: 2px solid ${({ theme }) => theme.colors.darkWhite}; */
+  border: none;
+  border-bottom: 2px solid ${({ theme }) => theme.colors.darkWhite};
   font-family: 'Montserrat', sans-serif;
-  padding: 10px;
+  padding: 10px 0;
   background: none;
   font-size: ${({ theme }) => theme.fontSize.m};
+  transition: 0.5s ease;
+  color: ${({ theme }) => theme.colors.darkWhite};
+  outline: none;
+  &.ERROR {
+    transform: scale(0.99);
+    background: rgba(240, 25, 25, 40%);
+    padding: 10px;
+    transition: 0.5s ease;
+  }
+  &.VALID {
+    transform: scale(1.01);
+    border: none;
+    border-bottom: 2px solid #46f037;
+    transition: 0.5s ease;
+  }
+`;
+
+export const CheckboxWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: ${({ theme }) => theme.colors.darkWhite};
+  font-size: ${({ theme }) => theme.fontSize.m};
+  transition: 0.5s ease;
+  outline: none;
+  &.ERROR {
+    transform: scale(0.99);
+    background: rgba(240, 25, 25, 40%);
+    transition: 0.5s ease;
+    padding: 10px;
+  }
+`;
+
+export const Checkbox = styled.input`
+  min-width: 25px;
+  min-height: 25px;
+  margin-left: 10px;
+`;
+
+export const SendingInProgress = styled.div`
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  transition: 0.5s ease;
+  &.SENDING {
+    transition: 0.5s ease;
+    opacity: 1;
+  }
 `;
 
 export const TextArea = styled.textarea`
   width: 100%;
+  outline: none;
+  /* border: 2px solid ${({ theme }) => theme.colors.darkWhite}; */
   border: 2px solid ${({ theme }) => theme.colors.darkWhite};
   font-family: 'Montserrat', sans-serif;
   padding: 10px;
   background: none;
-  height: 100%;
+  min-height: 200px;
+  margin-bottom: 30px;
   font-size: ${({ theme }) => theme.fontSize.m};
   resize: none;
+  transition: 0.5s ease;
+  color: ${({ theme }) => theme.colors.darkWhite};
+  &.ERROR {
+    transform: scale(0.99);
+    background: rgba(240, 25, 25, 40%);
+    transition: 0.5s ease;
+    padding: 10px;
+  }
+  &.VALID {
+    transform: scale(1.01);
+    border: none;
+    border: 2px solid #46f037;
+    transition: 0.5s ease;
+  }
 `;
 
 export const CostsInfoWrapper = styled.div`
@@ -376,15 +458,35 @@ export const StyledButton = styled(Button)`
 
 export const StyledXMarkIcon = styled(XMarkIcon)`
   min-width: 18px;
+  transition: 0.3s ease;
+  &:hover {
+    transform: scale(1.5) rotate(360deg);
+    transition: 0.5s ease;
+  }
 `;
 export const StyledExtrasIcon = styled(ExtrasIcon)`
   min-width: 18px;
+  transition: 0.3s ease;
+  &:hover {
+    transform: rotate(70deg) skew(20deg) scale(1.5);
+    transition: 0.5s ease;
+  }
 `;
 export const StyledArrowIcon = styled(ArrowIcon)`
   min-width: 18px;
+  transition: 0.3s ease;
+  &:hover {
+    transform: translateX(5px) rotate(-10deg) scale(1.5);
+    transition: 0.5s ease;
+  }
 `;
 export const StyledAlertIcon = styled(AlertIcon)`
   min-width: 18px;
+  transition: 0.3s ease;
+  &:hover {
+    transform: scale(1.5);
+    transition: 0.5s ease;
+  }
 `;
 export const StyledArrowDown = styled(ArrowDown)`
   width: 30%;
@@ -392,6 +494,27 @@ export const StyledArrowDown = styled(ArrowDown)`
   @media screen and (min-width: 680px) {
     width: 20%;
   }
+`;
+
+const rotate = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+`;
+
+export const StyledProgressIcon = styled(ProgressIcon)`
+  width: 20%;
+  height: 20%;
+  animation: ${rotate} 1.5s infinite;
+`;
+
+export const StyledCheckIcon = styled(CheckIcon)`
+  width: 30%;
+  height: 30%;
+  /* animation: ${rotate} 1.5s infinite; */
 `;
 export const StyledAlertLink = styled(Link)`
   text-decoration: none;

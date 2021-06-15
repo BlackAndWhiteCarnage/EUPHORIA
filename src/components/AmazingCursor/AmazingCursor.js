@@ -70,6 +70,8 @@ const AmazingCursor = () => {
       item.tagName === 'TEXTAREA' ||
       item.tagName === 'LABEL' ||
       item.tagName === 'BUTTON' ||
+      item.tagName === 'svg' ||
+      item.tagName === 'path' ||
       item.tagName === 'A'
     ) {
       ref.current.classList.add('active');

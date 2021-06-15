@@ -1,6 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 import { ReactComponent as Logo } from 'assets/icons/logo.svg';
 import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export const Wrapper = styled.div`
   position: relative;
@@ -251,16 +252,19 @@ export const NavItem = styled(NavLink).attrs({ activeClassName: 'active-link' })
     color: ${({ theme }) => theme.colors.darkWhite};
     padding: 10px;
   }
+  &:hover {
+    letter-spacing: 2.5px;
+  }
 `;
 
 export const SocialMediaWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 110px;
+  width: 100px;
   margin-bottom: 5px;
   @media screen and (max-width: 1250px) {
-    margin-top: 20px;
+    padding-top: 20px;
     flex-direction: column;
     position: absolute;
     height: 100%;
@@ -268,14 +272,20 @@ export const SocialMediaWrapper = styled.div`
     top: 50%;
     transform: translate(0, -50%);
     right: 0;
+    background: ${({ theme }) => theme.colors.darkGrey};
   }
 `;
 
 export const Icon = styled.img`
   min-width: 18px;
+  transition: 0.3s ease;
   @media screen and (max-width: 1250px) {
     min-width: 25px;
     margin-bottom: 50px;
+  }
+  &:hover {
+    transform: scale(1.6);
+    transition: 0.5s ease;
   }
 `;
 
@@ -284,7 +294,7 @@ export const Modal = styled.div`
   position: fixed;
   width: 100%;
   height: 100vh;
-  top: -100vh;
+  top: -130vh;
   z-index: 9999;
   background: ${({ theme }) => theme.colors.darkWhite};
   display: flex;

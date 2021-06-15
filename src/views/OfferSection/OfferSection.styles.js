@@ -34,7 +34,7 @@ export const OffersWrapper = styled.div`
   }
 `;
 
-export const OnlyFansWrapper = styled.div`
+export const OnlyFansWrapper = styled.a`
   position: fixed;
   right: 0;
   top: 50vh;

@@ -3,9 +3,11 @@ import { useLocation, Link } from 'react-router-dom';
 import { matchMedia } from 'helpers/matchMedia';
 import { useInView } from 'react-intersection-observer';
 // ICONS
-import InstagramIcon from 'assets/icons/instagram-icon.svg';
+import AllegroIcon from 'assets/icons/allegro-icon.svg';
 import WhatsAppIcon from 'assets/icons/whatsapp-icon.svg';
+import WhatsAppIconWhite from 'assets/icons/whatsapp-icon-white.svg';
 import EmailIcon from 'assets/icons/email-icon.svg';
+import EmailIconWhite from 'assets/icons/email-icon-white.svg';
 import CartIcon from 'assets/icons/cart-icon.svg';
 import DarkmodeIcon from 'assets/icons/darkmode-icon.svg';
 // STYLES
@@ -77,8 +79,6 @@ const Navigation = ({ cart }) => {
     setToggleModal(!toggleModal);
   };
 
-  console.log(cartValueHandler());
-
   return (
     <nav>
       {matchMedia.matches && <FakeWrapper ref={element} className={!view && 'changePosition'} />}
@@ -131,9 +131,15 @@ const Navigation = ({ cart }) => {
             </>
           )}
           <SocialMediaWrapper>
-            <Icon src={InstagramIcon} />
-            <Icon src={EmailIcon} />
-            <Icon src={WhatsAppIcon} />
+            <a href='https://allegro.pl/uzytkownik/EUPHORIA_2001?bmatch=cl-e2101-d3794-c3683-uni-1-1-0611' target='_blank'>
+              <Icon src={AllegroIcon} />
+            </a>
+            <a href='mailto:weronikarepsch@gmail.com' target='_blank'>
+              <Icon src={EmailIcon} />
+            </a>
+            <a href='https://wa.me/+48661488428' target='_blank'>
+              <Icon src={WhatsAppIcon} />
+            </a>
           </SocialMediaWrapper>
         </NavItems>
       </Wrapper>
@@ -163,9 +169,15 @@ const Navigation = ({ cart }) => {
                 KONTAKT
               </ModalLink>
               <SocialMediaWrapper>
-                <Icon src={InstagramIcon} />
-                <Icon src={EmailIcon} />
-                <Icon src={WhatsAppIcon} />
+                <a href='https://allegro.pl/uzytkownik/EUPHORIA_2001?bmatch=cl-e2101-d3794-c3683-uni-1-1-0611' target='_blank'>
+                  <Icon src={AllegroIcon} />
+                </a>
+                <a href='mailto:weronikarepsch@gmail.com' target='_blank'>
+                  <Icon src={EmailIconWhite} />
+                </a>
+                <a href='https://wa.me/+48661488428' target='_blank'>
+                  <Icon src={WhatsAppIconWhite} />
+                </a>
               </SocialMediaWrapper>
             </>
           ) : (
@@ -192,9 +204,15 @@ const Navigation = ({ cart }) => {
                 SESJE, FOTKI I NAGRANIA
               </ModalNavItem>
               <SocialMediaWrapper>
-                <Icon src={InstagramIcon} />
-                <Icon src={EmailIcon} />
-                <Icon src={WhatsAppIcon} />
+                <a href='https://allegro.pl/uzytkownik/EUPHORIA_2001?bmatch=cl-e2101-d3794-c3683-uni-1-1-0611' target='_blank'>
+                  <Icon src={AllegroIcon} />
+                </a>
+                <a href='mailto:weronikarepsch@gmail.com' target='_blank'>
+                  <Icon src={EmailIconWhite} />
+                </a>
+                <a href='https://wa.me/+48661488428' target='_blank'>
+                  <Icon src={WhatsAppIconWhite} />
+                </a>
               </SocialMediaWrapper>
             </>
           )}

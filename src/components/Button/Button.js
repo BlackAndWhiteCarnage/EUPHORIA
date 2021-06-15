@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Wrapper } from './Button.styles';
 
-const Button = ({ text, className, click, id, itemID, cart }) => {
+const Button = ({ text, className, click, id, itemID, cart, type }) => {
   const checkIDHandler = () => {
     if (cart !== undefined && cart !== false) {
       if (cart.find((item) => item.id === itemID)) {
@@ -12,7 +12,7 @@ const Button = ({ text, className, click, id, itemID, cart }) => {
   };
 
   return (
-    <Wrapper className={`${className} ${checkIDHandler()}`} onClick={click} id={id}>
+    <Wrapper className={`${className} ${checkIDHandler()}`} onClick={click} id={id} type={type}>
       {text}
     </Wrapper>
   );

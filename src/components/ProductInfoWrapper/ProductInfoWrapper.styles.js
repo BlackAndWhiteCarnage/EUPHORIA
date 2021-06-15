@@ -35,6 +35,10 @@ export const Discounts = styled.div`
   color: ${({ theme }) => theme.colors.darkWhite};
   transition: 0.5s ease-in-out;
   overflow: hidden;
+  &:hover {
+    width: 50px;
+    transition: 0.3 ease;
+  }
   @media screen and (max-width: 1250px) {
     top: 0;
     z-index: 200;
@@ -62,6 +66,10 @@ export const DiscountsWrapper = styled.div`
   justify-content: space-around;
   @media screen and (max-width: 1250px) {
     flex-direction: column;
+  }
+  &:hover {
+    transform: scale(1.05);
+    transition: 0.1 ease;
   }
   &.showDiscounts {
     height: 60%;
