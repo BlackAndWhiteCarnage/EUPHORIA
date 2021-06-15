@@ -18,6 +18,7 @@ export const Wrapper = styled.div`
   z-index: 10;
   height: 100%;
   overflow-y: scroll;
+  z-index: 990;
   @media screen and (max-width: 1250px) {
     height: 60%;
     border-radius: 30px 0 0 0;
@@ -25,7 +26,8 @@ export const Wrapper = styled.div`
     width: 100%;
   }
   @media screen and (max-width: 680px) {
-    max-height: 70%;
+    min-height: 70%;
+    max-height: 75%;
     height: auto;
     padding: 10px;
   }

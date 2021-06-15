@@ -152,20 +152,55 @@ export const Form = styled.form`
   }
   input {
     width: 100%;
-    height: 40px;
-    border: 2px solid ${({ theme }) => theme.colors.darkGrey};
+    /* border: 2px solid ${({ theme }) => theme.colors.darkWhite}; */
+    border: none;
+    border-bottom: 2px solid ${({ theme }) => theme.colors.darkGrey};
     font-family: 'Montserrat', sans-serif;
-    padding: 10px;
+    padding: 10px 0;
+    background: none;
     font-size: ${({ theme }) => theme.fontSize.m};
+    transition: 0.5s ease;
+    color: ${({ theme }) => theme.colors.darkGrey};
+    outline: none;
+    &.ERROR {
+      transform: scale(0.99);
+      background: rgba(240, 25, 25, 40%);
+      padding: 10px;
+      transition: 0.5s ease;
+    }
+    &.VALID {
+      transform: scale(1.01);
+      border: none;
+      border-bottom: 2px solid #46f037;
+      transition: 0.5s ease;
+    }
   }
   textarea {
     width: 100%;
-    height: 150px;
+    outline: none;
+    /* border: 2px solid ${({ theme }) => theme.colors.darkWhite}; */
     border: 2px solid ${({ theme }) => theme.colors.darkGrey};
-    resize: none;
     font-family: 'Montserrat', sans-serif;
     padding: 10px;
+    background: none;
+    min-height: 200px;
+    margin-bottom: 30px;
     font-size: ${({ theme }) => theme.fontSize.m};
+    resize: none;
+    transition: 0.5s ease;
+    color: ${({ theme }) => theme.colors.darkGrey};
+    &.ERROR {
+      transform: scale(0.99);
+      background: rgba(240, 25, 25, 40%);
+      transition: 0.5s ease;
+      padding: 10px;
+    }
+    &.VALID {
+      transform: scale(1.01);
+      border: none;
+      border: 2px solid #46f037;
+      transition: 0.5s ease;
+    }
   }
   button {
     position: absolute;

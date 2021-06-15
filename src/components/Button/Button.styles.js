@@ -4,7 +4,7 @@ export const Wrapper = styled.button`
   cursor: pointer;
   position: relative;
   border: none;
-  width: 250px;
+  min-width: 250px;
   font-size: ${({ theme }) => theme.fontSize.m};
   background: ${({ theme }) => theme.colors.crimsonRed};
   color: ${({ theme }) => theme.colors.darkWhite};

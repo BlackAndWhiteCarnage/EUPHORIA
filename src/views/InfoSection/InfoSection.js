@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import emailjs from 'emailjs-com';
 // COMPONENTS
 import StyledButton from 'components/Button/Button';
 // STYLES
@@ -11,6 +12,67 @@ import Step4 from 'assets/icons/4step.svg';
 import Step5 from 'assets/icons/5step.svg';
 
 const InfoSection = () => {
+  const [emailSend, setEmailSend] = useState(false);
+  const [validEmail, setValidEmail] = useState(false);
+  const [validName, setValidName] = useState(false);
+  const [validMessage, setValidMessage] = useState(false);
+  const [feedback, setFeedback] = useState(null);
+
+  //Form and emailjs logic
+  const emailHandler = (e) => {
+    const valid = /\S+@\S+\.\S+/;
+    if (valid.test(e.target.value)) {
+      setValidEmail(true);
+    } else {
+      setValidEmail(false);
+    }
+  };
+
+  const nameHandler = (e) => {
+    console.log(e.target.value);
+    if (e.target.value.length >= 5) {
+      setValidName(true);
+    } else {
+      setValidName(false);
+    }
+  };
+
+  const messageHandler = (e) => {
+    if (e.target.value.length >= 20) {
+      setValidMessage(true);
+    } else {
+      setValidMessage(false);
+    }
+  };
+
+  function sendEmail(e) {
+    e.preventDefault();
+
+    if (validEmail && validMessage && validName) {
+      setEmailSend(true);
+      emailjs.sendForm('service_pkn9ez9', 'template_btr6t4a', e.target, 'user_wfAnEXgFR6wa0u7anAPJf').then(
+        (result) => {
+          console.log(result.text);
+          setEmailSend(true);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+    }
+  }
+
+  const checkValid = () => {
+    if (validEmail && validMessage && validName) {
+      setFeedback(1);
+    } else {
+      setFeedback(2);
+      setTimeout(() => {
+        setFeedback(0);
+      }, 2000);
+    }
+  };
+
   return (
     <Wrapper>
       {/* WHO AM I CONTENT BOX */}
@@ -58,15 +120,30 @@ const InfoSection = () => {
       {/* CONTACT BOX */}
       <Contact id='contact'>
         <div>
-          <Form>
+          <Form onSubmit={sendEmail}>
             <header>KONTAKT</header>
             <label htmlFor='Name'>IMIĘ</label>
-            <input id='Name'></input>
+            <input
+              id='Name'
+              onChange={nameHandler}
+              name='name'
+              className={`${feedback === 2 && !validName && 'ERROR'} ${validName && 'VALID'}`}
+            ></input>
             <label htmlFor='Email'>EMAIL</label>
-            <input id='Email'></input>
+            <input
+              id='Email'
+              onChange={emailHandler}
+              className={`${feedback === 2 && !validEmail && 'ERROR'} ${validEmail && 'VALID'}`}
+              name='email'
+            ></input>
             <label htmlFor='Message'>WIADOMOŚĆ</label>
-            <textarea id='Message'></textarea>
-            <StyledButton text='WYŚLIJ' />
+            <textarea
+              id='Message'
+              className={`${feedback === 2 && !validMessage && 'ERROR'} ${validMessage && 'VALID'}`}
+              onChange={messageHandler}
+              name='message'
+            ></textarea>
+            <StyledButton text='WYŚLIJ' className={feedback === 1 ? 'OK' : feedback === 2 && 'ERROR'} type='submit' click={checkValid} />
           </Form>
         </div>
       </Contact>

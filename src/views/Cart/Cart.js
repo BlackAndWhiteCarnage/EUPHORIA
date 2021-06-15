@@ -51,7 +51,6 @@ const Cart = ({ cart, setCart }) => {
   const [validMessage, setValidMessage] = useState(false);
   const [validCart, setValidCart] = useState(false);
   const [feedback, setFeedback] = useState(null);
-  const [sending, setSending] = useState(false);
 
   console.log(feedback);
 

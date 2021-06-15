@@ -212,7 +212,7 @@ export const FormWrapper = styled.div`
   justify-content: center;
   @media screen and (max-width: 1200px) {
     width: 100%;
-    min-height: 750px;
+    min-height: 800px;
     flex-direction: column;
     justify-content: flex-start;
   }
