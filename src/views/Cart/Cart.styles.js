@@ -8,8 +8,9 @@ import { ReactComponent as ArrowDown } from 'assets/icons/arrow-down-icon.svg';
 import { ReactComponent as ProgressIcon } from 'assets/icons/progress-icon.svg';
 import { ReactComponent as CheckIcon } from 'assets/icons/check-icon.svg';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled(motion.section)`
   position: relative;
   width: 80%;
   max-width: 1600px;
@@ -227,13 +228,7 @@ export const HeaderInfoWrapper = styled.div`
     max-height: unset;
   }
 `;
-export const Header = styled.h2`
-  color: ${({ theme }) => theme.colors.darkWhite};
-  width: 70%;
-  @media screen and (min-width: 680px) {
-    width: 80%;
-  }
-`;
+
 export const Discounts = styled.div`
   position: absolute;
   right: 0;

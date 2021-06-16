@@ -8,9 +8,12 @@ import AmazingCursor from 'components/AmazingCursor/AmazingCursor';
 import OfferSection from 'views/OfferSection/OfferSection';
 import InfoSection from 'views/InfoSection/InfoSection';
 import Navigation from 'components/Navigation/Navigation';
+import Onlyfans from 'components/Onlyfans/Onlyfans';
 import Shop from 'views/Shop/Shop';
 import Product from 'views/Product/Product';
 import Cart from 'views/Cart/Cart';
+import { AnimatePresence } from 'framer-motion';
+import PageTransitionWrapper from 'components/PageTransitionWrapper/PageTransitionWrapper';
 
 const Root = () => {
   const [cart, setCart] = useState([]);
@@ -33,28 +36,31 @@ const Root = () => {
   };
 
   return (
-    <BrowserRouter>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Navigation cart={cart} />
-        {matchMedia.matches && <AmazingCursor />}
-        <Switch>
-          <Route exact path='/'>
-            <OfferSection />
-            <InfoSection />
-          </Route>
-          <Route path='/koszyk' exact>
-            <Cart cart={cart} setCart={setCart} />
-          </Route>
-          <Route path='/sklepik/:id' exact>
-            <Shop cart={cart} />
-          </Route>
-          <Route path='/:id' exact>
-            <Product cart={cart} setCart={setCart} />
-          </Route>
-        </Switch>
-      </ThemeProvider>
-    </BrowserRouter>
+    <AnimatePresence exitBeforeEnter>
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <Navigation cart={cart} />
+          {matchMedia.matches && <AmazingCursor />}
+          <Switch>
+            <Route exact path='/'>
+              <OfferSection />
+              <InfoSection />
+              <Onlyfans />
+            </Route>
+            <Route path='/koszyk' exact>
+              <Cart cart={cart} setCart={setCart} />
+            </Route>
+            <Route path='/sklepik/:id' exact>
+              <Shop cart={cart} />
+            </Route>
+            <Route path='/:id' exact>
+              <Product cart={cart} setCart={setCart} />
+            </Route>
+          </Switch>
+        </ThemeProvider>
+      </BrowserRouter>
+    </AnimatePresence>
   );
 };
 

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
-export const Wrapper = styled.section`
+export const Wrapper = styled(motion.section)`
   width: 100%;
   height: 100vh;
   background: ${({ theme }) => theme.colors.darkWhite};
@@ -24,7 +25,7 @@ export const Wrapper = styled.section`
   }
 `;
 
-export const WhoAmI = styled.article`
+export const WhoAmI = styled(motion.article)`
   position: absolute;
   left: 0;
   top: 0;
@@ -61,7 +62,7 @@ export const WhoAmI = styled.article`
   }
 `;
 
-export const HowToBuy = styled.article`
+export const HowToBuy = styled(motion.article)`
   position: absolute;
   right: 0;
   top: 35%;
@@ -109,7 +110,7 @@ export const HowToBuy = styled.article`
   }
 `;
 
-export const Contact = styled.div`
+export const Contact = styled(motion.div)`
   position: absolute;
   left: 0;
   bottom: 0;

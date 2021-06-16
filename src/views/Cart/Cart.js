@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import emailjs from 'emailjs-com';
 import ValidIcon from 'assets/icons/valid-icon.svg';
+// ANIMATIONS
+import { pageAnimation } from 'animations/animations';
 
 import {
   Wrapper,
@@ -24,7 +26,6 @@ import {
   Input,
   TextArea,
   StyledAlertLink,
-  Header,
   HeaderInfoWrapper,
   StyledArrowDown,
   EmptyCartInfo,
@@ -36,6 +37,7 @@ import {
   StyledProgressIcon,
   StyledCheckIcon,
 } from './Cart.styles';
+import { Header } from 'views/OfferSection/OfferSection.styles';
 import { matchMedia } from 'helpers/matchMedia';
 import ArrowIcon from 'assets/icons/arrow-icon.svg';
 
@@ -51,8 +53,6 @@ const Cart = ({ cart, setCart }) => {
   const [validMessage, setValidMessage] = useState(false);
   const [validCart, setValidCart] = useState(false);
   const [feedback, setFeedback] = useState(null);
-
-  console.log(feedback);
 
   const togglePreviewExtrasHandler = (id) => {
     if (id === togglePreviewExtras) {
@@ -192,7 +192,8 @@ const Cart = ({ cart, setCart }) => {
   };
 
   return (
-    <Wrapper>
+    <Wrapper exit='exit' variants={pageAnimation} initial='hidden' animate='show'>
+      <Header>Fetysz majtki majteczki kup zamów noszone używane pięknie pachnące</Header>
       {cart.length > 0 ? (
         <>
           <CartItems>

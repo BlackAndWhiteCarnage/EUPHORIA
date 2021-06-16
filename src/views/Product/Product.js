@@ -4,7 +4,8 @@ import LoadingIcon from 'components/LoadingIcon/LoadingIcon';
 import { ProductWrapper, ButtonsWrapper, StyledButton } from './Product.styles';
 import ImagesWrapper from 'components/ImagesWrapper/ImagesWrapper';
 import ProductInfoWrapper from 'components/ProductInfoWrapper/ProductInfoWrapper';
-import styled from 'styled-components';
+// ANIMATIONS
+import { pageAnimation } from 'animations/animations';
 
 const Product = ({ cart, setCart, element }) => {
   const [data, setData] = useState();
@@ -51,7 +52,7 @@ const Product = ({ cart, setCart, element }) => {
   return (
     <>
       {data !== undefined ? (
-        <ProductWrapper>
+        <ProductWrapper exit='exit' variants={pageAnimation} initial='hidden' animate='show'>
           <ImagesWrapper data={data} />
           <ProductInfoWrapper
             data={data}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, Switch } from 'react-router-dom';
 import { Wrapper, ProductWrapper, ProductImage, ProductName, StyledDoneIcon, SeasonOfferInfo } from './Shop.styles';
+import { Header } from 'views/OfferSection/OfferSection.styles';
 import LoadingIcon from 'components/LoadingIcon/LoadingIcon';
 import Product from 'views/Product/Product';
 
@@ -28,6 +29,7 @@ const Shop = ({ cart }) => {
 
   return (
     <Wrapper>
+      <Header>Majtki noszone używane dla fetyszystów sprzedam rajstopy majteczki skarpetki</Header>
       {!data.length && path === 'rajstopy' ? (
         <SeasonOfferInfo>
           PRZEPRASZAM CIĘ NAJMOCNIEJ, RAJSTOPKI I POŃCZOSZKI U MNIE SĄ OFERTĄ SEZONOWĄ TERAZ JEST NA NIE TROSZECZKĘ ZA GORĄCO 😉

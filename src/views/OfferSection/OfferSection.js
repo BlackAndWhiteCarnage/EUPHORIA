@@ -1,6 +1,6 @@
 import React from 'react';
 // STYLES
-import { Wrapper, OffersWrapper, OnlyFansWrapper, OnlyFans } from './OfferSection.styles';
+import { Wrapper, OffersWrapper, Header } from './OfferSection.styles';
 // COMPONENTS
 import Offer from 'components/Offer/Offer';
 // IMAGES
@@ -11,13 +11,12 @@ import TightsImage from 'assets/images/tights.png';
 import SetsImage from 'assets/images/sets.png';
 import SessionsImage from 'assets/images/sessions.png';
 // ICONS
-import OnlyfansIcon from 'assets/icons/onlyfans-icon.svg';
+// ANIMATIONS
+import { pageAnimation } from 'animations/animations';
 
 const OfferSection = ({ element }) => (
-  <Wrapper ref={element}>
-    <OnlyFansWrapper href='https://onlyfans.com/u147186729' target='_blank' title='PRZEJDŹ DO ONLYFANS'>
-      <OnlyFans src={OnlyfansIcon} id='active' />
-    </OnlyFansWrapper>
+  <Wrapper ref={element} variants={pageAnimation} initial='hidden' animate='show' exit='exit'>
+    <Header>FETYSZ MAJTKI MAJTECZKI RAJSTOPY SKARPETKI NOSZONA UŻYWANA BIELIZNA</Header>
     <OffersWrapper id='offer'>
       <Offer image={SocksImage} content='SKARPETKI' gridArea='SKARPETKI' linkTo='skarpetki' />
       <Offer image={PantiesImage} content='MAJTKI' gridArea='MAJTKI' linkTo='majtki' />

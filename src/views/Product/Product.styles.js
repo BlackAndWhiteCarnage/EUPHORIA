@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import Button from 'components/Button/Button';
+import { motion } from 'framer-motion';
 
-export const ProductWrapper = styled.div`
+export const ProductWrapper = styled(motion.section)`
   width: 100%;
   height: 100vh;
   max-height: auto;

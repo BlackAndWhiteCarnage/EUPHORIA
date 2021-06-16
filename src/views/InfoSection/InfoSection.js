@@ -4,6 +4,7 @@ import emailjs from 'emailjs-com';
 import StyledButton from 'components/Button/Button';
 // STYLES
 import { Wrapper, WhoAmI, HowToBuy, Step, Contact, Form } from './InfoSection.styles';
+import { Header } from 'views/OfferSection/OfferSection.styles';
 // ICONS
 import Step1 from 'assets/icons/1step.svg';
 import Step2 from 'assets/icons/2step.svg';
@@ -77,6 +78,7 @@ const InfoSection = () => {
     <Wrapper>
       {/* WHO AM I CONTENT BOX */}
       <WhoAmI id='whoAmI'>
+        <Header>Używana noszona bielizna fetysz euphoria</Header>
         <div>
           <header>CZYM SIĘ ZAJMUJĘ</header>
           <p>
