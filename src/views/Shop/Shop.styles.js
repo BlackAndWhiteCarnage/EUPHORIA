@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { ReactComponent as DoneIcon } from 'assets/icons/done-icon.svg';
 
-export const Wrapper = styled.div`
+export const ShopWrapper = styled.section`
   width: 80%;
   height: 100%;
   display: flex;

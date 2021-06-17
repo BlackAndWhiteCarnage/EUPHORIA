@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-export const Wrapper = styled(motion.section)`
+export const OfferSectionWrapper = styled(motion.section)`
   width: 80%;
   height: 70vh;
   position: relative;
@@ -38,19 +38,5 @@ export const OffersWrapper = styled.div`
 export const Header = styled.header`
   pointer-events: none;
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 1vw;
-  color: rgba(255, 255, 255, 0);
-  width: 85%;
-  height: 80%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 20rem;
-  letter-spacing: 5rem;
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-  font-weight: bold;
+  opacity: 0;
 `;

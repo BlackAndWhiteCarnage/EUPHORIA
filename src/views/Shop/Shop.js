@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, Switch } from 'react-router-dom';
-import { Wrapper, ProductWrapper, ProductImage, ProductName, StyledDoneIcon, SeasonOfferInfo } from './Shop.styles';
-import { Header } from 'views/OfferSection/OfferSection.styles';
+import { useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
+// COMPONENTS
 import LoadingIcon from 'components/LoadingIcon/LoadingIcon';
-import Product from 'views/Product/Product';
+// STYLES
+import { ShopWrapper, ProductWrapper, ProductImage, ProductName, StyledDoneIcon, SeasonOfferInfo } from './Shop.styles';
+import { Header } from 'views/OfferSection/OfferSection.styles';
 
 const Shop = ({ cart }) => {
   const [data, setData] = useState([]);
@@ -17,7 +19,7 @@ const Shop = ({ cart }) => {
       setData(data[0].products);
     };
     fetchData();
-  }, [location.pathname]);
+  }, [path]);
 
   const checkIDHandler = (itemID) => {
     if (cart !== undefined && cart !== false) {
@@ -28,7 +30,7 @@ const Shop = ({ cart }) => {
   };
 
   return (
-    <Wrapper>
+    <ShopWrapper>
       <Header>Majtki noszone używane dla fetyszystów sprzedam rajstopy majteczki skarpetki</Header>
       {!data.length && path === 'rajstopy' ? (
         <SeasonOfferInfo>
@@ -39,22 +41,21 @@ const Shop = ({ cart }) => {
           .slice(0)
           .reverse()
           .map(({ name, id, images }) => (
-            <>
-              <ProductWrapper key={id} name={name} to={`/${id}`} className={checkIDHandler(id)}>
-                {images.length > 0 && <ProductImage src={images[0].url} id='active'></ProductImage>}
-                <ProductName>{name}</ProductName>
-                {checkIDHandler(id) && <StyledDoneIcon />}
-              </ProductWrapper>
-              <Switch>
-                <Product id={id} data={data} path={`/${id}`} />
-              </Switch>
-            </>
+            <ProductWrapper key={id} name={name} to={`/${id}`} className={checkIDHandler(id)}>
+              {images.length > 0 && <ProductImage src={images[0].url} id='active'></ProductImage>}
+              <ProductName>{name}</ProductName>
+              {checkIDHandler(id) && <StyledDoneIcon />}
+            </ProductWrapper>
           ))
       ) : (
         <LoadingIcon />
       )}
-    </Wrapper>
+    </ShopWrapper>
   );
+};
+
+Shop.propTypes = {
+  cart: PropTypes.array.isRequired,
 };
 
 export default Shop;

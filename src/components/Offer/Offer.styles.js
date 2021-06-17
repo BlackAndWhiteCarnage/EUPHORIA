@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-export const Wrapper = styled(Link)`
+export const OfferWrapper = styled(Link)`
   background: ${({ theme }) => theme.colors.white};
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
   /* PROPS FROM OFFER SECTION TO DEFINE GRID BY OFFER NAME*/
@@ -96,7 +96,7 @@ export const OfferTitle = styled.h2`
   }
 `;
 
-export const StyledImage = styled.img`
+export const OfferImage = styled.img`
   position: absolute;
   left: 50%;
   bottom: 0;

@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import ImagesWrapper from 'components/ImagesWrapper/ImagesWrapper';
+// COMPONENTS
+import ImagesWrapper from 'components/ProductImagesWrapper/ProductImagesWrapper';
 import ExtrasWrapper from 'components/ExtrasWrapper/ExtrasWrapper';
+import Discounts from 'components/Discounts/Discounts';
+// STYLES
 import {
   Wrapper,
   InfoWrapper,
@@ -11,8 +14,6 @@ import {
   ProductPrice,
   ButtonsWrapper,
   StyledButton,
-  Discounts,
-  DiscountsWrapper,
 } from './ProductInfoWrapper.styles';
 
 const ProductInfoWrapper = ({
@@ -28,22 +29,9 @@ const ProductInfoWrapper = ({
   cart,
   setCart,
 }) => {
-  const [toggleDiscounts, setToggleDiscounts] = useState(false);
-
-  const setToggleDiscountsHandler = () => {
-    setToggleDiscounts(!toggleDiscounts);
-  };
-
   return (
     <Wrapper>
-      <Discounts onClick={setToggleDiscountsHandler} className={toggleDiscounts && 'showDiscounts'}>
-        <span className={toggleDiscounts && 'showDiscounts'}>RABATY %</span>
-        <DiscountsWrapper className={toggleDiscounts && 'showDiscounts'}>
-          <p id='active'>OD 150zł RABAT -5%</p>
-          <p id='active'>OD 250zł RABAT -10%</p>
-          <p id='active'>OD 500zł RABAT -15%</p>
-        </DiscountsWrapper>
-      </Discounts>
+      <Discounts />
       <InfoWrapper>
         <ProductName>{data.name}</ProductName>
         <ProductDescription>{data.description}</ProductDescription>
@@ -70,7 +58,6 @@ const ProductInfoWrapper = ({
       </InfoWrapper>
       <ImagesWrapper data={data} desktop />
       <ExtrasWrapper
-        addToCartHandler={addToCartHandler}
         cart={cart}
         setCart={setCart}
         data={data}
@@ -91,6 +78,12 @@ ProductInfoWrapper.propTypes = {
   toggleExtrasHandler: PropTypes.func.isRequired,
   setExtrasDataAndTimes: PropTypes.func.isRequired,
   toggleExtras: PropTypes.bool.isRequired,
+  setToggleExtras: PropTypes.func.isRequired,
+  cart: PropTypes.array.isRequired,
+  setCart: PropTypes.func.isRequired,
+  addToCartHandler: PropTypes.func.isRequired,
+  setPickExtras: PropTypes.func.isRequired,
+  pickExtras: PropTypes.object.isRequired,
 };
 
 export default ProductInfoWrapper;

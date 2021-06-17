@@ -1,6 +1,4 @@
 import React from 'react';
-// STYLES
-import { Wrapper, OffersWrapper, Header } from './OfferSection.styles';
 // COMPONENTS
 import Offer from 'components/Offer/Offer';
 // IMAGES
@@ -10,12 +8,11 @@ import PremiumImage from 'assets/images/premium.png';
 import TightsImage from 'assets/images/tights.png';
 import SetsImage from 'assets/images/sets.png';
 import SessionsImage from 'assets/images/sessions.png';
-// ICONS
-// ANIMATIONS
-import { pageAnimation } from 'animations/animations';
+// STYLES
+import { OfferSectionWrapper, OffersWrapper, Header } from './OfferSection.styles';
 
-const OfferSection = ({ element }) => (
-  <Wrapper ref={element} variants={pageAnimation} initial='hidden' animate='show' exit='exit'>
+const OfferSection = () => (
+  <OfferSectionWrapper>
     <Header>FETYSZ MAJTKI MAJTECZKI RAJSTOPY SKARPETKI NOSZONA UŻYWANA BIELIZNA</Header>
     <OffersWrapper id='offer'>
       <Offer image={SocksImage} content='SKARPETKI' gridArea='SKARPETKI' linkTo='skarpetki' />
@@ -25,7 +22,7 @@ const OfferSection = ({ element }) => (
       <Offer image={SetsImage} content='INNE' gridArea='INNE' linkTo='inne' />
       <Offer image={SessionsImage} content='SESJE, FOTKI I NAGRANIA' gridArea='SESJE' linkTo='fotki i nagrania' />
     </OffersWrapper>
-  </Wrapper>
+  </OfferSectionWrapper>
 );
 
 export default OfferSection;

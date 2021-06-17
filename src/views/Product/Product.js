@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import LoadingIcon from 'components/LoadingIcon/LoadingIcon';
-import { ProductWrapper, ButtonsWrapper, StyledButton } from './Product.styles';
-import ImagesWrapper from 'components/ImagesWrapper/ImagesWrapper';
+import PropTypes from 'prop-types';
+// COMPONENTS
 import ProductInfoWrapper from 'components/ProductInfoWrapper/ProductInfoWrapper';
+import ProductImagesWrapper from 'components/ProductImagesWrapper/ProductImagesWrapper';
+import LoadingIcon from 'components/LoadingIcon/LoadingIcon';
+// STYLES
+import { ProductWrapper, ButtonsWrapper, StyledButton } from './Product.styles';
+// HELPERS
+import { matchMedia } from 'helpers/matchMedia';
 // ANIMATIONS
 import { pageAnimation } from 'animations/animations';
 
-const Product = ({ cart, setCart, element }) => {
+const Product = ({ cart, setCart }) => {
   const [data, setData] = useState();
   const [toggleExtras, setToggleExtras] = useState(false);
   const [extrasDataAndTimes, setExtrasDataAndTimes] = useState({
@@ -18,6 +23,7 @@ const Product = ({ cart, setCart, element }) => {
     price: 0,
     pickedExtras: [],
   });
+
   const location = useLocation();
   const path = location.pathname.replace('/', '');
 
@@ -28,8 +34,7 @@ const Product = ({ cart, setCart, element }) => {
       setData(data);
     };
     fetchData();
-    return () => {};
-  }, [location.pathname]);
+  }, [path]);
 
   const toggleExtrasHandler = () => {
     setToggleExtras(!toggleExtras);
@@ -53,7 +58,7 @@ const Product = ({ cart, setCart, element }) => {
     <>
       {data !== undefined ? (
         <ProductWrapper exit='exit' variants={pageAnimation} initial='hidden' animate='show'>
-          <ImagesWrapper data={data} />
+          <ProductImagesWrapper data={data} />
           <ProductInfoWrapper
             data={data}
             extrasDataAndTimes={extrasDataAndTimes}
@@ -67,7 +72,7 @@ const Product = ({ cart, setCart, element }) => {
             cart={cart}
             setCart={setCart}
           />
-          {window.innerWidth > 1250 && (
+          {matchMedia.matches && (
             <ButtonsWrapper>
               {extrasDataAndTimes !== null && (
                 <StyledButton
@@ -85,6 +90,11 @@ const Product = ({ cart, setCart, element }) => {
       )}
     </>
   );
+};
+
+Product.propTypes = {
+  cart: PropTypes.array,
+  setCart: PropTypes.func,
 };
 
 export default Product;

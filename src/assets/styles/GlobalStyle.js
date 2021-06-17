@@ -12,11 +12,11 @@ export const GlobalStyle = createGlobalStyle`
     }
     body{
         font-family: 'Montserrat', sans-serif;
+        font-weight: bolder;
         color: ${({ theme }) => theme.colors.darkGrey};
         overflow-x: hidden;
         background: ${({ theme }) => theme.colors.darkWhite};
         overflow: ${(props) => props.overflowChange && 'hidden'};
-
     }
     ::-webkit-scrollbar {
     width: 10px;

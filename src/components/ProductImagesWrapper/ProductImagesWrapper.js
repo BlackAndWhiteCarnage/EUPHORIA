@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { ImageWrapper, Image, StyledScrollIcon, StyledScrollIconDark, ScrollInfoWrapper, Dot } from './ImagesWrapper.styles';
+import { ImageWrapper, Image, ScrollInfoWrapper, Dot } from './ProductImagesWrapper.styles';
 
-const ImagesWrapper = ({ data, desktop }) => {
+const ProductImagesWrapper = ({ data, desktop }) => {
   const [current, setCurrent] = useState(0);
   const [imagesLength, setImagesLength] = useState(0);
 
@@ -14,8 +14,7 @@ const ImagesWrapper = ({ data, desktop }) => {
     if (data !== undefined) {
       setImagesLength(data.images.length);
     }
-    return;
-  }, []);
+  }, [data]);
 
   return (
     <ImageWrapper>
@@ -36,9 +35,9 @@ const ImagesWrapper = ({ data, desktop }) => {
   );
 };
 
-ImagesWrapper.propTypes = {
+ProductImagesWrapper.propTypes = {
   data: PropTypes.object.isRequired,
   desktop: PropTypes.bool,
 };
 
-export default ImagesWrapper;
+export default ProductImagesWrapper;

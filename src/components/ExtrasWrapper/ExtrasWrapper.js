@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
+// DATA
 import { panties, socks, premium, tights } from 'data/extras';
+// STYLES
 import { Wrapper, ExtrasInfoWrapper, ExtrasInfo, ExtrasOption } from './ExtrasWrapper.styles';
 
 const ExtrasWrapper = ({
@@ -12,15 +14,44 @@ const ExtrasWrapper = ({
   pickExtras,
   setPickExtras,
   cart,
-  addToCartHandler,
   setCart,
 }) => {
   const [prevCartItem, setPrevCartItem] = useState();
 
-  useEffect(() => {
-    data !== undefined && getExtrasHandler();
+  const findInCart = cart.find((item) => item.id === data.id);
 
-    return () => {};
+  useEffect(() => {
+    const getExtrasHandler = () => {
+      const name = data.category.name;
+
+      if (name === 'majtki') {
+        setExtrasDataAndTimes({
+          times: 1,
+          data: panties,
+        });
+      } else if (name === 'skarpetki') {
+        setExtrasDataAndTimes({
+          times: 1,
+          data: socks,
+        });
+      } else if (name === 'rajstopy') {
+        setExtrasDataAndTimes({
+          times: 1,
+          data: tights,
+        });
+      } else if (name === 'premium') {
+        setExtrasDataAndTimes({
+          times: premium.length,
+          data: premium,
+        });
+      } else if (name === 'inne') {
+        setExtrasDataAndTimes(undefined);
+      } else {
+        setExtrasDataAndTimes(null);
+      }
+    };
+
+    data !== undefined && getExtrasHandler();
   }, [data]);
 
   useEffect(() => {
@@ -30,56 +61,19 @@ const ExtrasWrapper = ({
       }
     });
 
-    const foundItem = cart.find((item) => item.id === data.id);
-
-    if (foundItem !== undefined) {
-      console.log(foundItem);
+    if (findInCart !== undefined) {
       setPickExtras({
-        price: foundItem.price - foundItem.initialPrice,
-        pickedExtras: [...foundItem.pickedExtras],
+        price: findInCart.price - findInCart.initialPrice,
+        pickedExtras: [...findInCart.pickedExtras],
       });
     }
-
-    return;
   }, []);
 
   useEffect(() => {
-    const findInCart = cart.find((item) => item.id === data.id);
-
     if (cart.find((item) => item.id === data.id)) {
       setCart([...cart], (findInCart.pickedExtras = pickExtras.pickedExtras));
     }
   }, [pickExtras]);
-
-  const getExtrasHandler = () => {
-    const name = data.category.name;
-
-    if (name === 'majtki') {
-      setExtrasDataAndTimes({
-        times: 1,
-        data: panties,
-      });
-    } else if (name === 'skarpetki') {
-      setExtrasDataAndTimes({
-        times: 1,
-        data: socks,
-      });
-    } else if (name === 'rajstopy') {
-      setExtrasDataAndTimes({
-        times: 1,
-        data: tights,
-      });
-    } else if (name === 'premium') {
-      setExtrasDataAndTimes({
-        times: premium.length,
-        data: premium,
-      });
-    } else if (name === 'inne') {
-      setExtrasDataAndTimes(undefined);
-    } else {
-      setExtrasDataAndTimes(null);
-    }
-  };
 
   const extrasToPickHandler = (extras) => {
     setPickExtras({
@@ -100,8 +94,6 @@ const ExtrasWrapper = ({
     setPrevCartItem(cart.find((item) => item.id === data.id) && cart.find((item) => item.id === data.id).pickedExtras);
 
     if (prevCartItem) {
-      const findInCart = cart.find((item) => item.id === data.id);
-
       if (prevCartItem.length > cart.find((item) => item.id === data.id).pickedExtras.length && findInCart.price > findInCart.initialPrice) {
         setCart([...cart], (findInCart.price = findInCart.price - 10));
       } else if (
@@ -149,6 +141,11 @@ ExtrasWrapper.propTypes = {
   setExtrasDataAndTimes: PropTypes.func.isRequired,
   extrasDataAndTimes: PropTypes.object,
   toggleExtras: PropTypes.bool.isRequired,
+  setToggleExtras: PropTypes.func.isRequired,
+  pickExtras: PropTypes.object.isRequired,
+  setPickExtras: PropTypes.func.isRequired,
+  cart: PropTypes.array.isRequired,
+  setCart: PropTypes.func.isRequired,
 };
 
 export default ExtrasWrapper;

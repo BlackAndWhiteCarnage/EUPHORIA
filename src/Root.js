@@ -3,7 +3,10 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { GlobalStyle } from 'assets/styles/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
 import { theme } from 'assets/styles/theme';
+import { AnimatePresence } from 'framer-motion';
+// HELPERS
 import { matchMedia } from 'helpers/matchMedia';
+// COMPONENTS
 import AmazingCursor from 'components/AmazingCursor/AmazingCursor';
 import OfferSection from 'views/OfferSection/OfferSection';
 import InfoSection from 'views/InfoSection/InfoSection';
@@ -12,8 +15,6 @@ import Onlyfans from 'components/Onlyfans/Onlyfans';
 import Shop from 'views/Shop/Shop';
 import Product from 'views/Product/Product';
 import Cart from 'views/Cart/Cart';
-import { AnimatePresence } from 'framer-motion';
-import PageTransitionWrapper from 'components/PageTransitionWrapper/PageTransitionWrapper';
 
 const Root = () => {
   const [cart, setCart] = useState([]);

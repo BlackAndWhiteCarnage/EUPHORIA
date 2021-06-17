@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import emailjs from 'emailjs-com';
-import ValidIcon from 'assets/icons/valid-icon.svg';
 // ANIMATIONS
 import { pageAnimation } from 'animations/animations';
 
@@ -26,10 +25,7 @@ import {
   Input,
   TextArea,
   StyledAlertLink,
-  HeaderInfoWrapper,
-  StyledArrowDown,
   EmptyCartInfo,
-  Discounts,
   Info,
   Checkbox,
   CheckboxWrapper,
@@ -38,8 +34,6 @@ import {
   StyledCheckIcon,
 } from './Cart.styles';
 import { Header } from 'views/OfferSection/OfferSection.styles';
-import { matchMedia } from 'helpers/matchMedia';
-import ArrowIcon from 'assets/icons/arrow-icon.svg';
 
 const Cart = ({ cart, setCart }) => {
   const [togglePreviewExtras, setTogglePreviewExtras] = useState();
@@ -137,7 +131,6 @@ const Cart = ({ cart, setCart }) => {
   };
 
   const nameHandler = (e) => {
-    console.log(e.target.value);
     if (e.target.value.length >= 5) {
       setValidName(true);
     } else {
@@ -198,7 +191,7 @@ const Cart = ({ cart, setCart }) => {
         <>
           <CartItems>
             {cart.map((item) => (
-              <CartItem className={item.id === deletingItem && 'deleting'}>
+              <CartItem className={item.id === deletingItem && 'deleting'} key={item.name}>
                 <ItemImage src={item.images[0].url} />
                 <ItemInfoWrapper>
                   <p>{item.name}</p>

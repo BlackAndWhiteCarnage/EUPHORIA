@@ -3,7 +3,7 @@ import emailjs from 'emailjs-com';
 // COMPONENTS
 import StyledButton from 'components/Button/Button';
 // STYLES
-import { Wrapper, WhoAmI, HowToBuy, Step, Contact, Form } from './InfoSection.styles';
+import { InfoSectionWrapper, WhoAmI, HowToBuy, Step, Contact, Form } from './InfoSection.styles';
 import { Header } from 'views/OfferSection/OfferSection.styles';
 // ICONS
 import Step1 from 'assets/icons/1step.svg';
@@ -13,7 +13,6 @@ import Step4 from 'assets/icons/4step.svg';
 import Step5 from 'assets/icons/5step.svg';
 
 const InfoSection = () => {
-  const [emailSend, setEmailSend] = useState(false);
   const [validEmail, setValidEmail] = useState(false);
   const [validName, setValidName] = useState(false);
   const [validMessage, setValidMessage] = useState(false);
@@ -30,7 +29,6 @@ const InfoSection = () => {
   };
 
   const nameHandler = (e) => {
-    console.log(e.target.value);
     if (e.target.value.length >= 5) {
       setValidName(true);
     } else {
@@ -50,11 +48,9 @@ const InfoSection = () => {
     e.preventDefault();
 
     if (validEmail && validMessage && validName) {
-      setEmailSend(true);
       emailjs.sendForm('service_pkn9ez9', 'template_btr6t4a', e.target, 'user_wfAnEXgFR6wa0u7anAPJf').then(
         (result) => {
           console.log(result.text);
-          setEmailSend(true);
         },
         (error) => {
           console.log(error.text);
@@ -75,42 +71,46 @@ const InfoSection = () => {
   };
 
   return (
-    <Wrapper>
+    <InfoSectionWrapper>
       {/* WHO AM I CONTENT BOX */}
       <WhoAmI id='whoAmI'>
         <Header>Używana noszona bielizna fetysz euphoria</Header>
         <div>
           <header>CZYM SIĘ ZAJMUJĘ</header>
           <p>
-            Zacznę od tego że do każdego klienta podchodzę indywidualnie. Kupując majteczki lub inny produkt masz gwarancję dyskrecji oraz tego że
-            pozostaniesz anonimowy a ja będę mogła zaangażować się w Twoje zamówienie. Ba! Składając je, nie musisz nawet podawać imienia. Zamówienia
-            zawsze są zapakowane starannie w pudełeczko oraz owinięte papierem prezentowym ze wstążeczką a do tego całość zawsze akcentuje zapachem
-            moich ulubionych perfum. Same majteczki także są wysokich lotów bo większość z nich jest bawełniana a co za tym idzie lepiej chłoną mój
-            zapach i dłużej go utrzymują. Ponadto każda sztuka pakowana jest w woreczek strunowy. A tak o sobie samej powiem że mam 20 lat więc jestem
-            młodziutka, seksowna i cholernie zboczona. O więcej szczegółów będziesz musiał spytać sam.
+            Hejka! Zajmuję się sprzedażą noszonej oraz używanej bielizny. W świat fetyszyzmu wkroczyłam z wielkim przytupem całe dwa lata temu a swoją
+            działaność dalej poszerzam i rozwijam o różne nowości czy portale takie jak Allegro lub Onlyfans. Znajdziesz w mojej ofercie majtki,
+            skarpetki, rajstopy, pończochy, zestawy bielizny oraz sesje zdjęciowe. Sporadycznie pojawiają się także buty! Nie uważam się za żadną
+            królową tego świata aczkolwiek uprzedzam, dostając ode mnie paczuszkę sam mnie nią mianujesz. Lubię to co robię i mnie to cholernie
+            podnieca, stąd także przywiązuję do tego ogromną wagę a przygotowując zamówienia do każdego klienta podchodzę indywidualnie. Jeśli nie
+            masz pojęcia z czym to się wiążę lub jak to wszystko działa, serdecznie zapraszam do kontaktu gdyż chętnie pomogę i wprowadzę Cię w świat
+            fetyszy.
           </p>
         </div>
       </WhoAmI>
-      {/* HOW TO BOY CONTENT BOX */}
+      {/* HOW TO BUY CONTENT BOX */}
       <HowToBuy id='howToBuy'>
         <div>
           <header>JAK WYGLĄDA ZAKUP</header>
           <ul>
             <li>
               <Step src={Step1} />
-              <p>Aby złożyć zamówienie wejdź w interesującą Cię kategorię, dodaj produkt do koszyka po czym wypełnij formularz kontaktowy</p>
+              <p>
+                Aby złożyć zamówienie wejdź w interesującą Cię kategorię, dodaj produkt do koszyka i wybierz dodatki po czym wypełnij formularz
+                kontaktowy
+              </p>
             </li>
             <li>
               <Step src={Step2} />
-              <p>Następnie zamówienie trafia do mnie gdzie ustalamy szczegóły oraz koszta</p>
+              <p>Następnie zamówienie trafia do mnie więc mogę się do Ciebie odezwać aby omówić szczegóły</p>
             </li>
             <li>
               <Step src={Step3} />
-              <p>Po tym otrzymasz ode mnie numer konta bankowego na które przelejesz ustaloną kwotę</p>
+              <p>Ustalamy razem formę płatności, i rezerwujemy termin wysyłki po wpłacie</p>
             </li>
             <li>
               <Step src={Step4} />
-              <p>Zaczynam przygotowywać Twoje majteczki, skarpetki lub inną wybraną rzecz według naszych ustaleń</p>
+              <p>Kiedy przyjdzie czas na Twoje zamówienie zaczynam je przygotowywać według naszych ustaleń</p>
             </li>
             <li>
               <Step src={Step5} />
@@ -131,7 +131,7 @@ const InfoSection = () => {
               name='name'
               className={`${feedback === 2 && !validName && 'ERROR'} ${validName && 'VALID'}`}
               placeholder='PRZYNAJMNEJ 5 ZNAKÓW'
-            ></input>
+            />
             <label htmlFor='Email'>EMAIL</label>
             <input
               id='Email'
@@ -139,7 +139,7 @@ const InfoSection = () => {
               className={`${feedback === 2 && !validEmail && 'ERROR'} ${validEmail && 'VALID'}`}
               name='email'
               placeholder={'EMAIL'}
-            ></input>
+            />
             <label htmlFor='Message'>WIADOMOŚĆ</label>
             <textarea
               id='Message'
@@ -147,12 +147,12 @@ const InfoSection = () => {
               onChange={messageHandler}
               name='message'
               placeholder={'PRZYNEJMNIEJ 20 ZNAKÓW'}
-            ></textarea>
+            />
             <StyledButton text='WYŚLIJ' className={feedback === 1 ? 'OK' : feedback === 2 && 'ERROR'} type='submit' click={checkValid} />
           </Form>
         </div>
       </Contact>
-    </Wrapper>
+    </InfoSectionWrapper>
   );
 };
 

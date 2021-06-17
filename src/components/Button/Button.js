@@ -20,9 +20,12 @@ const Button = ({ text, className, click, id, itemID, cart, type }) => {
 
 Button.propTypes = {
   text: PropTypes.string.isRequired,
-  className: PropTypes.string,
+  className: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   click: PropTypes.func,
   id: PropTypes.string,
+  itemID: PropTypes.string,
+  cart: PropTypes.array,
+  type: PropTypes.string,
 };
 
 export default Button;

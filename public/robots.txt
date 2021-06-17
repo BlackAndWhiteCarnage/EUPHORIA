@@ -1,3 +1,7 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+Allow: /sklep/majteczki
+Allow: /sklep/skarpetki
+Allow: /sklep/rajstopy
+Allow: /sklep/inne
+Allow: /sklep/premium
