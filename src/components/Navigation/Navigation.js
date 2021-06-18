@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import { matchMedia } from 'helpers/matchMedia';
 // COMPONENTS
 import SocialMediaWrapper from 'components/SocialMediaWrapper/SocialMediaWrapper';
-import HamburgerMenu from 'components/HamburgerMenu/HamburgerMenu';
+import HamburgerMenuAndModal from 'components/HamburgerMenuAndModal/HamburgerMenuAndModal';
 // ICONS
 import CartIcon from 'assets/icons/cart-icon.svg';
 // STYLES
@@ -81,12 +81,14 @@ const Navigation = ({ cart }) => {
           )}
         </CartAndLogoWrapper>
         <NavItems>
+          {/* NAV FOR MAIN PAGE */}
           {location.pathname === '/' ? (
             <NavItem to='/' exact>
               STRONA GŁÓWNA
             </NavItem>
           ) : (
             <>
+              {/* NAV IN SHOP */}
               <NavItem to='/' exact>
                 STRONA GŁÓWNA
               </NavItem>
@@ -114,7 +116,7 @@ const Navigation = ({ cart }) => {
         </NavItems>
       </Wrapper>
       {/* HAMBURGER MENU */}
-      <HamburgerMenu />
+      <HamburgerMenuAndModal />
     </nav>
   );
 };

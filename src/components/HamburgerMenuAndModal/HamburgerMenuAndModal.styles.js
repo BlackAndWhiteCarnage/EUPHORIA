@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export const HamburgerMenuWrapper = styled.div`
   position: fixed;
@@ -152,7 +152,7 @@ export const ModalLink = styled.a`
   }
 `;
 
-export const ModalNavItem = styled(Link).attrs({ activeClassName: 'active-link' })`
+export const ModalNavItem = styled(NavLink).attrs({ activeClassName: 'active-link' })`
   font-size: ${({ theme }) => theme.fontSize.l};
   text-align: center;
   font-weight: bolder;

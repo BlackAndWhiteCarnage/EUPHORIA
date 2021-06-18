@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { HamburgerMenuWrapper, Dot, Modal, ModalLink, ModalLinksWrapper, ModalNavItem, StyledDot } from './HamburgerMenu.styles';
+import { HamburgerMenuWrapper, Dot, Modal, ModalLink, ModalLinksWrapper, ModalNavItem, StyledDot } from './HamburgerMenuAndModal.styles';
 import SocialMediaWrapper from 'components/SocialMediaWrapper/SocialMediaWrapper';
 import { useLocation } from 'react-router';
 
-const HamburgerMenu = () => {
+const HamburgerMenuAndModal = () => {
   const [toggleModal, setToggleModal] = useState(false);
   const location = useLocation();
 
@@ -72,4 +72,4 @@ const HamburgerMenu = () => {
   );
 };
 
-export default HamburgerMenu;
+export default HamburgerMenuAndModal;
