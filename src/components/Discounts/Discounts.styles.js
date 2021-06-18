@@ -15,10 +15,6 @@ export const DiscountsInfoWrapper = styled.div`
   transition: 0.5s ease-in-out;
   overflow: hidden;
   cursor: pointer;
-  &:hover {
-    /* width: 50px;
-    transition: 0.3 ease; */
-  }
   @media screen and (max-width: 1250px) {
     top: 0;
     z-index: 200;

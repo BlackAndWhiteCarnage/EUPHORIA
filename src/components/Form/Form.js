@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
+import PropTypes from 'prop-types';
+// STYLES
 import {
   FormWrapper,
   SendingInProgress,
@@ -141,6 +143,11 @@ const Form = ({ cart, summary }) => {
       </Info>
     </FormWrapper>
   );
+};
+
+Form.propTypes = {
+  cart: PropTypes.array.isRequired,
+  summary: PropTypes.func.isRequired,
 };
 
 export default Form;

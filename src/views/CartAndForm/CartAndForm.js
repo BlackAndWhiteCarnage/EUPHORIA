@@ -1,10 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+// COMPONENTS
 import Form from 'components/Form/Form';
 import Cart from 'components/Cart/Cart';
+import CartTotalValue from 'components/CartTotalValue/CartTotalValue';
+// STYLES
+import { Header } from 'views/OfferSection/OfferSection.styles';
+import { Wrapper, EmptyCartInfo } from './CartAndForm.styles';
 // ANIMATIONS
 import { pageAnimation } from 'animations/animations';
-import { Wrapper, CostsInfoWrapper, EmptyCartInfo } from './CartAndForm.styles';
-import { Header } from 'views/OfferSection/OfferSection.styles';
 
 const CartAndForm = ({ cart, setCart }) => {
   let cartValues = cart.map((item) => {
@@ -26,18 +29,6 @@ const CartAndForm = ({ cart, setCart }) => {
     }
   };
 
-  let discountValue = () => {
-    let values = cartValues.reduce((a, b) => a + b).toFixed(2);
-
-    return values - summary();
-  };
-
-  useEffect(() => {
-    if (cart.length > 0) {
-      summary();
-    }
-  }, [cart]);
-
   return (
     <Wrapper exit='exit' variants={pageAnimation} initial='hidden' animate='show'>
       <Header>Fetysz majtki majteczki kup zamów noszone używane pięknie pachnące</Header>
@@ -45,14 +36,7 @@ const CartAndForm = ({ cart, setCart }) => {
         <>
           <Cart cart={cart} setCart={setCart} />
           <Form cart={cart} summary={summary} />
-          <CostsInfoWrapper>
-            <p>
-              RAZEM <span>{cart.length > 0 && summary()}</span> ZŁ {summary() >= 142.5 && `W TYM RABAT ${discountValue().toFixed(2)} ZŁ`}
-            </p>
-            <p>
-              <span>DARMOWA</span> WYSYŁKA
-            </p>
-          </CostsInfoWrapper>
+          <CartTotalValue cart={cart} summary={summary} cartValues={cartValues} />
         </>
       ) : (
         <EmptyCartInfo>TWÓJ KOSZYK JEST PUSTY</EmptyCartInfo>

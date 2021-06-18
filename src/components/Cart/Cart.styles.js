@@ -18,9 +18,6 @@ export const CartItems = styled.div`
   @media screen and (max-width: 1200px) {
     min-width: unset;
     width: 100%;
-    /* ::-webkit-scrollbar {
-      display: none;
-    } */
   }
 `;
 

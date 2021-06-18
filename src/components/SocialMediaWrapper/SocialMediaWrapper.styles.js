@@ -20,10 +20,11 @@ export const Wrapper = styled.div`
 `;
 
 export const Icon = styled.img`
-  min-width: 18px;
+  width: 18px;
+  max-height: 18px;
   transition: 0.3s ease;
   @media screen and (max-width: 1250px) {
-    min-width: 25px;
+    min-height: 25px;
     margin-bottom: 50px;
   }
   &:hover {

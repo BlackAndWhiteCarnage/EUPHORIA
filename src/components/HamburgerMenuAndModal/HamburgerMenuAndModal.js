@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { HamburgerMenuWrapper, Dot, Modal, ModalLink, ModalLinksWrapper, ModalNavItem, StyledDot } from './HamburgerMenuAndModal.styles';
-import SocialMediaWrapper from 'components/SocialMediaWrapper/SocialMediaWrapper';
 import { useLocation } from 'react-router';
+// COMPONENTS
+import SocialMediaWrapper from 'components/SocialMediaWrapper/SocialMediaWrapper';
+// STYLES
+import { HamburgerMenuWrapper, Dot, Modal, ModalLink, ModalLinksWrapper, ModalNavItem, StyledDot } from './HamburgerMenuAndModal.styles';
 
 const HamburgerMenuAndModal = () => {
   const [toggleModal, setToggleModal] = useState(false);

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+// STYLES
 import {
   CartItems,
   CartItem,
@@ -69,9 +71,7 @@ const Cart = ({ cart, setCart }) => {
                 <>
                   <PickedExtras>WYBRANE DODATKI</PickedExtras>
                   {item.pickedExtras.map((extras) => (
-                    <>
-                      <span>{extras}</span>
-                    </>
+                    <span>{extras}</span>
                   ))}
                 </>
               ) : (
@@ -102,6 +102,11 @@ const Cart = ({ cart, setCart }) => {
       ))}
     </CartItems>
   );
+};
+
+Cart.propTypes = {
+  cart: PropTypes.array.isRequired,
+  setCart: PropTypes.func.isRequired,
 };
 
 export default Cart;

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// STYLES
 import { DiscountsInfoWrapper, DiscountsWrapper } from './Discounts.styles';
 
 const Discounts = () => {
@@ -19,7 +20,5 @@ const Discounts = () => {
     </DiscountsInfoWrapper>
   );
 };
-
-Discounts.propTypes = {};
 
 export default Discounts;

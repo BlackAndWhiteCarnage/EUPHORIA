@@ -51,23 +51,6 @@ export const Wrapper = styled.button`
     justify-content: center;
     transition: 0.5s ease;
   }
-  /* &.warn {
-    width: 50%;
-    transition: 0.5s ease;
-    &::after {
-      transition: 0.5s ease;
-      top: 0;
-      left: 0;
-      position: absolute;
-      content: 'WYBIERZ PRZYJAMNIEJ 1 DODATEK';
-      width: 100%;
-      height: 100%;
-      background: ${({ theme }) => theme.colors.darkGrey};
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  } */
   &.added {
     pointer-events: none;
     transition: 0.5 ease;
@@ -94,7 +77,6 @@ export const Wrapper = styled.button`
       content: 'COŚ ŹLE WYPEŁNIŁEŚ';
       width: 100%;
       height: 100%;
-      /* background: #f03737; */
       pointer-events: none;
       display: flex;
       align-items: center;
