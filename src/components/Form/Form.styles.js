@@ -80,16 +80,36 @@ export const AccualForm = styled.form`
   @media screen and (max-width: 460px) {
     width: 90%;
   }
+  label,
+  input,
+  textarea {
+    color: ${({ theme }) => theme.colors.darkWhite};
+    font-weight: bolder;
+    font-family: 'Montserrat', sans-serif;
+    background: none;
+    position: relative;
+    &:focus {
+      background: ${({ theme }) => theme.colors.darkWhite};
+      color: ${({ theme }) => theme.colors.darkGrey};
+      padding: 10px;
+    }
+  }
   &.mainPage {
     width: 100%;
     height: 100%;
     margin: 0;
+    input,
+    textarea,
     label {
       color: ${({ theme }) => theme.colors.darkGrey};
+      font-weight: bolder;
+      &:focus {
+        background: ${({ theme }) => theme.colors.darkGrey};
+        color: ${({ theme }) => theme.colors.darkWhite};
+        padding: 10px;
+      }
     }
     input {
-      color: ${({ theme }) => theme.colors.darkGrey};
-      font-weight: bolder;
       border-bottom: 2px solid ${({ theme }) => theme.colors.darkGrey};
       &.VALID {
         transform: scale(1.01);
@@ -99,8 +119,6 @@ export const AccualForm = styled.form`
       }
     }
     textarea {
-      color: ${({ theme }) => theme.colors.darkGrey};
-      font-weight: bolder;
       border: 2px solid ${({ theme }) => theme.colors.darkGrey};
       &.VALID {
         transform: scale(1.01);
@@ -128,9 +146,15 @@ export const Info = styled.div`
   z-index: 20;
   padding: 0 20px;
   cursor: pointer;
+  overflow: hidden;
   &.show {
     transition: 0.5s ease;
     height: calc(100% - 35px);
+    padding: 0 40px;
+    font-size: ${({ theme }) => theme.fontSize.l};
+    @media screen and (max-width: 460px) {
+      font-size: ${({ theme }) => theme.fontSize.m};
+    }
   }
   @media screen and (min-width: 1250px) {
     width: 150px;
@@ -147,21 +171,16 @@ export const Info = styled.div`
 export const Label = styled.label`
   margin: 25px 0 5px 0;
   width: 100%;
-  color: ${({ theme }) => theme.colors.darkWhite};
   cursor: pointer;
 `;
 
 export const Input = styled.input`
   width: 100%;
-  /* border: 2px solid ${({ theme }) => theme.colors.darkWhite}; */
   border: none;
   border-bottom: 2px solid ${({ theme }) => theme.colors.darkWhite};
-  font-family: 'Montserrat', sans-serif;
   padding: 10px 0;
-  background: none;
   font-size: ${({ theme }) => theme.fontSize.m};
   transition: 0.5s ease;
-  color: ${({ theme }) => theme.colors.darkWhite};
   outline: none;
   &.ERROR {
     transform: scale(0.99);
@@ -175,6 +194,7 @@ export const Input = styled.input`
     border-bottom: 2px solid #46f037;
     transition: 0.5s ease;
   }
+  position: relative;
 `;
 
 export const CheckboxWrapper = styled.div`
@@ -221,17 +241,13 @@ export const SendingInProgress = styled.div`
 export const TextArea = styled.textarea`
   width: 100%;
   outline: none;
-  /* border: 2px solid ${({ theme }) => theme.colors.darkWhite}; */
   border: 2px solid ${({ theme }) => theme.colors.darkWhite};
-  font-family: 'Montserrat', sans-serif;
   padding: 10px;
-  background: none;
   min-height: 200px;
   margin-bottom: 30px;
   font-size: ${({ theme }) => theme.fontSize.m};
   resize: none;
   transition: 0.5s ease;
-  color: ${({ theme }) => theme.colors.darkWhite};
   &.ERROR {
     transform: scale(0.99);
     background: rgba(240, 25, 25, 40%);
@@ -283,10 +299,6 @@ export const StyledButton = styled(Button)`
   @media screen and (max-width: 1360px) {
     position: relative;
     width: 100%;
-    bottom: 0;
     min-height: 35px;
-  }
-  @media screen and (max-width: 460px) {
-    width: 90%;
   }
 `;

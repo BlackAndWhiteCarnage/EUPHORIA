@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
 import PropTypes from 'prop-types';
@@ -26,6 +26,7 @@ import {
 
 const Navigation = ({ cart }) => {
   const [element, view] = useInView({ threshold: 0.5 });
+  const [cartChange, setCartChange] = useState(false);
   const location = useLocation();
 
   let cartValues = cart.map((item) => {
@@ -56,6 +57,15 @@ const Navigation = ({ cart }) => {
     }
   };
 
+  useEffect(() => {
+    setCartChange(true);
+    setTimeout(() => {
+      setCartChange(false);
+    }, 500);
+
+    return;
+  }, [cart]);
+
   return (
     <nav>
       {matchMedia.matches && <FakeWrapper ref={element} className={!view && 'changePosition'} />}
@@ -72,7 +82,7 @@ const Navigation = ({ cart }) => {
           <Count className={cart.length > 0 && 'show'} title='LICZBA PRZEDMIOTÓW W KOSZYKU'>
             {cart.length}
           </Count>
-          <CartValue className={cart.length > 0 && 'show'} title='ŁĄCZNA WARTOŚĆ KOSZYKA'>
+          <CartValue className={`${cart.length > 0 && 'show'} ${cartChange && 'change'}`} title='ŁĄCZNA WARTOŚĆ KOSZYKA'>
             RAZEM {cart.length > 0 && summary()} ZŁ
           </CartValue>
           {cartValueHandler() >= 150 && (

@@ -6,6 +6,7 @@ import { ReactComponent as AlertIcon } from 'assets/icons/alert-icon.svg';
 import { Link } from 'react-router-dom';
 
 export const CartItems = styled.div`
+  position: relative;
   width: 30%;
   min-width: 500px;
   height: 100%;
@@ -105,6 +106,9 @@ export const PickedExtras = styled.div`
   font-size: ${({ theme }) => theme.fontSize.m};
   text-align: center;
   margin: 5px 0;
+  strong {
+    color: ${({ theme }) => theme.colors.crimsonRed};
+  }
   &.itsAlert {
     display: flex;
     align-items: center;
@@ -181,7 +185,7 @@ export const StyledAlertIcon = styled(AlertIcon)`
   transition: 0.3s ease;
   cursor: pointer;
   &:hover {
-    transform: scale(1.5);
+    transform: scale(1.3);
     transition: 0.5s ease;
   }
 `;
@@ -191,7 +195,7 @@ export const StyledXMarkIcon = styled(XMarkIcon)`
   transition: 0.3s ease;
   cursor: pointer;
   &:hover {
-    transform: scale(1.5) rotate(360deg);
+    transform: scale(1.3) rotate(360deg);
     transition: 0.5s ease;
   }
 `;
@@ -200,7 +204,7 @@ export const StyledExtrasIcon = styled(ExtrasIcon)`
   transition: 0.3s ease;
   cursor: pointer;
   &:hover {
-    transform: rotate(70deg) skew(20deg) scale(1.5);
+    transform: rotate(70deg) scale(1.3);
     transition: 0.5s ease;
   }
 `;
@@ -209,12 +213,12 @@ export const StyledArrowIcon = styled(ArrowIcon)`
   transition: 0.3s ease;
   cursor: pointer;
   &:hover {
-    transform: translateX(5px) rotate(-10deg) scale(1.5);
+    transform: translateX(5px) rotate(-10deg) scale(1.3);
     transition: 0.5s ease;
   }
 `;
 
 export const StyledAlertLink = styled(Link)`
   text-decoration: none;
-  color: ${({ theme }) => theme.colors.crimsonRed};
+  color: ${({ theme }) => theme.colors.darkGrey};
 `;

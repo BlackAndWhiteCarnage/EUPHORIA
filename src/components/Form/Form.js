@@ -177,7 +177,9 @@ const Form = ({ cart, summary, mainPage }) => {
       </AccualForm>
       {!mainPage && (
         <Info onClick={toggleInfoHandler} className={toggleInfo && 'show'}>
-          Informacje
+          {!toggleInfo
+            ? 'Informacje'
+            : 'PODAJĄC DANE NIE MUSISZ WPISYWAĆ SWOJEGO PRAWDZIWEGO IMIENIA A INFORMACJĘ KTÓRE DOSTANĘ BĘDĄ WYKORZYSTANE JEDYNIE W CELACH KONTAKTOWO/WYSYŁKOWYCH. NIE MARTW SIĘ DOSTANĘ ZAWARTOŚĆ TWOJEGO KOSZYKA NA MAILA. JEŚLI NIE CZUJESZ SIĘ KOMFORTOWO WYPEŁNIAJĄC FORMULARZ MOŻESZ SKONTAKTOWAĆ SIĘ ZE MNĄ POPRZEZ KTÓRĄŚ Z INNYCH OPCJI DOSTĘPNYCH NA STRONIE. GDY TYLKO ZOBACZĘ TWOJĄ WIADOMOŚĆ NA PEWNO ODPISZĘ I USTALIMY SZCZEGÓLY. PRAGNĘ RÓWNIESZ POINFOROWAĆ ŻE NIE UDOSTĘPNIAM SWOJEJ NAGOŚCI.'}
         </Info>
       )}
     </FormWrapper>
@@ -185,8 +187,8 @@ const Form = ({ cart, summary, mainPage }) => {
 };
 
 Form.propTypes = {
-  cart: PropTypes.array.isRequired,
-  summary: PropTypes.func.isRequired,
+  cart: PropTypes.array,
+  summary: PropTypes.func,
   mainPage: PropTypes.bool,
 };
 

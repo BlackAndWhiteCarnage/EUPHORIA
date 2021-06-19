@@ -189,6 +189,9 @@ export const CartValue = styled.div`
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
     opacity: 1;
   }
+  &.change {
+    color: ${({ theme }) => theme.colors.crimsonRed};
+  }
   @media screen and (max-width: 1250px) {
     position: fixed;
     z-index: 3;
@@ -285,5 +288,10 @@ export const Icon = styled.img`
   &:hover {
     transform: scale(1.6);
     transition: 0.5s ease;
+  }
+  @media screen and (max-width: 1200px) {
+    &:hover {
+      transform: none;
+    }
   }
 `;

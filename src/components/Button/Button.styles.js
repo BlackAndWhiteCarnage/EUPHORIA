@@ -101,4 +101,9 @@ export const Wrapper = styled.button`
       justify-content: center;
     }
   }
+  @media screen and (max-width: 1200px) {
+    &:hover {
+      transform: none;
+    }
+  }
 `;

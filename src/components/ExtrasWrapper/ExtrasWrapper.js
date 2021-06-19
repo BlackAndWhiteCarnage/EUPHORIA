@@ -130,6 +130,7 @@ const ExtrasWrapper = ({
               {extras}
             </ExtrasOption>
           ))}
+          <ExtrasOption className='back'>WYBRAŁEM/NIE CHCĘ WYBIERAĆ</ExtrasOption>
         </Wrapper>
       )}
     </>

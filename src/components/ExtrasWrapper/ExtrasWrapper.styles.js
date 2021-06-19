@@ -20,15 +20,13 @@ export const Wrapper = styled.div`
   overflow-y: scroll;
   z-index: 990;
   @media screen and (max-width: 1250px) {
-    height: 60%;
+    height: 100%;
     border-radius: 30px 0 0 0;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     width: 100%;
   }
   @media screen and (max-width: 680px) {
-    min-height: 70%;
-    max-height: 75%;
-    height: auto;
+    height: calc(100% - 35px);
     padding: 10px;
   }
   &.toggle {
@@ -85,5 +83,11 @@ export const ExtrasOption = styled.div`
     transition: 0.5s ease;
     background: rgba(255, 255, 255, 0.3);
     color: ${({ theme }) => theme.colors.darkWhite};
+  }
+  &.back {
+    text-align: center;
+    background: ${({ theme }) => theme.colors.crimsonRed};
+    color: ${({ theme }) => theme.colors.darkWhite};
+    font-size: ${({ theme }) => theme.fontSize.l};
   }
 `;

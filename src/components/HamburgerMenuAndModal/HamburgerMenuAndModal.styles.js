@@ -111,7 +111,7 @@ export const ModalLinksWrapper = styled.ul`
   height: 80%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   list-style: none;
   margin-top: 20px;

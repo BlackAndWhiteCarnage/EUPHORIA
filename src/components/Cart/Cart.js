@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+// COMPONENTS
+import Shadow from 'components/Shadow/Shadow';
 // STYLES
 import {
   CartItems,
@@ -71,7 +73,7 @@ const Cart = ({ cart, setCart }) => {
                 <>
                   <PickedExtras>WYBRANE DODATKI</PickedExtras>
                   {item.pickedExtras.map((extras) => (
-                    <span>{extras}</span>
+                    <span key={extras}>{extras}</span>
                   ))}
                 </>
               ) : (
