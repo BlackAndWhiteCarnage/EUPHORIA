@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 import PropTypes from 'prop-types';
+import { useLocation } from 'react-router-dom';
 // STYLES
 import {
   FormWrapper,
@@ -17,7 +18,7 @@ import {
   AccualForm,
 } from './Form.styles';
 
-const Form = ({ cart, summary }) => {
+const Form = ({ cart, summary, mainPage }) => {
   const [emailSend, setEmailSend] = useState(false);
   const [toggleInfo, setToggleInfo] = useState(false);
   const [checkbox, setCheckbox] = useState(false);
@@ -26,6 +27,8 @@ const Form = ({ cart, summary }) => {
   const [validMessage, setValidMessage] = useState(false);
   const [validCart, setValidCart] = useState(false);
   const [feedback, setFeedback] = useState(null);
+
+  const location = useLocation();
 
   let toggleInfoHandler = () => {
     setToggleInfo(!toggleInfo);
@@ -60,27 +63,52 @@ const Form = ({ cart, summary }) => {
   function sendEmail(e) {
     e.preventDefault();
 
-    if (validEmail && validMessage && checkbox && validName && validCart) {
-      emailjs.sendForm('service_pkn9ez9', 'template_btr6t4a', e.target, 'user_wfAnEXgFR6wa0u7anAPJf').then(
-        (result) => {
-          console.log(result.text);
-          setEmailSend(true);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+    if (location.pathname !== '/') {
+      if (validEmail && validMessage && checkbox && validName && validCart) {
+        emailjs.sendForm('service_pkn9ez9', 'template_btr6t4a', e.target, 'user_wfAnEXgFR6wa0u7anAPJf').then(
+          (result) => {
+            console.log(result.text);
+            setEmailSend(true);
+          },
+          (error) => {
+            console.log(error.text);
+          }
+        );
+      }
+    } else {
+      if (validEmail && validMessage && validName) {
+        emailjs.sendForm('service_pkn9ez9', 'template_btr6t4a', e.target, 'user_wfAnEXgFR6wa0u7anAPJf').then(
+          (result) => {
+            console.log(result.text);
+            setEmailSend(true);
+          },
+          (error) => {
+            console.log(error.text);
+          }
+        );
+      }
     }
   }
 
   const checkValid = () => {
-    if (validEmail && validMessage && checkbox && validName && validCart) {
-      setFeedback(1);
+    if (location.pathname !== '/') {
+      if (validEmail && validMessage && checkbox && validName && validCart) {
+        setFeedback(1);
+      } else {
+        setFeedback(2);
+        setTimeout(() => {
+          setFeedback(0);
+        }, 2000);
+      }
     } else {
-      setFeedback(2);
-      setTimeout(() => {
-        setFeedback(0);
-      }, 2000);
+      if (validEmail && validMessage && validName) {
+        setFeedback(1);
+      } else {
+        setFeedback(2);
+        setTimeout(() => {
+          setFeedback(0);
+        }, 2000);
+      }
     }
   };
 
@@ -96,12 +124,14 @@ const Form = ({ cart, summary }) => {
   };
 
   return (
-    <FormWrapper>
-      <SendingInProgress className={feedback === 1 && 'SENDING'}>
-        {!emailSend && <StyledProgressIcon />}
-        {emailSend && <StyledCheckIcon />}
-      </SendingInProgress>
-      <AccualForm onSubmit={sendEmail}>
+    <FormWrapper className={mainPage && 'mainPage'}>
+      {!mainPage && (
+        <SendingInProgress className={feedback === 1 && 'SENDING'}>
+          {!emailSend && <StyledProgressIcon />}
+          {emailSend && <StyledCheckIcon />}
+        </SendingInProgress>
+      )}
+      <AccualForm onSubmit={sendEmail} className={mainPage && 'mainPage'}>
         <Label className={validName && 'valid'} htmlFor='name'>
           IMIĘ
         </Label>
@@ -132,15 +162,24 @@ const Form = ({ cart, summary }) => {
           id='message'
           placeholder={'PRZYNEJMNIEJ 20 ZNAKÓW'}
         />
-        <CheckboxWrapper className={feedback === 2 && !validCart && 'ERROR'}>
-          <p>WYRAŻAM ZGODĘ NA PRZETWAŻANIE MOJEGO KOSZYKA</p>
-          <Checkbox type='checkbox' onChange={cartItemsHandler} name='cart' />
-        </CheckboxWrapper>
-        <StyledButton text='ZAMAWIAM' className={feedback === 1 ? 'OK' : feedback === 2 && 'ERROR'} type='submit' click={checkValid} />
+        {!mainPage && (
+          <CheckboxWrapper className={feedback === 2 && !validCart && 'ERROR'}>
+            <p>WYRAŻAM ZGODĘ NA PRZETWAŻANIE MOJEGO KOSZYKA</p>
+            <Checkbox type='checkbox' onChange={cartItemsHandler} name='cart' />
+          </CheckboxWrapper>
+        )}
+        <StyledButton
+          text={!mainPage ? 'ZAMAWIAM' : 'WYŚLIJ'}
+          className={feedback === 1 ? 'OK' : feedback === 2 && 'ERROR'}
+          type='submit'
+          click={checkValid}
+        />
       </AccualForm>
-      <Info onClick={toggleInfoHandler} className={toggleInfo && 'show'}>
-        Informacje
-      </Info>
+      {!mainPage && (
+        <Info onClick={toggleInfoHandler} className={toggleInfo && 'show'}>
+          Informacje
+        </Info>
+      )}
     </FormWrapper>
   );
 };
@@ -148,6 +187,7 @@ const Form = ({ cart, summary }) => {
 Form.propTypes = {
   cart: PropTypes.array.isRequired,
   summary: PropTypes.func.isRequired,
+  mainPage: PropTypes.bool,
 };
 
 export default Form;

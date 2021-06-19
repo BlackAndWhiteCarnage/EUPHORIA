@@ -17,6 +17,14 @@ export const FormWrapper = styled.div`
     flex-direction: column;
     justify-content: flex-start;
   }
+  &.mainPage {
+    width: 100%;
+    height: 90%;
+    background: none;
+    @media screen and (max-width: 1200px) {
+      min-height: 80%;
+    }
+  }
 `;
 
 export const HeaderInfoWrapper = styled.div`
@@ -71,6 +79,36 @@ export const AccualForm = styled.form`
   }
   @media screen and (max-width: 460px) {
     width: 90%;
+  }
+  &.mainPage {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    label {
+      color: ${({ theme }) => theme.colors.darkGrey};
+    }
+    input {
+      color: ${({ theme }) => theme.colors.darkGrey};
+      font-weight: bolder;
+      border-bottom: 2px solid ${({ theme }) => theme.colors.darkGrey};
+      &.VALID {
+        transform: scale(1.01);
+        border: none;
+        border-bottom: 2px solid #46f037;
+        transition: 0.5s ease;
+      }
+    }
+    textarea {
+      color: ${({ theme }) => theme.colors.darkGrey};
+      font-weight: bolder;
+      border: 2px solid ${({ theme }) => theme.colors.darkGrey};
+      &.VALID {
+        transform: scale(1.01);
+        border: none;
+        border: 2px solid #46f037;
+        transition: 0.5s ease;
+      }
+    }
   }
 `;
 
@@ -231,20 +269,22 @@ export const StyledCheckIcon = styled(CheckIcon)`
 
 export const StyledButton = styled(Button)`
   position: absolute;
-  bottom: -80px;
+  bottom: -50px;
   right: 0;
   padding: 10px;
   min-width: 200px;
   z-index: 15;
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1360px) {
     font-size: ${({ theme }) => theme.fontSize.s};
     margin: 0;
     width: auto;
     white-space: nowrap;
   }
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1360px) {
     position: relative;
-    width: 80%;
+    width: 100%;
+    bottom: 0;
+    min-height: 35px;
   }
   @media screen and (max-width: 460px) {
     width: 90%;
