@@ -7,7 +7,7 @@ import { OnlyFansWrapper, OnlyFans } from './Onlyfans.style';
 const Onlyfans = () => {
   return (
     <OnlyFansWrapper href='https://onlyfans.com/u147186729' target='_blank' title='PRZEJDŹ DO ONLYFANS'>
-      <OnlyFans src={OnlyfansIcon} id='active' />
+      <OnlyFans src={OnlyfansIcon} id='active' alt='onlyfans logo' />
     </OnlyFansWrapper>
   );
 };

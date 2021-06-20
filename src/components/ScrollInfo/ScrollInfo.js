@@ -40,7 +40,7 @@ const ScrollInfo = () => {
     <>
       <ScrollInfoWrapper>
         SCROLL
-        <ArrowImage src={Arrow} />
+        <ArrowImage src={Arrow} alt='strzałka w dół' />
       </ScrollInfoWrapper>
     </>
   );

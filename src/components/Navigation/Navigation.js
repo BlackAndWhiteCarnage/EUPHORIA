@@ -94,33 +94,49 @@ const Navigation = ({ cart }) => {
         <NavItems>
           {/* NAV FOR MAIN PAGE */}
           {location.pathname === '/' ? (
-            <NavItem to='/' exact>
-              STRONA GŁÓWNA
-            </NavItem>
-          ) : (
-            <>
-              {/* NAV IN SHOP */}
+            <li>
               <NavItem to='/' exact>
                 STRONA GŁÓWNA
               </NavItem>
-              <NavItem to='/sklepik/majtki' exact>
-                MAJTKI
-              </NavItem>
-              <NavItem to='/sklepik/skarpetki' exact>
-                SKARPETKI
-              </NavItem>
-              <NavItem to='/sklepik/premium' exact>
-                PREMIUM
-              </NavItem>
-              <NavItem to='/sklepik/inne' exact>
-                INNE
-              </NavItem>
-              <NavItem to='/sklepik/rajstopy' exact>
-                RAJSTOPY I POŃCZOCHY
-              </NavItem>
-              <NavItem to='/sklepik/fotki i nagrania' exact>
-                SESJE, FOTKI I NAGRANIA
-              </NavItem>
+            </li>
+          ) : (
+            <>
+              {/* NAV IN SHOP */}
+              <li>
+                <NavItem to='/' exact>
+                  STRONA GŁÓWNA
+                </NavItem>
+              </li>
+              <li>
+                <NavItem to='/sklepik/majtki' exact>
+                  MAJTKI
+                </NavItem>
+              </li>
+              <li>
+                <NavItem to='/sklepik/skarpetki' exact>
+                  SKARPETKI
+                </NavItem>
+              </li>
+              <li>
+                <NavItem to='/sklepik/premium' exact>
+                  PREMIUM
+                </NavItem>
+              </li>
+              <li>
+                <NavItem to='/sklepik/inne' exact>
+                  INNE
+                </NavItem>
+              </li>
+              <li>
+                <NavItem to='/sklepik/rajstopy' exact>
+                  RAJSTOPY I POŃCZOCHY
+                </NavItem>
+              </li>
+              <li>
+                <NavItem to='/sklepik/fotki i nagrania' exact>
+                  SESJE, FOTKI I NAGRANIA
+                </NavItem>
+              </li>
             </>
           )}
           <SocialMediaWrapper desktop />

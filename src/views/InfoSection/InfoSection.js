@@ -44,26 +44,26 @@ const InfoSection = () => {
           <header>JAK WYGLĄDA ZAKUP</header>
           <ul>
             <li>
-              <Step src={Step1} />
+              <Step src={Step1} alt='krok pierwszy' />
               <p>
                 Aby złożyć zamówienie wejdź w interesującą Cię kategorię, dodaj produkt do koszyka i wybierz dodatki po czym wyślij formularz
                 kontaktowy w koszyku
               </p>
             </li>
             <li>
-              <Step src={Step2} />
+              <Step src={Step2} alt='krok drugi' />
               <p>Następnie zamówienie trafia do mnie więc mogę się do Ciebie odezwać aby omówić szczegóły</p>
             </li>
             <li>
-              <Step src={Step3} />
+              <Step src={Step3} alt='krok trzeci' />
               <p>Ustalamy razem formę płatności, i rezerwujemy termin wysyłki po wpłacie</p>
             </li>
             <li>
-              <Step src={Step4} />
+              <Step src={Step4} alt='krok czwarty' />
               <p>Kiedy przyjdzie czas na Twoje zamówienie zaczynam je przygotowywać według naszych ustaleń</p>
             </li>
             <li>
-              <Step src={Step5} />
+              <Step src={Step5} alt='krok piąty' />
               <p>Paczuszka zostaje do Ciebie wysłana!</p>
             </li>
           </ul>

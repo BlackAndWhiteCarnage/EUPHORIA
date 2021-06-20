@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 // STYLES
 import { OfferWrapper, OfferTitle, OfferImage } from './Offer.styles';
 
-const Offer = ({ gridArea, content, image, linkTo }) => {
+const Offer = ({ gridArea, content, image, linkTo, alt }) => {
   const [toggleTitle, setToggleTitle] = useState(false);
 
   const toggleTitleHandler = () => {
@@ -15,7 +15,7 @@ const Offer = ({ gridArea, content, image, linkTo }) => {
       <OfferTitle className={toggleTitle && 'toggleTitle'} id='active'>
         {content}
       </OfferTitle>
-      <OfferImage src={image} className={gridArea === 'RAJSTOPY' && 'tights'} id='offerItem' />
+      <OfferImage src={image} className={gridArea === 'RAJSTOPY' && 'tights'} id='offerItem' alt={alt} />
     </OfferWrapper>
   );
 };
