@@ -36,7 +36,7 @@ export const DiscountsWrapper = styled.div`
   height: 200%;
   background: ${({ theme }) => theme.colors.darkWhite};
   opacity: 0;
-  transition: 1s ease;
+  transition: 0.5s ease;
   display: flex;
   align-items: center;
   justify-content: space-around;

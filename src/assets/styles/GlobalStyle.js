@@ -9,7 +9,6 @@ export const GlobalStyle = createGlobalStyle`
     }
     html{
         scroll-behavior: smooth;
-        cursor: none;
     }
     *::selection{
         background: ${({ theme }) => theme.colors.darkGrey};

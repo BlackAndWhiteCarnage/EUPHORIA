@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 // COMPONENTS
 import LoadingIcon from 'components/LoadingIcon/LoadingIcon';
+import Shadow from 'components/Shadow/Shadow';
 // STYLES
 import { ShopWrapper, ProductWrapper, ProductImage, ProductName, StyledDoneIcon, SeasonOfferInfo } from './Shop.styles';
 import { Header } from 'views/OfferSection/OfferSection.styles';
@@ -50,6 +51,7 @@ const Shop = ({ cart }) => {
       ) : (
         <LoadingIcon />
       )}
+      <Shadow />
     </ShopWrapper>
   );
 };

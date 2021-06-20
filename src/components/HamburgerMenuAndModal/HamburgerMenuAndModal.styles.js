@@ -4,12 +4,10 @@ import { NavLink } from 'react-router-dom';
 export const HamburgerMenuWrapper = styled.div`
   position: fixed;
   width: 100%;
-  /* width: 40%; */
   height: 35px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
   background: ${({ theme }) => theme.colors.white};
   transform: translate(-50%, 0);
-  /* bottom: 30px; */
   bottom: 0;
   left: 50%;
   z-index: 99999;
@@ -83,6 +81,9 @@ export const Modal = styled.div`
     bottom: 0;
     right: 0;
     transition: 0.5s ease;
+  }
+  @media screen and (min-width: 1250px) {
+    display: none;
   }
 `;
 

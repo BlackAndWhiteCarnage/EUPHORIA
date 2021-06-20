@@ -14,6 +14,7 @@ export const Wrapper = styled.button`
   z-index: 1;
   overflow: hidden;
   transition: 0.5s ease;
+  font-family: 'Montserrat', sans-serif;
   &::before {
     content: '';
     transition: 0.5s ease;
