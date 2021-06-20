@@ -12,7 +12,7 @@ const AmazingCursor = () => {
     return;
   };
 
-  const cursorPulseHandler = () => {
+  const cursorPulseHandler = (e) => {
     ref.current.classList.add('pulse');
     setTimeout(() => {
       ref.current.classList.remove('pulse');

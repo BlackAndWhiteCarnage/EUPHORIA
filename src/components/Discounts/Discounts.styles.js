@@ -12,7 +12,7 @@ export const DiscountsInfoWrapper = styled.div`
   align-items: center;
   justify-content: center;
   color: ${({ theme }) => theme.colors.darkWhite};
-  transition: 0.5s ease-in-out;
+  transition: 0.3s ease-in-out;
   overflow: hidden;
   cursor: pointer;
   @media screen and (max-width: 1250px) {
@@ -23,7 +23,7 @@ export const DiscountsInfoWrapper = styled.div`
     writing-mode: horizontal-tb;
     width: 100%;
     height: 100%;
-    transition: 0.5s ease;
+    transition: 0.3s ease;
     span {
       display: none;
     }
@@ -51,7 +51,7 @@ export const DiscountsWrapper = styled.div`
     height: 60%;
     width: 100%;
     opacity: 1;
-    transition: 1s ease-in-out;
+    transition: 0.5s ease-in-out;
     p {
       display: block;
       color: ${({ theme }) => theme.colors.darkGrey};

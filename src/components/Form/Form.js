@@ -17,6 +17,8 @@ import {
   Info,
   AccualForm,
 } from './Form.styles';
+// ANIMATIONS
+import { slideFromTop } from 'animations/animations';
 
 const Form = ({ cart, summary, mainPage }) => {
   const [emailSend, setEmailSend] = useState(false);
@@ -131,7 +133,7 @@ const Form = ({ cart, summary, mainPage }) => {
           {emailSend && <StyledCheckIcon />}
         </SendingInProgress>
       )}
-      <AccualForm onSubmit={sendEmail} className={mainPage && 'mainPage'}>
+      <AccualForm onSubmit={sendEmail} className={mainPage && 'mainPage'} variants={slideFromTop} initial='hidden' animate='show'>
         <Label className={validName && 'valid'} htmlFor='name'>
           IMIĘ
         </Label>
@@ -176,7 +178,7 @@ const Form = ({ cart, summary, mainPage }) => {
         />
       </AccualForm>
       {!mainPage && (
-        <Info onClick={toggleInfoHandler} className={toggleInfo && 'show'}>
+        <Info onClick={toggleInfoHandler} className={toggleInfo && 'show'} id='active'>
           {!toggleInfo
             ? 'Informacje'
             : 'PODAJĄC DANE NIE MUSISZ WPISYWAĆ SWOJEGO PRAWDZIWEGO IMIENIA A INFORMACJĘ KTÓRE DOSTANĘ BĘDĄ WYKORZYSTANE JEDYNIE W CELACH KONTAKTOWO/WYSYŁKOWYCH. NIE MARTW SIĘ DOSTANĘ ZAWARTOŚĆ TWOJEGO KOSZYKA NA MAILA. JEŚLI NIE CZUJESZ SIĘ KOMFORTOWO WYPEŁNIAJĄC FORMULARZ MOŻESZ SKONTAKTOWAĆ SIĘ ZE MNĄ POPRZEZ KTÓRĄŚ Z INNYCH OPCJI DOSTĘPNYCH NA STRONIE. GDY TYLKO ZOBACZĘ TWOJĄ WIADOMOŚĆ NA PEWNO ODPISZĘ I USTALIMY SZCZEGÓLY. PRAGNĘ RÓWNIESZ POINFOROWAĆ ŻE NIE UDOSTĘPNIAM SWOJEJ NAGOŚCI.'}

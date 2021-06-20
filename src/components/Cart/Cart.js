@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-// COMPONENTS
-import Shadow from 'components/Shadow/Shadow';
 // STYLES
 import {
   CartItems,
@@ -18,6 +16,8 @@ import {
   StyledExtrasIcon,
   StyledArrowIcon,
 } from './Cart.styles';
+// ANIMATIONS
+import { slideFromTop } from 'animations/animations';
 
 const Cart = ({ cart, setCart }) => {
   const [togglePreviewExtras, setTogglePreviewExtras] = useState();
@@ -64,7 +64,7 @@ const Cart = ({ cart, setCart }) => {
   return (
     <CartItems>
       {cart.map((item) => (
-        <CartItem className={item.id === deletingItem && 'deleting'} key={item.name}>
+        <CartItem className={item.id === deletingItem && 'deleting'} key={item.name} variants={slideFromTop} initial='hidden' animate='show'>
           <ItemImage src={item.images[0].url} />
           <ItemInfoWrapper>
             <p>{item.name}</p>

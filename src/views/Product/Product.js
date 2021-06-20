@@ -10,7 +10,7 @@ import { ProductWrapper, ButtonsWrapper, StyledButton } from './Product.styles';
 // HELPERS
 import { matchMedia } from 'helpers/matchMedia';
 // ANIMATIONS
-import { pageAnimation } from 'animations/animations';
+import { fade, slideFromTop } from 'animations/animations';
 
 const Product = ({ cart, setCart }) => {
   const [data, setData] = useState();
@@ -57,7 +57,7 @@ const Product = ({ cart, setCart }) => {
   return (
     <>
       {data !== undefined ? (
-        <ProductWrapper exit='exit' variants={pageAnimation} initial='hidden' animate='show'>
+        <ProductWrapper variants={matchMedia.matches ? slideFromTop : fade} animate='show' initial='hidden'>
           <ProductImagesWrapper data={data} />
           <ProductInfoWrapper
             data={data}

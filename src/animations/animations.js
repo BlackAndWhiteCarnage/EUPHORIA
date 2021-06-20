@@ -1,13 +1,11 @@
 export const pageAnimation = {
   hidden: {
-    scale: 0.5,
     opacity: 0,
-    // y: -300,
+    scale: 1.2,
   },
   show: {
     opacity: 1,
     scale: 1,
-    // y: 0,
     transition: {
       duration: 0.5,
     },
@@ -28,9 +26,7 @@ export const slideFromLeft = {
   show: {
     opacity: 1,
     x: 0,
-    transition: {
-      duration: 0.8,
-    },
+    transition: { type: 'spring', stiffness: 100 },
   },
 };
 
@@ -42,8 +38,27 @@ export const slideFromRight = {
   show: {
     opacity: 1,
     x: 0,
-    transition: {
-      duration: 0.8,
-    },
+    transition: { type: 'spring', stiffness: 100 },
+  },
+};
+
+export const fade = {
+  hidden: {
+    opacity: 0,
+  },
+  show: {
+    opacity: 1,
+  },
+};
+
+export const slideFromTop = {
+  hidden: {
+    opacity: 0,
+    y: -100,
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { type: 'spring', stiffness: 400, when: 'beforeChildren', staggerChildren: 0.25 },
   },
 };

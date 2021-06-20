@@ -4,6 +4,7 @@ import { ReactComponent as ExtrasIcon } from 'assets/icons/extras-icon.svg';
 import { ReactComponent as XMarkIcon } from 'assets/icons/xmark-icon.svg';
 import { ReactComponent as AlertIcon } from 'assets/icons/alert-icon.svg';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 export const CartItems = styled.div`
   position: relative;
@@ -22,7 +23,7 @@ export const CartItems = styled.div`
   }
 `;
 
-export const CartItem = styled.div`
+export const CartItem = styled(motion.div)`
   position: relative;
   width: 400px;
   background: ${({ theme }) => theme.colors.crimsonRed};

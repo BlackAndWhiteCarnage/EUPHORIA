@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Button from 'components/Button/Button';
+import { motion } from 'framer-motion';
 
 export const Wrapper = styled.div`
   position: relative;
@@ -41,7 +42,7 @@ export const InfoWrapper = styled.div`
   }
 `;
 
-export const ProductName = styled.div`
+export const ProductName = styled(motion.h3)`
   font-size: ${({ theme }) => theme.fontSize.xl};
   text-transform: uppercase;
   letter-spacing: 5px;
@@ -56,7 +57,7 @@ export const ProductName = styled.div`
   }
 `;
 
-export const ProductDescription = styled.div`
+export const ProductDescription = styled(motion.div)`
   font-size: ${({ theme }) => theme.fontSize.m};
   text-transform: uppercase;
   margin: 40px 0;
@@ -70,7 +71,7 @@ export const ProductDescription = styled.div`
   }
 `;
 
-export const PriceAndShippingWrapper = styled.div`
+export const PriceAndShippingWrapper = styled(motion.div)`
   font-size: ${({ theme }) => theme.fontSize.m};
   text-transform: uppercase;
   margin: 60px 0;

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 export const InfoSectionWrapper = styled(motion.section)`
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   background: ${({ theme }) => theme.colors.darkWhite};
   position: relative;

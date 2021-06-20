@@ -1,6 +1,7 @@
 import styled, { keyframes } from 'styled-components';
+import { motion } from 'framer-motion';
 
-export const ImageWrapper = styled.div`
+export const ImageWrapper = styled(motion.div)`
   position: relative;
   width: 0;
   min-height: 100vh;

@@ -37,31 +37,29 @@ const Root = () => {
   };
 
   return (
-    <AnimatePresence exitBeforeEnter>
-      <BrowserRouter>
-        <ThemeProvider theme={theme}>
-          <GlobalStyle />
-          <Navigation cart={cart} />
-          {matchMedia.matches && <AmazingCursor />}
-          <Switch>
-            <Route exact path='/'>
-              <OfferSection />
-              <InfoSection />
-              <Onlyfans />
-            </Route>
-            <Route path='/koszyk' exact>
-              <CartAndForm cart={cart} setCart={setCart} />
-            </Route>
-            <Route path='/sklepik/:id' exact>
-              <Shop cart={cart} />
-            </Route>
-            <Route path='/:id' exact>
-              <Product cart={cart} setCart={setCart} />
-            </Route>
-          </Switch>
-        </ThemeProvider>
-      </BrowserRouter>
-    </AnimatePresence>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Navigation cart={cart} />
+        {matchMedia.matches && <AmazingCursor />}
+        <Switch>
+          <Route exact path='/'>
+            <OfferSection />
+            <InfoSection />
+            <Onlyfans />
+          </Route>
+          <Route path='/koszyk' exact>
+            <CartAndForm cart={cart} setCart={setCart} />
+          </Route>
+          <Route path='/sklepik/:id' exact>
+            <Shop cart={cart} />
+          </Route>
+          <Route path='/:id' exact>
+            <Product cart={cart} setCart={setCart} />
+          </Route>
+        </Switch>
+      </ThemeProvider>
+    </BrowserRouter>
   );
 };
 

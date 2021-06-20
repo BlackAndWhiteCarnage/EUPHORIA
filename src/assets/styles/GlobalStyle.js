@@ -5,10 +5,15 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+
     }
     html{
         scroll-behavior: smooth;
-        /* cursor: none; */
+        cursor: none;
+    }
+    *::selection{
+        background: ${({ theme }) => theme.colors.darkGrey};
+        color: ${({ theme }) => theme.colors.crimsonRed}
     }
     body{
         font-family: 'Montserrat', sans-serif;
@@ -28,8 +33,9 @@ export const GlobalStyle = createGlobalStyle`
     }
     ::-webkit-scrollbar-thumb {
     background: ${({ theme }) => theme.colors.crimsonRed};
+    border-radius: 20px;
     }
     ::-webkit-scrollbar-thumb:hover {
-    background: #830000;
+    background: ${({ theme }) => theme.colors.darkGrey};
     }
 `;

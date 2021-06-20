@@ -2,6 +2,7 @@ import styled, { keyframes } from 'styled-components';
 import { ReactComponent as ProgressIcon } from 'assets/icons/progress-icon.svg';
 import { ReactComponent as CheckIcon } from 'assets/icons/check-icon.svg';
 import Button from 'components/Button/Button';
+import { motion } from 'framer-motion';
 
 export const FormWrapper = styled.div`
   position: relative;
@@ -66,16 +67,14 @@ export const Discounts = styled.div`
   }
 `;
 
-export const AccualForm = styled.form`
+export const AccualForm = styled(motion.form)`
   width: 60%;
-  /* height: 70%; */
   display: flex;
   flex-direction: column;
   color: white;
   @media screen and (max-width: 1600px) {
     width: 80%;
     margin-top: 20px;
-    /* height: 60%; */
   }
   @media screen and (max-width: 460px) {
     width: 90%;
@@ -147,13 +146,20 @@ export const Info = styled.div`
   padding: 0 20px;
   cursor: pointer;
   overflow: hidden;
+  &:hover {
+    letter-spacing: 2.5px;
+  }
   &.show {
     transition: 0.5s ease;
     height: calc(100% - 35px);
     padding: 0 40px;
     font-size: ${({ theme }) => theme.fontSize.l};
+    background: ${({ theme }) => theme.colors.darkGrey};
     @media screen and (max-width: 460px) {
       font-size: ${({ theme }) => theme.fontSize.m};
+    }
+    &:hover {
+      letter-spacing: normal;
     }
   }
   @media screen and (min-width: 1250px) {
