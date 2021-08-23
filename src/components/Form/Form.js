@@ -133,7 +133,8 @@ const Form = ({ cart, summary, mainPage }) => {
           {emailSend && <StyledCheckIcon />}
         </SendingInProgress>
       )}
-      <AccualForm onSubmit={sendEmail} className={mainPage && 'mainPage'} variants={slideFromTop} initial='hidden' animate='show'>
+      {/* <AccualForm onSubmit={sendEmail} className={mainPage && 'mainPage'} variants={slideFromTop} initial='hidden' animate='show'> */}
+      <AccualForm onSubmit={sendEmail} className={mainPage && 'mainPage'}>
         <Label className={validName && 'valid'} htmlFor='name'>
           IMIĘ
         </Label>

@@ -64,7 +64,8 @@ const Cart = ({ cart, setCart }) => {
   return (
     <CartItems>
       {cart.map((item) => (
-        <CartItem className={item.id === deletingItem && 'deleting'} key={item.name} variants={slideFromTop} initial='hidden' animate='show'>
+        // <CartItem className={item.id === deletingItem && 'deleting'} key={item.name} variants={slideFromTop} initial='hidden' animate='show'>
+        <CartItem className={item.id === deletingItem && 'deleting'} key={item.name}>
           <ItemImage src={item.images[0].url} />
           <ItemInfoWrapper>
             <p>{item.name}</p>
