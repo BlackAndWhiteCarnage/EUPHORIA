@@ -23,7 +23,8 @@ const InfoSection = () => {
   return (
     <InfoSectionWrapper>
       {/* WHO AM I BOX */}
-      <WhoAmI id='whoAmI' variants={matchMedia.matches ? slideFromLeft : fade} animate={controls1} initial='hidden' ref={element1}>
+      {/* <WhoAmI id='whoAmI' variants={matchMedia.matches ? slideFromLeft : fade} animate={controls1} initial='hidden' ref={element1}> */}
+      <WhoAmI id='whoAmI'>
         <Header>Używana noszona bielizna fetysz euphoria</Header>
         <div>
           <header>CZYM SIĘ ZAJMUJĘ</header>
@@ -39,7 +40,8 @@ const InfoSection = () => {
         </div>
       </WhoAmI>
       {/* HOW TO BUY BOX */}
-      <HowToBuy id='howToBuy' variants={matchMedia.matches ? slideFromRight : fade} animate={controls2} initial='hidden' ref={element2}>
+      {/* <HowToBuy id='howToBuy' variants={matchMedia.matches ? slideFromRight : fade} animate={controls2} initial='hidden' ref={element2}> */}
+      <HowToBuy id='howToBuy'>
         <div>
           <header>JAK WYGLĄDA ZAKUP</header>
           <ul>
@@ -70,7 +72,8 @@ const InfoSection = () => {
         </div>
       </HowToBuy>
       {/* CONTACT BOX */}
-      <Contact id='contact' variants={matchMedia.matches ? slideFromLeft : fade} animate={controls3} initial='hidden' ref={element3}>
+      {/* <Contact id='contact' variants={matchMedia.matches ? slideFromLeft : fade} animate={controls3} initial='hidden' ref={element3}> */}
+      <Contact id='contact'>
         <div>
           <Form mainPage />
         </div>

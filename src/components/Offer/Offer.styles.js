@@ -31,16 +31,18 @@ export const OfferWrapper = styled(Link)`
     width: 100%;
     right: -100%;
   }
-  &:hover {
-    transform: scale(0.95);
-    transition: 0.5s ease;
-    &::before {
+  @media screen and (min-width: 1200px) {
+    &:hover {
+      transform: scale(1.015);
       transition: 0.5s ease;
-      width: 100%;
-    }
-    &::after {
-      transition: 1.5s ease;
-      right: 100%;
+      &::before {
+        transition: 0.5s ease;
+        width: 100%;
+      }
+      &::after {
+        transition: 1.5s ease;
+        right: 100%;
+      }
     }
   }
   &:nth-child(1) {

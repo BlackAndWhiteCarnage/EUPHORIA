@@ -3,30 +3,40 @@ import { NavLink } from 'react-router-dom';
 
 export const HamburgerMenuWrapper = styled.div`
   position: fixed;
-  width: 100%;
-  height: 35px;
+  /* width: 100%; */
+  height: 55px;
+  width: 55px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
   background: ${({ theme }) => theme.colors.white};
-  transform: translate(-50%, 0);
-  bottom: 0;
-  left: 50%;
+  /* transform: translate(-50%, 0); */
+  /* bottom: 0; */
+  /* left: 50%; */
+  top: 0;
+  left: 0;
   z-index: 99999;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   transition: 0.8s ease;
   cursor: pointer;
-  padding: 10px;
+  /* padding: 10px; */
   @media screen and (min-width: 1250px) {
     display: none;
+  }
+  @media screen and (max-width: 620px) {
+    height: 40px;
+    width: 40px;
   }
   &.toggle {
     box-shadow: none;
     transition: 0.8s ease;
-    background: ${({ theme }) => theme.colors.darkWhite};
-    width: 110%;
+    background: none;
+    /* background: ${({ theme }) => theme.colors.darkWhite}; */
+    /* width: 110%; */
     div {
-      background: ${({ theme }) => theme.colors.darkGrey};
+      /* background: ${({ theme }) => theme.colors.darkGrey}; */
+      background: ${({ theme }) => theme.colors.darkWhite};
       transition: 0.5s ease;
     }
   }
@@ -34,34 +44,26 @@ export const HamburgerMenuWrapper = styled.div`
 
 const pulse = keyframes`
   50% {
-    transform: scale(1.3);
+    /* transform: scale(1.3); */
+    width: 50%;
   }
 `;
 
-export const Dot = styled.div`
-  min-width: 10px;
-  height: 10px;
-  border-radius: 50%;
+export const Line = styled.div`
+  /* min-width: 10px; */
+  width: 80%;
+  height: 4px;
   background: ${({ theme }) => theme.colors.crimsonRed};
   transition: 0.5s ease;
-  &.midDot {
-    min-width: 18px;
-    height: 18px;
-    margin: 0 5px;
+  /* &.midDot {
     animation: ${pulse} 1.5s linear infinite;
   }
   &.sideDot {
-    min-width: 10px;
-    height: 10px;
-    margin: 0 5px;
     animation: ${pulse} 1s 0.2s linear infinite;
   }
   &.sideDotMin {
-    min-width: 5px;
-    height: 5px;
-    margin: 0 5px;
     animation: ${pulse} 1s 0.5s linear infinite;
-  }
+  } */
 `;
 
 export const Modal = styled.div`
@@ -73,7 +75,8 @@ export const Modal = styled.div`
   z-index: 9999;
   background: ${({ theme }) => theme.colors.darkWhite};
   display: flex;
-  align-items: flex-start;
+  /* align-items: flex-start; */
+  align-items: center;
   justify-content: center;
   &.toggle {
     top: 0;
@@ -108,23 +111,25 @@ export const StyledDot = styled.div`
 `;
 
 export const ModalLinksWrapper = styled.ul`
-  width: 95%;
-  height: 80%;
+  width: 100%;
+  height: 65%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
   list-style: none;
-  margin-top: 20px;
+  /* margin-top: 20px; */
+  margin-left: 10px;
   @media screen and (max-width: 680px) {
-    align-items: flex-start;
-    width: 90%;
+    /* align-items: flex-start;
+    width: 95%; */
+    margin-left: 5px;
   }
 `;
 
 export const ModalLink = styled.a`
   font-size: ${({ theme }) => theme.fontSize.l};
-  /* text-align: center; */
+  text-align: center;
   font-weight: bolder;
   color: ${({ theme }) => theme.colors.darkGrey};
   transform: scale(0);

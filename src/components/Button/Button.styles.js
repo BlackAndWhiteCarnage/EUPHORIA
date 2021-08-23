@@ -29,7 +29,7 @@ export const Wrapper = styled.button`
   }
   &:hover {
     transition: 0.5s ease;
-    transform: scale(0.95);
+    transform: scale(1.015);
     &::before {
       width: calc(100% + 200px);
       height: calc(100% + 200px);

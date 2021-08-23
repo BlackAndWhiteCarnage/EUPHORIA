@@ -3,7 +3,7 @@ import { useLocation } from 'react-router';
 // COMPONENTS
 import SocialMediaWrapper from 'components/SocialMediaWrapper/SocialMediaWrapper';
 // STYLES
-import { HamburgerMenuWrapper, Dot, Modal, ModalLink, ModalLinksWrapper, ModalNavItem, StyledDot } from './HamburgerMenuAndModal.styles';
+import { HamburgerMenuWrapper, Line, Modal, ModalLink, ModalLinksWrapper, ModalNavItem, StyledDot } from './HamburgerMenuAndModal.styles';
 
 const HamburgerMenuAndModal = () => {
   const [toggleModal, setToggleModal] = useState(false);
@@ -16,11 +16,11 @@ const HamburgerMenuAndModal = () => {
   return (
     <nav>
       <HamburgerMenuWrapper onClick={toggleModalHandler} className={toggleModal && 'toggle'}>
-        <Dot className='sideDotMin' />
-        <Dot className='sideDot' />
-        <Dot className='midDot' />
-        <Dot className='sideDot' />
-        <Dot className='sideDotMin' />
+        {/* <Line className='sideDotMin' /> */}
+        <Line className='sideDot' />
+        <Line className='midDot' />
+        <Line className='sideDot' />
+        {/* <Line className='sideDotMin' /> */}
       </HamburgerMenuWrapper>
       {/* MODAL */}
       <Modal className={toggleModal && 'toggle'}>

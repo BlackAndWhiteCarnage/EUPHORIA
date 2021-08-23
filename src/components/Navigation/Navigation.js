@@ -66,14 +66,24 @@ const Navigation = ({ cart }) => {
     return;
   }, [cart]);
 
+  let displayLogo;
+
+  if (cart.length > 0 && !matchMedia.matches) {
+    displayLogo = false;
+  } else {
+    displayLogo = true;
+  }
+
   return (
     <nav>
       {matchMedia.matches && <FakeWrapper ref={element} className={!view && 'changePosition'} />}
       <Wrapper className={!view && matchMedia.matches && 'stickyNavbar'}>
         <CartAndLogoWrapper>
-          <Link to='/'>
-            <StyledLogo id='active' title='EUPHORIA NOSZONA I UŻYWANA BIELIZNA' />
-          </Link>
+          {displayLogo && (
+            <Link to='/'>
+              <StyledLogo id='active' title='EUPHORIA NOSZONA I UŻYWANA BIELIZNA' />
+            </Link>
+          )}
           <Link to='/koszyk'>
             <CartWrapper>
               <Icon src={CartIcon} id='active' title='KOSZYK' />

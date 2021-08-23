@@ -88,9 +88,12 @@ export const ScrollInfoWrapper = styled.div`
 
 export const Dot = styled.div`
   position: absolute;
+  /* top: 50%; */
+  /* left: 50%; */
+  /* transform: translate(-50%, -50%); */
   min-width: 13px;
   min-height: 13px;
-  margin: 5px;
+  margin: 5px 0;
   background: ${({ theme }) => theme.colors.darkWhite};
   animation: ${showDirection} 1.5s 0.2s ease-in-out infinite;
   border-radius: 50%;

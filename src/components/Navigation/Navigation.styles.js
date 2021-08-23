@@ -28,6 +28,7 @@ export const Wrapper = styled.div`
     transform: translate(0, 100%);
     width: 100%;
     background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(5px);
     padding: 5px 80px;
     height: 330px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
@@ -216,7 +217,11 @@ export const StyledLogo = styled(Logo)`
   left: 0;
   @media screen and (max-width: 1250px) {
     width: 140px;
-    margin: 0 5px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    /* margin: 0 5px;
+    margin-left: 50px; */
   }
 `;
 
@@ -248,6 +253,7 @@ export const NavItem = styled(NavLink).attrs({ activeClassName: 'active-link' })
   color: ${({ theme }) => theme.colors.darkGrey};
   text-decoration: none;
   transition: 0.5s ease;
+  padding: 10px 0;
   &.active-link {
     background: ${({ theme }) => theme.colors.darkGrey};
     transition: 0.5s ease;

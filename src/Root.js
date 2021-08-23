@@ -44,7 +44,7 @@ const Root = () => {
         {matchMedia.matches && <AmazingCursor />}
         <Switch>
           <Route exact path='/'>
-            <ScrollInfo />
+            {/* <ScrollInfo /> */}
             <OfferSection />
             <InfoSection />
             <Onlyfans />
