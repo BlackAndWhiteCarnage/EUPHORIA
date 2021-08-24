@@ -13,14 +13,14 @@ const Shop = ({ cart }) => {
   const location = useLocation();
   const path = location.pathname.replace('/sklepik/', '');
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch(`https://euphoria-backend-strapi.herokuapp.com/categories?name=${path}`);
-      const data = await response.json();
-      setData(data[0].products);
-    };
-    fetchData();
-  }, [path]);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const response = await fetch(`https://euphoria-backend-strapi.herokuapp.com/categories?name=${path}`);
+  //     const data = await response.json();
+  //     setData(data[0].products);
+  //   };
+  //   fetchData();
+  // }, [path]);
 
   const checkIDHandler = (itemID) => {
     if (cart !== undefined && cart !== false) {

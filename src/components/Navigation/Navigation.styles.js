@@ -85,8 +85,12 @@ export const CartWrapper = styled.div`
     z-index: 5;
     top: 0;
     right: 0;
-    width: 50px;
+    width: 55px;
+    height: 55px;
+  }
+  @media screen and (max-width: 620px) {
     height: 40px;
+    width: 60px;
   }
 `;
 

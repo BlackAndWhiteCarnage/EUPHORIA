@@ -5,16 +5,19 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100px;
-  margin-bottom: 5px;
+  /* margin-bottom: 5px; */
   @media screen and (max-width: 1250px) {
-    padding-top: 20px;
+    /* min-width: 40px; */
+    max-width: 60px;
+    /* padding-top: 100px; */
     flex-direction: column;
-    position: absolute;
+    /* position: absolute; */
     height: 100%;
-    justify-content: flex-start;
-    top: 50%;
-    transform: translate(0, -50%);
-    right: 0;
+    justify-content: flex-end;
+    /* top: 50%; */
+    /* transform: translate(0, -50%); */
+    /* right: 0; */
+    /* padding-bottom: 50px; */
     background: ${({ theme }) => theme.colors.darkGrey};
   }
 `;
