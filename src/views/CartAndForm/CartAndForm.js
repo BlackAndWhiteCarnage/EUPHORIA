@@ -4,7 +4,7 @@ import Form from 'components/Form/Form';
 import Cart from 'components/Cart/Cart';
 import CartTotalValue from 'components/CartTotalValue/CartTotalValue';
 // STYLES
-import { Header } from 'views/OfferSection/OfferSection.styles';
+import { Header } from 'components/HomeOffersSection/HomeOffersSection.styles';
 import { Wrapper, EmptyCartInfo } from './CartAndForm.styles';
 // ANIMATIONS
 import { slideFromTop } from 'animations/animations';

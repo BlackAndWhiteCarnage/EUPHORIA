@@ -1,23 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+// COMPONENTS
+import CartItemInfo from 'components/CartItemInfo/CartItemInfo';
+import CartItemControls from 'components/CartItemControls/CartItemControls';
 // STYLES
-import {
-  CartItems,
-  CartItem,
-  ItemImage,
-  ItemInfoWrapper,
-  PickedExtras,
-  PickedExtrasWrapper,
-  StyledAlertIcon,
-  StyledAlertLink,
-  HrefAndDeleteWrapper,
-  StyledXMarkIcon,
-  StyledExtrasIcon,
-  StyledArrowIcon,
-} from './Cart.styles';
-// ANIMATIONS
-import { slideFromTop } from 'animations/animations';
+import { CartItems, CartItem, ItemImage } from './Cart.styles';
 
 const Cart = ({ cart, setCart }) => {
   const [togglePreviewExtras, setTogglePreviewExtras] = useState();
@@ -64,43 +51,15 @@ const Cart = ({ cart, setCart }) => {
   return (
     <CartItems>
       {cart.map((item) => (
-        // <CartItem className={item.id === deletingItem && 'deleting'} key={item.name} variants={slideFromTop} initial='hidden' animate='show'>
         <CartItem className={item.id === deletingItem && 'deleting'} key={item.name}>
           <ItemImage src={item.images[0].url} />
-          <ItemInfoWrapper>
-            <p>{item.name}</p>
-            <PickedExtrasWrapper className={`${togglePreviewExtras === item.id && 'show'} ${toggleAlert === item.id && 'showAlert'}`} id='extras'>
-              {togglePreviewExtras ? (
-                <>
-                  <PickedExtras>WYBRANE DODATKI</PickedExtras>
-                  {item.pickedExtras.map((extras) => (
-                    <span key={extras}>{extras}</span>
-                  ))}
-                </>
-              ) : (
-                toggleAlert && (
-                  <StyledAlertLink to={`/${item.id}`} id='extras'>
-                    <PickedExtras>
-                      NIE WYBRAŁEŚ ŻADNYCH DODATKÓW, <strong>KLIKNIJ</strong> ABY PRZEJŚĆ DO TEGO PRZEDMIOTU I WYBRAĆ.
-                      <strong> CHYBA ŻE NIE CHCESZ!</strong>
-                    </PickedExtras>
-                  </StyledAlertLink>
-                )
-              )}
-            </PickedExtrasWrapper>
-            <p>{item.price} ZŁ</p>
-          </ItemInfoWrapper>
-          <HrefAndDeleteWrapper>
-            <StyledXMarkIcon onClick={() => deleteItemHandler(item)} title='USUŃ PRODUKT Z KOSZYKA' />
-            {item.extrasNumber === null || item.extrasNumber === undefined ? null : item.pickedExtras.length !== 0 ? (
-              <StyledExtrasIcon onClick={() => togglePreviewExtrasHandler(item.id)} id='extras' title='WYBRANE DODATKI' />
-            ) : (
-              <StyledAlertIcon onClick={() => toggleAlertHandler(item.id)} id='extras' title='NIE WYBRAŁEŚ ŻADNYCH DODATKÓW' />
-            )}
-            <Link to={`/${item.id}`} title='PRZEJDŹ DO TEGO PRODUKTU'>
-              <StyledArrowIcon />
-            </Link>
-          </HrefAndDeleteWrapper>
+          <CartItemInfo item={item} togglePreviewExtras={togglePreviewExtras} toggleAlert={toggleAlert} />
+          <CartItemControls
+            deleteItemHandler={deleteItemHandler}
+            item={item}
+            togglePreviewExtrasHandler={togglePreviewExtrasHandler}
+            toggleAlertHandler={toggleAlertHandler}
+          />
         </CartItem>
       ))}
     </CartItems>

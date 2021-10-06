@@ -6,21 +6,21 @@ import LoadingIcon from 'components/LoadingIcon/LoadingIcon';
 import Shadow from 'components/Shadow/Shadow';
 // STYLES
 import { ShopWrapper, ProductWrapper, ProductImage, ProductName, StyledDoneIcon, SeasonOfferInfo } from './Shop.styles';
-import { Header } from 'views/OfferSection/OfferSection.styles';
+import { Header } from 'components/HomeOffersSection/HomeOffersSection.styles';
 
 const Shop = ({ cart }) => {
   const [data, setData] = useState([]);
   const location = useLocation();
   const path = location.pathname.replace('/sklepik/', '');
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const response = await fetch(`https://euphoria-backend-strapi.herokuapp.com/categories?name=${path}`);
-  //     const data = await response.json();
-  //     setData(data[0].products);
-  //   };
-  //   fetchData();
-  // }, [path]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(`https://euphoria-backend-strapi.herokuapp.com/categories?name=${path}`);
+      const data = await response.json();
+      setData(data[0].products);
+    };
+    fetchData();
+  }, [path]);
 
   const checkIDHandler = (itemID) => {
     if (cart !== undefined && cart !== false) {

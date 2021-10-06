@@ -95,7 +95,6 @@ export const Wrapper = styled.button`
       content: 'WYSŁANO';
       width: 100%;
       height: 100%;
-      /* background: #f03737; */
       pointer-events: none;
       display: flex;
       align-items: center;

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-export const OfferSectionWrapper = styled(motion.section)`
+export const Wrapper = styled(motion.section)`
   width: 80%;
   height: 70vh;
   position: relative;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CostsInfoWrapper = styled.div`
+export const Wrapper = styled.div`
   position: absolute;
   width: auto;
   height: 70px;

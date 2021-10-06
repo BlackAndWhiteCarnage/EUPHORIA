@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // STYLES
-import { CostsInfoWrapper } from './CartTotalValue.styles';
+import { Wrapper } from './CartTotalValue.styles';
 
 const CartTotalValue = ({ cart, summary, cartValues }) => {
   let discountValue = () => {
@@ -11,14 +11,14 @@ const CartTotalValue = ({ cart, summary, cartValues }) => {
   };
 
   return (
-    <CostsInfoWrapper>
+    <Wrapper>
       <p>
         RAZEM <span>{cart.length > 0 && summary()}</span> ZŁ {summary() >= 142.5 && `W TYM RABAT ${discountValue().toFixed(2)} ZŁ`}
       </p>
       <p>
         <span>DARMOWA</span> WYSYŁKA
       </p>
-    </CostsInfoWrapper>
+    </Wrapper>
   );
 };
 
