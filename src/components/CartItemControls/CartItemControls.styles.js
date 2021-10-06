@@ -29,9 +29,11 @@ export const StyledAlertIcon = styled(AlertIcon)`
   min-width: 18px;
   transition: 0.3s ease;
   cursor: pointer;
-  &:hover {
-    transform: scale(1.3);
-    transition: 0.5s ease;
+  @media screen and (min-width: 1200px) {
+    &:hover {
+      transform: scale(1.3);
+      transition: 0.5s ease;
+    }
   }
 `;
 
@@ -39,27 +41,33 @@ export const StyledXMarkIcon = styled(XMarkIcon)`
   min-width: 18px;
   transition: 0.3s ease;
   cursor: pointer;
-  &:hover {
-    transform: scale(1.3) rotate(360deg);
-    transition: 0.5s ease;
+  @media screen and (min-width: 1200px) {
+    &:hover {
+      transform: scale(1.3) rotate(360deg);
+      transition: 0.5s ease;
+    }
   }
 `;
 export const StyledExtrasIcon = styled(ExtrasIcon)`
   min-width: 18px;
   transition: 0.3s ease;
   cursor: pointer;
-  &:hover {
-    transform: rotate(70deg) scale(1.3);
-    transition: 0.5s ease;
+  @media screen and (min-width: 1200px) {
+    &:hover {
+      transform: rotate(70deg) scale(1.3);
+      transition: 0.5s ease;
+    }
   }
 `;
 export const StyledArrowIcon = styled(ArrowIcon)`
   min-width: 18px;
   transition: 0.3s ease;
   cursor: pointer;
-  &:hover {
-    transform: translateX(5px) rotate(-10deg) scale(1.3);
-    transition: 0.5s ease;
+  @media screen and (min-width: 1200px) {
+    &:hover {
+      transform: translateX(5px) rotate(-10deg) scale(1.3);
+      transition: 0.5s ease;
+    }
   }
 `;
 

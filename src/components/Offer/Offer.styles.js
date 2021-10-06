@@ -10,7 +10,7 @@ export const OfferWrapper = styled(Link)`
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  transition: 0.5s ease;
+  transition: 0.8s ease;
   &::before {
     position: absolute;
     content: '';
@@ -18,7 +18,7 @@ export const OfferWrapper = styled(Link)`
     z-index: 1;
     width: 0;
     height: 0;
-    transition: 0.3s ease;
+    transition: 1s ease;
     height: 100%;
   }
   &::after {
@@ -26,7 +26,7 @@ export const OfferWrapper = styled(Link)`
     content: '';
     background: ${({ theme }) => theme.colors.crimsonRed};
     z-index: 1;
-    transition: 0.3s ease;
+    transition: 1s ease;
     height: 100%;
     width: 100%;
     right: -100%;
@@ -34,7 +34,7 @@ export const OfferWrapper = styled(Link)`
   @media screen and (min-width: 1200px) {
     &:hover {
       transform: scale(1.015);
-      transition: 0.5s ease;
+      transition: 0.8s ease;
       &::before {
         transition: 0.5s ease;
         width: 100%;

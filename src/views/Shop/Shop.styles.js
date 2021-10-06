@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { ReactComponent as DoneIcon } from 'assets/icons/done-icon.svg';
 
-export const ShopWrapper = styled.section`
+export const Wrapper = styled.section`
   width: 80%;
   height: 100%;
   display: flex;
@@ -50,15 +50,17 @@ export const ProductWrapper = styled(Link)`
       z-index: 20;
     }
   }
-  &:hover {
-    transform: scale(1.025);
-    transition: 0.5s ease;
-    &::before {
-      content: '';
+  @media screen and (min-width: 1200px) {
+    &:hover {
+      transform: scale(1.025);
       transition: 0.5s ease;
-      height: 100%;
-      background: ${({ theme }) => theme.colors.crimsonRed};
-      bottom: 0;
+      &::before {
+        content: '';
+        transition: 0.5s ease;
+        height: 100%;
+        background: ${({ theme }) => theme.colors.crimsonRed};
+        bottom: 0;
+      }
     }
   }
   @media screen and (min-width: 1925px) {
@@ -97,9 +99,11 @@ export const ProductImage = styled.img`
   transform: translate(-50%, -50%);
   transition: 0.5s ease;
   z-index: 5;
-  &:hover {
-    opacity: 0;
-    transition: 0.5s ease;
+  @media screen and (min-width: 1200px) {
+    &:hover {
+      opacity: 0;
+      transition: 0.5s ease;
+    }
   }
 `;
 

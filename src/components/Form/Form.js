@@ -17,8 +17,6 @@ import {
   Info,
   AccualForm,
 } from './Form.styles';
-// ANIMATIONS
-import { slideFromTop } from 'animations/animations';
 
 const Form = ({ cart, summary, mainPage }) => {
   const [emailSend, setEmailSend] = useState(false);
@@ -133,7 +131,6 @@ const Form = ({ cart, summary, mainPage }) => {
           {emailSend && <StyledCheckIcon />}
         </SendingInProgress>
       )}
-      {/* <AccualForm onSubmit={sendEmail} className={mainPage && 'mainPage'} variants={slideFromTop} initial='hidden' animate='show'> */}
       <AccualForm onSubmit={sendEmail} className={mainPage && 'mainPage'}>
         <Label className={validName && 'valid'} htmlFor='name'>
           IMIĘ

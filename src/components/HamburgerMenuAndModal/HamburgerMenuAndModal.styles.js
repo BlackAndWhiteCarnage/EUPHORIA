@@ -29,12 +29,6 @@ export const HamburgerMenuWrapper = styled.div`
   }
 `;
 
-const pulse = keyframes`
-  50% {
-    width: 50%;
-  }
-`;
-
 export const LinesWrapper = styled.div`
   width: 70%;
   height: 60%;
@@ -68,15 +62,6 @@ export const Line = styled.div`
     &.third {
       width: 100%;
     }
-  }
-  &.midDot {
-    animation: ${pulse} 1.5s linear infinite;
-  }
-  &.sideDot {
-    animation: ${pulse} 1s 0.2s linear infinite;
-  }
-  &.sideDotMin {
-    animation: ${pulse} 1s 0.5s linear infinite;
   }
 `;
 

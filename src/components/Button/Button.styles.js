@@ -27,16 +27,18 @@ export const Wrapper = styled.button`
     z-index: -1;
     border-radius: 50%;
   }
-  &:hover {
-    transition: 0.5s ease;
-    transform: scale(1.015);
-    &::before {
-      width: calc(100% + 200px);
-      height: calc(100% + 200px);
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+  @media screen and (min-width: 1200px) {
+    &:hover {
       transition: 0.5s ease;
+      transform: scale(1.015);
+      &::before {
+        width: calc(100% + 200px);
+        height: calc(100% + 200px);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: 0.5s ease;
+      }
     }
   }
   &::after {
@@ -99,11 +101,6 @@ export const Wrapper = styled.button`
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-  }
-  @media screen and (max-width: 1200px) {
-    &:hover {
-      transform: none;
     }
   }
 `;

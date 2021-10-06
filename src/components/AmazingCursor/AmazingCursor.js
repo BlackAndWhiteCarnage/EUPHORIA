@@ -1,19 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 // STYLES
 import { Wrapper } from './AmazingCursor.styles';
 
 const AmazingCursor = () => {
   const ref = useRef(null);
-
-  const [isTouchScreen, setIsTouchScreen] = useState(false);
-
-  useEffect(() => {
-    if (window.matchMedia('(pointer: coarse)').matches) {
-      setIsTouchScreen(true);
-    } else {
-      setIsTouchScreen(false);
-    }
-  }, []);
 
   const mouseMoveHandler = (e) => {
     ref.current.style.top = e.clientY + 'px';
@@ -54,7 +44,7 @@ const AmazingCursor = () => {
     return;
   }, []);
 
-  return <>{!isTouchScreen && <Wrapper ref={ref}></Wrapper>}</>;
+  return <Wrapper ref={ref}></Wrapper>;
 };
 
 export default AmazingCursor;

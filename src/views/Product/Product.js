@@ -33,6 +33,7 @@ const Product = ({ cart, setCart }) => {
       const data = await response.json();
       setData(data);
     };
+
     fetchData();
   }, [path]);
 

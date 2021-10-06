@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import LoadingIcon from 'components/LoadingIcon/LoadingIcon';
 import Shadow from 'components/Shadow/Shadow';
 // STYLES
-import { ShopWrapper, ProductWrapper, ProductImage, ProductName, StyledDoneIcon, SeasonOfferInfo } from './Shop.styles';
+import { Wrapper, ProductWrapper, ProductImage, ProductName, StyledDoneIcon, SeasonOfferInfo } from './Shop.styles';
 import { Header } from 'components/HomeOffersSection/HomeOffersSection.styles';
 
 const Shop = ({ cart }) => {
@@ -31,7 +31,7 @@ const Shop = ({ cart }) => {
   };
 
   return (
-    <ShopWrapper>
+    <Wrapper>
       <Header>Majtki noszone używane dla fetyszystów sprzedam rajstopy majteczki skarpetki</Header>
       {data.length > 0 ? (
         data
@@ -48,7 +48,7 @@ const Shop = ({ cart }) => {
         <LoadingIcon />
       )}
       <Shadow />
-    </ShopWrapper>
+    </Wrapper>
   );
 };
 

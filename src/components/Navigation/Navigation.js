@@ -102,7 +102,6 @@ const Navigation = ({ cart }) => {
           )}
         </CartAndLogoWrapper>
         <NavItems>
-          {/* NAV FOR MAIN PAGE */}
           {location.pathname === '/' ? (
             <li>
               <NavItem to='/' exact>
@@ -111,7 +110,6 @@ const Navigation = ({ cart }) => {
             </li>
           ) : (
             <>
-              {/* NAV IN SHOP */}
               <li>
                 <NavItem to='/' exact>
                   STRONA GŁÓWNA
