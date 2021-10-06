@@ -3,8 +3,6 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { GlobalStyle } from 'assets/styles/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
 import { theme } from 'assets/styles/theme';
-// HELPERS
-import { matchMedia } from 'helpers/matchMedia';
 // COMPONENTS
 import AmazingCursor from 'components/AmazingCursor/AmazingCursor';
 import OfferSection from 'views/OfferSection/OfferSection';
@@ -14,7 +12,6 @@ import Onlyfans from 'components/Onlyfans/Onlyfans';
 import Shop from 'views/Shop/Shop';
 import Product from 'views/Product/Product';
 import CartAndForm from 'views/CartAndForm/CartAndForm';
-import ScrollInfo from 'components/ScrollInfo/ScrollInfo';
 
 const Root = () => {
   const [cart, setCart] = useState([]);
@@ -41,10 +38,9 @@ const Root = () => {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Navigation cart={cart} />
-        {matchMedia.matches && <AmazingCursor />}
+        <AmazingCursor />
         <Switch>
           <Route exact path='/'>
-            {/* <ScrollInfo /> */}
             <OfferSection />
             <InfoSection />
             <Onlyfans />

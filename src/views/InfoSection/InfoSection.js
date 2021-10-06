@@ -9,21 +9,11 @@ import Step2 from 'assets/icons/2step.svg';
 import Step3 from 'assets/icons/3step.svg';
 import Step4 from 'assets/icons/4step.svg';
 import Step5 from 'assets/icons/5step.svg';
-// ANIMATIONS
-import { slideFromLeft, slideFromRight, fade } from 'animations/animations';
-import { useScroll } from 'helpers/useScroll';
-// HELPERS
-import { matchMedia } from 'helpers/matchMedia';
 
 const InfoSection = () => {
-  const [element1, controls1] = useScroll();
-  const [element2, controls2] = useScroll();
-  const [element3, controls3] = useScroll();
-
   return (
     <InfoSectionWrapper>
       {/* WHO AM I BOX */}
-      {/* <WhoAmI id='whoAmI' variants={matchMedia.matches ? slideFromLeft : fade} animate={controls1} initial='hidden' ref={element1}> */}
       <WhoAmI id='whoAmI'>
         <Header>Używana noszona bielizna fetysz euphoria</Header>
         <div>
@@ -40,7 +30,6 @@ const InfoSection = () => {
         </div>
       </WhoAmI>
       {/* HOW TO BUY BOX */}
-      {/* <HowToBuy id='howToBuy' variants={matchMedia.matches ? slideFromRight : fade} animate={controls2} initial='hidden' ref={element2}> */}
       <HowToBuy id='howToBuy'>
         <div>
           <header>JAK WYGLĄDA ZAKUP</header>
@@ -72,7 +61,6 @@ const InfoSection = () => {
         </div>
       </HowToBuy>
       {/* CONTACT BOX */}
-      {/* <Contact id='contact' variants={matchMedia.matches ? slideFromLeft : fade} animate={controls3} initial='hidden' ref={element3}> */}
       <Contact id='contact'>
         <div>
           <Form mainPage />

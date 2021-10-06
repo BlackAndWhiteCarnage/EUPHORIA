@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
 // DATA
-import { panties, socks, premium, tights } from 'data/extras';
+import { pantiesExtras, socksExtras, premiumExtras, tightsExtras } from 'data/extras';
 // STYLES
 import { Wrapper, ExtrasInfoWrapper, ExtrasInfo, ExtrasOption } from './ExtrasWrapper.styles';
 
@@ -27,22 +27,22 @@ const ExtrasWrapper = ({
       if (name === 'majtki') {
         setExtrasDataAndTimes({
           times: 1,
-          data: panties,
+          data: pantiesExtras,
         });
       } else if (name === 'skarpetki') {
         setExtrasDataAndTimes({
           times: 1,
-          data: socks,
+          data: socksExtras,
         });
       } else if (name === 'rajstopy') {
         setExtrasDataAndTimes({
           times: 1,
-          data: tights,
+          data: tightsExtras,
         });
       } else if (name === 'premium') {
         setExtrasDataAndTimes({
-          times: premium.length,
-          data: premium,
+          times: premiumExtras.length,
+          data: premiumExtras,
         });
       } else if (name === 'inne') {
         setExtrasDataAndTimes(undefined);

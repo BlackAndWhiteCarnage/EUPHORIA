@@ -33,11 +33,7 @@ const Shop = ({ cart }) => {
   return (
     <ShopWrapper>
       <Header>Majtki noszone używane dla fetyszystów sprzedam rajstopy majteczki skarpetki</Header>
-      {!data.length && path === 'rajstopy' ? (
-        <SeasonOfferInfo>
-          PRZEPRASZAM CIĘ NAJMOCNIEJ, RAJSTOPKI I POŃCZOSZKI U MNIE SĄ OFERTĄ SEZONOWĄ TERAZ JEST NA NIE TROSZECZKĘ ZA GORĄCO 😉
-        </SeasonOfferInfo>
-      ) : data.length > 0 ? (
+      {data.length > 0 ? (
         data
           .slice(0)
           .reverse()
@@ -55,6 +51,25 @@ const Shop = ({ cart }) => {
     </ShopWrapper>
   );
 };
+
+// BEZ RAJSTOP
+// {!data.length && path === 'rajstopy' ? (
+//   <SeasonOfferInfo>PRZEPRASZAM CIĘ NAJMOCNIEJ, RAJSTOPEK W TEJ CHWILI NIE MA 😉</SeasonOfferInfo>
+// ) : data.length > 0 ? (
+//   data
+//     .slice(0)
+//     .reverse()
+//     .map(({ name, id, images }) => (
+//       <ProductWrapper key={id} name={name} to={`/${id}`} className={checkIDHandler(id)}>
+//         {images.length > 0 && <ProductImage src={images[0].url} id='active'></ProductImage>}
+//         <ProductName>{name}</ProductName>
+//         {checkIDHandler(id) && <StyledDoneIcon />}
+//       </ProductWrapper>
+//     ))
+// ) : (
+//   <LoadingIcon />
+// )}
+// <Shadow />
 
 Shop.propTypes = {
   cart: PropTypes.array.isRequired,

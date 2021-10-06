@@ -1,4 +1,4 @@
-export const panties = [
+export const pantiesExtras = [
   'Piss',
   'Scat',
   'Spryskanie moimi perfumami',
@@ -15,7 +15,7 @@ export const panties = [
   '3 Zdjęcia z Twoim nickiem lub imieniem na pupie',
 ];
 
-export const socks = [
+export const socksExtras = [
   'Piss',
   'Spryskanie moimi perfumami',
   '5 Zdjęć moich ślicznych stópek',
@@ -24,7 +24,7 @@ export const socks = [
   'Noszenie 3 dni',
 ];
 
-export const premium = [
+export const premiumExtras = [
   'Piss',
   'Scat',
   'Spryskanie moimi perfumami',
@@ -40,7 +40,8 @@ export const premium = [
   'Uprawianie sportu',
   '3 Zdjęcia z Twoim nickiem lub imieniem na pupie',
 ];
-export const tights = [
+
+export const tightsExtras = [
   'Piss na rajstopki (całe lub część)',
   'Spryskanie moimi perfumami',
   '5 Seksownych zdjęć w rajstopkach',

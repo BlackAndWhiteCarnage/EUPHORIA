@@ -51,7 +51,7 @@ export const ProductWrapper = styled(Link)`
     }
   }
   &:hover {
-    transform: scale(0.95);
+    transform: scale(1.025);
     transition: 0.5s ease;
     &::before {
       content: '';

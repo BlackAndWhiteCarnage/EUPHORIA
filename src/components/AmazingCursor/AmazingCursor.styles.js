@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Cursor = styled.div`
+export const Wrapper = styled.div`
   width: 50px;
   height: 50px;
   position: fixed;
@@ -24,7 +24,6 @@ export const Cursor = styled.div`
     transform: translate(-50%, -50%);
     transition: 0.3s ease;
     border-radius: 50%;
-    border: 1px solid ${({ theme }) => theme.colors.black};
   }
   &.active {
     transform: scale(1.5);
@@ -33,11 +32,11 @@ export const Cursor = styled.div`
     &::before {
       content: '';
       position: absolute;
-      width: 130px;
-      height: 130px;
+      width: 150px;
+      height: 150px;
       top: 50%;
       left: 50%;
-      background: rgba(0, 0, 0, 0.1);
+      background: rgba(0, 0, 0, 0.25);
       transform: translate(-50%, -50%);
       transition: 0.1s ease;
     }
