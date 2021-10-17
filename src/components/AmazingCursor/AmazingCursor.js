@@ -34,7 +34,7 @@ const AmazingCursor = () => {
 
     setTimeout(() => {
       ref.current.classList.remove('pulse');
-    }, 150);
+    }, 250);
   };
 
   useEffect(() => {

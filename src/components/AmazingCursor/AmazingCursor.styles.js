@@ -17,13 +17,14 @@ export const Wrapper = styled.div`
   &::before {
     content: '';
     position: absolute;
-    width: 0;
-    height: 0;
+    width: 0px;
+    height: 0px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: 0.3s ease;
+    transition: 1s ease;
     border-radius: 50%;
+    background: rgba(0, 0, 0, 0.25);
   }
   &.active {
     transform: scale(1.5);
@@ -31,14 +32,9 @@ export const Wrapper = styled.div`
   &.pulse {
     &::before {
       content: '';
-      position: absolute;
       width: 150px;
       height: 150px;
-      top: 50%;
-      left: 50%;
-      background: rgba(0, 0, 0, 0.25);
-      transform: translate(-50%, -50%);
-      transition: 0.1s ease;
+      transition: 0.5s ease;
     }
   }
 `;

@@ -19,8 +19,8 @@ export const Wrapper = styled.button`
     content: '';
     transition: 0.5s ease;
     position: absolute;
-    width: 0;
-    height: 0;
+    width: 0%;
+    height: 0%;
     background: ${({ theme }) => theme.colors.darkGrey};
     top: 100%;
     left: -100%;
@@ -43,7 +43,7 @@ export const Wrapper = styled.button`
   }
   &::after {
     top: -120%;
-    left: 0;
+    left: 0%;
     position: absolute;
     content: '';
     width: 100%;
@@ -56,11 +56,11 @@ export const Wrapper = styled.button`
   }
   &.added {
     pointer-events: none;
-    transition: 0.5 ease;
+    transition: 0.5s ease;
     &::after {
       transition: 0.5s ease;
-      top: 0;
-      left: 0;
+      top: 0%;
+      left: 0%;
       position: absolute;
       content: 'DODANO';
       width: 100%;
@@ -74,8 +74,8 @@ export const Wrapper = styled.button`
   &.ERROR {
     &::after {
       transition: 0.3s ease;
-      top: 0;
-      left: 0;
+      top: 0%;
+      left: 0%;
       position: absolute;
       content: 'COŚ ŹLE WYPEŁNIŁEŚ';
       width: 100%;
@@ -91,8 +91,8 @@ export const Wrapper = styled.button`
     &::after {
       pointer-events: none;
       transition: 0.3s ease;
-      top: 0;
-      left: 0;
+      top: 0%;
+      left: 0%;
       position: absolute;
       content: 'WYSŁANO';
       width: 100%;

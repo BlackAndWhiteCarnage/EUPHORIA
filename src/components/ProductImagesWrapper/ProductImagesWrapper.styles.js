@@ -16,13 +16,13 @@ export const ImageWrapper = styled(motion.div)`
 
 export const showDirection = keyframes`
   0% {
-      top: 0;
+      top: 0%;
   }
   30% {
       top: 50%;
   }
   100% {
-      top: 0;
+      top: 0%;
   }
 `;
 
