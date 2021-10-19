@@ -17,4 +17,12 @@ export const slideFromTop = {
     y: 0,
     transition: { type: 'spring', stiffness: 300, delay: 0.65, when: 'beforeChildren', staggerChildren: 0.25 },
   },
+  exit: {
+    opacity: 0,
+    y: 80,
+    transition: {
+      delay: 0.25,
+      duration: 0.5,
+    },
+  },
 };

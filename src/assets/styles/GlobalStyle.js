@@ -5,7 +5,6 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-
     }
     html{
         scroll-behavior: smooth;
@@ -21,6 +20,7 @@ export const GlobalStyle = createGlobalStyle`
         overflow-x: hidden;
         background: ${({ theme }) => theme.colors.darkWhite};
         overflow: ${(props) => props.overflowChange && 'hidden'};
+        cursor: none;
     }
     ::-webkit-scrollbar {
     width: 10px;

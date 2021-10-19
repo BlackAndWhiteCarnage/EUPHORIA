@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 // VIEWS
 import Home from 'views/Home/Home';
 import Shop from 'views/Shop/Shop';
@@ -10,11 +11,12 @@ import Provider from 'hoc/Provider';
 
 const Root = () => {
   const [cart, setCart] = useState([]);
+  const location = useLocation();
 
   return (
-    <BrowserRouter>
-      <Provider cart={cart} setCart={setCart}>
-        <Switch>
+    <Provider cart={cart} setCart={setCart}>
+      <AnimatePresence exitBeforeEnter>
+        <Switch location={location} key={location.pathname}>
           <Route exact path='/'>
             <Home />
           </Route>
@@ -28,8 +30,8 @@ const Root = () => {
             <Product cart={cart} setCart={setCart} />
           </Route>
         </Switch>
-      </Provider>
-    </BrowserRouter>
+      </AnimatePresence>
+    </Provider>
   );
 };
 

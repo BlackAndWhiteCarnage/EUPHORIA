@@ -14,7 +14,7 @@ import { Wrapper, OffersWrapper, Header } from './HomeOffersSection.styles';
 import { slideFromTop } from 'animations/animations';
 
 const HomeOfferSection = () => (
-  <Wrapper variants={slideFromTop} initial='hidden' animate='show'>
+  <Wrapper variants={slideFromTop} initial='hidden' animate='show' exit='exit'>
     <Header>FETYSZ MAJTKI MAJTECZKI RAJSTOPY SKARPETKI NOSZONA UŻYWANA BIELIZNA</Header>
     <OffersWrapper id='offer'>
       <Offer image={SocksImage} content='SKARPETKI' gridArea='SKARPETKI' linkTo='skarpetki' alt='skarpetki' />
