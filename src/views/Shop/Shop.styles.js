@@ -15,7 +15,7 @@ export const Wrapper = styled.section`
   }
 `;
 
-export const ProductWrapper = styled(Link)`
+export const Product = styled(Link)`
   position: relative;
   width: 400px;
   height: 500px;
@@ -120,7 +120,7 @@ export const ProductName = styled.h4`
   }
 `;
 
-export const StyledDoneIcon = styled(DoneIcon)`
+export const AddedIcon = styled(DoneIcon)`
   position: absolute;
   width: 40%;
   height: 40%;

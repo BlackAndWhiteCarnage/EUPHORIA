@@ -18,7 +18,7 @@ export const FormWrapper = styled.div`
     flex-direction: column;
     justify-content: flex-start;
   }
-  &.mainPage {
+  &.homePage {
     width: 100%;
     height: 90%;
     background: none;
@@ -93,7 +93,7 @@ export const AccualForm = styled(motion.form)`
       padding: 10px;
     }
   }
-  &.mainPage {
+  &.homePage {
     width: 100%;
     height: 100%;
     margin: 0;

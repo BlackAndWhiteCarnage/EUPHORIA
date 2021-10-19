@@ -16,6 +16,7 @@ const CartAndForm = ({ cart, setCart }) => {
 
   let summary = () => {
     let values = cartValues.reduce((a, b) => a + b).toFixed(2);
+
     if (cartValues.length !== 0 && values < 150) {
       return values;
     } else if (values >= 150 && values < 250) {

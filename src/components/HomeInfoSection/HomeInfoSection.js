@@ -62,7 +62,7 @@ const HomeInfoSection = () => (
     {/* --- CONTACT BOX --- */}
     <Contact id='contact'>
       <div>
-        <Form mainPage />
+        <Form homePage />
       </div>
     </Contact>
   </Wrapper>

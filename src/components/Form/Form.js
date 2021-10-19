@@ -18,7 +18,7 @@ import {
   AccualForm,
 } from './Form.styles';
 
-const Form = ({ cart, summary, mainPage }) => {
+const Form = ({ cart, summary, homePage }) => {
   const [emailSend, setEmailSend] = useState(false);
   const [toggleInfo, setToggleInfo] = useState(false);
   const [checkbox, setCheckbox] = useState(false);
@@ -116,25 +116,20 @@ const Form = ({ cart, summary, mainPage }) => {
   const cartItemsHandler = (e) => {
     setCheckbox(!checkbox);
     setValidCart(!validCart);
+
     let ids = cart.map((item) => {
       return item.images[0].url + ' + DODATKI:' + item.pickedExtras;
     });
+
     let sum = summary();
+
     e.target.value = ids + ' cena ' + sum;
   };
 
   return (
-    <FormWrapper className={mainPage && 'mainPage'}>
-      {!mainPage && (
-        <SendingInProgress className={feedback === 1 && 'SENDING'}>
-          {!emailSend && <StyledProgressIcon />}
-          {emailSend && <StyledCheckIcon />}
-        </SendingInProgress>
-      )}
-      <AccualForm onSubmit={sendEmail} className={mainPage && 'mainPage'}>
-        <Label className={validName && 'valid'} htmlFor='name'>
-          IMIĘ
-        </Label>
+    <FormWrapper className={homePage && 'homePage'}>
+      <AccualForm onSubmit={sendEmail} className={homePage && 'homePage'}>
+        <Label htmlFor='name'>IMIĘ</Label>
         <Input
           onChange={nameHandler}
           id='name'
@@ -142,45 +137,47 @@ const Form = ({ cart, summary, mainPage }) => {
           className={`${feedback === 2 && !validName && 'ERROR'} ${validName && 'VALID'}`}
           placeholder='PRZYNAJMNEJ 5 ZNAKÓW'
         />
-        <Label className={validName && 'valid'} htmlFor='email'>
-          EMAIL
-        </Label>
+        <Label htmlFor='email'>EMAIL</Label>
         <Input
           onChange={emailHandler}
           className={`${feedback === 2 && !validEmail && 'ERROR'} ${validEmail && 'VALID'}`}
           name='email'
           id='email'
-          placeholder={'EMAIL'}
+          placeholder='EMAIL'
         />
-        <Label className={validName && 'valid'} htmlFor='message'>
-          WIADOMOŚĆ
-        </Label>
+        <Label htmlFor='message'>WIADOMOŚĆ</Label>
         <TextArea
           className={`${feedback === 2 && !validMessage && 'ERROR'} ${validMessage && 'VALID'}`}
           onChange={messageHandler}
           name='message'
           id='message'
-          placeholder={'PRZYNEJMNIEJ 20 ZNAKÓW'}
+          placeholder='PRZYNEJMNIEJ 20 ZNAKÓW'
         />
-        {!mainPage && (
+        {!homePage && (
           <CheckboxWrapper className={feedback === 2 && !validCart && 'ERROR'}>
             <p>WYRAŻAM ZGODĘ NA PRZETWAŻANIE MOJEGO KOSZYKA</p>
             <Checkbox type='checkbox' onChange={cartItemsHandler} name='cart' />
           </CheckboxWrapper>
         )}
         <StyledButton
-          text={!mainPage ? 'ZAMAWIAM' : 'WYŚLIJ'}
+          text={!homePage ? 'ZAMAWIAM' : 'WYŚLIJ'}
           className={feedback === 1 ? 'OK' : feedback === 2 && 'ERROR'}
           type='submit'
           click={checkValid}
         />
       </AccualForm>
-      {!mainPage && (
-        <Info onClick={toggleInfoHandler} className={toggleInfo && 'show'} id='active'>
-          {!toggleInfo
-            ? 'Informacje'
-            : 'PODAJĄC DANE NIE MUSISZ WPISYWAĆ SWOJEGO PRAWDZIWEGO IMIENIA A INFORMACJĘ KTÓRE DOSTANĘ BĘDĄ WYKORZYSTANE JEDYNIE W CELACH KONTAKTOWO/WYSYŁKOWYCH. NIE MARTW SIĘ DOSTANĘ ZAWARTOŚĆ TWOJEGO KOSZYKA NA MAILA. JEŚLI NIE CZUJESZ SIĘ KOMFORTOWO WYPEŁNIAJĄC FORMULARZ MOŻESZ SKONTAKTOWAĆ SIĘ ZE MNĄ POPRZEZ KTÓRĄŚ Z INNYCH OPCJI DOSTĘPNYCH NA STRONIE. GDY TYLKO ZOBACZĘ TWOJĄ WIADOMOŚĆ NA PEWNO ODPISZĘ I USTALIMY SZCZEGÓLY. PRAGNĘ RÓWNIESZ POINFOROWAĆ ŻE NIE UDOSTĘPNIAM SWOJEJ NAGOŚCI.'}
-        </Info>
+      {!homePage && (
+        <>
+          <SendingInProgress className={feedback === 1 && 'SENDING'}>
+            {!emailSend && <StyledProgressIcon />}
+            {emailSend && <StyledCheckIcon />}
+          </SendingInProgress>
+          <Info onClick={toggleInfoHandler} className={toggleInfo && 'show'} id='active'>
+            {!toggleInfo
+              ? 'Informacje'
+              : 'PODAJĄC DANE NIE MUSISZ WPISYWAĆ SWOJEGO PRAWDZIWEGO IMIENIA A INFORMACJĘ KTÓRE DOSTANĘ BĘDĄ WYKORZYSTANE JEDYNIE W CELACH KONTAKTOWO/WYSYŁKOWYCH. NIE MARTW SIĘ DOSTANĘ ZAWARTOŚĆ TWOJEGO KOSZYKA NA MAILA. JEŚLI NIE CZUJESZ SIĘ KOMFORTOWO WYPEŁNIAJĄC FORMULARZ MOŻESZ SKONTAKTOWAĆ SIĘ ZE MNĄ POPRZEZ KTÓRĄŚ Z INNYCH OPCJI DOSTĘPNYCH NA STRONIE. GDY TYLKO ZOBACZĘ TWOJĄ WIADOMOŚĆ NA PEWNO ODPISZĘ I USTALIMY SZCZEGÓLY. PRAGNĘ RÓWNIESZ POINFOROWAĆ ŻE NIE UDOSTĘPNIAM SWOJEJ NAGOŚCI.'}
+          </Info>
+        </>
       )}
     </FormWrapper>
   );
@@ -189,7 +186,7 @@ const Form = ({ cart, summary, mainPage }) => {
 Form.propTypes = {
   cart: PropTypes.array,
   summary: PropTypes.func,
-  mainPage: PropTypes.bool,
+  homePage: PropTypes.bool,
 };
 
 export default Form;

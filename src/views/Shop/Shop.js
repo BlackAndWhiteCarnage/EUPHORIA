@@ -4,8 +4,11 @@ import PropTypes from 'prop-types';
 // COMPONENTS
 import LoadingIcon from 'components/LoadingIcon/LoadingIcon';
 import Shadow from 'components/Shadow/Shadow';
+// HELPERS
+import { handleSesonalOffer } from 'helpers/handleSesonalOffer';
+import { isInCartHandler } from 'helpers/isInCartHandler';
 // STYLES
-import { Wrapper, ProductWrapper, ProductImage, ProductName, StyledDoneIcon, SeasonOfferInfo } from './Shop.styles';
+import { Wrapper, Product, ProductImage, ProductName, SeasonOfferInfo, AddedIcon } from './Shop.styles';
 import { Header } from 'components/HomeOffersSection/HomeOffersSection.styles';
 
 const Shop = ({ cart }) => {
@@ -13,46 +16,30 @@ const Shop = ({ cart }) => {
   const location = useLocation();
   const path = location.pathname.replace('/sklepik/', '');
 
-  const handleSesonalOffer = () => {
-    const date = new Date().getMonth();
-
-    if (date < 6 || date >= 9) {
-      return true;
-    } else {
-      return false;
-    }
-  };
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch(`https://euphoria-backend-strapi.herokuapp.com/categories?name=${path}`);
-      const data = await response.json();
-      setData(data[0].products);
-    };
-    fetchData();
-  }, [path]);
-
-  const checkIDHandler = (itemID) => {
-    if (cart.find((item) => item.id === itemID)) {
-      return 'added';
-    }
-  };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const response = await fetch(`https://euphoria-backend-strapi.herokuapp.com/categories?name=${path}`);
+  //     const data = await response.json();
+  //     setData(data[0].products);
+  //   };
+  //   fetchData();
+  // }, [path]);
 
   return (
     <Wrapper>
       <Header>Majtki noszone używane dla fetyszystów sprzedam rajstopy majteczki skarpetki</Header>
-      {path === 'rajstopy' && !handleSesonalOffer() ? (
+      {path === 'rajstopy' && !handleSesonalOffer() && data.length > 0 ? (
         <SeasonOfferInfo>PRZYKRO MI, RAJSTOPKI WRÓCĄ JUŻ WE WRZEŚNIU 😉</SeasonOfferInfo>
       ) : data.length > 0 ? (
         data
           .slice(0)
           .reverse()
           .map(({ name, id, images }) => (
-            <ProductWrapper key={id} name={name} to={`/${id}`} className={checkIDHandler(id)}>
-              {images.length > 0 && <ProductImage src={images[0].url} id='active'></ProductImage>}
+            <Product key={id} name={name} to={`/${id}`} className={isInCartHandler(id, cart)}>
+              {images.length > 0 && <ProductImage src={images[0].url} id='active' />}
               <ProductName>{name}</ProductName>
-              {checkIDHandler(id) && <StyledDoneIcon />}
-            </ProductWrapper>
+              {isInCartHandler(id, cart) && <AddedIcon />}
+            </Product>
           ))
       ) : (
         <LoadingIcon />
