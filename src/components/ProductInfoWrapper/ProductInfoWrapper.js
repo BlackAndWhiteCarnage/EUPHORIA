@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import ImagesWrapper from 'components/ProductImagesWrapper/ProductImagesWrapper';
 import ExtrasWrapper from 'components/ExtrasWrapper/ExtrasWrapper';
 import Discounts from 'components/Discounts/Discounts';
+// HELPERS
+import { matchMedia } from 'helpers/matchMedia';
 // STYLES
 import {
   Wrapper,
@@ -17,14 +19,12 @@ import {
 } from './ProductInfoWrapper.styles';
 // ANIMATIONS
 import { slideFromTop } from 'animations/animations';
-// HELPERS
-import { matchMedia } from 'helpers/matchMedia';
 
 const ProductInfoWrapper = ({
   data,
-  extrasDataAndTimes,
+  extrasData,
   toggleExtrasHandler,
-  setExtrasDataAndTimes,
+  setExtrasData,
   toggleExtras,
   setToggleExtras,
   pickExtras,
@@ -32,59 +32,57 @@ const ProductInfoWrapper = ({
   addToCartHandler,
   cart,
   setCart,
-}) => {
-  return (
-    <Wrapper>
-      <Discounts />
-      <InfoWrapper>
-        <ProductName variants={matchMedia.matches && slideFromTop} animate='show' initial='hidden'>
-          {data.name}
-        </ProductName>
-        <ProductDescription variants={matchMedia.matches && slideFromTop} animate='show' initial='hidden'>
-          {data.description}
-        </ProductDescription>
-        <PriceAndShippingWrapper variants={matchMedia.matches && slideFromTop} animate='show' initial='hidden'>
-          <ProductPrice>
-            CENA <span>{data.price}</span> zł
-          </ProductPrice>
-          <ProductPrice>
-            <span>DARMOWA</span> WYSYŁKA
-          </ProductPrice>
-        </PriceAndShippingWrapper>
-        {window.innerWidth < 1250 && (
-          <ButtonsWrapper>
-            {extrasDataAndTimes !== null && (
-              <StyledButton
-                text={`${extrasDataAndTimes === undefined ? 'SPYTAJ KONIECZNIE O DODATKI PRZY SKŁADANIU ZAMÓWIENIA' : 'WYBIERZ DODATKI'}`}
-                click={toggleExtrasHandler}
-                id='extras'
-              />
-            )}
-            <StyledButton text='DODAJ DO KOSZYKA' click={addToCartHandler} cart={cart} itemID={data.id} />
-          </ButtonsWrapper>
-        )}
-      </InfoWrapper>
-      <ImagesWrapper data={data} desktop />
-      <ExtrasWrapper
-        cart={cart}
-        setCart={setCart}
-        data={data}
-        setExtrasDataAndTimes={setExtrasDataAndTimes}
-        extrasDataAndTimes={extrasDataAndTimes}
-        toggleExtras={toggleExtras}
-        setToggleExtras={setToggleExtras}
-        pickExtras={pickExtras}
-        setPickExtras={setPickExtras}
-      />
-    </Wrapper>
-  );
-};
+}) => (
+  <Wrapper>
+    <Discounts />
+    <InfoWrapper>
+      <ProductName variants={matchMedia.matches && slideFromTop} animate='show' initial='hidden'>
+        {data.name}
+      </ProductName>
+      <ProductDescription variants={matchMedia.matches && slideFromTop} animate='show' initial='hidden'>
+        {data.description}
+      </ProductDescription>
+      <PriceAndShippingWrapper variants={matchMedia.matches && slideFromTop} animate='show' initial='hidden'>
+        <ProductPrice>
+          CENA <span>{data.price}</span> zł
+        </ProductPrice>
+        <ProductPrice>
+          <span>DARMOWA</span> WYSYŁKA
+        </ProductPrice>
+      </PriceAndShippingWrapper>
+      {!matchMedia.matches && (
+        <ButtonsWrapper>
+          {extrasData !== null && (
+            <StyledButton
+              text={`${extrasData === undefined ? 'SPYTAJ KONIECZNIE O DODATKI PRZY SKŁADANIU ZAMÓWIENIA' : 'WYBIERZ DODATKI'}`}
+              click={toggleExtrasHandler}
+              id='extras'
+            />
+          )}
+          <StyledButton text='DODAJ DO KOSZYKA' click={addToCartHandler} cart={cart} itemID={data.id} />
+        </ButtonsWrapper>
+      )}
+    </InfoWrapper>
+    <ImagesWrapper data={data} desktop />
+    <ExtrasWrapper
+      cart={cart}
+      setCart={setCart}
+      data={data}
+      setExtrasData={setExtrasData}
+      extrasData={extrasData}
+      toggleExtras={toggleExtras}
+      setToggleExtras={setToggleExtras}
+      pickExtras={pickExtras}
+      setPickExtras={setPickExtras}
+    />
+  </Wrapper>
+);
 
 ProductInfoWrapper.propTypes = {
   data: PropTypes.object.isRequired,
-  extrasDataAndTimes: PropTypes.object,
+  extrasData: PropTypes.object,
   toggleExtrasHandler: PropTypes.func.isRequired,
-  setExtrasDataAndTimes: PropTypes.func.isRequired,
+  setExtrasData: PropTypes.func.isRequired,
   toggleExtras: PropTypes.bool.isRequired,
   setToggleExtras: PropTypes.func.isRequired,
   cart: PropTypes.array.isRequired,

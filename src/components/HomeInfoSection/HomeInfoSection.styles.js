@@ -2,7 +2,9 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 export const Wrapper = styled(motion.section)`
-  width: 100vw;
+  width: 100%;
+  max-width: 1400px;
+  margin: auto;
   height: 100vh;
   background: ${({ theme }) => theme.colors.darkWhite};
   position: relative;

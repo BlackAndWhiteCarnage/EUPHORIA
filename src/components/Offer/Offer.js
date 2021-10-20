@@ -15,7 +15,7 @@ const Offer = ({ gridArea, content, image, linkTo, alt }) => {
       <OfferTitle className={toggleTitle && 'toggleTitle'} id='active'>
         {content}
       </OfferTitle>
-      <OfferImage src={image} className={gridArea === 'RAJSTOPY' && 'tights'} id='offerItem' alt={alt} />
+      <OfferImage src={image} className={gridArea === 'RAJSTOPY' && 'tights'} alt={alt} id='active' />
     </OfferWrapper>
   );
 };
@@ -25,6 +25,7 @@ Offer.propTypes = {
   content: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   linkTo: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
 };
 
 export default Offer;

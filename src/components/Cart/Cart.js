@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 // COMPONENTS
 import CartItemInfo from 'components/CartItemInfo/CartItemInfo';
@@ -37,16 +37,12 @@ const Cart = ({ cart, setCart }) => {
     }
   };
 
-  useEffect(() => {
-    window.addEventListener('click', (e) => {
-      if (e.target.id !== 'extras') {
-        setTogglePreviewExtras(false);
-        setToggleAlert(false);
-      }
-    });
-
-    return;
-  }, []);
+  window.addEventListener('click', (e) => {
+    if (e.target.id !== 'extras') {
+      setTogglePreviewExtras(false);
+      setToggleAlert(false);
+    }
+  });
 
   return (
     <CartItems>

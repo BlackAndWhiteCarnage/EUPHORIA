@@ -2,8 +2,9 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 export const Wrapper = styled(motion.section)`
-  width: 80%;
-  height: 70vh;
+  width: 100%;
+  max-width: 1400px;
+  min-height: 80vh;
   position: relative;
   display: flex;
   justify-content: center;

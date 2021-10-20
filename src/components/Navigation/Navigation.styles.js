@@ -4,8 +4,9 @@ import { NavLink } from 'react-router-dom';
 
 export const Wrapper = styled.div`
   position: relative;
-  width: 80%;
-  min-height: 30vh;
+  width: 100%;
+  max-width: 1400px;
+  min-height: 25vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -23,14 +24,15 @@ export const Wrapper = styled.div`
   &.stickyNavbar {
     transition: 0.5s ease;
     position: fixed;
-    top: -50%;
+    top: 0;
     left: 0;
-    transform: translate(0, 100%);
     width: 100%;
+    max-width: unset;
     background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(5px);
     padding: 5px 80px;
-    height: 330px;
+    height: 150px;
+    min-height: unset;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
   }
 `;
@@ -38,7 +40,7 @@ export const Wrapper = styled.div`
 export const FakeWrapper = styled.div`
   position: absolute;
   width: 80%;
-  min-height: 30vh;
+  min-height: 25vh;
   margin: auto;
   @media screen and (max-width: 1250px) {
     display: none;
@@ -49,9 +51,11 @@ export const FakeWrapper = styled.div`
 `;
 
 export const CartAndLogoWrapper = styled.div`
-  height: 100%;
-  position: relative;
+  min-height: 65px;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   @media screen and (max-width: 1250px) {
     position: fixed;
     top: 0;
@@ -73,13 +77,19 @@ export const CartWrapper = styled.div`
   width: 75px;
   height: 30px;
   position: absolute;
-  bottom: 0;
+  top: 30px;
   right: 0;
   display: flex;
   align-items: center;
   justify-content: space-around;
   background: ${({ theme }) => theme.colors.white};
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+  &:hover {
+    img {
+      transform: scale(1.6);
+      transition: 0.5s ease;
+    }
+  }
   @media screen and (max-width: 1250px) {
     position: fixed;
     z-index: 5;
@@ -96,7 +106,7 @@ export const CartWrapper = styled.div`
 
 export const Count = styled.div`
   position: absolute;
-  bottom: 0;
+  top: 30px;
   right: 75px;
   z-index: -1;
   width: 0;
@@ -133,7 +143,7 @@ export const Count = styled.div`
 
 export const Discount = styled.div`
   position: absolute;
-  bottom: 0;
+  top: 0;
   right: 75px;
   z-index: -1;
   width: 0;
@@ -147,7 +157,7 @@ export const Discount = styled.div`
   transition: 0.5s ease;
   &.show {
     width: 50px;
-    top: -60px;
+    top: 0;
     right: 155px;
     height: 60px;
     transition: 0.5s ease;
@@ -175,7 +185,7 @@ export const Discount = styled.div`
 
 export const CartValue = styled.div`
   position: absolute;
-  bottom: 30px;
+  top: 0;
   right: 0;
   z-index: -1;
   width: 155px;
@@ -216,7 +226,6 @@ export const CartValue = styled.div`
 export const StyledLogo = styled(Logo)`
   width: 270px;
   height: 50px;
-  position: absolute;
   bottom: 0;
   left: 0;
   @media screen and (max-width: 1250px) {
@@ -230,11 +239,10 @@ export const StyledLogo = styled(Logo)`
 `;
 
 export const NavItems = styled.ul`
-  height: 50px;
-  width: 100%;
+  min-height: 65px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   list-style: none;
   font-size: ${({ theme }) => theme.fontSize.m};
   font-weight: bolder;
@@ -269,39 +277,24 @@ export const NavItem = styled(NavLink).attrs({ activeClassName: 'active-link' })
   }
 `;
 
-export const SocialMediaWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100px;
-  margin-bottom: 5px;
-  @media screen and (max-width: 1250px) {
-    padding-top: 20px;
-    flex-direction: column;
-    position: absolute;
-    height: 100%;
-    justify-content: flex-start;
-    top: 50%;
-    transform: translate(0, -50%);
-    right: 0;
-    background: ${({ theme }) => theme.colors.darkGrey};
-  }
-`;
-
 export const Icon = styled.img`
-  min-width: 18px;
+  min-width: 20px;
   transition: 0.3s ease;
   @media screen and (max-width: 1250px) {
     min-width: 25px;
     margin-bottom: 50px;
   }
-  &:hover {
-    transform: scale(1.6);
-    transition: 0.5s ease;
-  }
+
   @media screen and (max-width: 1200px) {
     &:hover {
       transform: none;
     }
   }
+`;
+
+export const CartInfoWrapper = styled.div`
+  position: relative;
+  width: 205px;
+  height: 60px;
+  z-index: 1;
 `;

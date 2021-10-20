@@ -4,7 +4,8 @@ import { motion } from 'framer-motion';
 
 export const ProductWrapper = styled(motion.section)`
   width: 100%;
-  height: 100vh;
+  max-width: 1400px;
+  height: 55vh;
   max-height: auto;
   position: absolute;
   top: 0;
@@ -35,10 +36,9 @@ export const ButtonsWrapper = styled.div`
   @media screen and (min-width: 1250px) {
     margin: 0;
     min-width: 1000px;
-    width: 80%;
+    width: 100%;
     flex-direction: row;
     margin-top: 20px;
-    max-width: 1300px;
   }
 `;
 

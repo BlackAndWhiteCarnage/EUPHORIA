@@ -7,7 +7,7 @@ const ExtrasProvider = ({
   children,
   cart,
   data,
-  setExtrasDataAndTimes,
+  setExtrasData,
   setToggleExtras,
   setPickExtras,
   setCart,
@@ -22,29 +22,29 @@ const ExtrasProvider = ({
       const name = data.category.name;
 
       if (name === 'majtki') {
-        setExtrasDataAndTimes({
+        setExtrasData({
           times: 1,
           data: pantiesExtras,
         });
       } else if (name === 'skarpetki') {
-        setExtrasDataAndTimes({
+        setExtrasData({
           times: 1,
           data: socksExtras,
         });
       } else if (name === 'rajstopy') {
-        setExtrasDataAndTimes({
+        setExtrasData({
           times: 1,
           data: tightsExtras,
         });
       } else if (name === 'premium') {
-        setExtrasDataAndTimes({
+        setExtrasData({
           times: premiumExtras.length,
           data: premiumExtras,
         });
       } else if (name === 'inne') {
-        setExtrasDataAndTimes(undefined);
+        setExtrasData(undefined);
       } else {
-        setExtrasDataAndTimes(null);
+        setExtrasData(null);
       }
     };
 
@@ -93,7 +93,7 @@ ExtrasProvider.propTypes = {
   children: PropTypes.element.isRequired,
   cart: PropTypes.array.isRequired,
   data: PropTypes.object.isRequired,
-  setExtrasDataAndTimes: PropTypes.func.isRequired,
+  setExtrasData: PropTypes.func.isRequired,
   setToggleExtras: PropTypes.func.isRequired,
   setCart: PropTypes.func.isRequired,
   pickExtras: PropTypes.object.isRequired,

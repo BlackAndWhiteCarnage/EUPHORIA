@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 // STYLES
 import { Wrapper, StyledXMarkIcon, StyledExtrasIcon, StyledAlertIcon, StyledArrowIcon } from './CartItemControls.styles';
@@ -16,5 +17,12 @@ const CartItemControls = ({ item, togglePreviewExtrasHandler, toggleAlertHandler
     </Link>
   </Wrapper>
 );
+
+CartItemControls.propTypes = {
+  item: PropTypes.object.isRequired,
+  togglePreviewExtrasHandler: PropTypes.func.isRequired,
+  toggleAlertHandler: PropTypes.func.isRequired,
+  deleteItemHandler: PropTypes.func.isRequired,
+};
 
 export default CartItemControls;

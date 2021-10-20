@@ -4,27 +4,20 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100px;
-  /* margin-bottom: 5px; */
+  width: 205px;
+  min-height: 65px;
   @media screen and (max-width: 1250px) {
-    /* min-width: 40px; */
     max-width: 60px;
-    /* padding-top: 100px; */
     flex-direction: column;
-    /* position: absolute; */
     height: 100%;
     justify-content: flex-end;
-    /* top: 50%; */
-    /* transform: translate(0, -50%); */
-    /* right: 0; */
-    /* padding-bottom: 50px; */
     background: ${({ theme }) => theme.colors.darkGrey};
   }
 `;
 
 export const Icon = styled.img`
-  width: 18px;
-  max-height: 18px;
+  width: 20px;
+  max-height: 20px;
   transition: 0.3s ease;
   @media screen and (max-width: 1250px) {
     min-height: 25px;

@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { ReactComponent as DoneIcon } from 'assets/icons/done-icon.svg';
 
 export const Wrapper = styled.section`
-  width: 80%;
+  width: 100%;
+  max-width: 1400px;
   height: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -62,11 +63,6 @@ export const Product = styled(Link)`
         bottom: 0;
       }
     }
-  }
-  @media screen and (min-width: 1925px) {
-    margin: 50px 0;
-    width: 500px;
-    height: 600px;
   }
   @media screen and (max-width: 1655px) {
     width: 300px;

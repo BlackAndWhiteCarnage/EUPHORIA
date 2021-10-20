@@ -4,6 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import PropTypes from 'prop-types';
 // HELPERS
 import { matchMedia } from 'helpers/matchMedia';
+import { summary } from 'helpers/summary';
 // COMPONENTS
 import SocialMediaWrapper from 'components/SocialMediaWrapper/SocialMediaWrapper';
 import HamburgerMenuAndModal from 'components/HamburgerMenuAndModal/HamburgerMenuAndModal';
@@ -22,40 +23,13 @@ import {
   CartValue,
   Discount,
   FakeWrapper,
+  CartInfoWrapper,
 } from './Navigation.styles';
 
 const Navigation = ({ cart }) => {
   const [element, view] = useInView({ threshold: 0.5 });
   const [cartChange, setCartChange] = useState(false);
   const location = useLocation();
-
-  let cartValues = cart.map((item) => {
-    return item.price;
-  });
-
-  let cartValueHandler = () => {
-    if (cart.length > 0) {
-      let values = cartValues.reduce((a, b) => a + b).toFixed(2);
-      return values;
-    }
-  };
-
-  let summary = () => {
-    if (cart.length > 0) {
-      let values = cartValues.reduce((a, b) => a + b).toFixed(2);
-      if (cartValues.length !== 0 && values < 150) {
-        return values;
-      } else if (values >= 150 && values < 250) {
-        return ((values / 100) * 95).toFixed(2);
-      } else if (values >= 250 && values < 500) {
-        return ((values / 100) * 90).toFixed(2);
-      } else if (values >= 500) {
-        return ((values / 100) * 85).toFixed(2);
-      } else {
-        return '0';
-      }
-    }
-  };
 
   useEffect(() => {
     setCartChange(true);
@@ -84,22 +58,24 @@ const Navigation = ({ cart }) => {
               <StyledLogo id='active' title='EUPHORIA NOSZONA I UŻYWANA BIELIZNA' />
             </Link>
           )}
-          <Link to='/koszyk'>
-            <CartWrapper>
-              <Icon src={CartIcon} id='active' title='KOSZYK' />
-            </CartWrapper>
-          </Link>
-          <Count className={cart.length > 0 && 'show'} title='LICZBA PRZEDMIOTÓW W KOSZYKU'>
-            {cart.length}
-          </Count>
-          <CartValue className={`${cart.length > 0 && 'show'} ${cartChange && 'change'}`} title='ŁĄCZNA WARTOŚĆ KOSZYKA'>
-            RAZEM {cart.length > 0 && summary()} ZŁ
-          </CartValue>
-          {cartValueHandler() >= 150 && (
-            <Discount className={cart.length > 0 && 'show'} title='OBECNY RABAT'>
-              {cartValueHandler() < 250 ? '-5%' : cartValueHandler() >= 250 && cartValueHandler() < 500 ? '-10%' : '-15%'}
-            </Discount>
-          )}
+          <CartInfoWrapper>
+            <Link to='/koszyk'>
+              <CartWrapper>
+                <Icon src={CartIcon} id='active' title='KOSZYK' />
+              </CartWrapper>
+            </Link>
+            <Count className={cart.length > 0 && 'show'} title='LICZBA PRZEDMIOTÓW W KOSZYKU'>
+              {cart.length}
+            </Count>
+            <CartValue className={`${cart.length > 0 && 'show'} ${cartChange && 'change'}`} title='ŁĄCZNA WARTOŚĆ KOSZYKA'>
+              RAZEM {cart.length > 0 && summary(cart)} ZŁ
+            </CartValue>
+            {summary(cart, false, true) >= 150 && (
+              <Discount className={cart.length > 0 && 'show'} title='OBECNY RABAT'>
+                {summary(cart, false, true) < 250 ? '-5%' : summary(cart, false, true) >= 250 && summary(cart, false, true) < 500 ? '-10%' : '-15%'}
+              </Discount>
+            )}
+          </CartInfoWrapper>
         </CartAndLogoWrapper>
         <NavItems>
           {location.pathname === '/' ? (

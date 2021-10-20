@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
+// HELPERS
+import { summary } from 'helpers/summary';
 // STYLES
 import {
   FormWrapper,
@@ -18,7 +20,7 @@ import {
   AccualForm,
 } from './Form.styles';
 
-const Form = ({ cart, summary, homePage }) => {
+const Form = ({ cart, homePage }) => {
   const [emailSend, setEmailSend] = useState(false);
   const [toggleInfo, setToggleInfo] = useState(false);
   const [checkbox, setCheckbox] = useState(false);
@@ -121,7 +123,7 @@ const Form = ({ cart, summary, homePage }) => {
       return item.images[0].url + ' + DODATKI:' + item.pickedExtras;
     });
 
-    let sum = summary();
+    let sum = summary(cart);
 
     e.target.value = ids + ' cena ' + sum;
   };

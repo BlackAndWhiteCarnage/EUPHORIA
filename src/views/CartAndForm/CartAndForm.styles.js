@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 
 export const Wrapper = styled(motion.section)`
   position: relative;
-  width: 80%;
-  max-width: 1600px;
-  height: 58vh;
+  width: 100%;
+  max-width: 1400px;
+  height: 55vh;
   display: flex;
   flex-wrap: nowrap;
   margin: auto;

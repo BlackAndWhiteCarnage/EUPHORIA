@@ -1,26 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// HELPERS
+import { summary } from 'helpers/summary';
 // STYLES
 import { Wrapper } from './CartTotalValue.styles';
 
-const CartTotalValue = ({ cart, summary, cartValues }) => {
-  let discountValue = () => {
-    let values = cartValues.reduce((a, b) => a + b).toFixed(2);
-
-    return values - summary();
-  };
-
-  return (
-    <Wrapper>
-      <p>
-        RAZEM <span>{cart.length > 0 && summary()}</span> ZŁ {summary() >= 142.5 && `W TYM RABAT ${discountValue().toFixed(2)} ZŁ`}
-      </p>
-      <p>
-        <span>DARMOWA</span> WYSYŁKA
-      </p>
-    </Wrapper>
-  );
-};
+const CartTotalValue = ({ cart }) => (
+  <Wrapper>
+    <p>
+      RAZEM <span>{cart.length > 0 && summary(cart)}</span> ZŁ {summary(cart) >= 142.5 && `W TYM RABAT ${summary(cart, true)} ZŁ`}
+    </p>
+    <p>
+      <span>DARMOWA</span> WYSYŁKA
+    </p>
+  </Wrapper>
+);
 
 CartTotalValue.propTypes = {
   cart: PropTypes.array.isRequired,

@@ -114,7 +114,7 @@ export const OfferImage = styled.img`
     top: 50%;
     left: 0;
     transform: translate(0, -50%);
-    @media screen and (max-width: 1200px) {
+    /* @media screen and (max-width: 1200px) {
       width: auto;
       left: 50%;
       transform: translate(-50%, 0) rotate(-90deg);
@@ -124,6 +124,6 @@ export const OfferImage = styled.img`
     }
     @media screen and (min-width: 2480px) {
       width: 70%;
-    }
+    } */
   }
 `;

@@ -13,9 +13,10 @@ import { matchMedia } from 'helpers/matchMedia';
 import { fade, slideFromTop } from 'animations/animations';
 
 const Product = ({ cart, setCart }) => {
+  const path = useLocation().pathname.replace('/', '');
   const [data, setData] = useState();
   const [toggleExtras, setToggleExtras] = useState(false);
-  const [extrasDataAndTimes, setExtrasDataAndTimes] = useState({
+  const [extrasData, setExtrasData] = useState({
     data: [],
     times: 0,
   });
@@ -23,9 +24,6 @@ const Product = ({ cart, setCart }) => {
     price: 0,
     pickedExtras: [],
   });
-
-  const location = useLocation();
-  const path = location.pathname.replace('/', '');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,7 +46,7 @@ const Product = ({ cart, setCart }) => {
       price: pickExtras.price !== false ? data.price + pickExtras.price : data.price,
       id: data.id,
       pickedExtras: pickExtras.pickedExtras,
-      extrasNumber: extrasDataAndTimes && extrasDataAndTimes.times + 1,
+      extrasNumber: extrasData && extrasData.times + 1,
       initialPrice: data.price,
     };
 
@@ -62,11 +60,11 @@ const Product = ({ cart, setCart }) => {
           <ProductImagesWrapper data={data} />
           <ProductInfoWrapper
             data={data}
-            extrasDataAndTimes={extrasDataAndTimes}
+            extrasData={extrasData}
             toggleExtrasHandler={toggleExtrasHandler}
             toggleExtras={toggleExtras}
             setToggleExtras={setToggleExtras}
-            setExtrasDataAndTimes={setExtrasDataAndTimes}
+            setExtrasData={setExtrasData}
             pickExtras={pickExtras}
             setPickExtras={setPickExtras}
             addToCartHandler={addToCartHandler}
@@ -75,9 +73,9 @@ const Product = ({ cart, setCart }) => {
           />
           {matchMedia.matches && (
             <ButtonsWrapper>
-              {extrasDataAndTimes !== null && (
+              {extrasData !== null && (
                 <StyledButton
-                  text={`${extrasDataAndTimes === undefined ? 'SPYTAJ KONIECZNIE O DODATKI PRZY SKŁADANIU ZAMÓWIENIA' : 'WYBIERZ DODATKI'}`}
+                  text={`${extrasData === undefined ? 'SPYTAJ KONIECZNIE O DODATKI PRZY SKŁADANIU ZAMÓWIENIA' : 'WYBIERZ DODATKI'}`}
                   click={toggleExtrasHandler}
                   id='extras'
                 />

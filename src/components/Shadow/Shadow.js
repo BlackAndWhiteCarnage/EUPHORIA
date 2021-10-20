@@ -11,7 +11,7 @@ const ShadowWrapper = styled.div`
 `;
 
 const Shadow = () => {
-  return <ShadowWrapper></ShadowWrapper>;
+  return <ShadowWrapper />;
 };
 
 export default Shadow;
