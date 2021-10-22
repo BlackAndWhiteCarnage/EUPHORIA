@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   span {
     color: ${({ theme }) => theme.colors.crimsonRed};
   }
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1250px) {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     position: absolute;
     bottom: 0;

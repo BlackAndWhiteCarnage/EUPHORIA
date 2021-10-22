@@ -21,22 +21,28 @@ export const Wrapper = styled.div`
 
 export const InfoWrapper = styled.div`
   position: relative;
-  width: 95%;
-  min-height: 80vh;
+  width: 100%;
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 20px;
-  margin-bottom: 100px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
   @media screen and (min-width: 860px) {
     margin: 40px 0;
     margin: 0;
   }
   @media screen and (min-width: 1250px) {
-    min-height: 0;
+    /* min-height: 0; */
     width: 50%;
     justify-content: center;
   }
+`;
+
+export const Info = styled.div`
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 `;
 
 export const ProductName = styled(motion.h3)`

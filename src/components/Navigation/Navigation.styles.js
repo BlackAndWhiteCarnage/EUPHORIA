@@ -15,6 +15,9 @@ export const Wrapper = styled.div`
   transition: 0.5s ease;
   z-index: 999999;
   background: ${({ theme }) => theme.colors.darkWhite};
+  @media screen and (max-width: 1600px) {
+    width: 95%;
+  }
   @media screen and (max-width: 1250px) {
     width: 0;
     z-index: 99;
@@ -60,10 +63,12 @@ export const CartAndLogoWrapper = styled.div`
     position: fixed;
     top: 0;
     left: 0;
+    min-height: unset;
     height: 55px;
     background: ${({ theme }) => theme.colors.darkWhite};
     z-index: 200;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+    justify-content: flex-end;
   }
   @media screen and (max-width: 620px) {
     height: 40px;
@@ -84,10 +89,12 @@ export const CartWrapper = styled.div`
   justify-content: space-around;
   background: ${({ theme }) => theme.colors.white};
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
-  &:hover {
-    img {
-      transform: scale(1.6);
-      transition: 0.5s ease;
+  @media screen and (min-width: 1250px) {
+    &:hover {
+      img {
+        transform: scale(1.6);
+        transition: 0.5s ease;
+      }
     }
   }
   @media screen and (max-width: 1250px) {
@@ -100,7 +107,6 @@ export const CartWrapper = styled.div`
   }
   @media screen and (max-width: 620px) {
     height: 40px;
-    width: 60px;
   }
 `;
 
@@ -131,13 +137,16 @@ export const Count = styled.div`
     top: 0;
     right: 0;
     width: 20px;
-    height: 40px;
+    height: 55px;
     &.show {
       width: 105px;
-      right: 50px;
+      right: 55px;
       transition: 0.5s ease;
       box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
     }
+  }
+  @media screen and (max-width: 620px) {
+    height: 40px;
   }
 `;
 
@@ -173,12 +182,18 @@ export const Discount = styled.div`
     width: 20px;
     height: 40px;
     &.show {
-      width: 45px;
+      width: 55px;
       height: 25px;
       right: 0;
-      top: 70px;
+      top: 85px;
       transition: 0.5s ease;
       box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+    }
+  }
+  @media screen and (max-width: 620px) {
+    height: 40px;
+    &.show {
+      top: 70px;
     }
   }
 `;
@@ -215,10 +230,15 @@ export const CartValue = styled.div`
     width: 20px;
     height: 40px;
     &.show {
-      top: 40px;
-      width: 155px;
+      top: 55px;
+      width: 160px;
       transition: 0.5s ease;
       box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+    }
+  }
+  @media screen and (max-width: 620px) {
+    &.show {
+      top: 40px;
     }
   }
 `;
@@ -285,7 +305,7 @@ export const Icon = styled.img`
     margin-bottom: 50px;
   }
 
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1250px) {
     &:hover {
       transform: none;
     }
@@ -297,4 +317,11 @@ export const CartInfoWrapper = styled.div`
   width: 205px;
   height: 60px;
   z-index: 1;
+  @media screen and (max-width: 1250px) {
+    height: 100%;
+  }
+  @media screen and (max-width: 620px) {
+    width: 160px;
+    height: 150px;
+  }
 `;

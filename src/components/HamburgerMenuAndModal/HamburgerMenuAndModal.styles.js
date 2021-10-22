@@ -15,7 +15,7 @@ export const HamburgerMenuWrapper = styled.div`
   justify-content: space-around;
   transition: 0.8s ease;
   cursor: pointer;
-  min-width: 60px;
+  min-width: 80px;
   @media screen and (min-width: 1250px) {
     display: none;
   }
@@ -42,6 +42,7 @@ export const Line = styled.div`
   height: 4px;
   background: ${({ theme }) => theme.colors.crimsonRed};
   transition: 0.5s ease;
+  border-radius: 10px;
   &.first {
     width: 100%;
   }

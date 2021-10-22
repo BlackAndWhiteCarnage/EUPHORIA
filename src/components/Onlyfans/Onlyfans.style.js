@@ -14,10 +14,10 @@ export const OnlyFansWrapper = styled.a`
   box-shadow: ${({ theme }) => theme.colors.white};
   z-index: 2000;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1250px) {
     width: 40px;
   }
-  @media screen and (max-width: 680px) {
+  @media screen and (max-width: 620px) {
     width: 30px;
   }
 `;

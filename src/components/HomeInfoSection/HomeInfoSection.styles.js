@@ -8,19 +8,26 @@ export const Wrapper = styled(motion.section)`
   height: 100vh;
   background: ${({ theme }) => theme.colors.darkWhite};
   position: relative;
+  @media screen and (max-width: 1600px) {
+    width: 95%;
+  }
   header {
     font-size: ${({ theme }) => theme.fontSize.xl};
     margin-bottom: 40px;
     font-weight: bolder;
     letter-spacing: 2px;
-    @media screen and (max-width: 1360px) {
+    @media screen and (max-width: 1600px) {
+      margin-bottom: 20px;
+      font-size: ${({ theme }) => theme.fontSize.l};
+    }
+    @media screen and (max-width: 1250px) {
       font-size: ${({ theme }) => theme.fontSize.l};
     }
   }
   line-height: 160%;
   div,
   article {
-    @media screen and (max-width: 1360px) {
+    @media screen and (max-width: 1250px) {
       position: static;
       width: 100%;
     }
@@ -38,8 +45,9 @@ export const WhoAmI = styled(motion.article)`
   display: flex;
   align-items: center;
   justify-content: center;
-  @media screen and (max-width: 540px) {
-    height: 850px;
+  @media screen and (max-width: 620px) {
+    height: auto;
+    padding: 100px 0;
   }
   div {
     position: absolute;
@@ -49,17 +57,14 @@ export const WhoAmI = styled(motion.article)`
     width: 80%;
     height: 70%;
     color: ${({ theme }) => theme.colors.white};
-    @media screen and (max-width: 1360px) {
+    @media screen and (max-width: 1600px) {
+      font-size: ${({ theme }) => theme.fontSize.m};
+    }
+    @media screen and (max-width: 1250px) {
       position: static;
       width: 85%;
       transform: none;
       height: auto;
-    }
-    @media screen and (max-width: 860px) {
-      font-size: ${({ theme }) => theme.fontSize.m};
-    }
-    @media screen and (max-width: 330px) {
-      font-size: ${({ theme }) => theme.fontSize.s};
     }
   }
 `;
@@ -75,8 +80,12 @@ export const HowToBuy = styled(motion.article)`
   display: flex;
   align-items: center;
   justify-content: center;
-  @media screen and (max-width: 540px) {
-    height: 850px;
+  @media screen and (max-width: 1600px) {
+    top: 50%;
+  }
+  @media screen and (max-width: 620px) {
+    height: auto;
+    padding: 100px 0;
   }
   div {
     position: absolute;
@@ -89,7 +98,10 @@ export const HowToBuy = styled(motion.article)`
     display: flex;
     justify-content: center;
     flex-direction: column;
-    @media screen and (max-width: 1360px) {
+    @media screen and (max-width: 1600px) {
+      font-size: ${({ theme }) => theme.fontSize.m};
+    }
+    @media screen and (max-width: 1250px) {
       position: static;
       transform: none;
       width: 85%;
@@ -101,12 +113,9 @@ export const HowToBuy = styled(motion.article)`
     align-items: center;
     p {
       margin: 25px;
-      @media screen and (max-width: 860px) {
+      @media screen and (max-width: 620px) {
         margin: 18px;
         font-size: ${({ theme }) => theme.fontSize.m};
-      }
-      @media screen and (max-width: 330px) {
-        font-size: ${({ theme }) => theme.fontSize.s};
       }
     }
   }
@@ -123,14 +132,21 @@ export const Contact = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: center;
-  @media screen and (max-width: 540px) {
-    height: 850px;
+  @media screen and (max-width: 1600px) {
+    bottom: -30%;
+  }
+  @media screen and (max-width: 620px) {
+    height: auto;
+    padding: 100px 0;
   }
   div {
     width: 80%;
     max-width: 800px;
     height: 80%;
-    @media screen and (max-width: 1360px) {
+    @media screen and (max-width: 1600px) {
+      font-size: ${({ theme }) => theme.fontSize.m};
+    }
+    @media screen and (max-width: 1250px) {
       width: 85%;
       max-width: none;
     }

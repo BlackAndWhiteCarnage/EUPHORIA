@@ -9,9 +9,9 @@ export const Wrapper = styled(motion.section)`
   display: flex;
   justify-content: center;
   margin: auto;
-  @media screen and (max-width: 1200px) {
-    width: 100%;
-    height: 100%;
+  @media screen and (max-width: 1600px) {
+    width: 95%;
+    margin-bottom: 100px;
   }
 `;
 
@@ -24,14 +24,14 @@ export const OffersWrapper = styled.div`
     'SKARPETKI SKARPETKI MAJTKI MAJTKI MAJTKI INNE INNE SESJE SESJE'
     'SKARPETKI SKARPETKI PREMIUM PREMIUM RAJSTOPY RAJSTOPY RAJSTOPY SESJE SESJE'
     'SKARPETKI SKARPETKI PREMIUM PREMIUM RAJSTOPY RAJSTOPY RAJSTOPY SESJE SESJE';
-  @media screen and (max-width: 1700px) {
+  @media screen and (max-width: 1600px) {
     grid-template-areas: none;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
   }
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1250px) {
     height: 100%;
   }
 `;

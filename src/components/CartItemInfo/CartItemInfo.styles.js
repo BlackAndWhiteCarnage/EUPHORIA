@@ -9,8 +9,8 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  @media screen and (max-width: 1200px) {
-    width: 50%;
+  @media screen and (max-width: 1250px) {
+    width: 80%;
     height: 100%;
     /* font-size: ${({ theme }) => theme.fontSize.l}; */
     background: ${({ theme }) => theme.colors.darkGrey};

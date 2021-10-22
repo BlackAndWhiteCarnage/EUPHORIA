@@ -11,16 +11,22 @@ export const ProductWrapper = styled(motion.section)`
   top: 0;
   display: flex;
   flex-direction: column;
+  @media screen and (max-width: 1600px) {
+    width: 95%;
+  }
   ::-webkit-scrollbar {
     display: none;
   }
   @media screen and (min-width: 1250px) {
     position: relative;
-    width: 80%;
+    width: 95%;
     height: auto;
     min-height: 0;
     margin: 20px auto auto auto;
     align-items: center;
+  }
+  @media screen and (max-width: 1250px) {
+    width: 100%;
   }
 `;
 

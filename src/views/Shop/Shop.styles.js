@@ -11,7 +11,7 @@ export const Wrapper = styled.section`
   margin: auto;
   justify-content: space-between;
   margin-bottom: 100px;
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1600px) {
     width: 95%;
   }
 `;
@@ -64,10 +64,8 @@ export const Product = styled(Link)`
       }
     }
   }
-  @media screen and (max-width: 1655px) {
-    width: 300px;
-    height: 400px;
-    margin: 40px 10px;
+  @media screen and (max-width: 1600px) {
+    width: 30%;
   }
   @media screen and (max-width: 1210px) {
     width: 30%;

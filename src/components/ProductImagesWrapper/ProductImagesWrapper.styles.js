@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 export const ImageWrapper = styled(motion.div)`
   position: relative;
   width: 0;
-  min-height: 100vh;
+  min-height: 95vh;
   @media screen and (min-width: 1250px) {
     width: 50%;
     min-height: 0;

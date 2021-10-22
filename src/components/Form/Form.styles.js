@@ -12,7 +12,7 @@ export const FormWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1250px) {
     width: 100%;
     min-height: 800px;
     flex-direction: column;
@@ -22,7 +22,7 @@ export const FormWrapper = styled.div`
     width: 100%;
     height: 90%;
     background: none;
-    @media screen and (max-width: 1200px) {
+    @media screen and (max-width: 1250px) {
       min-height: 80%;
     }
   }
@@ -74,10 +74,10 @@ export const AccualForm = styled(motion.form)`
   color: white;
   @media screen and (max-width: 1600px) {
     width: 80%;
-    margin-top: 20px;
   }
-  @media screen and (max-width: 460px) {
+  @media screen and (max-width: 1250px) {
     width: 90%;
+    margin-top: 50px;
   }
   label,
   input,
@@ -131,7 +131,7 @@ export const AccualForm = styled(motion.form)`
 
 export const Info = styled.div`
   position: absolute;
-  bottom: 35px;
+  bottom: 0;
   width: 100%;
   height: 50px;
   background: ${({ theme }) => theme.colors.crimsonRed};
@@ -181,6 +181,7 @@ export const Label = styled.label`
 `;
 
 export const Input = styled.input`
+  position: relative;
   width: 100%;
   border: none;
   border-bottom: 2px solid ${({ theme }) => theme.colors.darkWhite};
@@ -200,7 +201,6 @@ export const Input = styled.input`
     border-bottom: 2px solid #46f037;
     transition: 0.5s ease;
   }
-  position: relative;
 `;
 
 export const CheckboxWrapper = styled.div`
@@ -249,7 +249,7 @@ export const TextArea = styled.textarea`
   outline: none;
   border: 2px solid ${({ theme }) => theme.colors.darkWhite};
   padding: 10px;
-  min-height: 200px;
+  min-height: 100px;
   margin-bottom: 30px;
   font-size: ${({ theme }) => theme.fontSize.m};
   resize: none;
@@ -296,13 +296,13 @@ export const StyledButton = styled(Button)`
   padding: 10px;
   min-width: 200px;
   z-index: 15;
-  @media screen and (min-width: 1360px) {
+  @media screen and (min-width: 1250px) {
     font-size: ${({ theme }) => theme.fontSize.s};
     margin: 0;
     width: auto;
     white-space: nowrap;
   }
-  @media screen and (max-width: 1360px) {
+  @media screen and (max-width: 1250px) {
     position: relative;
     width: 100%;
     min-height: 35px;

@@ -12,7 +12,7 @@ export const CartItems = styled.div`
   overflow-y: scroll;
   overflow-x: hidden;
   background: ${({ theme }) => theme.colors.white};
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1250px) {
     min-width: unset;
     width: 100%;
   }
@@ -30,8 +30,8 @@ export const CartItem = styled(motion.div)`
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
   text-transform: uppercase;
   font-size: ${({ theme }) => theme.fontSize.m};
-  @media screen and (max-width: 1200px) {
-    width: 80%;
+  @media screen and (max-width: 1250px) {
+    width: 95%;
     min-height: 300px;
     &:last-child {
       margin-bottom: 140px;
@@ -51,12 +51,14 @@ export const CartItem = styled(motion.div)`
 `;
 
 export const ItemImage = styled.img`
+  min-width: 120px;
   max-width: 120px;
   height: 90%;
   object-fit: cover;
   margin-left: 10px;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.4);
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1250px) {
+    min-width: 200px;
     max-width: 200px;
   }
   @media screen and (max-width: 780px) {

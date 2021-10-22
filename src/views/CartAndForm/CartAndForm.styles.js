@@ -12,7 +12,11 @@ export const Wrapper = styled(motion.section)`
   justify-content: space-between;
   margin-top: 20px;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1600px) {
+    width: 95%;
+    height: 60vh;
+  }
+  @media screen and (max-width: 1250px) {
     margin-top: 0;
     flex-wrap: wrap;
     width: 100%;

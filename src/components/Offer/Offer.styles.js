@@ -31,7 +31,7 @@ export const OfferWrapper = styled(Link)`
     width: 100%;
     right: -100%;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1250px) {
     &:hover {
       transform: scale(1.015);
       transition: 0.8s ease;
@@ -47,23 +47,25 @@ export const OfferWrapper = styled(Link)`
   }
   &:nth-child(1) {
     margin-left: 0;
-    @media screen and (max-width: 1700px) {
+    /* @media screen and (max-width: 1700px) {
       margin: 12px;
-    }
+    } */
   }
   &:nth-child(6) {
     margin-right: 0;
-    @media screen and (max-width: 1700px) {
+    /* @media screen and (max-width: 1700px) {
       margin: 12px;
-    }
+    } */
   }
-  @media screen and (max-width: 1700px) {
+  @media screen and (max-width: 1600px) {
     width: calc(33% - 22px);
     height: 300px;
+    margin: 0;
   }
-  @media screen and (max-width: 1200px) {
-    width: calc(50% - 40px);
+  @media screen and (max-width: 1250px) {
+    width: calc(50% - 5px);
     max-height: 280px;
+    margin-bottom: 10px;
   }
   @media screen and (max-width: 620px) {
     width: 100%;
@@ -114,7 +116,7 @@ export const OfferImage = styled.img`
     top: 50%;
     left: 0;
     transform: translate(0, -50%);
-    /* @media screen and (max-width: 1200px) {
+    /* @media screen and (max-width: 1250px) {
       width: auto;
       left: 50%;
       transform: translate(-50%, 0) rotate(-90deg);
