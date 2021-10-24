@@ -170,10 +170,7 @@ const Form = ({ cart, homePage }) => {
       </AccualForm>
       {!homePage && (
         <>
-          <SendingInProgress className={feedback === 1 && 'SENDING'}>
-            {!emailSend && <StyledProgressIcon />}
-            {emailSend && <StyledCheckIcon />}
-          </SendingInProgress>
+          <SendingInProgress className={feedback === 1 && 'SENDING'}>{!emailSend ? <StyledProgressIcon /> : <StyledCheckIcon />}</SendingInProgress>
           <Info onClick={toggleInfoHandler} className={toggleInfo && 'show'} id='active'>
             {!toggleInfo
               ? 'Informacje'

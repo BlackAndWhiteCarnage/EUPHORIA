@@ -1,6 +1,6 @@
 import React from 'react';
 // COMPONENTS
-import Offer from 'components/Offer/Offer';
+import Offer from 'views/Home/components/Offer/Offer';
 // IMAGES
 import SocksImage from 'assets/images/socks.png';
 import PantiesImage from 'assets/images/panties.png';

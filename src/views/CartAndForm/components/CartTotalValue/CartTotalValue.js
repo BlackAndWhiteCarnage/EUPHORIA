@@ -18,7 +18,6 @@ const CartTotalValue = ({ cart }) => (
 
 CartTotalValue.propTypes = {
   cart: PropTypes.array.isRequired,
-  summary: PropTypes.func.isRequired,
   cartValues: PropTypes.array,
 };
 

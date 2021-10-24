@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 // COMPONENTS
-import CartItemInfo from 'components/CartItemInfo/CartItemInfo';
-import CartItemControls from 'components/CartItemControls/CartItemControls';
+import CartItemInfo from 'views/CartAndForm/components/CartItemInfo/CartItemInfo';
+import CartItemControls from 'views/CartAndForm/components/CartItemControls/CartItemControls';
 // STYLES
 import { CartItems, CartItem, ItemImage } from './Cart.styles';
 

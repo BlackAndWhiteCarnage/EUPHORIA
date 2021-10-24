@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ReactComponent as DoneIcon } from 'assets/icons/done-icon.svg';
 import { motion } from 'framer-motion';
 
-export const Wrapper = styled.section`
+export const Wrapper = styled(motion.section)`
   width: 100%;
   max-width: 1400px;
   height: 100%;
@@ -17,34 +17,12 @@ export const Wrapper = styled.section`
   }
 `;
 
-export const ProductWrapper = styled(motion.div)`
+export const Product = styled(Link)`
+  position: relative;
   width: 400px;
   height: 500px;
   margin: 50px 0;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-  @media screen and (max-width: 1600px) {
-    width: 30%;
-  }
-  @media screen and (max-width: 1210px) {
-    width: 30%;
-    height: 400px;
-  }
-  @media screen and (max-width: 830px) {
-    width: 45%;
-    height: 300px;
-    margin: 15px 5px;
-  }
-  @media screen and (max-width: 420px) {
-    width: 45%;
-    height: 200px;
-    margin: 15px 5px;
-  }
-`;
-
-export const Product = styled(Link)`
-  position: relative;
-  width: 100%;
-  height: 100%;
   overflow: hidden;
   cursor: pointer;
   display: flex;
@@ -86,6 +64,23 @@ export const Product = styled(Link)`
         bottom: 0;
       }
     }
+  }
+  @media screen and (max-width: 1600px) {
+    width: 30%;
+  }
+  @media screen and (max-width: 1210px) {
+    width: 30%;
+    height: 400px;
+  }
+  @media screen and (max-width: 830px) {
+    width: 45%;
+    height: 300px;
+    margin: 15px 5px;
+  }
+  @media screen and (max-width: 420px) {
+    width: 45%;
+    height: 200px;
+    margin: 15px 5px;
   }
 `;
 

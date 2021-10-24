@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // COMPONENTS
-import ImagesWrapper from 'components/ProductImagesWrapper/ProductImagesWrapper';
-import ExtrasWrapper from 'components/ExtrasWrapper/ExtrasWrapper';
-import Discounts from 'components/Discounts/Discounts';
+import ImagesWrapper from 'views/Product/components/ProductImagesWrapper/ProductImagesWrapper';
+import ExtrasWrapper from 'views/Product/components/ExtrasWrapper/ExtrasWrapper';
+import Discounts from 'views/Product/components/Discounts/Discounts';
 // HELPERS
 import { matchMedia } from 'helpers/matchMedia';
 // STYLES

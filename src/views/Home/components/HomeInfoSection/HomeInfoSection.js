@@ -2,7 +2,7 @@ import React from 'react';
 import Form from 'components/Form/Form';
 // STYLES
 import { Wrapper, WhoAmI, HowToBuy, Step, Contact } from './HomeInfoSection.styles';
-import { Header } from 'components/HomeOffersSection/HomeOffersSection.styles';
+import { Header } from 'views/Home/components/HomeOffersSection/HomeOffersSection.styles';
 // ICONS
 import Step1 from 'assets/icons/1step.svg';
 import Step2 from 'assets/icons/2step.svg';
