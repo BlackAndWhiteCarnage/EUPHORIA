@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   left: 0;
   z-index: 999999;
   border-radius: 50%;
-  transform: translate(-30%, -30%);
+  transform: translate(-50%, -50%);
   pointer-events: none;
   transition: all 0.5s ease;
   transition-property: transform;
@@ -27,7 +27,7 @@ export const Wrapper = styled.div`
     background: rgba(0, 0, 0, 0.25);
   }
   &.active {
-    transform: scale(1.3);
+    transform: scale(1.5);
   }
   &.pulse {
     &::before {

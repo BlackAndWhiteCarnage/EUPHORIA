@@ -65,7 +65,9 @@ export const CartAndLogoWrapper = styled.div`
     left: 0;
     min-height: unset;
     height: 55px;
-    background: ${({ theme }) => theme.colors.darkWhite};
+    /* background: ${({ theme }) => theme.colors.darkWhite}; */
+    backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.6);
     z-index: 200;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
     justify-content: flex-end;

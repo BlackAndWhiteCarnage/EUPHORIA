@@ -8,7 +8,7 @@ import Shadow from 'components/Shadow/Shadow';
 import { handleSesonalOffer } from 'helpers/handleSesonalOffer';
 import { isInCartHandler } from 'helpers/isInCartHandler';
 // STYLES
-import { Wrapper, Product, ProductImage, ProductName, SeasonOfferInfo, AddedIcon } from './Shop.styles';
+import { Wrapper, ProductWrapper, Product, ProductImage, ProductName, SeasonOfferInfo, AddedIcon } from './Shop.styles';
 import { Header } from 'views/Home/components/HomeOffersSection/HomeOffersSection.styles';
 // ANIMATIONS
 import { slideFromTop } from 'animations/animations';
@@ -29,28 +29,28 @@ const Shop = ({ cart }) => {
   }, [path]);
 
   return (
-    <>
-      <Wrapper variants={slideFromTop} animate='show' initial='hidden' exit='exit'>
-        <Header>Majtki noszone używane dla fetyszystów sprzedam rajstopy majteczki skarpetki</Header>
-        {path === 'rajstopy' && !handleSesonalOffer() && data.length > 0 ? (
-          <SeasonOfferInfo>PRZYKRO MI, RAJSTOPKI WRÓCĄ JUŻ WE WRZEŚNIU 😉</SeasonOfferInfo>
-        ) : data.length > 0 ? (
-          data
-            .slice(0)
-            .reverse()
-            .map(({ name, id, images }) => (
+    <Wrapper>
+      <Header>Majtki noszone używane dla fetyszystów sprzedam rajstopy majteczki skarpetki</Header>
+      {path === 'rajstopy' && !handleSesonalOffer() && data.length > 0 ? (
+        <SeasonOfferInfo>PRZYKRO MI, RAJSTOPKI WRÓCĄ JUŻ WE WRZEŚNIU 😉</SeasonOfferInfo>
+      ) : data.length > 0 ? (
+        data
+          .slice(0)
+          .reverse()
+          .map(({ name, id, images }) => (
+            <ProductWrapper variants={slideFromTop} animate='show' initial='hidden' exit='exit'>
               <Product key={id} name={name} to={`/${id}`} className={isInCartHandler(id, cart)}>
                 {images.length > 0 && <ProductImage src={images[0].url} id='active' />}
                 <ProductName>{name}</ProductName>
                 {isInCartHandler(id, cart) && <AddedIcon />}
               </Product>
-            ))
-        ) : (
-          <LoadingIcon />
-        )}
-      </Wrapper>
+            </ProductWrapper>
+          ))
+      ) : (
+        <LoadingIcon />
+      )}
       <Shadow />
-    </>
+    </Wrapper>
   );
 };
 

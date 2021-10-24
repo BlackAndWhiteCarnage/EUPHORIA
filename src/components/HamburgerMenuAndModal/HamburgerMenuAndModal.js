@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router';
 // COMPONENTS
 import SocialMediaWrapper from 'components/SocialMediaWrapper/SocialMediaWrapper';
@@ -19,6 +19,10 @@ import {
 const HamburgerMenuAndModal = () => {
   const [toggleModal, setToggleModal] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    document.body.style.overflowY = `${toggleModal ? 'hidden' : 'scroll'}`;
+  }, [toggleModal]);
 
   const toggleModalHandler = () => {
     setToggleModal(!toggleModal);

@@ -5,7 +5,7 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        cursor: none !important;
+        /* cursor: none !important; */
     }
     html{
         scroll-behavior: smooth;
@@ -21,7 +21,6 @@ export const GlobalStyle = createGlobalStyle`
         overflow-x: hidden;
         background: ${({ theme }) => theme.colors.darkWhite};
         overflow: ${(props) => props.overflowChange && 'hidden'};
-        cursor: none;
     }
     ::-webkit-scrollbar {
     width: 10px;
@@ -33,7 +32,6 @@ export const GlobalStyle = createGlobalStyle`
     }
     ::-webkit-scrollbar-thumb {
     background: ${({ theme }) => theme.colors.crimsonRed};
-    border-radius: 20px;
     }
     ::-webkit-scrollbar-thumb:hover {
     background: ${({ theme }) => theme.colors.darkGrey};

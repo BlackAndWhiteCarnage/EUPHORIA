@@ -8,6 +8,7 @@ import AmazingCursor from 'components/AmazingCursor/AmazingCursor';
 import Navigation from 'components/Navigation/Navigation';
 // HELPERS
 import { isTouchScreen } from 'helpers/checkIfTouchScreen';
+import ScrollTop from 'helpers/ScrollTop';
 
 const Provider = ({ children, cart, setCart }) => {
   useEffect(() => {
@@ -31,6 +32,7 @@ const Provider = ({ children, cart, setCart }) => {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Navigation cart={cart} />
+      <ScrollTop />
       {!isTouchScreen() && <AmazingCursor />}
       {children}
     </ThemeProvider>

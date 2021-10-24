@@ -42,7 +42,6 @@ export const Line = styled.div`
   height: 4px;
   background: ${({ theme }) => theme.colors.crimsonRed};
   transition: 0.5s ease;
-  border-radius: 10px;
   &.first {
     width: 100%;
   }
@@ -77,6 +76,8 @@ export const Modal = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.6);
   &.toggle {
     top: 0;
     left: 0;
