@@ -65,29 +65,29 @@ const Form = ({ cart, homePage }) => {
   function sendEmail(e) {
     e.preventDefault();
 
+    const serviceID = process.env.REACT_APP_SERVICE_ID;
+    const templateID = process.env.REACT_APP_TEMPLATE_ID;
+    const userID = process.env.REACT_APP_USER_ID;
+
+    const handleSendEmail = () => {
+      emailjs.sendForm(`${serviceID}`, `${templateID}`, e.target, `${userID}`).then(
+        (result) => {
+          console.log(result.text);
+          setEmailSend(true);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+    };
+
     if (location.pathname !== '/') {
       if (validEmail && validMessage && checkbox && validName && validCart) {
-        emailjs.sendForm('service_pkn9ez9', 'template_btr6t4a', e.target, 'user_wfAnEXgFR6wa0u7anAPJf').then(
-          (result) => {
-            console.log(result.text);
-            setEmailSend(true);
-          },
-          (error) => {
-            console.log(error.text);
-          }
-        );
+        handleSendEmail();
       }
     } else {
       if (validEmail && validMessage && validName) {
-        emailjs.sendForm('service_pkn9ez9', 'template_btr6t4a', e.target, 'user_wfAnEXgFR6wa0u7anAPJf').then(
-          (result) => {
-            console.log(result.text);
-            setEmailSend(true);
-          },
-          (error) => {
-            console.log(error.text);
-          }
-        );
+        handleSendEmail();
       }
     }
   }

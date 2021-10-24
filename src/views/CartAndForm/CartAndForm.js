@@ -11,7 +11,7 @@ import { slideFromTop } from 'animations/animations';
 
 const CartAndForm = ({ cart, setCart }) => {
   return (
-    <Wrapper variants={slideFromTop} initial='hidden' animate='show'>
+    <Wrapper variants={slideFromTop} animate='show' initial='hidden' exit='exit'>
       <Header>Fetysz majtki majteczki kup zamów noszone używane pięknie pachnące</Header>
       {cart.length > 0 ? (
         <>
