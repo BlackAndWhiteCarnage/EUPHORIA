@@ -38,13 +38,9 @@ const ProductInfoWrapper = ({
     <Discounts />
     <InfoWrapper>
       <Info>
-        <ProductName variants={matchMedia.matches && slideFromTop} animate='show' initial='hidden'>
-          {data.name}
-        </ProductName>
-        <ProductDescription variants={matchMedia.matches && slideFromTop} animate='show' initial='hidden'>
-          {data.description}
-        </ProductDescription>
-        <PriceAndShippingWrapper variants={matchMedia.matches && slideFromTop} animate='show' initial='hidden'>
+        <ProductName>{data.name}</ProductName>
+        <ProductDescription>{data.description}</ProductDescription>
+        <PriceAndShippingWrapper>
           <ProductPrice>
             CENA <span>{data.price}</span> zł
           </ProductPrice>

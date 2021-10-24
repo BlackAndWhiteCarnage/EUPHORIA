@@ -21,7 +21,7 @@ export const CartItems = styled.div`
 export const CartItem = styled(motion.div)`
   position: relative;
   width: 400px;
-  background: ${({ theme }) => theme.colors.crimsonRed};
+  background: ${({ theme }) => theme.colors.primary};
   min-height: 180px;
   margin: 15px 0;
   display: flex;
@@ -36,12 +36,6 @@ export const CartItem = styled(motion.div)`
     &:last-child {
       margin-bottom: 140px;
     }
-  }
-  @media screen and (max-width: 780px) {
-    width: 95%;
-    justify-content: space-around;
-    min-height: 300px;
-    margin: 40px 0;
   }
   &.deleting {
     transition: 0.5s;

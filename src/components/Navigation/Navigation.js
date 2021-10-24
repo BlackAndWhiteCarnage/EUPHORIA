@@ -60,7 +60,7 @@ const Navigation = ({ cart }) => {
           )}
           <CartInfoWrapper>
             <Link to='/koszyk'>
-              <CartWrapper>
+              <CartWrapper id='active'>
                 <Icon src={CartIcon} id='active' title='KOSZYK' />
               </CartWrapper>
             </Link>

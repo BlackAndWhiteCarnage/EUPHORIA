@@ -94,7 +94,7 @@ export const ProductPrice = styled.div`
   font-weight: bolder;
   margin-bottom: 10px;
   span {
-    color: ${({ theme }) => theme.colors.crimsonRed};
+    color: ${({ theme }) => theme.colors.primary};
   }
 `;
 

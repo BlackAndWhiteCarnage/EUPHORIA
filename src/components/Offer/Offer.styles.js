@@ -24,7 +24,7 @@ export const OfferWrapper = styled(Link)`
   &::after {
     position: absolute;
     content: '';
-    background: ${({ theme }) => theme.colors.crimsonRed};
+    background: ${({ theme }) => theme.colors.primary};
     z-index: 1;
     transition: 1s ease;
     height: 100%;
@@ -82,8 +82,8 @@ export const OfferTitle = styled.h2`
   font-size: ${({ theme }) => theme.fontSize.m};
   color: ${({ theme }) => theme.colors.white};
   width: 100%;
-  height: 20px;
-  background: ${({ theme }) => theme.colors.crimsonRed};
+  height: 30px;
+  background: ${({ theme }) => theme.colors.primary};
   text-align: center;
   z-index: 2;
   transition: 0.3s ease;
@@ -93,7 +93,7 @@ export const OfferTitle = styled.h2`
     transition: 0.3s 0.5s ease;
     font-size: ${({ theme }) => theme.fontSize.l};
     background: ${({ theme }) => theme.colors.white};
-    color: ${({ theme }) => theme.colors.crimsonRed};
+    color: ${({ theme }) => theme.colors.primary};
     text-align: center;
     padding: 10px;
     height: 100%;

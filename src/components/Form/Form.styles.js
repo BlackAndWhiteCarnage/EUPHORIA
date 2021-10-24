@@ -43,7 +43,7 @@ export const Discounts = styled.div`
   right: 0;
   width: 50px;
   height: 30%;
-  background: ${({ theme }) => theme.colors.crimsonRed};
+  background: ${({ theme }) => theme.colors.primary};
   writing-mode: vertical-rl;
   display: flex;
   align-items: center;
@@ -134,7 +134,7 @@ export const Info = styled.div`
   bottom: 0;
   width: 100%;
   height: 50px;
-  background: ${({ theme }) => theme.colors.crimsonRed};
+  background: ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.darkWhite};
   display: flex;
   align-items: center;
