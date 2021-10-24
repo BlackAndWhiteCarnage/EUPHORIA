@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   bottom: -80px;
   font-weight: bolder;
   span {
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.crimsonRed};
   }
   @media screen and (max-width: 1250px) {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);

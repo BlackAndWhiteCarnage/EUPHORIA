@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { ReactComponent as DoneIcon } from 'assets/icons/done-icon.svg';
-import { motion } from 'framer-motion';
 
-export const Wrapper = styled(motion.section)`
+export const Wrapper = styled.section`
   width: 100%;
   max-width: 1400px;
   height: 100%;
@@ -17,17 +16,12 @@ export const Wrapper = styled(motion.section)`
   }
 `;
 
-export const ProductWrapper = styled(motion.div)`
+export const Product = styled(Link)`
+  position: relative;
   width: 400px;
   height: 500px;
   margin: 50px 0;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-`;
-
-export const Product = styled(Link)`
-  position: relative;
-  width: 100%;
-  height: 100%;
   overflow: hidden;
   cursor: pointer;
   display: flex;
@@ -65,7 +59,7 @@ export const Product = styled(Link)`
         content: '';
         transition: 0.5s ease;
         height: 100%;
-        background: ${({ theme }) => theme.colors.primary};
+        background: ${({ theme }) => theme.colors.crimsonRed};
         bottom: 0;
       }
     }

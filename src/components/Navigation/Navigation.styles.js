@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  border-bottom: 2px solid ${({ theme }) => theme.colors.primary};
+  border-bottom: 2px solid ${({ theme }) => theme.colors.crimsonRed};
   margin: auto;
   transition: 0.5s ease;
   z-index: 999999;
@@ -66,8 +66,6 @@ export const CartAndLogoWrapper = styled.div`
     min-height: unset;
     height: 55px;
     background: ${({ theme }) => theme.colors.darkWhite};
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(5px);
     z-index: 200;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
     justify-content: flex-end;
@@ -119,7 +117,7 @@ export const Count = styled.div`
   z-index: -1;
   width: 0;
   height: 30px;
-  background: ${({ theme }) => theme.colors.primary};
+  background: ${({ theme }) => theme.colors.crimsonRed};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -222,7 +220,7 @@ export const CartValue = styled.div`
     opacity: 1;
   }
   &.change {
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.crimsonRed};
   }
   @media screen and (max-width: 1250px) {
     position: fixed;
@@ -255,6 +253,8 @@ export const StyledLogo = styled(Logo)`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -60%);
+    /* margin: 0 5px;
+    margin-left: 50px; */
   }
 `;
 
@@ -288,13 +288,11 @@ export const NavItem = styled(NavLink).attrs({ activeClassName: 'active-link' })
   padding: 10px 0;
   &.active-link {
     background: ${({ theme }) => theme.colors.darkGrey};
-    transition: 1s ease;
+    transition: 0.5s ease;
     color: ${({ theme }) => theme.colors.darkWhite};
     padding: 10px;
-    pointer-events: none;
   }
   &:hover {
-    transition: 0.25s ease;
     letter-spacing: 2.5px;
   }
 `;
@@ -306,6 +304,7 @@ export const Icon = styled.img`
     min-width: 25px;
     margin-bottom: 50px;
   }
+
   @media screen and (max-width: 1250px) {
     &:hover {
       transform: none;

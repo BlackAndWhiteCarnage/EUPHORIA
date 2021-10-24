@@ -40,7 +40,7 @@ export const WhoAmI = styled(motion.article)`
   top: 0;
   width: 95%;
   height: 660px;
-  background: ${({ theme }) => theme.colors.primary};
+  background: ${({ theme }) => theme.colors.crimsonRed};
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;

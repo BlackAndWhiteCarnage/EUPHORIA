@@ -12,6 +12,7 @@ export const Wrapper = styled.div`
   @media screen and (max-width: 1250px) {
     width: 80%;
     height: 100%;
+    /* font-size: ${({ theme }) => theme.fontSize.l}; */
     background: ${({ theme }) => theme.colors.darkGrey};
     margin: 0 10px;
   }
@@ -23,6 +24,7 @@ export const Wrapper = styled.div`
   }
   @media screen and (max-width: 460px) {
     padding: 0 10px;
+    /* font-size: ${({ theme }) => theme.fontSize.s}; */
   }
 `;
 
@@ -31,7 +33,7 @@ export const PickedExtras = styled.div`
   text-align: center;
   margin: 5px 0;
   strong {
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.crimsonRed};
   }
   &.itsAlert {
     display: flex;
@@ -71,7 +73,7 @@ export const PickedExtrasWrapper = styled.div`
     justify-content: center;
     padding: 20px;
     background: ${({ theme }) => theme.colors.darkWhite};
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.crimsonRed};
     @media screen and (max-width: 780px) {
       width: 100%;
     }

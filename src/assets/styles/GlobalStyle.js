@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     *::selection{
         background: ${({ theme }) => theme.colors.darkGrey};
-        color: ${({ theme }) => theme.colors.primary}
+        color: ${({ theme }) => theme.colors.crimsonRed}
     }
     body{
         font-family: 'Montserrat', sans-serif;
@@ -32,7 +32,8 @@ export const GlobalStyle = createGlobalStyle`
     background: ${({ theme }) => theme.colors.darkWhite};
     }
     ::-webkit-scrollbar-thumb {
-    background: ${({ theme }) => theme.colors.primary};
+    background: ${({ theme }) => theme.colors.crimsonRed};
+    border-radius: 20px;
     }
     ::-webkit-scrollbar-thumb:hover {
     background: ${({ theme }) => theme.colors.darkGrey};

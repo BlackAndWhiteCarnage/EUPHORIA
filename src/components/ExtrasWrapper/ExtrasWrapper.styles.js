@@ -86,7 +86,7 @@ export const ExtrasOption = styled.div`
   }
   &.back {
     text-align: center;
-    background: ${({ theme }) => theme.colors.primary};
+    background: ${({ theme }) => theme.colors.crimsonRed};
     color: ${({ theme }) => theme.colors.darkWhite};
     font-size: ${({ theme }) => theme.fontSize.l};
   }

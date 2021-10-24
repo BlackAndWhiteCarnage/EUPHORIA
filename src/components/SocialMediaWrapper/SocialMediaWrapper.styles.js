@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-width: 205px;
+  width: 205px;
   min-height: 65px;
   a {
     width: 40px;
@@ -28,7 +28,7 @@ export const Wrapper = styled.div`
     }
   }
   @media screen and (max-width: 1250px) {
-    min-width: 80px;
+    max-width: 80px;
     flex-direction: column;
     height: 100%;
     justify-content: flex-end;

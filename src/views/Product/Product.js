@@ -27,7 +27,7 @@ const Product = ({ cart, setCart }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`${process.env.REACT_APP_PRODUCT_URL}${path}`);
+      const response = await fetch(`https://euphoria-backend-strapi.herokuapp.com/products/${path}`);
       const data = await response.json();
       setData(data);
     };
@@ -56,7 +56,7 @@ const Product = ({ cart, setCart }) => {
   return (
     <>
       {data !== undefined ? (
-        <ProductWrapper variants={matchMedia.matches ? slideFromTop : fade} animate='show' initial='hidden' exit='exit'>
+        <ProductWrapper variants={matchMedia.matches ? slideFromTop : fade} animate='show' initial='hidden'>
           <ProductImagesWrapper data={data} />
           <ProductInfoWrapper
             data={data}

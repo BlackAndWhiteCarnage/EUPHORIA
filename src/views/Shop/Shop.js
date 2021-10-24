@@ -8,10 +8,8 @@ import Shadow from 'components/Shadow/Shadow';
 import { handleSesonalOffer } from 'helpers/handleSesonalOffer';
 import { isInCartHandler } from 'helpers/isInCartHandler';
 // STYLES
-import { Wrapper, ProductWrapper, Product, ProductImage, ProductName, SeasonOfferInfo, AddedIcon } from './Shop.styles';
+import { Wrapper, Product, ProductImage, ProductName, SeasonOfferInfo, AddedIcon } from './Shop.styles';
 import { Header } from 'components/HomeOffersSection/HomeOffersSection.styles';
-// ANIMATIONS
-import { slideFromTop } from 'animations/animations';
 
 const Shop = ({ cart }) => {
   const [data, setData] = useState([]);
@@ -20,7 +18,7 @@ const Shop = ({ cart }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`${process.env.REACT_APP_PRODUCTS_URL}${path}`);
+      const response = await fetch(`https://euphoria-backend-strapi.herokuapp.com/categories?name=${path}`);
       const data = await response.json();
       setData(data[0].products);
     };
@@ -37,13 +35,11 @@ const Shop = ({ cart }) => {
           .slice(0)
           .reverse()
           .map(({ name, id, images }) => (
-            <ProductWrapper variants={slideFromTop} initial='hidden' animate='show' exit='exit'>
-              <Product key={id} name={name} to={`/${id}`} className={isInCartHandler(id, cart)}>
-                {images.length > 0 && <ProductImage src={images[0].url} id='active' />}
-                <ProductName>{name}</ProductName>
-                {isInCartHandler(id, cart) && <AddedIcon />}
-              </Product>
-            </ProductWrapper>
+            <Product key={id} name={name} to={`/${id}`} className={isInCartHandler(id, cart)}>
+              {images.length > 0 && <ProductImage src={images[0].url} id='active' />}
+              <ProductName>{name}</ProductName>
+              {isInCartHandler(id, cart) && <AddedIcon />}
+            </Product>
           ))
       ) : (
         <LoadingIcon />

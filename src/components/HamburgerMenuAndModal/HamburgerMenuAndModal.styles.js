@@ -40,7 +40,7 @@ export const LinesWrapper = styled.div`
 export const Line = styled.div`
   width: 100%;
   height: 4px;
-  background: ${({ theme }) => theme.colors.primary};
+  background: ${({ theme }) => theme.colors.crimsonRed};
   transition: 0.5s ease;
   border-radius: 10px;
   &.first {
@@ -73,8 +73,7 @@ export const Modal = styled.div`
   height: 100%;
   top: -130vh;
   z-index: 9999;
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(5px);
+  background: ${({ theme }) => theme.colors.darkWhite};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -98,11 +97,10 @@ export const StyledDot = styled.div`
   width: 10px;
   height: 10px;
   border-radius: 50% 50% 0 0;
-  background: ${({ theme }) => theme.colors.primary};
+  background: ${({ theme }) => theme.colors.crimsonRed};
   z-index: -1;
   width: 300%;
   pointer-events: none;
-  transition: 0.25s 0.25s ease;
   &.toggle {
     transition: 2.5s 0.5s ease;
     height: 2000px;
@@ -141,13 +139,8 @@ export const ModalLink = styled.a`
   text-align: center;
   font-weight: bolder;
   color: ${({ theme }) => theme.colors.darkWhite};
-  transition: 0.25s ease;
+  transition: 0.5s ease;
   text-decoration: none;
-  opacity: 0;
-  &.toggle {
-    transition: 1s 1s ease;
-    opacity: 1;
-  }
   @media screen and (max-width: 680px) {
     text-align: left;
     font-size: ${({ theme }) => theme.fontSize.m};
@@ -159,21 +152,18 @@ export const ModalNavItem = styled(NavLink).attrs({ activeClassName: 'active-lin
   text-align: center;
   font-weight: bolder;
   color: ${({ theme }) => theme.colors.darkWhite};
-  transition: 0.25s ease;
+  transition: 0.5s ease;
   text-decoration: none;
   padding: 10px;
-  opacity: 0;
   &.toggle {
-    transition: 1s 1s ease;
-    opacity: 1;
     &.active-link {
       background: ${({ theme }) => theme.colors.darkGrey};
-      transition: 1s 1s ease;
+      transition: 1s 1.8s ease;
       color: ${({ theme }) => theme.colors.darkWhite};
     }
   }
   @media screen and (max-width: 680px) {
-    text-align: right;
+    text-align: left;
     font-size: ${({ theme }) => theme.fontSize.m};
   }
 `;
