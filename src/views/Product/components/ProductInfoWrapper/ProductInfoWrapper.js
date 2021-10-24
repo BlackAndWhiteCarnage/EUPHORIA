@@ -19,7 +19,7 @@ import {
   StyledButton,
 } from './ProductInfoWrapper.styles';
 // ANIMATIONS
-import { slideFromTop } from 'animations/animations';
+import { scaleUp, fade } from 'animations/animations';
 
 const ProductInfoWrapper = ({
   data,
@@ -34,17 +34,13 @@ const ProductInfoWrapper = ({
   cart,
   setCart,
 }) => (
-  <Wrapper>
+  <Wrapper variants={scaleUp} animate='show' initial='hidden' exit='exit'>
     <Discounts />
     <InfoWrapper>
       <Info>
-        <ProductName variants={matchMedia.matches && slideFromTop} animate='show' initial='hidden'>
-          {data.name}
-        </ProductName>
-        <ProductDescription variants={matchMedia.matches && slideFromTop} animate='show' initial='hidden'>
-          {data.description}
-        </ProductDescription>
-        <PriceAndShippingWrapper variants={matchMedia.matches && slideFromTop} animate='show' initial='hidden'>
+        <ProductName variants={matchMedia && fade}>{data.name}</ProductName>
+        <ProductDescription variants={matchMedia && fade}>{data.description}</ProductDescription>
+        <PriceAndShippingWrapper variants={matchMedia && fade}>
           <ProductPrice>
             CENA <span>{data.price}</span> zł
           </ProductPrice>

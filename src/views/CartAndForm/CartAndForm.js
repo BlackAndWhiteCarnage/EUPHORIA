@@ -7,10 +7,10 @@ import CartTotalValue from 'views/CartAndForm/components/CartTotalValue/CartTota
 import { Header } from 'views/Home/components/HomeOffersSection/HomeOffersSection.styles';
 import { Wrapper, EmptyCartInfo } from './CartAndForm.styles';
 // ANIMATIONS
-import { slideFromTop } from 'animations/animations';
+import { scaleUp } from 'animations/animations';
 
 const CartAndForm = ({ cart, setCart }) => (
-  <Wrapper variants={slideFromTop} animate='show' initial='hidden' exit='exit'>
+  <Wrapper variants={scaleUp} animate='show' initial='hidden' exit='exit'>
     <Header>Fetysz majtki majteczki kup zamów noszone używane pięknie pachnące</Header>
     {cart.length > 0 ? (
       <>

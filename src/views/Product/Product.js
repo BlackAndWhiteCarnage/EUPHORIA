@@ -10,7 +10,7 @@ import { ProductWrapper, ButtonsWrapper, StyledButton } from './Product.styles';
 // HELPERS
 import { matchMedia } from 'helpers/matchMedia';
 // ANIMATIONS
-import { slideFromTop } from 'animations/animations';
+import { scaleUp } from 'animations/animations';
 
 const Product = ({ cart, setCart }) => {
   const path = useLocation().pathname.replace('/', '');
@@ -56,7 +56,7 @@ const Product = ({ cart, setCart }) => {
   return (
     <>
       {data !== undefined ? (
-        <ProductWrapper variants={slideFromTop} animate='show' initial='hidden' exit='exit'>
+        <ProductWrapper variants={scaleUp} animate='show' initial='hidden' exit='exit'>
           <ProductImagesWrapper data={data} />
           <ProductInfoWrapper
             data={data}

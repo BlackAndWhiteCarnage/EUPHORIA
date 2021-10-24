@@ -1,14 +1,39 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
-export const OfferWrapper = styled(Link)`
-  background: ${({ theme }) => theme.colors.white};
+export const Wrapper = styled(motion.div)`
+  margin: 12px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
   /* PROPS FROM OFFER SECTION TO DEFINE GRID BY OFFER NAME*/
   grid-area: ${({ props }) => props};
-  margin: 12px;
+  background: ${({ theme }) => theme.colors.white};
   position: relative;
   overflow: hidden;
+  &:nth-child(1) {
+    margin-left: 0;
+  }
+  &:nth-child(6) {
+    margin-right: 0;
+  }
+  @media screen and (max-width: 1600px) {
+    width: calc(33% - 22px);
+    height: 300px;
+    margin: 0;
+  }
+  @media screen and (max-width: 1250px) {
+    width: calc(50% - 5px);
+    max-height: 280px;
+    margin-bottom: 10px;
+  }
+  @media screen and (max-width: 620px) {
+    width: 100%;
+  }
+`;
+
+export const OfferWrapper = styled(Link)`
+  width: 100%;
+  height: 100%;
   cursor: pointer;
   transition: 0.8s ease;
   &::before {
@@ -44,31 +69,6 @@ export const OfferWrapper = styled(Link)`
         right: 100%;
       }
     }
-  }
-  &:nth-child(1) {
-    margin-left: 0;
-    /* @media screen and (max-width: 1700px) {
-      margin: 12px;
-    } */
-  }
-  &:nth-child(6) {
-    margin-right: 0;
-    /* @media screen and (max-width: 1700px) {
-      margin: 12px;
-    } */
-  }
-  @media screen and (max-width: 1600px) {
-    width: calc(33% - 22px);
-    height: 300px;
-    margin: 0;
-  }
-  @media screen and (max-width: 1250px) {
-    width: calc(50% - 5px);
-    max-height: 280px;
-    margin-bottom: 10px;
-  }
-  @media screen and (max-width: 620px) {
-    width: 100%;
   }
 `;
 

@@ -76,8 +76,6 @@ export const Modal = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  backdrop-filter: blur(5px);
-  background: rgba(255, 255, 255, 0.6);
   &.toggle {
     top: 0;
     left: 0;

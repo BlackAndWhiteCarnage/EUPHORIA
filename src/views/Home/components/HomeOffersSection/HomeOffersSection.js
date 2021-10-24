@@ -11,10 +11,10 @@ import SessionsImage from 'assets/images/sessions.png';
 // STYLES
 import { Wrapper, OffersWrapper, Header } from './HomeOffersSection.styles';
 // ANIMATIONS
-import { slideFromTop } from 'animations/animations';
+import { scaleUp } from 'animations/animations';
 
 const HomeOfferSection = () => (
-  <Wrapper variants={slideFromTop} initial='hidden' animate='show' exit='exit'>
+  <Wrapper variants={scaleUp} initial='hidden' animate='show' exit='exit'>
     <Header>FETYSZ MAJTKI MAJTECZKI RAJSTOPY SKARPETKI NOSZONA UŻYWANA BIELIZNA</Header>
     <OffersWrapper id='offer'>
       <Offer image={SocksImage} content='SKARPETKI' gridArea='SKARPETKI' linkTo='skarpetki' alt='skarpetki' />

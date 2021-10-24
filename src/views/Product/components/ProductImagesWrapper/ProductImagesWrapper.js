@@ -5,7 +5,7 @@ import { ImageWrapper, Image, ScrollInfoWrapper, Dot } from './ProductImagesWrap
 // ICONS
 import DefaultImage from 'assets/icons/default-icon.svg';
 // ANIMATIONS
-import { slideFromTop } from 'animations/animations';
+import { fade } from 'animations/animations';
 // HELPERS
 import { matchMedia } from 'helpers/matchMedia';
 
@@ -24,7 +24,7 @@ const ProductImagesWrapper = ({ data, desktop }) => {
   }, [data]);
 
   return (
-    <ImageWrapper variants={matchMedia.matches && slideFromTop} animate='show' initial='hidden'>
+    <ImageWrapper variants={matchMedia && fade}>
       {data.images.length > 1 ? (
         data.images.map((item, index) => (
           <Image

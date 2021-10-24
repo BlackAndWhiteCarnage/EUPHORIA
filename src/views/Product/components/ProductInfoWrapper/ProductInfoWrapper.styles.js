@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Button from 'components/Button/Button';
 import { motion } from 'framer-motion';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled(motion.div)`
   position: relative;
   width: 100%;
   z-index: 10;
@@ -22,7 +22,6 @@ export const Wrapper = styled.div`
 export const InfoWrapper = styled.div`
   position: relative;
   width: 100%;
-  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,7 +31,6 @@ export const InfoWrapper = styled.div`
     margin: 0;
   }
   @media screen and (min-width: 1250px) {
-    /* min-height: 0; */
     width: 50%;
     justify-content: center;
   }

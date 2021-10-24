@@ -19,11 +19,8 @@ export const ProductWrapper = styled(motion.section)`
   }
   @media screen and (min-width: 1250px) {
     position: relative;
-    width: 95%;
     height: auto;
-    min-height: 0;
     margin: 20px auto auto auto;
-    align-items: center;
   }
   @media screen and (max-width: 1250px) {
     width: 100%;

@@ -12,7 +12,6 @@ export const Wrapper = styled.div`
   justify-content: flex-end;
   border-bottom: 2px solid ${({ theme }) => theme.colors.crimsonRed};
   margin: auto;
-  transition: 0.5s ease;
   z-index: 999999;
   background: ${({ theme }) => theme.colors.darkWhite};
   @media screen and (max-width: 1600px) {
@@ -25,14 +24,12 @@ export const Wrapper = styled.div`
     border-bottom: none;
   }
   &.stickyNavbar {
-    transition: 0.5s ease;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     max-width: unset;
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(5px);
+    background: ${({ theme }) => theme.colors.darkWhite};
     padding: 5px 80px;
     height: 150px;
     min-height: unset;
@@ -65,9 +62,7 @@ export const CartAndLogoWrapper = styled.div`
     left: 0;
     min-height: unset;
     height: 55px;
-    /* background: ${({ theme }) => theme.colors.darkWhite}; */
-    backdrop-filter: blur(5px);
-    background: rgba(255, 255, 255, 0.6);
+    background: ${({ theme }) => theme.colors.darkWhite};
     z-index: 200;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
     justify-content: flex-end;

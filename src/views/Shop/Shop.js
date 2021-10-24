@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { useInView } from 'react-intersection-observer';
 // COMPONENTS
 import LoadingIcon from 'components/LoadingIcon/LoadingIcon';
 import Shadow from 'components/Shadow/Shadow';
@@ -11,7 +12,21 @@ import { isInCartHandler } from 'helpers/isInCartHandler';
 import { Wrapper, ProductWrapper, Product, ProductImage, ProductName, SeasonOfferInfo, AddedIcon } from './Shop.styles';
 import { Header } from 'views/Home/components/HomeOffersSection/HomeOffersSection.styles';
 // ANIMATIONS
-import { slideFromTop } from 'animations/animations';
+import { fade } from 'animations/animations';
+
+const ShopItem = ({ name, id, images, cart }) => {
+  const [element, inView] = useInView();
+
+  return (
+    <ProductWrapper variants={fade} animate={inView ? 'show' : 'hidden'} exit='exit' ref={element}>
+      <Product key={id} name={name} to={`/${id}`} className={isInCartHandler(id, cart)}>
+        {images.length > 0 && <ProductImage src={images[0].url} id='active' />}
+        <ProductName>{name}</ProductName>
+        {isInCartHandler(id, cart) && <AddedIcon />}
+      </Product>
+    </ProductWrapper>
+  );
+};
 
 const Shop = ({ cart }) => {
   const [data, setData] = useState([]);
@@ -37,15 +52,7 @@ const Shop = ({ cart }) => {
         data
           .slice(0)
           .reverse()
-          .map(({ name, id, images }) => (
-            <ProductWrapper variants={slideFromTop} animate='show' initial='hidden' exit='exit'>
-              <Product key={id} name={name} to={`/${id}`} className={isInCartHandler(id, cart)}>
-                {images.length > 0 && <ProductImage src={images[0].url} id='active' />}
-                <ProductName>{name}</ProductName>
-                {isInCartHandler(id, cart) && <AddedIcon />}
-              </Product>
-            </ProductWrapper>
-          ))
+          .map(({ name, id, images }) => <ShopItem name={name} id={id} images={images} cart={cart} />)
       ) : (
         <LoadingIcon />
       )}
