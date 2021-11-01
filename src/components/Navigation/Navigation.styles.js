@@ -249,12 +249,7 @@ export const StyledLogo = styled(Logo)`
   bottom: 0;
   left: 0;
   @media screen and (max-width: 1250px) {
-    width: 140px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -60%);
-    /* margin: 0 5px;
-    margin-left: 50px; */
+    display: none;
   }
 `;
 

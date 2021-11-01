@@ -25,7 +25,7 @@ const ShopItem = ({ name, id, images, cart }) => {
 };
 
 const Shop = ({ cart }) => {
-  const path = useLocation().pathname.replace('/sklepik/', '');
+  const path = useLocation().pathname.replace('/sklep/', '');
   const { data } = useFetch(process.env.REACT_APP_PRODUCTS_URL, path, true);
 
   return (

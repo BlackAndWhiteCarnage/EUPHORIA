@@ -12,7 +12,7 @@ const Offer = ({ gridArea, content, image, linkTo, alt }) => {
 
   return (
     <Wrapper props={gridArea} variants={fade}>
-      <OfferWrapper onMouseEnter={toggleTitleHandler} onMouseLeave={toggleTitleHandler} to={`sklepik/${linkTo}`} id='active'>
+      <OfferWrapper onMouseEnter={toggleTitleHandler} onMouseLeave={toggleTitleHandler} to={`sklep/${linkTo}`} id='active'>
         <OfferTitle className={toggleTitle && 'toggleTitle'} id='active'>
           {content}
         </OfferTitle>

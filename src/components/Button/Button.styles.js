@@ -14,7 +14,6 @@ export const Wrapper = styled.button`
   z-index: 1;
   overflow: hidden;
   transition: 0.5s ease;
-  font-family: 'Montserrat', sans-serif;
   &::before {
     content: '';
     transition: 0.5s ease;
@@ -78,6 +77,23 @@ export const Wrapper = styled.button`
       left: 0%;
       position: absolute;
       content: 'COŚ ŹLE WYPEŁNIŁEŚ';
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  &.SENDING {
+    pointer-events: none;
+    &::after {
+      pointer-events: none;
+      transition: 0.3s ease;
+      top: 0%;
+      left: 0%;
+      position: absolute;
+      content: 'WYSYŁAM...';
       width: 100%;
       height: 100%;
       pointer-events: none;

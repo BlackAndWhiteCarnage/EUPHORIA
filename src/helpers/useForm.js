@@ -49,6 +49,7 @@ export const useForm = (cart) => {
     const handleSendEmail = () => {
       emailjs.sendForm(`${serviceID}`, `${templateID}`, e.target, `${userID}`).then(() => {
         setEmailSend(true);
+        setFeedback(2);
       });
     };
 

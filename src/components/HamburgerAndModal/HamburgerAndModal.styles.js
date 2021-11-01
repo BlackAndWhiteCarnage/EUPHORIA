@@ -16,7 +16,7 @@ export const HamburgerMenuWrapper = styled.div`
   transition: 0.8s ease;
   cursor: pointer;
   min-width: 80px;
-  @media screen and (min-width: 1250px) {
+  @media screen and (min-width: 1251px) {
     display: none;
   }
   @media screen and (max-width: 620px) {

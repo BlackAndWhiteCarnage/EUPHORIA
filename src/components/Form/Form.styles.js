@@ -68,10 +68,10 @@ export const Discounts = styled.div`
 `;
 
 export const AccualForm = styled(motion.form)`
+  position: relative;
   width: 60%;
   display: flex;
   flex-direction: column;
-  color: white;
   @media screen and (max-width: 1600px) {
     width: 80%;
   }
@@ -84,7 +84,6 @@ export const AccualForm = styled(motion.form)`
   textarea {
     color: ${({ theme }) => theme.colors.darkWhite};
     font-weight: bolder;
-    font-family: 'Montserrat', sans-serif;
     background: none;
     position: relative;
     &:focus {
@@ -227,12 +226,14 @@ export const Checkbox = styled.input`
 `;
 
 export const SendingInProgress = styled.div`
-  opacity: 0;
+  /* opacity: 0; */
   pointer-events: none;
   position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 50%);
+  left: 0;
+  top: 0;
+  width: 100% !important;
+  height: 100% !important;
+  background: rgba(0, 0, 0, 80%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -249,7 +250,7 @@ export const TextArea = styled.textarea`
   outline: none;
   border: 2px solid ${({ theme }) => theme.colors.darkWhite};
   padding: 10px;
-  min-height: 100px;
+  min-height: 150px;
   margin-bottom: 30px;
   font-size: ${({ theme }) => theme.fontSize.m};
   resize: none;
@@ -286,25 +287,13 @@ export const StyledProgressIcon = styled(ProgressIcon)`
 export const StyledCheckIcon = styled(CheckIcon)`
   width: 30%;
   height: 30%;
-  /* animation: ${rotate} 1.5s infinite; */
 `;
 
 export const StyledButton = styled(Button)`
-  position: absolute;
+  /* position: absolute; */
   bottom: -50px;
-  right: 0;
+  /* right: 0; */
   padding: 10px;
-  min-width: 200px;
+  /* min-width: 200px; */
   z-index: 15;
-  @media screen and (min-width: 1250px) {
-    font-size: ${({ theme }) => theme.fontSize.s};
-    margin: 0;
-    width: auto;
-    white-space: nowrap;
-  }
-  @media screen and (max-width: 1250px) {
-    position: relative;
-    width: 100%;
-    min-height: 35px;
-  }
 `;

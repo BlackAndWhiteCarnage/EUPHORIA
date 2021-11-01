@@ -10,9 +10,9 @@ import {
   NavWrapper,
   LinksWrapper,
   LinesWrapper,
-} from './HamburgerMenuAndModal.styles';
+} from './HamburgerAndModal.styles';
 
-const HamburgerMenuAndModal = () => {
+const HamburgerAndModal = () => {
   const [toggleModal, setToggleModal] = useState(false);
 
   useEffect(() => {
@@ -40,22 +40,22 @@ const HamburgerMenuAndModal = () => {
               <ModalNavItem className={toggleModal && 'toggle'} to='/' exact>
                 STRONA GŁÓWNA
               </ModalNavItem>
-              <ModalNavItem className={toggleModal && 'toggle'} to='/sklepik/majtki' exact>
+              <ModalNavItem className={toggleModal && 'toggle'} to='/sklep/majtki' exact>
                 MAJTKI
               </ModalNavItem>
-              <ModalNavItem className={toggleModal && 'toggle'} to='/sklepik/skarpetki' exact>
+              <ModalNavItem className={toggleModal && 'toggle'} to='/sklep/skarpetki' exact>
                 SKARPETKI
               </ModalNavItem>
-              <ModalNavItem className={toggleModal && 'toggle'} to='/sklepik/premium' exact>
+              <ModalNavItem className={toggleModal && 'toggle'} to='/sklep/premium' exact>
                 PREMIUM
               </ModalNavItem>
-              <ModalNavItem className={toggleModal && 'toggle'} to='/sklepik/inne' exact>
+              <ModalNavItem className={toggleModal && 'toggle'} to='/sklep/inne' exact>
                 INNE
               </ModalNavItem>
-              <ModalNavItem className={toggleModal && 'toggle'} to='/sklepik/rajstopy' exact>
+              <ModalNavItem className={toggleModal && 'toggle'} to='/sklep/rajstopy' exact>
                 RAJSTOPY I POŃCZOCHY
               </ModalNavItem>
-              <ModalNavItem className={toggleModal && 'toggle'} to='/sklepik/fotki i nagrania' exact>
+              <ModalNavItem className={toggleModal && 'toggle'} to='/sklep/fotki i nagrania' exact>
                 SESJE, FOTKI I NAGRANIA
               </ModalNavItem>
             </LinksWrapper>
@@ -67,4 +67,4 @@ const HamburgerMenuAndModal = () => {
   );
 };
 
-export default HamburgerMenuAndModal;
+export default HamburgerAndModal;

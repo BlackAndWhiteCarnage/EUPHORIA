@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
-import { Wrapper } from './AmazingCursor.styles';
+import { Wrapper } from './Cursor.styles';
 
-const AmazingCursor = () => {
+const Cursor = () => {
   const ref = useRef(null);
 
   const mouseMoveHandler = (e) => {
@@ -46,4 +46,4 @@ const AmazingCursor = () => {
   return <Wrapper ref={ref}></Wrapper>;
 };
 
-export default AmazingCursor;
+export default Cursor;

@@ -5,7 +5,7 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        /* cursor: none !important; */
+        font-family: 'Montserrat', sans-serif;
     }
     html{
         scroll-behavior: smooth;
@@ -15,7 +15,6 @@ export const GlobalStyle = createGlobalStyle`
         color: ${({ theme }) => theme.colors.crimsonRed}
     }
     body{
-        font-family: 'Montserrat', sans-serif;
         font-weight: bolder;
         color: ${({ theme }) => theme.colors.darkGrey};
         overflow-x: hidden;

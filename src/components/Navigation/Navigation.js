@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { matchMedia } from 'helpers/matchMedia';
 import { summary } from 'helpers/summary';
 import SocialMediaWrapper from 'components/SocialMediaWrapper/SocialMediaWrapper';
-import HamburgerMenuAndModal from 'components/HamburgerMenuAndModal/HamburgerMenuAndModal';
+import HamburgerAndModal from 'components/HamburgerAndModal/HamburgerAndModal';
 import CartIcon from 'assets/icons/cart-icon.svg';
 import {
   Wrapper,
@@ -35,24 +35,14 @@ const Navigation = ({ cart }) => {
     return;
   }, [cart]);
 
-  let displayLogo;
-
-  if (cart.length > 0 && !matchMedia.matches) {
-    displayLogo = false;
-  } else {
-    displayLogo = true;
-  }
-
   return (
     <nav>
       {matchMedia.matches && <FakeWrapper ref={element} className={!view && 'changePosition'} />}
       <Wrapper className={!view && matchMedia.matches && 'stickyNavbar'}>
         <CartAndLogoWrapper>
-          {displayLogo && (
-            <Link to='/'>
-              <StyledLogo id='active' title='EUPHORIA NOSZONA I UŻYWANA BIELIZNA' />
-            </Link>
-          )}
+          <Link to='/'>
+            <StyledLogo id='active' title='EUPHORIA NOSZONA I UŻYWANA BIELIZNA' />
+          </Link>
           <CartInfoWrapper>
             <Link to='/koszyk'>
               <CartWrapper>
@@ -80,32 +70,32 @@ const Navigation = ({ cart }) => {
               </NavItem>
             </li>
             <li>
-              <NavItem to='/sklepik/majtki' exact>
+              <NavItem to='/sklep/majtki' exact>
                 MAJTKI
               </NavItem>
             </li>
             <li>
-              <NavItem to='/sklepik/skarpetki' exact>
+              <NavItem to='/sklep/skarpetki' exact>
                 SKARPETKI
               </NavItem>
             </li>
             <li>
-              <NavItem to='/sklepik/premium' exact>
+              <NavItem to='/sklep/premium' exact>
                 PREMIUM
               </NavItem>
             </li>
             <li>
-              <NavItem to='/sklepik/inne' exact>
+              <NavItem to='/sklep/inne' exact>
                 INNE
               </NavItem>
             </li>
             <li>
-              <NavItem to='/sklepik/rajstopy' exact>
+              <NavItem to='/sklep/rajstopy' exact>
                 RAJSTOPY I POŃCZOCHY
               </NavItem>
             </li>
             <li>
-              <NavItem to='/sklepik/fotki i nagrania' exact>
+              <NavItem to='/sklep/fotki i nagrania' exact>
                 SESJE, FOTKI I NAGRANIA
               </NavItem>
             </li>
@@ -113,7 +103,7 @@ const Navigation = ({ cart }) => {
           <SocialMediaWrapper desktop />
         </NavItems>
       </Wrapper>
-      <HamburgerMenuAndModal />
+      <HamburgerAndModal />
     </nav>
   );
 };

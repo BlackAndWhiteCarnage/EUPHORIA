@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { GlobalStyle } from 'assets/styles/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
 import { theme } from 'assets/styles/theme';
-import AmazingCursor from 'components/AmazingCursor/AmazingCursor';
+import Cursor from 'components/Cursor/Cursor';
 import Navigation from 'components/Navigation/Navigation';
 import { isTouchScreen } from 'helpers/checkIfTouchScreen';
 import ScrollTop from 'helpers/ScrollTop';
@@ -31,7 +31,7 @@ const Provider = ({ children, cart, setCart }) => {
       <GlobalStyle />
       <Navigation cart={cart} />
       <ScrollTop />
-      {!isTouchScreen() && <AmazingCursor />}
+      {!isTouchScreen() && <Cursor />}
       {children}
     </ThemeProvider>
   );
