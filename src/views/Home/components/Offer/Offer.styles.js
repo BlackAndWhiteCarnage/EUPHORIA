@@ -32,6 +32,7 @@ export const Wrapper = styled(motion.div)`
 `;
 
 export const OfferWrapper = styled(Link)`
+  position: absolute;
   width: 100%;
   height: 100%;
   cursor: pointer;

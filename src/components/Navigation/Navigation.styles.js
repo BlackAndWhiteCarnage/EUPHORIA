@@ -34,6 +34,9 @@ export const Wrapper = styled.div`
     height: 150px;
     min-height: unset;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+    @media screen and (max-width: 1600px) {
+      padding: 5px 20px;
+    }
   }
 `;
 

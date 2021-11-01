@@ -43,46 +43,27 @@ const HamburgerMenuAndModal = () => {
           <NavWrapper>
             <SocialMediaWrapper />
             <LinksWrapper>
-              {location.pathname === '/' ? (
-                <>
-                  <ModalLink className={toggleModal && 'toggle'} href='#offer'>
-                    OFERTA
-                  </ModalLink>
-                  <ModalLink className={toggleModal && 'toggle'} href='#whoAmI'>
-                    CZYM SIĘ ZAJMUJĘ
-                  </ModalLink>
-                  <ModalLink className={toggleModal && 'toggle'} href='#howToBuy'>
-                    JAK WYGLĄDA ZAKUP
-                  </ModalLink>
-                  <ModalLink className={toggleModal && 'toggle'} href='#contact'>
-                    KONTAKT
-                  </ModalLink>
-                </>
-              ) : (
-                <>
-                  <ModalNavItem className={toggleModal && 'toggle'} to='/' exact>
-                    STRONA GŁÓWNA
-                  </ModalNavItem>
-                  <ModalNavItem className={toggleModal && 'toggle'} to='/sklepik/majtki' exact>
-                    MAJTKI
-                  </ModalNavItem>
-                  <ModalNavItem className={toggleModal && 'toggle'} to='/sklepik/skarpetki' exact>
-                    SKARPETKI
-                  </ModalNavItem>
-                  <ModalNavItem className={toggleModal && 'toggle'} to='/sklepik/premium' exact>
-                    PREMIUM
-                  </ModalNavItem>
-                  <ModalNavItem className={toggleModal && 'toggle'} to='/sklepik/inne' exact>
-                    INNE
-                  </ModalNavItem>
-                  <ModalNavItem className={toggleModal && 'toggle'} to='/sklepik/rajstopy' exact>
-                    RAJSTOPY I POŃCZOCHY
-                  </ModalNavItem>
-                  <ModalNavItem className={toggleModal && 'toggle'} to='/sklepik/fotki i nagrania' exact>
-                    SESJE, FOTKI I NAGRANIA
-                  </ModalNavItem>
-                </>
-              )}
+              <ModalNavItem className={toggleModal && 'toggle'} to='/' exact>
+                STRONA GŁÓWNA
+              </ModalNavItem>
+              <ModalNavItem className={toggleModal && 'toggle'} to='/sklepik/majtki' exact>
+                MAJTKI
+              </ModalNavItem>
+              <ModalNavItem className={toggleModal && 'toggle'} to='/sklepik/skarpetki' exact>
+                SKARPETKI
+              </ModalNavItem>
+              <ModalNavItem className={toggleModal && 'toggle'} to='/sklepik/premium' exact>
+                PREMIUM
+              </ModalNavItem>
+              <ModalNavItem className={toggleModal && 'toggle'} to='/sklepik/inne' exact>
+                INNE
+              </ModalNavItem>
+              <ModalNavItem className={toggleModal && 'toggle'} to='/sklepik/rajstopy' exact>
+                RAJSTOPY I POŃCZOCHY
+              </ModalNavItem>
+              <ModalNavItem className={toggleModal && 'toggle'} to='/sklepik/fotki i nagrania' exact>
+                SESJE, FOTKI I NAGRANIA
+              </ModalNavItem>
             </LinksWrapper>
           </NavWrapper>
           <StyledDot className={toggleModal && 'toggle'} />
