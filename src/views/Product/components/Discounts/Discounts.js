@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// STYLES
 import { DiscountsInfoWrapper, DiscountsWrapper } from './Discounts.styles';
 
 const Discounts = () => {

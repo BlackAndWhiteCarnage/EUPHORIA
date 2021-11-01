@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
-// COMPONENTS
 import ProductInfoWrapper from 'views/Product/components/ProductInfoWrapper/ProductInfoWrapper';
 import ProductImagesWrapper from 'views/Product/components/ProductImagesWrapper/ProductImagesWrapper';
 import LoadingIcon from 'components/LoadingIcon/LoadingIcon';
-// STYLES
 import { ProductWrapper, ButtonsWrapper, StyledButton } from './Product.styles';
-// HELPERS
 import { matchMedia } from 'helpers/matchMedia';
-// ANIMATIONS
 import { scaleUp } from 'animations/animations';
 
 const Product = ({ cart, setCart }) => {

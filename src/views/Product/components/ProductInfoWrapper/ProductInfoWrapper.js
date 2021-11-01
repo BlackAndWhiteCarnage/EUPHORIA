@@ -1,12 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// COMPONENTS
 import ImagesWrapper from 'views/Product/components/ProductImagesWrapper/ProductImagesWrapper';
 import ExtrasWrapper from 'views/Product/components/ExtrasWrapper/ExtrasWrapper';
 import Discounts from 'views/Product/components/Discounts/Discounts';
-// HELPERS
 import { matchMedia } from 'helpers/matchMedia';
-// STYLES
 import {
   Wrapper,
   InfoWrapper,
@@ -18,7 +15,6 @@ import {
   ButtonsWrapper,
   StyledButton,
 } from './ProductInfoWrapper.styles';
-// ANIMATIONS
 import { scaleUp, fade } from 'animations/animations';
 
 const ProductInfoWrapper = ({

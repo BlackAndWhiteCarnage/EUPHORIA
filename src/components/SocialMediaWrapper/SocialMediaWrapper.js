@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// ICONS
 import AllegroIcon from 'assets/icons/allegro-icon.svg';
 import WhatsAppIcon from 'assets/icons/whatsapp-icon.svg';
 import WhatsAppIconWhite from 'assets/icons/whatsapp-icon-white.svg';
 import EmailIcon from 'assets/icons/email-icon.svg';
 import EmailIconWhite from 'assets/icons/email-icon-white.svg';
-// STYLES
 import { Wrapper, Icon } from './SocialMediaWrapper.styles';
 
 const SocialMediaWrapper = ({ desktop }) => {

@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-// STYLES
 import { ImageWrapper, Image, ScrollInfoWrapper, Dot } from './ProductImagesWrapper.styles';
-// ICONS
 import DefaultImage from 'assets/icons/default-icon.svg';
-// ANIMATIONS
 import { fade } from 'animations/animations';
-// HELPERS
 import { matchMedia } from 'helpers/matchMedia';
 
 const ProductImagesWrapper = ({ data, desktop }) => {

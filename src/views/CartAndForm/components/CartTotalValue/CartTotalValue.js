@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// HELPERS
 import { summary } from 'helpers/summary';
-// STYLES
 import { Wrapper } from './CartTotalValue.styles';
 
 const CartTotalValue = ({ cart }) => (

@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// HELPERS
 import { isInCartHandler } from 'helpers/isInCartHandler';
-// STYLES
 import { Wrapper } from './Button.styles';
 
 const Button = ({ text, className, click, id, itemID, cart, type }) => (

@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
-// VIEWS
 import Home from 'views/Home/Home';
 import Shop from 'views/Shop/Shop';
 import Product from 'views/Product/Product';
 import CartAndForm from 'views/CartAndForm/CartAndForm';
-// HOC
 import Provider from 'hoc/Provider';
 
 const Root = () => {

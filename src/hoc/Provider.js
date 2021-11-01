@@ -3,10 +3,8 @@ import PropTypes from 'prop-types';
 import { GlobalStyle } from 'assets/styles/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
 import { theme } from 'assets/styles/theme';
-// COMPONENTS
 import AmazingCursor from 'components/AmazingCursor/AmazingCursor';
 import Navigation from 'components/Navigation/Navigation';
-// HELPERS
 import { isTouchScreen } from 'helpers/checkIfTouchScreen';
 import ScrollTop from 'helpers/ScrollTop';
 

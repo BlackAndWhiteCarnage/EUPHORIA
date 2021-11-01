@@ -1,7 +1,5 @@
 import React from 'react';
-// ICONS
 import OnlyfansIcon from 'assets/icons/onlyfans-icon.svg';
-// STYLES
 import { OnlyFansWrapper, OnlyFans } from './Onlyfans.style';
 
 const Onlyfans = () => {

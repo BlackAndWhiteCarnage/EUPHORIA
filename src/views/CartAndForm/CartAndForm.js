@@ -1,12 +1,9 @@
 import React from 'react';
-// COMPONENTS
 import Form from 'components/Form/Form';
 import Cart from 'views/CartAndForm/components/Cart/Cart';
 import CartTotalValue from 'views/CartAndForm/components/CartTotalValue/CartTotalValue';
-// STYLES
 import { Header } from 'views/Home/components/HomeOffersSection/HomeOffersSection.styles';
 import { Wrapper, EmptyCartInfo } from './CartAndForm.styles';
-// ANIMATIONS
 import { scaleUp } from 'animations/animations';
 
 const CartAndForm = ({ cart, setCart }) => (

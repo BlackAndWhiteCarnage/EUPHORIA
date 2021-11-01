@@ -1,6 +1,5 @@
 import React, { useEffect, useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
-// DATA
 import { pantiesExtras, socksExtras, premiumExtras, tightsExtras } from 'data/extras';
 
 const ExtrasProvider = ({

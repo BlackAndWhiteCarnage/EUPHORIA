@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from 'react';
-// STYLES
 import { Wrapper } from './AmazingCursor.styles';
 
 const AmazingCursor = () => {

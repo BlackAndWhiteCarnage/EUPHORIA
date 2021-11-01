@@ -2,16 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useInView } from 'react-intersection-observer';
-// COMPONENTS
 import LoadingIcon from 'components/LoadingIcon/LoadingIcon';
 import Shadow from 'components/Shadow/Shadow';
-// HELPERS
 import { handleSesonalOffer } from 'helpers/handleSesonalOffer';
 import { isInCartHandler } from 'helpers/isInCartHandler';
-// STYLES
 import { Wrapper, ProductWrapper, Product, ProductImage, ProductName, SeasonOfferInfo, AddedIcon } from './Shop.styles';
 import { Header } from 'views/Home/components/HomeOffersSection/HomeOffersSection.styles';
-// ANIMATIONS
 import { fade } from 'animations/animations';
 
 const ShopItem = ({ name, id, images, cart }) => {

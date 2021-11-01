@@ -133,19 +133,6 @@ export const LinksWrapper = styled.div`
   padding: 5%;
 `;
 
-export const ModalLink = styled.a`
-  font-size: ${({ theme }) => theme.fontSize.l};
-  text-align: center;
-  font-weight: bolder;
-  color: ${({ theme }) => theme.colors.darkWhite};
-  transition: 0.5s ease;
-  text-decoration: none;
-  @media screen and (max-width: 680px) {
-    text-align: left;
-    font-size: ${({ theme }) => theme.fontSize.m};
-  }
-`;
-
 export const ModalNavItem = styled(NavLink).attrs({ activeClassName: 'active-link' })`
   font-size: ${({ theme }) => theme.fontSize.l};
   text-align: center;

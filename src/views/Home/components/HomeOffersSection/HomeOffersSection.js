@@ -1,16 +1,12 @@
 import React from 'react';
-// COMPONENTS
 import Offer from 'views/Home/components/Offer/Offer';
-// IMAGES
 import SocksImage from 'assets/images/socks.png';
 import PantiesImage from 'assets/images/panties.png';
 import PremiumImage from 'assets/images/premium.png';
 import TightsImage from 'assets/images/tights.png';
 import SetsImage from 'assets/images/sets.png';
 import SessionsImage from 'assets/images/sessions.png';
-// STYLES
 import { Wrapper, OffersWrapper, Header } from './HomeOffersSection.styles';
-// ANIMATIONS
 import { scaleUp } from 'animations/animations';
 
 const HomeOfferSection = () => (

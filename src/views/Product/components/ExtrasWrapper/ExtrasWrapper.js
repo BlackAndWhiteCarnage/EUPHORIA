@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-// STYLES
 import { Wrapper, ExtrasInfoWrapper, ExtrasInfo, ExtrasOption } from './ExtrasWrapper.styles';
-// COMPONENTS
 import ExtrasProvider from 'hoc/ExtrasProvider';
 
 const ExtrasWrapper = ({ data, setExtrasData, extrasData, toggleExtras, setToggleExtras, pickExtras, setPickExtras, cart, setCart }) => {

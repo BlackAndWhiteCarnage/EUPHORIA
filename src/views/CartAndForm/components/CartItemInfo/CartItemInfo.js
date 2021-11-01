@@ -1,5 +1,4 @@
 import React from 'react';
-// STYLES
 import { Wrapper, PickedExtrasWrapper, PickedExtras, StyledAlertLink } from './CartItemInfo.styles';
 
 const CartItemInfo = ({ item, togglePreviewExtras, toggleAlert }) => (

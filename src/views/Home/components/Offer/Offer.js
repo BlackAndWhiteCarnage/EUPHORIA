@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-// STYLES
 import { Wrapper, OfferWrapper, OfferTitle, OfferImage } from './Offer.styles';
 import { fade } from 'animations/animations';
 

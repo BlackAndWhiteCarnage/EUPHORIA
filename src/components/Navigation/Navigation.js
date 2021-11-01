@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
 import PropTypes from 'prop-types';
-// HELPERS
 import { matchMedia } from 'helpers/matchMedia';
 import { summary } from 'helpers/summary';
-// COMPONENTS
 import SocialMediaWrapper from 'components/SocialMediaWrapper/SocialMediaWrapper';
 import HamburgerMenuAndModal from 'components/HamburgerMenuAndModal/HamburgerMenuAndModal';
-// ICONS
 import CartIcon from 'assets/icons/cart-icon.svg';
-// STYLES
 import {
   Wrapper,
   NavItems,
@@ -29,7 +25,6 @@ import {
 const Navigation = ({ cart }) => {
   const [element, view] = useInView({ threshold: 0.5 });
   const [cartChange, setCartChange] = useState(false);
-  const location = useLocation();
 
   useEffect(() => {
     setCartChange(true);
@@ -118,7 +113,6 @@ const Navigation = ({ cart }) => {
           <SocialMediaWrapper desktop />
         </NavItems>
       </Wrapper>
-      {/* HAMBURGER MENU */}
       <HamburgerMenuAndModal />
     </nav>
   );
