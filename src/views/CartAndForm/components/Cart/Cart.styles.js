@@ -21,7 +21,7 @@ export const CartItems = styled.div`
 export const CartItem = styled(motion.div)`
   position: relative;
   width: 400px;
-  background: ${({ theme }) => theme.colors.crimsonRed};
+  background: ${({ theme }) => theme.colors.main};
   min-height: 180px;
   margin: 15px 0;
   display: flex;

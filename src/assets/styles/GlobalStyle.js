@@ -12,14 +12,13 @@ export const GlobalStyle = createGlobalStyle`
     }
     *::selection{
         background: ${({ theme }) => theme.colors.darkGrey};
-        color: ${({ theme }) => theme.colors.crimsonRed}
+        color: ${({ theme }) => theme.colors.main}
     }
     body{
         font-weight: bolder;
         color: ${({ theme }) => theme.colors.darkGrey};
         overflow-x: hidden;
         background: ${({ theme }) => theme.colors.darkWhite};
-        overflow: ${(props) => props.overflowChange && 'hidden'};
     }
     ::-webkit-scrollbar {
     width: 10px;
@@ -30,7 +29,7 @@ export const GlobalStyle = createGlobalStyle`
     background: ${({ theme }) => theme.colors.darkWhite};
     }
     ::-webkit-scrollbar-thumb {
-    background: ${({ theme }) => theme.colors.crimsonRed};
+    background: ${({ theme }) => theme.colors.main};
     }
     ::-webkit-scrollbar-thumb:hover {
     background: ${({ theme }) => theme.colors.darkGrey};

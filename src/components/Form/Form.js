@@ -1,20 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useForm } from 'helpers/useForm';
-import {
-  FormWrapper,
-  SendingInProgress,
-  StyledProgressIcon,
-  StyledCheckIcon,
-  Label,
-  Input,
-  TextArea,
-  Checkbox,
-  CheckboxWrapper,
-  StyledButton,
-  Info,
-  AccualForm,
-} from './Form.styles';
+import { FormWrapper, Label, Input, TextArea, Checkbox, CheckboxWrapper, StyledButton, Info, AccualForm } from './Form.styles';
 
 const Form = ({ cart, homePage }) => {
   const [toggleInfo, setToggleInfo] = useState(false);
@@ -91,7 +78,6 @@ const Form = ({ cart, homePage }) => {
 
 Form.propTypes = {
   cart: PropTypes.array,
-  summary: PropTypes.func,
   homePage: PropTypes.bool,
 };
 

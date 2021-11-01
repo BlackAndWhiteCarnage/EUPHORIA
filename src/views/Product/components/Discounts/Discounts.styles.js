@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const DiscountsInfoWrapper = styled.div`
   position: absolute;
   right: 0;
-  background: ${({ theme }) => theme.colors.crimsonRed};
+  background: ${({ theme }) => theme.colors.main};
   width: 40px;
   height: 110px;
   z-index: 10;

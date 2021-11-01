@@ -1,6 +1,4 @@
-import styled, { keyframes } from 'styled-components';
-import { ReactComponent as ProgressIcon } from 'assets/icons/progress-icon.svg';
-import { ReactComponent as CheckIcon } from 'assets/icons/check-icon.svg';
+import styled from 'styled-components';
 import Button from 'components/Button/Button';
 import { motion } from 'framer-motion';
 
@@ -43,7 +41,7 @@ export const Discounts = styled.div`
   right: 0;
   width: 50px;
   height: 30%;
-  background: ${({ theme }) => theme.colors.crimsonRed};
+  background: ${({ theme }) => theme.colors.main};
   writing-mode: vertical-rl;
   display: flex;
   align-items: center;
@@ -68,7 +66,6 @@ export const Discounts = styled.div`
 `;
 
 export const AccualForm = styled(motion.form)`
-  position: relative;
   width: 60%;
   display: flex;
   flex-direction: column;
@@ -133,7 +130,7 @@ export const Info = styled.div`
   bottom: 0;
   width: 100%;
   height: 50px;
-  background: ${({ theme }) => theme.colors.crimsonRed};
+  background: ${({ theme }) => theme.colors.main};
   color: ${({ theme }) => theme.colors.darkWhite};
   display: flex;
   align-items: center;
@@ -226,19 +223,21 @@ export const Checkbox = styled.input`
 `;
 
 export const SendingInProgress = styled.div`
-  /* opacity: 0; */
+  opacity: 0;
   pointer-events: none;
   position: absolute;
-  left: 0;
-  top: 0;
-  width: 100% !important;
-  height: 100% !important;
-  background: rgba(0, 0, 0, 80%);
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 50%);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 20;
   transition: 0.5s ease;
+  &.homePage {
+    left: 0;
+    top: 0;
+  }
   &.SENDING {
     transition: 0.5s ease;
     opacity: 1;
@@ -250,7 +249,7 @@ export const TextArea = styled.textarea`
   outline: none;
   border: 2px solid ${({ theme }) => theme.colors.darkWhite};
   padding: 10px;
-  min-height: 150px;
+  min-height: 130px;
   margin-bottom: 30px;
   font-size: ${({ theme }) => theme.fontSize.m};
   resize: none;
@@ -269,31 +268,22 @@ export const TextArea = styled.textarea`
   }
 `;
 
-const rotate = keyframes`
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-`;
-
-export const StyledProgressIcon = styled(ProgressIcon)`
-  width: 20%;
-  height: 20%;
-  animation: ${rotate} 1.5s infinite;
-`;
-
-export const StyledCheckIcon = styled(CheckIcon)`
-  width: 30%;
-  height: 30%;
-`;
-
 export const StyledButton = styled(Button)`
-  /* position: absolute; */
+  position: absolute;
   bottom: -50px;
-  /* right: 0; */
+  right: 0;
   padding: 10px;
-  /* min-width: 200px; */
+  min-width: 200px;
   z-index: 15;
+  @media screen and (min-width: 1250px) {
+    font-size: ${({ theme }) => theme.fontSize.s};
+    margin: 0;
+    width: auto;
+    white-space: nowrap;
+  }
+  @media screen and (max-width: 1250px) {
+    position: relative;
+    width: 100%;
+    min-height: 35px;
+  }
 `;

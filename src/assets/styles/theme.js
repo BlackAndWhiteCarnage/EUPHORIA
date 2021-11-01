@@ -26,7 +26,7 @@ export const theme = {
   colors: {
     white: '#FFFFFF',
     black: '#000000',
-    crimsonRed: getRandomMainColor(),
+    main: getRandomMainColor(),
     darkGrey: '#2D2D2D',
     darkWhite: '#F9F9F9',
   },

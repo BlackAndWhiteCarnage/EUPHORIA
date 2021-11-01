@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
 
 export const HamburgerMenuWrapper = styled.div`
   position: fixed;
@@ -40,7 +39,7 @@ export const LinesWrapper = styled.div`
 export const Line = styled.div`
   width: 100%;
   height: 4px;
-  background: ${({ theme }) => theme.colors.crimsonRed};
+  background: ${({ theme }) => theme.colors.main};
   transition: 0.5s ease;
   &.first {
     width: 100%;
@@ -96,7 +95,7 @@ export const StyledDot = styled.div`
   width: 10px;
   height: 10px;
   border-radius: 50% 50% 0 0;
-  background: ${({ theme }) => theme.colors.crimsonRed};
+  background: ${({ theme }) => theme.colors.main};
   z-index: -1;
   width: 300%;
   pointer-events: none;
@@ -131,25 +130,4 @@ export const LinksWrapper = styled.div`
   justify-content: space-between;
   align-items: flex-end;
   padding: 5%;
-`;
-
-export const ModalNavItem = styled(NavLink).attrs({ activeClassName: 'active-link' })`
-  font-size: ${({ theme }) => theme.fontSize.l};
-  text-align: center;
-  font-weight: bolder;
-  color: ${({ theme }) => theme.colors.darkWhite};
-  transition: 0.5s ease;
-  text-decoration: none;
-  padding: 10px;
-  &.toggle {
-    &.active-link {
-      background: ${({ theme }) => theme.colors.darkGrey};
-      transition: 1s 1.8s ease;
-      color: ${({ theme }) => theme.colors.darkWhite};
-    }
-  }
-  @media screen and (max-width: 680px) {
-    text-align: left;
-    font-size: ${({ theme }) => theme.fontSize.m};
-  }
 `;

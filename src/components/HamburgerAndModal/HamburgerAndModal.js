@@ -1,26 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import SocialMediaWrapper from 'components/SocialMediaWrapper/SocialMediaWrapper';
-import {
-  HamburgerMenuWrapper,
-  Line,
-  Modal,
-  ModalLinksWrapper,
-  ModalNavItem,
-  StyledDot,
-  NavWrapper,
-  LinksWrapper,
-  LinesWrapper,
-} from './HamburgerAndModal.styles';
+import NavItem from 'components/NavItem/NavItem';
+import { HamburgerMenuWrapper, Line, Modal, ModalLinksWrapper, StyledDot, NavWrapper, LinksWrapper, LinesWrapper } from './HamburgerAndModal.styles';
 
 const HamburgerAndModal = () => {
   const [toggleModal, setToggleModal] = useState(false);
 
-  useEffect(() => {
-    document.body.style.overflowY = `${toggleModal ? 'hidden' : 'scroll'}`;
-  }, [toggleModal]);
-
   const toggleModalHandler = () => {
     setToggleModal(!toggleModal);
+
+    document.body.style.overflowY = `${!toggleModal ? 'hidden' : 'scroll'}`;
   };
 
   return (
@@ -37,27 +26,13 @@ const HamburgerAndModal = () => {
           <NavWrapper>
             <SocialMediaWrapper />
             <LinksWrapper>
-              <ModalNavItem className={toggleModal && 'toggle'} to='/' exact>
-                STRONA GŁÓWNA
-              </ModalNavItem>
-              <ModalNavItem className={toggleModal && 'toggle'} to='/sklep/majtki' exact>
-                MAJTKI
-              </ModalNavItem>
-              <ModalNavItem className={toggleModal && 'toggle'} to='/sklep/skarpetki' exact>
-                SKARPETKI
-              </ModalNavItem>
-              <ModalNavItem className={toggleModal && 'toggle'} to='/sklep/premium' exact>
-                PREMIUM
-              </ModalNavItem>
-              <ModalNavItem className={toggleModal && 'toggle'} to='/sklep/inne' exact>
-                INNE
-              </ModalNavItem>
-              <ModalNavItem className={toggleModal && 'toggle'} to='/sklep/rajstopy' exact>
-                RAJSTOPY I POŃCZOCHY
-              </ModalNavItem>
-              <ModalNavItem className={toggleModal && 'toggle'} to='/sklep/fotki i nagrania' exact>
-                SESJE, FOTKI I NAGRANIA
-              </ModalNavItem>
+              <NavItem to='/' text='STRONA GŁÓWNA' className='modal' />
+              <NavItem to='/sklep/majtki' text='MAJTKI' className='modal' />
+              <NavItem to='/sklep/skarpetki' text='SKARPETKI' className='modal' />
+              <NavItem to='/sklep/premium' text='PREMIUM' className='modal' />
+              <NavItem to='/sklep/inne' text='INNE' className='modal' />
+              <NavItem to='/sklep/rajstopy' text='RAJSTOPY I POŃCZOCHY' className='modal' />
+              <NavItem to='/sklep/fotki i nagrania' text='SESJE, FOTKI I NAGRANIA' className='modal' />
             </LinksWrapper>
           </NavWrapper>
           <StyledDot className={toggleModal && 'toggle'} />

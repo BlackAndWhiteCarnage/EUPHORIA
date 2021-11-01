@@ -7,10 +7,10 @@ import { summary } from 'helpers/summary';
 import SocialMediaWrapper from 'components/SocialMediaWrapper/SocialMediaWrapper';
 import HamburgerAndModal from 'components/HamburgerAndModal/HamburgerAndModal';
 import CartIcon from 'assets/icons/cart-icon.svg';
+import NavItem from 'components/NavItem/NavItem';
 import {
   Wrapper,
   NavItems,
-  NavItem,
   Icon,
   CartAndLogoWrapper,
   StyledLogo,
@@ -63,43 +63,13 @@ const Navigation = ({ cart }) => {
           </CartInfoWrapper>
         </CartAndLogoWrapper>
         <NavItems>
-          <>
-            <li>
-              <NavItem to='/' exact>
-                STRONA GŁÓWNA
-              </NavItem>
-            </li>
-            <li>
-              <NavItem to='/sklep/majtki' exact>
-                MAJTKI
-              </NavItem>
-            </li>
-            <li>
-              <NavItem to='/sklep/skarpetki' exact>
-                SKARPETKI
-              </NavItem>
-            </li>
-            <li>
-              <NavItem to='/sklep/premium' exact>
-                PREMIUM
-              </NavItem>
-            </li>
-            <li>
-              <NavItem to='/sklep/inne' exact>
-                INNE
-              </NavItem>
-            </li>
-            <li>
-              <NavItem to='/sklep/rajstopy' exact>
-                RAJSTOPY I POŃCZOCHY
-              </NavItem>
-            </li>
-            <li>
-              <NavItem to='/sklep/fotki i nagrania' exact>
-                SESJE, FOTKI I NAGRANIA
-              </NavItem>
-            </li>
-          </>
+          <NavItem to='/' text='STRONA GŁÓWNA' className='desktop' />
+          <NavItem to='/sklep/majtki' text='MAJTKI' className='desktop' />
+          <NavItem to='/sklep/skarpetki' text='SKARPETKI' className='desktop' />
+          <NavItem to='/sklep/premium' text='PREMIUM' className='desktop' />
+          <NavItem to='/sklep/inne' text='INNE' className='desktop' />
+          <NavItem to='/sklep/rajstopy' text='RAJSTOPY I POŃCZOCHY' className='desktop' />
+          <NavItem to='/sklep/fotki i nagrania' text='SESJE, FOTKI I NAGRANIA' className='desktop' />
           <SocialMediaWrapper desktop />
         </NavItems>
       </Wrapper>

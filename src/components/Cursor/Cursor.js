@@ -24,8 +24,6 @@ const Cursor = () => {
     } else {
       ref.current.classList.remove('active');
     }
-
-    return;
   };
 
   const cursorPulseHandler = () => {

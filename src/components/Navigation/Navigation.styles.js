@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { ReactComponent as Logo } from 'assets/icons/logo.svg';
-import { NavLink } from 'react-router-dom';
 
 export const Wrapper = styled.div`
   position: relative;
@@ -10,7 +9,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  border-bottom: 2px solid ${({ theme }) => theme.colors.crimsonRed};
+  border-bottom: 2px solid ${({ theme }) => theme.colors.main};
   margin: auto;
   z-index: 999999;
   background: ${({ theme }) => theme.colors.darkWhite};
@@ -117,7 +116,7 @@ export const Count = styled.div`
   z-index: -1;
   width: 0;
   height: 30px;
-  background: ${({ theme }) => theme.colors.crimsonRed};
+  background: ${({ theme }) => theme.colors.main};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -220,7 +219,7 @@ export const CartValue = styled.div`
     opacity: 1;
   }
   &.change {
-    color: ${({ theme }) => theme.colors.crimsonRed};
+    color: ${({ theme }) => theme.colors.main};
   }
   @media screen and (max-width: 1250px) {
     position: fixed;
@@ -253,7 +252,7 @@ export const StyledLogo = styled(Logo)`
   }
 `;
 
-export const NavItems = styled.ul`
+export const NavItems = styled.div`
   min-height: 65px;
   display: flex;
   justify-content: space-between;
@@ -266,29 +265,6 @@ export const NavItems = styled.ul`
     &:last-child {
       display: none;
     }
-  }
-`;
-
-export const NavItem = styled(NavLink).attrs({ activeClassName: 'active-link' })`
-  position: relative;
-  cursor: pointer;
-  height: 60%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-  color: ${({ theme }) => theme.colors.darkGrey};
-  text-decoration: none;
-  transition: 0.5s ease;
-  padding: 10px 0;
-  &.active-link {
-    background: ${({ theme }) => theme.colors.darkGrey};
-    transition: 0.5s ease;
-    color: ${({ theme }) => theme.colors.darkWhite};
-    padding: 10px;
-  }
-  &:hover {
-    letter-spacing: 2.5px;
   }
 `;
 

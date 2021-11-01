@@ -82,7 +82,7 @@ export const Product = styled(Link)`
         content: '';
         transition: 0.5s ease;
         height: 100%;
-        background: ${({ theme }) => theme.colors.crimsonRed};
+        background: ${({ theme }) => theme.colors.main};
         bottom: 0;
       }
     }

@@ -6,7 +6,7 @@ export const Wrapper = styled.button`
   border: none;
   min-width: 250px;
   font-size: ${({ theme }) => theme.fontSize.m};
-  background: ${({ theme }) => theme.colors.crimsonRed};
+  background: ${({ theme }) => theme.colors.main};
   color: ${({ theme }) => theme.colors.darkWhite};
   font-weight: bolder;
   letter-spacing: 2px;

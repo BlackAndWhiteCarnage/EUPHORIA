@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-// ICONS
 import { ReactComponent as ArrowIcon } from 'assets/icons/arrow-icon.svg';
 import { ReactComponent as ExtrasIcon } from 'assets/icons/extras-icon.svg';
 import { ReactComponent as XMarkIcon } from 'assets/icons/xmark-icon.svg';
