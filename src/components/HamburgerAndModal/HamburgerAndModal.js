@@ -13,7 +13,7 @@ const HamburgerAndModal = () => {
   };
 
   return (
-    <nav>
+    <>
       <HamburgerMenuWrapper onClick={toggleModalHandler} className={toggleModal && 'toggle'}>
         <LinesWrapper>
           <Line className={`${toggleModal && 'toggle'} first`} />
@@ -38,7 +38,7 @@ const HamburgerAndModal = () => {
           <StyledDot className={toggleModal && 'toggle'} />
         </ModalLinksWrapper>
       </Modal>
-    </nav>
+    </>
   );
 };
 
