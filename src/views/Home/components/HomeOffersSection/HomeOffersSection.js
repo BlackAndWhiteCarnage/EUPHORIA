@@ -6,12 +6,11 @@ import PremiumImage from 'assets/images/premium.png';
 import TightsImage from 'assets/images/tights.png';
 import SetsImage from 'assets/images/sets.png';
 import SessionsImage from 'assets/images/sessions.png';
-import { Wrapper, OffersWrapper, Header } from './HomeOffersSection.styles';
+import { Wrapper, OffersWrapper } from './HomeOffersSection.styles';
 import { scaleUp } from 'animations/animations';
 
 const HomeOfferSection = () => (
   <Wrapper variants={scaleUp} initial='hidden' animate='show' exit='exit'>
-    <Header>FETYSZ MAJTKI MAJTECZKI RAJSTOPY SKARPETKI NOSZONA UŻYWANA BIELIZNA</Header>
     <OffersWrapper id='offer'>
       <Offer image={SocksImage} content='SKARPETKI' gridArea='SKARPETKI' linkTo='skarpetki' alt='skarpetki' />
       <Offer image={PantiesImage} content='MAJTKI' gridArea='MAJTKI' linkTo='majtki' alt='majtki' />

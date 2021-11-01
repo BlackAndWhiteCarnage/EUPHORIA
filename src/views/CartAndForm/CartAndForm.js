@@ -2,13 +2,11 @@ import React from 'react';
 import Form from 'components/Form/Form';
 import Cart from 'views/CartAndForm/components/Cart/Cart';
 import CartTotalValue from 'views/CartAndForm/components/CartTotalValue/CartTotalValue';
-import { Header } from 'views/Home/components/HomeOffersSection/HomeOffersSection.styles';
 import { Wrapper, EmptyCartInfo } from './CartAndForm.styles';
 import { scaleUp } from 'animations/animations';
 
 const CartAndForm = ({ cart, setCart }) => (
   <Wrapper variants={scaleUp} animate='show' initial='hidden' exit='exit'>
-    <Header>Fetysz majtki majteczki kup zamów noszone używane pięknie pachnące</Header>
     {cart.length > 0 ? (
       <>
         <Cart cart={cart} setCart={setCart} />

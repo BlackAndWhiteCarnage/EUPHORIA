@@ -2,7 +2,6 @@ import React from 'react';
 import Form from 'components/Form/Form';
 // STYLES
 import { Wrapper, WhoAmI, HowToBuy, Step, Contact } from './HomeInfoSection.styles';
-import { Header } from 'views/Home/components/HomeOffersSection/HomeOffersSection.styles';
 import Step1 from 'assets/icons/1step.svg';
 import Step2 from 'assets/icons/2step.svg';
 import Step3 from 'assets/icons/3step.svg';
@@ -12,7 +11,6 @@ import Step5 from 'assets/icons/5step.svg';
 const HomeInfoSection = () => (
   <Wrapper>
     <WhoAmI id='whoAmI'>
-      <Header>Używana noszona bielizna fetysz euphoria</Header>
       <div>
         <header>CZYM SIĘ ZAJMUJĘ</header>
         <p>
