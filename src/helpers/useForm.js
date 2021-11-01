@@ -85,7 +85,6 @@ export const useForm = (cart) => {
     }
   };
 
-  //After checkbox marked, assign carts ID's as a input value
   const cartItemsHandler = (e) => {
     setCheckbox(!checkbox);
     setValidCart(!validCart);

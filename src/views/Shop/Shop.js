@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useInView } from 'react-intersection-observer';
@@ -7,8 +7,8 @@ import Shadow from 'components/Shadow/Shadow';
 import { handleSesonalOffer } from 'helpers/handleSesonalOffer';
 import { isInCartHandler } from 'helpers/isInCartHandler';
 import { Wrapper, ProductWrapper, Product, ProductImage, ProductName, SeasonOfferInfo, AddedIcon } from './Shop.styles';
-import { Header } from 'views/Home/components/HomeOffersSection/HomeOffersSection.styles';
 import { fade } from 'animations/animations';
+import { useFetch } from 'helpers/useFetch';
 
 const ShopItem = ({ name, id, images, cart }) => {
   const [element, inView] = useInView();
@@ -25,26 +25,14 @@ const ShopItem = ({ name, id, images, cart }) => {
 };
 
 const Shop = ({ cart }) => {
-  const [data, setData] = useState([]);
-  const location = useLocation();
-  const path = location.pathname.replace('/sklepik/', '');
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch(`${process.env.REACT_APP_PRODUCTS_URL}${path}`);
-      const data = await response.json();
-      setData(data[0].products);
-    };
-
-    fetchData();
-  }, [path]);
+  const path = useLocation().pathname.replace('/sklepik/', '');
+  const { data } = useFetch(process.env.REACT_APP_PRODUCTS_URL, path, true);
 
   return (
     <Wrapper>
-      <Header>Majtki noszone używane dla fetyszystów sprzedam rajstopy majteczki skarpetki</Header>
       {path === 'rajstopy' && !handleSesonalOffer() && data.length > 0 ? (
         <SeasonOfferInfo>PRZYKRO MI, RAJSTOPKI WRÓCĄ JUŻ WE WRZEŚNIU 😉</SeasonOfferInfo>
-      ) : data.length > 0 ? (
+      ) : data ? (
         data
           .slice(0)
           .reverse()

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ProductInfoWrapper from 'views/Product/components/ProductInfoWrapper/ProductInfoWrapper';
@@ -7,11 +7,14 @@ import LoadingIcon from 'components/LoadingIcon/LoadingIcon';
 import { ProductWrapper, ButtonsWrapper, StyledButton } from './Product.styles';
 import { matchMedia } from 'helpers/matchMedia';
 import { scaleUp } from 'animations/animations';
+import { useFetch } from 'helpers/useFetch';
 
 const Product = ({ cart, setCart }) => {
   const path = useLocation().pathname.replace('/', '');
-  const [data, setData] = useState();
+
   const [toggleExtras, setToggleExtras] = useState(false);
+  const { data } = useFetch(process.env.REACT_APP_PRODUCT_URL, path, false);
+
   const [extrasData, setExtrasData] = useState({
     data: [],
     times: 0,
@@ -20,16 +23,6 @@ const Product = ({ cart, setCart }) => {
     price: 0,
     pickedExtras: [],
   });
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch(`${process.env.REACT_APP_PRODUCT_URL}${path}`);
-      const data = await response.json();
-      setData(data);
-    };
-
-    fetchData();
-  }, [path]);
 
   const toggleExtrasHandler = () => {
     setToggleExtras(!toggleExtras);
