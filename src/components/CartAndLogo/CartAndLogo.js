@@ -10,6 +10,7 @@ const CartAndLogo = ({ cart }) => {
 
   useEffect(() => {
     setCartChange(true);
+
     setTimeout(() => {
       setCartChange(false);
     }, 500);

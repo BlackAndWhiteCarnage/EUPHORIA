@@ -7,9 +7,6 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
         font-family: 'Montserrat', sans-serif;
     }
-    html{
-        scroll-behavior: smooth;
-    }
     *::selection{
         background: ${({ theme }) => theme.colors.darkGrey};
         color: ${({ theme }) => theme.colors.main}
@@ -18,6 +15,7 @@ export const GlobalStyle = createGlobalStyle`
         font-weight: bolder;
         color: ${({ theme }) => theme.colors.darkGrey};
         overflow-x: hidden;
+        overflow-y: scroll;
         background: ${({ theme }) => theme.colors.darkWhite};
     }
     ::-webkit-scrollbar {

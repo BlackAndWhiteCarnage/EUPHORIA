@@ -26,7 +26,7 @@ export const scaleUp = {
   exit: {
     opacity: 0,
     transition: {
-      duration: 0.25,
+      duration: 1,
     },
   },
 };

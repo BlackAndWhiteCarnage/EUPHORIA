@@ -10,8 +10,6 @@ const ShadowWrapper = styled.div`
   box-shadow: 0px 0px 100px 50px ${({ theme }) => theme.colors.darkWhite};
 `;
 
-const Shadow = () => {
-  return <ShadowWrapper />;
-};
+const Shadow = () => <ShadowWrapper />;
 
 export default Shadow;
