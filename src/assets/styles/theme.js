@@ -1,25 +1,7 @@
 const getRandomMainColor = () => {
-  let random = Math.floor(Math.random() * 9);
+  const randomColors = ['#B80202', '#ED9C00', '#F15524', '#BC47E5', '#CB1557', '#641E8E', '#469928', '#2B4890', '#55BFED'];
 
-  if (random === 0) {
-    return '#B80202';
-  } else if (random === 1) {
-    return '#ED9C00';
-  } else if (random === 2) {
-    return '#F15524';
-  } else if (random === 3) {
-    return '#BC47E5';
-  } else if (random === 4) {
-    return '#CB1557';
-  } else if (random === 5) {
-    return '#641E8E';
-  } else if (random === 6) {
-    return '#469928';
-  } else if (random === 7) {
-    return '#2B4890';
-  } else if (random === 8) {
-    return '#55BFED';
-  }
+  return randomColors[Math.floor(Math.random() * 9)];
 };
 
 export const theme = {

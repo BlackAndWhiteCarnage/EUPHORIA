@@ -15,15 +15,14 @@ export const GlobalStyle = createGlobalStyle`
         font-weight: bolder;
         color: ${({ theme }) => theme.colors.darkGrey};
         overflow-x: hidden;
-        overflow-y: scroll;
         background: ${({ theme }) => theme.colors.darkWhite};
     }
     ::-webkit-scrollbar {
-    width: 10px;
+    width: 5px;
     background: ${({ theme }) => theme.colors.darkWhite};
     }
     ::-webkit-scrollbar-track {
-    width: 10px;
+    width: 5px;
     background: ${({ theme }) => theme.colors.darkWhite};
     }
     ::-webkit-scrollbar-thumb {
