@@ -4,7 +4,6 @@ export const useFetch = (URL, path, allProduscts) => {
   const [data, setData] = useState();
 
   useEffect(() => {
-    console.log(URL);
     const fetchData = async () => {
       const response = await fetch(`${URL}${path}`);
       const data = await response.json();

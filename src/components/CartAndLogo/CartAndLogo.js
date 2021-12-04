@@ -27,14 +27,14 @@ const CartAndLogo = ({ cart }) => {
             <Icon src={CartIcon} id='active' title='KOSZYK' />
           </Cart>
         </Link>
-        <Count className={cart.length > 0 && 'show'} title='LICZBA PRZEDMIOTÓW W KOSZYKU'>
+        <Count className={cart.length && 'show'} title='LICZBA PRZEDMIOTÓW W KOSZYKU'>
           {cart.length}
         </Count>
-        <CartValue className={`${cart.length > 0 && 'show'} ${cartChange && 'change'}`} title='ŁĄCZNA WARTOŚĆ KOSZYKA'>
-          RAZEM {cart.length > 0 && summary(cart)} ZŁ
+        <CartValue className={`${cart.length && 'show'} ${cartChange && 'change'}`} title='ŁĄCZNA WARTOŚĆ KOSZYKA'>
+          RAZEM {cart.length && summary(cart)} ZŁ
         </CartValue>
         {summary(cart, false, true) >= 150 && (
-          <Discount className={cart.length > 0 && 'show'} title='OBECNY RABAT'>
+          <Discount className={cart.length && 'show'} title='OBECNY RABAT'>
             {summary(cart, false, true) < 250 ? '-5%' : summary(cart, false, true) >= 250 && summary(cart, false, true) < 500 ? '-10%' : '-15%'}
           </Discount>
         )}

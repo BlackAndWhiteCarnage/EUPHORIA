@@ -22,22 +22,22 @@ const ExtrasProvider = ({
 
       if (name === 'majtki') {
         setExtrasData({
-          times: 1,
+          count: 1,
           data: pantiesExtras,
         });
       } else if (name === 'skarpetki') {
         setExtrasData({
-          times: 1,
+          count: 1,
           data: socksExtras,
         });
       } else if (name === 'rajstopy') {
         setExtrasData({
-          times: 1,
+          count: 1,
           data: tightsExtras,
         });
       } else if (name === 'premium') {
         setExtrasData({
-          times: premiumExtras.length,
+          count: premiumExtras.length,
           data: premiumExtras,
         });
       } else if (name === 'inne') {

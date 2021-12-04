@@ -65,9 +65,11 @@ export const ExtrasInfoWrapper = styled.div`
   }
 `;
 
-export const ExtrasOption = styled.div`
+export const ExtrasOption = styled.button`
   font-size: ${({ theme }) => theme.fontSize.m};
   color: ${({ theme }) => theme.colors.darkGrey};
+  font-weight: bolder;
+  text-align: left;
   background: ${({ theme }) => theme.colors.darkWhite};
   text-transform: uppercase;
   border: 1px solid ${({ theme }) => theme.colors.darkGrey};

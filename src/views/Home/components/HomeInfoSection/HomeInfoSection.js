@@ -55,7 +55,7 @@ const HomeInfoSection = () => (
     </HowToBuy>
     <Contact id='contact'>
       <div>
-        <Form homePage />
+        <Form isHomePage />
       </div>
     </Contact>
   </Wrapper>

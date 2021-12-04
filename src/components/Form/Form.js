@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useForm } from 'helpers/useForm';
 import { FormWrapper, Label, Input, TextArea, Checkbox, CheckboxWrapper, StyledButton, Info, AccualForm } from './Form.styles';
 
-const Form = ({ cart, homePage }) => {
+const Form = ({ cart, isHomePage }) => {
   const [toggleInfo, setToggleInfo] = useState(false);
 
   const {
@@ -26,8 +26,8 @@ const Form = ({ cart, homePage }) => {
   };
 
   return (
-    <FormWrapper className={homePage && 'homePage'}>
-      <AccualForm onSubmit={sendEmail} className={homePage && 'homePage'}>
+    <FormWrapper className={isHomePage && 'homePage'}>
+      <AccualForm onSubmit={sendEmail} className={isHomePage && 'homePage'}>
         <Label htmlFor='name'>IMIĘ</Label>
         <Input
           onChange={nameHandler}
@@ -52,20 +52,20 @@ const Form = ({ cart, homePage }) => {
           id='message'
           placeholder='PRZYNEJMNIEJ 20 ZNAKÓW'
         />
-        {!homePage && (
+        {!isHomePage && (
           <CheckboxWrapper className={feedback === 2 && !validCart && 'ERROR'}>
             <p>WYRAŻAM ZGODĘ NA PRZETWAŻANIE MOJEGO KOSZYKA</p>
             <Checkbox type='checkbox' onChange={cartItemsHandler} name='cart' />
           </CheckboxWrapper>
         )}
         <StyledButton
-          text={!homePage ? 'ZAMAWIAM' : 'WYŚLIJ'}
+          text={!isHomePage ? 'ZAMAWIAM' : 'WYŚLIJ'}
           className={emailSend ? 'OK' : feedback === 2 ? 'ERROR' : feedback === 1 && 'SENDING'}
           type='submit'
           click={checkValid}
         />
       </AccualForm>
-      {!homePage && (
+      {!isHomePage && (
         <Info onClick={toggleInfoHandler} className={toggleInfo && 'show'} id='active'>
           {!toggleInfo
             ? 'Informacje'

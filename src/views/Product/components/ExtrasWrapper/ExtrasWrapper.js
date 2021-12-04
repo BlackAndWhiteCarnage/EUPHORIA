@@ -7,15 +7,17 @@ const ExtrasWrapper = ({ data, setExtrasData, extrasData, toggleExtras, setToggl
   const [prevCartItem, setPrevCartItem] = useState();
 
   const extrasToPickHandler = (extras) => {
+    // Add extras
     setPickExtras({
       ...pickExtras,
-      price: pickExtras.pickedExtras.length > extrasData.times && pickExtras.price + 10,
+      price: pickExtras.pickedExtras.length > extrasData.count && pickExtras.price + 10,
       pickedExtras: [...pickExtras.pickedExtras, extras],
     });
 
+    // Substract
     if (pickExtras.pickedExtras.indexOf(extras) > -1) {
       setPickExtras({
-        price: pickExtras.pickedExtras.length > extrasData.times && pickExtras.price - 10,
+        price: pickExtras.pickedExtras.length > extrasData.count && pickExtras.price - 10,
         pickedExtras: pickExtras.pickedExtras.filter((item) => item !== extras),
       });
     }
@@ -37,12 +39,12 @@ const ExtrasWrapper = ({ data, setExtrasData, extrasData, toggleExtras, setToggl
       {extrasData !== null && extrasData !== undefined && (
         <Wrapper className={toggleExtras && 'toggle'} id='extras'>
           <ExtrasInfoWrapper id='extras'>
-            {extrasData.times < 5 ? (
-              <ExtrasInfo id='extras'>WYBIERZ {extrasData.times + 1} DODATKI, KAŻDY KOLEJNY DODATKOWO PŁATNY +10zł</ExtrasInfo>
+            {extrasData.count < 5 ? (
+              <ExtrasInfo id='extras'>WYBIERZ {extrasData.count + 1} DODATKI, KAŻDY KOLEJNY DODATKOWO PŁATNY +10zł</ExtrasInfo>
             ) : (
               <ExtrasInfo id='extras'>DO MAJTECZEK PREMIUM MOŻESZ WYBRAĆ ILE CHCESZ DODATKÓW</ExtrasInfo>
             )}
-            {pickExtras.pickedExtras.length > extrasData.times + 1 && extrasData.times < 5 && (
+            {pickExtras.pickedExtras.length > extrasData.count + 1 && extrasData.count < 5 && (
               <ExtrasInfo id='extras'>DODATKOWO DO ZAPŁATY {pickExtras.price} zł</ExtrasInfo>
             )}
           </ExtrasInfoWrapper>
@@ -52,6 +54,7 @@ const ExtrasWrapper = ({ data, setExtrasData, extrasData, toggleExtras, setToggl
               className={pickExtras.pickedExtras.includes(extras) && 'added'}
               key={extras}
               id='extras'
+              tabIndex={!toggleExtras ? -1 : 1}
             >
               {extras}
             </ExtrasOption>

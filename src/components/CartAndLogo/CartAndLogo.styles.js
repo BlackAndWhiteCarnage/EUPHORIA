@@ -26,12 +26,13 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const Cart = styled.div`
+export const Cart = styled.button`
   width: 75px;
   height: 30px;
   position: absolute;
   top: 30px;
   right: 0;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: space-around;

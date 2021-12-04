@@ -17,8 +17,9 @@ const Product = ({ cart, setCart }) => {
 
   const [extrasData, setExtrasData] = useState({
     data: [],
-    times: 0,
+    count: 0,
   });
+
   const [pickExtras, setPickExtras] = useState({
     price: 0,
     pickedExtras: [],
@@ -35,7 +36,7 @@ const Product = ({ cart, setCart }) => {
       price: pickExtras.price !== false ? data.price + pickExtras.price : data.price,
       id: data.id,
       pickedExtras: pickExtras.pickedExtras,
-      extrasNumber: extrasData && extrasData.times + 1,
+      extrasNumber: extrasData && extrasData.count + 1,
       initialPrice: data.price,
     };
 

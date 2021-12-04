@@ -24,6 +24,11 @@ export const Wrapper = styled.div`
   }
 `;
 
+export const StyledButton = styled.button`
+  background: none;
+  border: none;
+`;
+
 export const StyledAlertIcon = styled(AlertIcon)`
   min-width: 18px;
   transition: 0.3s ease;

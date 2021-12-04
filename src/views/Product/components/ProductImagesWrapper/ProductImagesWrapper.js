@@ -11,7 +11,7 @@ const ProductImagesWrapper = ({ data, desktop }) => {
 
   setTimeout(() => {
     setCurrent(current === imagesLength - 1 ? 0 : current + 1);
-  }, 3500);
+  }, 2500);
 
   useEffect(() => {
     if (data !== undefined) {
@@ -23,12 +23,7 @@ const ProductImagesWrapper = ({ data, desktop }) => {
     <ImageWrapper variants={matchMedia && fade}>
       {data.images.length > 1 ? (
         data.images.map((item, index) => (
-          <Image
-            className={index === current ? 'show' : 'hide'}
-            src={data.images[index].url}
-            alt='Fetysz Majtki Majteczki Noszone Używane'
-            key={item.id}
-          />
+          <Image className={index === current ? 'show' : 'hide'} src={data.images[index].url} alt={data.name} key={item.id} />
         ))
       ) : (
         <Image className='show' src={DefaultImage} alt='Fetysz Majtki Majteczki Noszone Używane' />

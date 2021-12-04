@@ -125,11 +125,13 @@ export const AccualForm = styled(motion.form)`
   }
 `;
 
-export const Info = styled.div`
+export const Info = styled.button`
   position: absolute;
   bottom: 0;
   width: 100%;
   height: 50px;
+  font-weight: bolder;
+  border: none;
   background: ${({ theme }) => theme.colors.main};
   color: ${({ theme }) => theme.colors.darkWhite};
   display: flex;
