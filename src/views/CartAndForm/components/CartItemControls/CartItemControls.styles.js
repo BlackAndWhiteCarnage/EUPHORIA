@@ -27,11 +27,6 @@ export const Wrapper = styled.div`
 export const StyledButton = styled.button`
   background: none;
   border: none;
-`;
-
-export const StyledAlertIcon = styled(AlertIcon)`
-  min-width: 18px;
-  transition: 0.3s ease;
   cursor: pointer;
   @media screen and (min-width: 1250px) {
     &:hover {
@@ -41,28 +36,16 @@ export const StyledAlertIcon = styled(AlertIcon)`
   }
 `;
 
+export const StyledAlertIcon = styled(AlertIcon)`
+  pointer-events: none;
+`;
 export const StyledXMarkIcon = styled(XMarkIcon)`
-  min-width: 18px;
-  transition: 0.3s ease;
-  cursor: pointer;
-  @media screen and (min-width: 1250px) {
-    &:hover {
-      transform: scale(1.3) rotate(360deg);
-      transition: 0.5s ease;
-    }
-  }
+  pointer-events: none;
 `;
 export const StyledExtrasIcon = styled(ExtrasIcon)`
-  min-width: 18px;
-  transition: 0.3s ease;
-  cursor: pointer;
-  @media screen and (min-width: 1250px) {
-    &:hover {
-      transform: rotate(70deg) scale(1.3);
-      transition: 0.5s ease;
-    }
-  }
+  pointer-events: none;
 `;
+
 export const StyledArrowIcon = styled(ArrowIcon)`
   min-width: 18px;
   transition: 0.3s ease;

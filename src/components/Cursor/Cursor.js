@@ -1,47 +1,69 @@
 import React, { useRef, useEffect } from 'react';
-import { Wrapper } from './Cursor.styles';
+import { StyledCursor } from './Cursor.styles';
 
 const Cursor = () => {
-  const ref = useRef(null);
+  const mainCursor = useRef(null);
+  const secondaryCursor = useRef(null);
+  const positionRef = useRef({
+    mouseX: 0,
+    mouseY: 0,
+    destinationX: 0,
+    destinationY: 0,
+    distanceX: 0,
+    distanceY: 0,
+    key: -1,
+  });
 
   const mouseMoveHandler = (e) => {
-    ref.current.style.top = e.clientY + 'px';
-    ref.current.style.left = e.clientX + 'px';
+    const { clientX, clientY } = e;
 
-    const item = e.target;
+    const mouseX = clientX;
+    const mouseY = clientY;
 
-    if (
-      item.id === 'active' ||
-      item.tagName === 'INPUT' ||
-      item.tagName === 'TEXTAREA' ||
-      item.tagName === 'LABEL' ||
-      item.tagName === 'BUTTON' ||
-      item.tagName === 'svg' ||
-      item.tagName === 'path' ||
-      item.tagName === 'A'
-    ) {
-      ref.current.classList.add('active');
-    } else {
-      ref.current.classList.remove('active');
-    }
-  };
+    positionRef.current.mouseX = mouseX - mainCursor.current.clientWidth / 2;
+    positionRef.current.mouseY = mouseY - mainCursor.current.clientHeight / 2;
 
-  const cursorPulseHandler = () => {
-    ref.current.classList.add('pulse');
-
-    setTimeout(() => {
-      ref.current.classList.remove('pulse');
-    }, 250);
+    mainCursor.current.style.transform = `translate3d(${mouseX - mainCursor.current.clientWidth / 2}px, ${
+      mouseY - mainCursor.current.clientHeight / 2
+    }px, 0)`;
   };
 
   useEffect(() => {
     window.addEventListener('mousemove', mouseMoveHandler);
-    window.addEventListener('click', cursorPulseHandler);
 
-    return;
+    const followMouse = () => {
+      positionRef.current.key = requestAnimationFrame(followMouse);
+
+      const { mouseX, mouseY, destinationX, destinationY, distanceX, distanceY } = positionRef.current;
+
+      if (!destinationX || !destinationY) {
+        positionRef.current.destinationX = mouseX;
+        positionRef.current.destinationY = mouseY;
+      } else {
+        positionRef.current.distanceX = (mouseX - destinationX) * 0.08;
+        positionRef.current.distanceY = (mouseY - destinationY) * 0.08;
+      }
+
+      if (Math.abs(positionRef.current.distanceX) + Math.abs(positionRef.current.distanceY) < 0.1) {
+        positionRef.current.destinationX = mouseX;
+        positionRef.current.destinationY = mouseY;
+      } else {
+        positionRef.current.destinationX += distanceX;
+        positionRef.current.destinationY += distanceY;
+      }
+
+      secondaryCursor.current.style.transform = `translate3d(${destinationX}px, ${destinationY}px, 0)`;
+    };
+
+    followMouse();
   }, []);
 
-  return <Wrapper ref={ref}></Wrapper>;
+  return (
+    <>
+      <StyledCursor ref={mainCursor} className={!CSS.supports('backdrop-filter: invert(100%)') && 'notSupported'} />
+      <StyledCursor ref={secondaryCursor} className={`${!CSS.supports('backdrop-filter: invert(100%)') && 'notSupported'} secondary`} />
+    </>
+  );
 };
 
 export default Cursor;

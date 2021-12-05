@@ -6,6 +6,7 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         font-family: 'Montserrat', sans-serif;
+        cursor: none !important;
     }
     *::selection{
         background: ${({ theme }) => theme.colors.darkGrey};
@@ -17,6 +18,7 @@ export const GlobalStyle = createGlobalStyle`
         overflow-x: hidden;
         overflow-y: scroll;
         background: ${({ theme }) => theme.colors.darkWhite};
+        cursor: none;
     }
     ::-webkit-scrollbar {
     width: 5px;

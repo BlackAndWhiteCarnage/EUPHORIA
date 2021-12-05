@@ -30,6 +30,7 @@ export const Cart = styled.button`
   width: 75px;
   height: 30px;
   position: absolute;
+  cursor: pointer;
   top: 30px;
   right: 0;
   border: none;
@@ -219,14 +220,5 @@ export const CartInfo = styled.div`
 export const Icon = styled.img`
   min-width: 20px;
   transition: 0.3s ease;
-  @media screen and (max-width: 1250px) {
-    min-width: 25px;
-    margin-bottom: 50px;
-  }
-
-  @media screen and (max-width: 1250px) {
-    &:hover {
-      transform: none;
-    }
-  }
+  pointer-events: none;
 `;

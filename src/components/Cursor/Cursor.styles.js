@@ -1,40 +1,32 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
-  width: 50px;
-  height: 50px;
+export const StyledCursor = styled.div`
+  width: 20px;
+  height: 20px;
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 0px;
+  left: 0px;
   z-index: 999999;
   border-radius: 50%;
-  transform: translate(-50%, -50%);
   pointer-events: none;
-  transition: all 0.5s ease;
-  transition-property: transform;
-  transform-origin: 130% 130%;
   backdrop-filter: invert(100%);
-  &::before {
-    content: '';
-    position: absolute;
-    width: 0px;
-    height: 0px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: 1s ease;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.25);
-  }
-  &.active {
-    transform: scale(1.5);
-  }
-  &.pulse {
-    &::before {
-      content: '';
-      width: 150px;
-      height: 150px;
-      transition: 0.5s ease;
+  &.notSupported {
+    border: 2px solid ${({ theme }) => theme.colors.darkGrey};
+    background: ${({ theme }) => theme.colors.white};
+    &.secondary {
+      border: 2px solid ${({ theme }) => theme.colors.darkGrey};
     }
+  }
+  &.secondary {
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    backdrop-filter: invert(100%);
+    top: -20px;
+    left: -20px;
+    z-index: 999999;
+    border-radius: 50%;
+    pointer-events: none;
+    background: none;
   }
 `;
