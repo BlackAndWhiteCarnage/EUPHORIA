@@ -5,6 +5,7 @@ export const Wrapper = styled.button`
   position: relative;
   border: none;
   min-width: 250px;
+  min-height: 35px;
   font-size: ${({ theme }) => theme.fontSize.m};
   background: ${({ theme }) => theme.colors.main};
   color: ${({ theme }) => theme.colors.darkWhite};

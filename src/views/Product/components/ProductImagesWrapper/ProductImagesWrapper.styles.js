@@ -40,7 +40,6 @@ export const Image = styled.img`
     }
     &.hide {
       opacity: 0;
-      width: 0%;
       transition: 0.5s ease-in-out;
     }
   }
@@ -57,10 +56,13 @@ export const Image = styled.img`
     &.show {
       transition: 0.5s ease-out;
       opacity: 1;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(1);
     }
     &.hide {
       opacity: 0;
-      left: 100%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.9);
       transition: 0.5s ease-in-out;
     }
   }

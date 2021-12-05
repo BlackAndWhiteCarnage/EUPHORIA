@@ -6,7 +6,7 @@ export const StyledCursor = styled.div`
   position: fixed;
   top: 0px;
   left: 0px;
-  z-index: 999999;
+  z-index: 999999999;
   border-radius: 50%;
   pointer-events: none;
   backdrop-filter: invert(100%);
@@ -24,7 +24,7 @@ export const StyledCursor = styled.div`
     backdrop-filter: invert(100%);
     top: -20px;
     left: -20px;
-    z-index: 999999;
+    z-index: 999999999;
     border-radius: 50%;
     pointer-events: none;
     background: none;
