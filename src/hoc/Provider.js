@@ -36,7 +36,7 @@ const Provider = ({ children, cart, setCart }) => {
       <ScrollTop />
       <VerifyAge verifyAge={verifyAge} setVerifyAge={setVerifyAge} />
       {!isTouchScreen() && <Cursor />}
-      {verifyAge && children}
+      {children}
     </ThemeProvider>
   );
 };

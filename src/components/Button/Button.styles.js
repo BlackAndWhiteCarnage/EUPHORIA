@@ -28,7 +28,8 @@ export const Wrapper = styled.button`
     border-radius: 50%;
   }
   @media screen and (min-width: 1200px) {
-    &:hover {
+    &:hover,
+    &:focus-visible {
       transition: 0.5s ease;
       transform: scale(1.015);
       &::before {

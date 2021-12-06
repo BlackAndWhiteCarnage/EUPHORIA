@@ -19,22 +19,22 @@ const CartAndLogo = ({ cart }) => {
   return (
     <Wrapper>
       <Link to='/'>
-        <StyledLogo id='active' title='EUPHORIA NOSZONA I UŻYWANA BIELIZNA' />
+        <StyledLogo id='active' title='Euphoria noszona i używana bielizna' />
       </Link>
       <CartInfo>
-        <Link to='/koszyk'>
+        <Link to='/koszyk' title='Twój koszyk'>
           <Cart>
-            <Icon src={CartIcon} id='active' title='KOSZYK' />
+            <Icon src={CartIcon} id='active' />
           </Cart>
         </Link>
-        <Count className={cart.length && 'show'} title='LICZBA PRZEDMIOTÓW W KOSZYKU'>
+        <Count className={cart.length && 'show'} title='Liczba przedmiotów w koszyku'>
           {cart.length}
         </Count>
-        <CartValue className={`${cart.length && 'show'} ${cartChange && 'change'}`} title='ŁĄCZNA WARTOŚĆ KOSZYKA'>
+        <CartValue className={`${cart.length && 'show'} ${cartChange && 'change'}`} title='Łączna wartość koszyka'>
           RAZEM {cart.length && summary(cart)} ZŁ
         </CartValue>
         {summary(cart, false, true) >= 150 && (
-          <Discount className={cart.length && 'show'} title='OBECNY RABAT'>
+          <Discount className={cart.length && 'show'} title='Obecny rabat'>
             {summary(cart, false, true) < 250 ? '-5%' : summary(cart, false, true) >= 250 && summary(cart, false, true) < 500 ? '-10%' : '-15%'}
           </Discount>
         )}

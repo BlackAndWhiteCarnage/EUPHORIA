@@ -1,11 +1,9 @@
 export const fade = {
   hidden: {
     opacity: 0,
-    // scale: 0.5,
     y: 25,
   },
   show: {
-    // scale: 1,
     opacity: 1,
     y: 0,
     transition: { staggerChildren: 0.1, duration: 0.25, type: 'spring', stiffness: 200 },

@@ -54,8 +54,8 @@ const Form = ({ cart, isHomePage }) => {
         />
         {!isHomePage && (
           <CheckboxWrapper className={feedback === 2 && !validCart && 'ERROR'}>
-            <p>WYRAŻAM ZGODĘ NA PRZETWAŻANIE MOJEGO KOSZYKA</p>
-            <Checkbox type='checkbox' onChange={cartItemsHandler} name='cart' />
+            <label htmlFor='checkbox'>WYRAŻAM ZGODĘ NA PRZETWAŻANIE MOJEGO KOSZYKA</label>
+            <Checkbox type='checkbox' id='checkbox' onChange={cartItemsHandler} name='cart' />
           </CheckboxWrapper>
         )}
         <StyledButton

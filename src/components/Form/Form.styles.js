@@ -144,7 +144,8 @@ export const Info = styled.button`
   padding: 0 20px;
   cursor: pointer;
   overflow: hidden;
-  &:hover {
+  &:hover,
+  &:focus-visible {
     letter-spacing: 2.5px;
   }
   &.show {
@@ -222,6 +223,7 @@ export const Checkbox = styled.input`
   min-height: 25px;
   margin-left: 10px;
   cursor: pointer;
+  accent-color: ${({ theme }) => theme.colors.main};
 `;
 
 export const SendingInProgress = styled.div`

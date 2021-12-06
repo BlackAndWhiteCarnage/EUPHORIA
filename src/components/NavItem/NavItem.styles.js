@@ -20,7 +20,8 @@ export const Wrapper = styled(NavLink).attrs({ activeClassName: 'active-link' })
       color: ${({ theme }) => theme.colors.darkWhite};
       padding: 10px;
     }
-    &:hover {
+    &:hover,
+    &:focus-visible {
       letter-spacing: 2.5px;
     }
   }

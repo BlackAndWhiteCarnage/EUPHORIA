@@ -40,7 +40,8 @@ export const Cart = styled.button`
   background: ${({ theme }) => theme.colors.white};
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
   @media screen and (min-width: 1250px) {
-    &:hover {
+    &:hover,
+    &:focus-visible {
       img {
         transform: scale(1.6);
         transition: 0.5s ease;

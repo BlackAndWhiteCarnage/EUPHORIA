@@ -28,10 +28,12 @@ export const StyledButton = styled.button`
   background: none;
   border: none;
   cursor: pointer;
+  transition: 0.25s ease;
   @media screen and (min-width: 1250px) {
-    &:hover {
+    &:hover,
+    &:focus-visible {
       transform: scale(1.3);
-      transition: 0.5s ease;
+      transition: 0.25s ease;
     }
   }
 `;
@@ -51,7 +53,8 @@ export const StyledArrowIcon = styled(ArrowIcon)`
   transition: 0.3s ease;
   cursor: pointer;
   @media screen and (min-width: 1250px) {
-    &:hover {
+    &:hover,
+    &:focus-visible {
       transform: translateX(5px) rotate(-10deg) scale(1.3);
       transition: 0.5s ease;
     }

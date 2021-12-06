@@ -5,19 +5,19 @@ import { Wrapper, StyledXMarkIcon, StyledExtrasIcon, StyledAlertIcon, StyledArro
 
 const CartItemControls = ({ item, togglePreviewExtrasHandler, toggleAlertHandler, deleteItemHandler }) => (
   <Wrapper>
-    <StyledButton onClick={() => deleteItemHandler(item)}>
-      <StyledXMarkIcon title='USUŃ PRODUKT Z KOSZYKA' />
+    <StyledButton onClick={() => deleteItemHandler(item)} title='Usuń z koszyka'>
+      <StyledXMarkIcon />
     </StyledButton>
     {item.extrasNumber === null || item.extrasNumber === undefined ? null : item.pickedExtras.length !== 0 ? (
-      <StyledButton id='extras' onClick={() => togglePreviewExtrasHandler(item.id)}>
-        <StyledExtrasIcon id='extras' title='WYBRANE DODATKI' />
+      <StyledButton id='extras' onClick={() => togglePreviewExtrasHandler(item.id)} title='Wybrane dodatki'>
+        <StyledExtrasIcon id='extras' />
       </StyledButton>
     ) : (
-      <StyledButton id='extras' onClick={() => toggleAlertHandler(item.id)}>
-        <StyledAlertIcon id='extras' title='NIE WYBRAŁEŚ ŻADNYCH DODATKÓW' />
+      <StyledButton id='extras' onClick={() => toggleAlertHandler(item.id)} title='Nie wybrałeś żadnych dadatków'>
+        <StyledAlertIcon id='extras' />
       </StyledButton>
     )}
-    <Link to={`/${item.id}`} title='PRZEJDŹ DO TEGO PRODUKTU'>
+    <Link to={`/${item.id}`} title={`Przejdź do: ${item.name}`}>
       <StyledArrowIcon />
     </Link>
   </Wrapper>
