@@ -21,7 +21,7 @@ const Root = () => {
           <Route path='/koszyk' exact>
             <CartAndForm cart={cart} setCart={setCart} />
           </Route>
-          <Route path='/sklep/:id' exact>
+          <Route path='/sklepik/:id' exact>
             <Shop cart={cart} />
           </Route>
           <Route path='/:id' exact>

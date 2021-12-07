@@ -17,7 +17,7 @@ const Offer = ({ gridArea, content, image, linkTo, alt }) => {
         onFocus={toggleTitleHandler}
         onBlur={toggleTitleHandler}
         onMouseLeave={toggleTitleHandler}
-        to={`sklep/${linkTo}`}
+        to={`sklepik/${linkTo}`}
         id='active'
       >
         <OfferTitle className={toggleTitle && 'toggleTitle'} id='active'>

@@ -27,12 +27,12 @@ const HamburgerAndModal = () => {
             <SocialMediaWrapper />
             <LinksWrapper>
               <NavItem to='/' text='STRONA GŁÓWNA' className='modal' />
-              <NavItem to='/sklep/majtki' text='MAJTKI' className='modal' />
-              <NavItem to='/sklep/skarpetki' text='SKARPETKI' className='modal' />
-              <NavItem to='/sklep/premium' text='PREMIUM' className='modal' />
-              <NavItem to='/sklep/inne' text='INNE' className='modal' />
-              <NavItem to='/sklep/rajstopy' text='RAJSTOPY I POŃCZOCHY' className='modal' />
-              <NavItem to='/sklep/fotki i nagrania' text='SESJE, FOTKI I NAGRANIA' className='modal' />
+              <NavItem to='/sklepik/majtki' text='MAJTKI' className='modal' />
+              <NavItem to='/sklepik/skarpetki' text='SKARPETKI' className='modal' />
+              <NavItem to='/sklepik/premium' text='PREMIUM' className='modal' />
+              <NavItem to='/sklepik/inne' text='INNE' className='modal' />
+              <NavItem to='/sklepik/rajstopy' text='RAJSTOPY I POŃCZOCHY' className='modal' />
+              <NavItem to='/sklepik/fotki i nagrania' text='SESJE, FOTKI I NAGRANIA' className='modal' />
             </LinksWrapper>
           </NavWrapper>
           <StyledDot className={toggleModal && 'toggle'} />

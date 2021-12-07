@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useForm } from 'helpers/useForm';
-import { FormWrapper, Label, Input, TextArea, Checkbox, CheckboxWrapper, StyledButton, Info, AccualForm } from './Form.styles';
+import FormInfo from 'components/FormInfo/FormInfo';
+import { FormWrapper, Label, Input, TextArea, Checkbox, CheckboxWrapper, StyledButton, AccualForm } from './Form.styles';
 
 const Form = ({ cart, isHomePage }) => {
-  const [toggleInfo, setToggleInfo] = useState(false);
-
   const {
     sendEmail,
     nameHandler,
@@ -21,10 +20,6 @@ const Form = ({ cart, isHomePage }) => {
     emailSend,
   } = useForm(cart);
 
-  let toggleInfoHandler = () => {
-    setToggleInfo(!toggleInfo);
-  };
-
   return (
     <FormWrapper className={isHomePage && 'homePage'}>
       <AccualForm onSubmit={sendEmail} className={isHomePage && 'homePage'}>
@@ -34,23 +29,17 @@ const Form = ({ cart, isHomePage }) => {
           id='name'
           name='name'
           className={`${feedback === 2 && !validName && 'ERROR'} ${validName && 'VALID'}`}
-          placeholder='PRZYNAJMNEJ 5 ZNAKÓW'
+          placeholder='Min. 5 znaków'
         />
         <Label htmlFor='email'>EMAIL</Label>
-        <Input
-          onChange={emailHandler}
-          className={`${feedback === 2 && !validEmail && 'ERROR'} ${validEmail && 'VALID'}`}
-          name='email'
-          id='email'
-          placeholder='EMAIL'
-        />
+        <Input onChange={emailHandler} className={`${feedback === 2 && !validEmail && 'ERROR'} ${validEmail && 'VALID'}`} name='email' id='email' />
         <Label htmlFor='message'>WIADOMOŚĆ</Label>
         <TextArea
           className={`${feedback === 2 && !validMessage && 'ERROR'} ${validMessage && 'VALID'}`}
           onChange={messageHandler}
           name='message'
           id='message'
-          placeholder='PRZYNEJMNIEJ 20 ZNAKÓW'
+          placeholder='Min. 20 zanków'
         />
         {!isHomePage && (
           <CheckboxWrapper className={feedback === 2 && !validCart && 'ERROR'}>
@@ -64,14 +53,8 @@ const Form = ({ cart, isHomePage }) => {
           type='submit'
           click={checkValid}
         />
+        <FormInfo isHomePage={isHomePage} />
       </AccualForm>
-      {!isHomePage && (
-        <Info onClick={toggleInfoHandler} className={toggleInfo && 'show'} id='active'>
-          {!toggleInfo
-            ? 'Informacje'
-            : 'PODAJĄC DANE NIE MUSISZ WPISYWAĆ SWOJEGO PRAWDZIWEGO IMIENIA A INFORMACJĘ KTÓRE DOSTANĘ BĘDĄ WYKORZYSTANE JEDYNIE W CELACH KONTAKTOWO/WYSYŁKOWYCH. NIE MARTW SIĘ DOSTANĘ ZAWARTOŚĆ TWOJEGO KOSZYKA NA MAILA. JEŚLI NIE CZUJESZ SIĘ KOMFORTOWO WYPEŁNIAJĄC FORMULARZ MOŻESZ SKONTAKTOWAĆ SIĘ ZE MNĄ POPRZEZ KTÓRĄŚ Z INNYCH OPCJI DOSTĘPNYCH NA STRONIE. GDY TYLKO ZOBACZĘ TWOJĄ WIADOMOŚĆ NA PEWNO ODPISZĘ I USTALIMY SZCZEGÓLY. PRAGNĘ RÓWNIESZ POINFOROWAĆ ŻE NIE UDOSTĘPNIAM SWOJEJ NAGOŚCI.'}
-        </Info>
-      )}
     </FormWrapper>
   );
 };

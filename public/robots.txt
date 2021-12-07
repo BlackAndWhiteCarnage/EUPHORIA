@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
-Allow: /sklep/majteczki
-Allow: /sklep/skarpetki
-Allow: /sklep/rajstopy
-Allow: /sklep/inne
-Allow: /sklep/premium
+Allow: /sklepik/majteczki
+Allow: /sklepik/skarpetki
+Allow: /sklepik/rajstopy
+Allow: /sklepik/inne
+Allow: /sklepik/premium

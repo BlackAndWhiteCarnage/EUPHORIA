@@ -18,12 +18,12 @@ const Navigation = ({ cart }) => {
         <CartAndLogo cart={cart} />
         <NavItems>
           <NavItem to='/' text='STRONA GŁÓWNA' className='desktop' />
-          <NavItem to='/sklep/majtki' text='MAJTKI' className='desktop' />
-          <NavItem to='/sklep/skarpetki' text='SKARPETKI' className='desktop' />
-          <NavItem to='/sklep/premium' text='PREMIUM' className='desktop' />
-          <NavItem to='/sklep/inne' text='INNE' className='desktop' />
-          <NavItem to='/sklep/rajstopy' text='RAJSTOPY I POŃCZOCHY' className='desktop' />
-          <NavItem to='/sklep/fotki i nagrania' text='SESJE, FOTKI I NAGRANIA' className='desktop' />
+          <NavItem to='/sklepik/majtki' text='MAJTKI' className='desktop' />
+          <NavItem to='/sklepik/skarpetki' text='SKARPETKI' className='desktop' />
+          <NavItem to='/sklepik/premium' text='PREMIUM' className='desktop' />
+          <NavItem to='/sklepik/inne' text='INNE' className='desktop' />
+          <NavItem to='/sklepik/rajstopy' text='RAJSTOPY I POŃCZOCHY' className='desktop' />
+          <NavItem to='/sklepik/fotki i nagrania' text='SESJE, FOTKI I NAGRANIA' className='desktop' />
           <SocialMediaWrapper desktop />
         </NavItems>
       </Wrapper>

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ImagesWrapper from 'views/Product/components/ProductImagesWrapper/ProductImagesWrapper';
 import ExtrasWrapper from 'views/Product/components/ExtrasWrapper/ExtrasWrapper';
-import Discounts from 'views/Product/components/Discounts/Discounts';
 import { matchMedia } from 'helpers/matchMedia';
 import {
   Wrapper,
@@ -31,7 +30,6 @@ const ProductInfoWrapper = ({
   setCart,
 }) => (
   <Wrapper variants={scaleUp} animate='show' initial='hidden' exit='exit'>
-    <Discounts />
     <InfoWrapper>
       <Info>
         <ProductName variants={matchMedia && fade}>{data.name}</ProductName>

@@ -125,54 +125,6 @@ export const AccualForm = styled(motion.form)`
   }
 `;
 
-export const Info = styled.button`
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 50px;
-  font-weight: bolder;
-  border: none;
-  background: ${({ theme }) => theme.colors.main};
-  color: ${({ theme }) => theme.colors.darkWhite};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: ${({ theme }) => theme.fontSize.m};
-  text-transform: uppercase;
-  transition: 0.5s ease;
-  z-index: 20;
-  padding: 0 20px;
-  cursor: pointer;
-  overflow: hidden;
-  &:hover,
-  &:focus-visible {
-    letter-spacing: 2.5px;
-  }
-  &.show {
-    transition: 0.5s ease;
-    height: calc(100% - 35px);
-    padding: 0 40px;
-    font-size: ${({ theme }) => theme.fontSize.l};
-    background: ${({ theme }) => theme.colors.darkGrey};
-    @media screen and (max-width: 460px) {
-      font-size: ${({ theme }) => theme.fontSize.m};
-    }
-    &:hover {
-      letter-spacing: normal;
-    }
-  }
-  @media screen and (min-width: 1250px) {
-    width: 150px;
-    top: 0;
-    right: 0;
-    &.show {
-      transition: 0.5s ease;
-      height: 100%;
-      width: 100%;
-    }
-  }
-`;
-
 export const Label = styled.label`
   margin: 25px 0 5px 0;
   width: 100%;
