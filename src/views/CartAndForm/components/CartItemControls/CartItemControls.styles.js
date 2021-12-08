@@ -32,6 +32,7 @@ export const StyledButton = styled.button`
   align-items: center;
   justify-content: center;
   z-index: 0;
+  backface-visibility: hidden;
   @media screen and (max-width: 780px) {
     width: 33.3333%;
     height: 100%;
@@ -64,6 +65,7 @@ export const StyledLink = styled(Link)`
   transition: 0.1s ease;
   background: ${({ theme }) => theme.colors.white};
   z-index: 0;
+  backface-visibility: hidden;
   @media screen and (max-width: 780px) {
     width: 33.3333%;
     height: 100%;

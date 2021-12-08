@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 
 export const CartItems = styled.div`
   position: relative;
@@ -18,7 +17,7 @@ export const CartItems = styled.div`
   }
 `;
 
-export const CartItem = styled(motion.div)`
+export const CartItem = styled.div`
   position: relative;
   width: 400px;
   background: ${({ theme }) => theme.colors.main};
@@ -57,6 +56,7 @@ export const ItemImage = styled.img`
   object-fit: cover;
   margin-left: 10px;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.4);
+  backface-visibility: hidden;
   @media screen and (max-width: 1250px) {
     min-width: 200px;
     max-width: 200px;
@@ -65,8 +65,8 @@ export const ItemImage = styled.img`
     margin: 20px;
   }
   @media screen and (max-width: 460px) {
-    margin: 10px;
-    height: 90%;
+    margin: 0;
+    height: 100%;
     min-width: 40%;
     box-shadow: none;
   }
