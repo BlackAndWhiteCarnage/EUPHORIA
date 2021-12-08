@@ -45,13 +45,16 @@ export const PickedExtrasWrapper = styled.div`
   height: 100%;
   top: 0;
   left: 0;
-  width: 0;
+  width: calc(100% - 60px);
   background: ${({ theme }) => theme.colors.darkGrey};
   opacity: 0;
   transition: 0.5s ease;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  @media screen and (max-width: 780px) {
+    width: 100%;
+  }
   &.show {
     opacity: 1;
     width: calc(100% - 60px);
@@ -63,7 +66,6 @@ export const PickedExtrasWrapper = styled.div`
   }
   &.showAlert {
     opacity: 1;
-    width: calc(100% - 60px);
     transition: 0.5s ease;
     overflow: hidden;
     display: flex;

@@ -35,3 +35,9 @@ export const OffersWrapper = styled.div`
     height: 100%;
   }
 `;
+
+export const Header = styled.header`
+  pointer-events: none;
+  position: absolute;
+  opacity: 0;
+`;

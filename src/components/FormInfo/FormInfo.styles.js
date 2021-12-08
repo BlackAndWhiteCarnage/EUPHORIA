@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
+  pointer-events: none;
 `;
 
 export const InfoButton = styled.button`
@@ -19,6 +20,7 @@ export const InfoButton = styled.button`
   transition: 0.15s ease;
   z-index: 20;
   cursor: pointer;
+  pointer-events: all;
   @media screen and (min-width: 1250px) {
     &:hover,
     &:focus-visible {
@@ -67,6 +69,7 @@ export const Info = styled.div`
   align-items: center;
   justify-content: space-evenly;
   z-index: 15;
+  pointer-events: all;
   p {
     width: 60%;
   }

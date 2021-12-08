@@ -39,8 +39,11 @@ export const Wrapper = styled(NavLink).attrs({ activeClassName: 'active-link' })
       color: ${({ theme }) => theme.colors.darkWhite};
     }
     @media screen and (max-width: 680px) {
-      text-align: left;
+      text-align: right;
       font-size: ${({ theme }) => theme.fontSize.m};
+    }
+    @media screen and (min-width: 320px) and (max-width: 820px) and (orientation: landscape) {
+      font-size: ${({ theme }) => theme.fontSize.s};
     }
   }
 `;

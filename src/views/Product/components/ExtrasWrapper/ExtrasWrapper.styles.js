@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   top: 0;
-  width: 0;
+  width: 100%;
   left: 0;
   transition: 0.3s ease;
   position: absolute;
@@ -31,7 +31,6 @@ export const Wrapper = styled.div`
   }
   &.toggle {
     pointer-events: all;
-    width: 100%;
     transition: 0.5s ease;
     opacity: 1;
   }

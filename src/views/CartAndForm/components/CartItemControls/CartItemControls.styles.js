@@ -31,11 +31,10 @@ export const StyledButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1;
+  z-index: 0;
   @media screen and (max-width: 780px) {
     width: 33.3333%;
     height: 100%;
-    z-index: 0;
   }
   @media screen and (min-width: 1250px) {
     &:hover,
@@ -64,6 +63,7 @@ export const StyledLink = styled(Link)`
   cursor: pointer;
   transition: 0.1s ease;
   background: ${({ theme }) => theme.colors.white};
+  z-index: 0;
   @media screen and (max-width: 780px) {
     width: 33.3333%;
     height: 100%;

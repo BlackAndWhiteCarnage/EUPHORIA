@@ -65,8 +65,8 @@ export const ItemImage = styled.img`
     margin: 20px;
   }
   @media screen and (max-width: 460px) {
-    margin: 0;
-    height: 100%;
+    margin: 10px;
+    height: 90%;
     min-width: 40%;
     box-shadow: none;
   }
