@@ -1,11 +1,13 @@
-![Logo](./src/assets/icons/logo.svg)
+<img src="./src/assets/icons/logo.svg" alt="Euphoria logo" width='100%'/>
+
+<br />
+<br />
 
 # Euphoria - Shop for a used underwear fetishists
 
-# Live
 https://euphorianoszonabielizna.pl/
 
-## About Project
+### About Project
 
 The project is basically my wife's website, for a while she was only using Allegro for selling worn underwear until I've started learning programming. There are couple reasons why I've made this
 project but most important ones are: no commission on the sale and she doesnt care about their really stupid terms of use, by that I mean (all images on rgba(255,255,255) background) wich doesnt encourages clients at all.
@@ -31,23 +33,38 @@ Also creating fully working shop with couple of nice features was pretty challen
 
 ## How to run?
 
-Clone the project
+1. Clone the project
 
 ```bash
   git clone https://github.com/BlackAndWhiteCarnage/EUPHORI.git
 ```
 
-Install dependencies
+2. Install dependencies
 
 ```bash
-  npm i
+  npm install
 ```
 
-Run project
+3. Run project
 
 ```bash
   npm start
 ```
+
+## Quick Preview
+
+### Home Page
+<img src="./readmeImages/1.png" alt="Home Page" width='100%'/>
+
+### Products Categories
+<img src="./readmeImages/2.png" alt="Products categories" width='100%'/>
+
+### Single Product
+<img src="./readmeImages/3.png" alt="Single Product" width='100%'/>
+
+### Cart
+<img src="./readmeImages/4.png" alt="Cart" width='100%'/>
+
 
 ## Author
 
