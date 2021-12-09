@@ -11,7 +11,6 @@ export const Wrapper = styled.div`
   border-bottom: 2px solid ${({ theme }) => theme.colors.main};
   margin: auto;
   z-index: 999999;
-  background: ${({ theme }) => theme.colors.darkWhite};
   @media screen and (max-width: 1600px) {
     width: 95%;
   }

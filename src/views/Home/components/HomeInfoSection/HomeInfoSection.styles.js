@@ -6,7 +6,6 @@ export const Wrapper = styled(motion.section)`
   max-width: 1400px;
   margin: auto;
   height: 100vh;
-  background: ${({ theme }) => theme.colors.darkWhite};
   position: relative;
   @media screen and (max-width: 1600px) {
     width: 95%;

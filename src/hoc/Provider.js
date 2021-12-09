@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { GlobalStyle } from 'assets/styles/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
+import Three from 'three/Three';
 import { theme } from 'assets/styles/theme';
 import Cursor from 'components/Cursor/Cursor';
 import Navigation from 'components/Navigation/Navigation';
@@ -32,6 +33,7 @@ const Provider = ({ children, cart, setCart }) => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
+      <Three />
       <Navigation cart={cart} />
       <ScrollTop />
       <VerifyAge verifyAge={verifyAge} setVerifyAge={setVerifyAge} />
