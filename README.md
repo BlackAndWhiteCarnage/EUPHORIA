@@ -3,15 +3,19 @@
 <br />
 <br />
 
-# Euphoria - Shop for a used underwear fetishists
+# Euphoria - Shop for a used underwear fetishists 💋
 
 https://euphorianoszonabielizna.pl/
+
+<br />
 
 ### About Project
 
 The project is basically my wife's website, for a while she was only using Allegro for selling worn underwear until I've started learning programming. There are couple reasons why I've made this
 project but most important ones are: no commission on the sale and she doesnt care about their really stupid terms of use, by that I mean (all images on rgba(255,255,255) background) wich doesnt encourages clients at all.
 Also creating fully working shop with couple of nice features was pretty challenging and most important, FUN!.
+
+<br />
 
 ## Used Technologies
 * React - version 17.0.2
@@ -23,6 +27,8 @@ Also creating fully working shop with couple of nice features was pretty challen
 * React-intersection-observer - version 8.32.0
 * Strapi.js (for products management)
 
+<br />
+
 ## Features
 
 - Adding products to cart
@@ -33,6 +39,8 @@ Also creating fully working shop with couple of nice features was pretty challen
 - Auto Sesonal offer (tights and stockings only in winter)
 - Following navigation after scrolling down
 - All produscts are connected to Strapi.js so adding and removing them is pretty simple
+
+<br />
 
 ## How to run?
 
@@ -54,6 +62,8 @@ Also creating fully working shop with couple of nice features was pretty challen
   npm start
 ```
 
+<br />
+
 ## Quick Preview
 
 ### Home Page
@@ -68,6 +78,7 @@ Also creating fully working shop with couple of nice features was pretty challen
 ### Cart
 <img src="./readmeImages/4.png" alt="Cart" width='100%'/>
 
+<br />
 
 ## Author
 
