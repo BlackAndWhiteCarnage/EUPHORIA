@@ -28,7 +28,7 @@ for (let i = 0; i < count; i++) {
   positions[i] = (Math.random() - 0.5) * 1;
 }
 
-const particlesGeometry = new THREE.SphereBufferGeometry(1, 64, 64);
+const particlesGeometry = new THREE.SphereBufferGeometry();
 
 particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 

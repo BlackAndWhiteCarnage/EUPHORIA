@@ -11,7 +11,7 @@ export const useFetch = (URL, path, allProduscts) => {
     };
 
     fetchData();
-  }, [path]);
+  }, [path, URL, allProduscts]);
 
   return { data };
 };

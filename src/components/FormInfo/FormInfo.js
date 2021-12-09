@@ -16,8 +16,8 @@ const FormInfo = ({ isHomePage }) => {
       {!isHomePage && (
         <Wrapper>
           <InfoButton onClick={toggleInfoHandler} id='active' title='Dodatkowe informacje'>
-            <img src={infoIcon} />
-            <img src={infoIconWhite} />
+            <img src={infoIcon} alt='info icon black' />
+            <img src={infoIconWhite} alt='info icon white' />
           </InfoButton>
           <Info className={toggleInfo && 'toggle'}>
             <p>
