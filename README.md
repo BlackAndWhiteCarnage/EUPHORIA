@@ -1,11 +1,9 @@
-![Logo](./assets/icons.logo.svg)
+![Logo](./src/assets/icons/logo.svg)
 
 # Euphoria - Shop for a used underwear fetishists
 
-## Table of contents
-* [About Project](#About-Project)
-* [Used Technologies](#Used-Technologies)
-* [How to run?](#How-to-run?)
+# Live
+https://euphorianoszonabielizna.pl/
 
 ## About Project
 
@@ -23,6 +21,13 @@ Also creating fully working shop with couple of nice features was pretty challen
 * React-intersection-observer - version 8.32.0
 * Strapi.js (for products management)
 
+## Features
+
+- Adding products to cart
+- Choose extras for each product (if available)
+- Get different discounts on cart total value
+- Send your order (my wife will get all the informations about it via email)
+- All produscts are connected to Strapi.js so adding and removing them is pretty simple
 
 ## How to run?
 
@@ -43,3 +48,7 @@ Run project
 ```bash
   npm start
 ```
+
+## Author
+
+- [@BlackAndWhiteCarnage](https://github.com/BlackAndWhiteCarnage)
