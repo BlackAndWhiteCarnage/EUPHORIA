@@ -26,9 +26,12 @@ Also creating fully working shop with couple of nice features was pretty challen
 ## Features
 
 - Adding products to cart
-- Choose extras for each product (if available)
-- Get different discounts on cart total value
-- Send your order (my wife will get all the informations about it via email)
+- Choosing extras for each product (two are free, after adding more +10PLN to product price for each), (if available), (for premium panties extras are unlimited)
+- Get different discounts on cart total value (150PLN - 5%, 250PLN - 10%, 500PLN - 15%)
+- Send your order (my wife will get all the informations about it via email) (links to product images from AWS, extras someone choose to each product and total cart value)
+- Image slider in every product
+- Auto Sesonal offer (tights and stockings only in winter)
+- Following navigation after scrolling down
 - All produscts are connected to Strapi.js so adding and removing them is pretty simple
 
 ## How to run?
