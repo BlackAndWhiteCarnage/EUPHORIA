@@ -3,29 +3,50 @@ export let summary = (cart, showDiscount, showValues) => {
     return;
   }
 
-  let cartValues = cart.map((item) => {
-    return item.price;
+  let cartWithDiscount = cart.filter(({ name }) => {
+    return name.toLowerCase().indexOf('topless') === -1 && name.toLowerCase().indexOf('naga') === -1;
   });
 
-  let values = cartValues.reduce((a, b) => a + b).toFixed(2);
+  let cartWithoutDiscount = cart.filter(({ name }) => {
+    return name.toLowerCase().indexOf('topless') !== -1 || name.toLowerCase().indexOf('naga') !== -1;
+  });
+
+  const valuesHandler = (arr) => {
+    if (arr.length) {
+      let values = arr.map((item) => {
+        return item.price;
+      });
+
+      return values.reduce((a, b) => a + b).toFixed(2);
+    } else {
+      return [];
+    }
+  };
 
   if (showValues) {
-    return values;
+    return valuesHandler(cart);
   }
 
   if (showDiscount) {
-    return (values - summary(cart)).toFixed(2);
+    return (valuesHandler(cart) - summary(cart)).toFixed(2);
   }
 
-  if (cartValues.length !== 0 && values < 150) {
-    return values;
-  } else if (values >= 150 && values < 250) {
-    return ((values / 100) * 95).toFixed(2);
-  } else if (values >= 250 && values < 500) {
-    return ((values / 100) * 90).toFixed(2);
-  } else if (values >= 500) {
-    return ((values / 100) * 85).toFixed(2);
-  } else {
-    return '0';
-  }
+  const countDiscount = () => {
+    let cartWithDiscountValues = valuesHandler(cartWithDiscount);
+    let cartValues = valuesHandler(cart);
+
+    if (valuesHandler(cart).length && cartValues < 150) {
+      return cartValues;
+    } else if (cartValues >= 150 && cartValues < 250) {
+      return ((cartWithDiscountValues / 100) * 95).toFixed(2);
+    } else if (cartValues >= 250 && cartValues < 500) {
+      return ((cartWithDiscountValues / 100) * 90).toFixed(2);
+    } else if (cartValues >= 500) {
+      return ((cartWithDiscountValues / 100) * 85).toFixed(2);
+    } else {
+      return '0';
+    }
+  };
+
+  return Number(countDiscount()) + Number(valuesHandler(cartWithoutDiscount));
 };

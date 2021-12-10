@@ -61,7 +61,7 @@ const Form = ({ cart, isHomePage }) => {
 
 Form.propTypes = {
   cart: PropTypes.array,
-  homePage: PropTypes.bool,
+  isHomePage: PropTypes.bool,
 };
 
 export default Form;

@@ -36,6 +36,10 @@ const FormInfo = ({ isHomePage }) => {
               <br />
               <br />
               Od 500zł otrzymasz 15% rabatu
+              <br />
+              <br />
+              <br />
+              Sesje zdjęciowe TOPLESS oraz NAGIE nie wliczają się do rabatu, mimo to dzięki nim otrzymasz pewne 15% na inne produkty!
             </p>
             <p>
               Chciałabym zaznaczyć iż swojej pełnej nagości nie udostępniam, zdażają się u mnie sesje topless. Mimo to poza nimi nie masz na co liczyć
@@ -52,7 +56,7 @@ const FormInfo = ({ isHomePage }) => {
 };
 
 FormInfo.propTypes = {
-  isHomePage: PropTypes.bool.isRequired,
+  isHomePage: PropTypes.bool,
 };
 
 export default FormInfo;
