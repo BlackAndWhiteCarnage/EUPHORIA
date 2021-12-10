@@ -11,9 +11,9 @@ export let summary = (cart, showDiscount, showValues) => {
     return name.toLowerCase().indexOf('topless') !== -1 || name.toLowerCase().indexOf('naga') !== -1;
   });
 
-  const valuesHandler = (arr) => {
-    if (arr.length) {
-      let values = arr.map((item) => {
+  const valuesHandler = (array) => {
+    if (array.length) {
+      let values = array.map((item) => {
         return item.price;
       });
 
