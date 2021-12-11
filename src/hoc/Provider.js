@@ -34,10 +34,10 @@ const Provider = ({ children, cart, setCart }) => {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Three />
+      {!isTouchScreen() && <Cursor />}
       <Navigation cart={cart} />
       <ScrollTop />
       <VerifyAge verifyAge={verifyAge} setVerifyAge={setVerifyAge} />
-      {!isTouchScreen() && <Cursor />}
       {children}
     </ThemeProvider>
   );

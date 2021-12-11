@@ -1,5 +1,6 @@
 import { useTheme } from 'styled-components';
 import * as THREE from 'three';
+import styled from 'styled-components';
 
 const sizes = {
   width: window.innerWidth,
@@ -17,7 +18,7 @@ const cameraGroup = new THREE.Group();
 scene.add(cameraGroup);
 
 const camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height, 0.1, 100);
-camera.position.z = 0;
+camera.position.z = 0.5;
 cameraGroup.add(camera);
 
 // Particles
@@ -33,7 +34,7 @@ const particlesGeometry = new THREE.SphereBufferGeometry();
 particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 
 const particlesMaterial = new THREE.PointsMaterial({
-  size: 0.002,
+  size: 0.005,
   sizeAttenuation: true,
 });
 const particles = new THREE.Points(particlesGeometry, particlesMaterial);
@@ -96,7 +97,15 @@ tick();
 const Three = () => {
   const theme = useTheme();
   particlesMaterial.color.set(theme.colors.main);
-  return null;
+  return <BlurBackground />;
 };
+
+const BlurBackground = styled.div`
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+`;
 
 export default Three;

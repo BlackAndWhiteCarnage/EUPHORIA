@@ -28,7 +28,11 @@ export let summary = (cart, showDiscount, showValues) => {
   }
 
   if (showDiscount) {
-    return (valuesHandler(cart) - summary(cart)).toFixed(2);
+    if (cartWithDiscount.length > 0) {
+      return (valuesHandler(cart) - summary(cart)).toFixed(2);
+    } else {
+      return false;
+    }
   }
 
   const countDiscount = () => {
