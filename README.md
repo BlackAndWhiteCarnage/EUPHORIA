@@ -33,7 +33,7 @@ Also creating fully working shop with couple of nice features was pretty challen
 
 - Adding products to cart
 - Choosing extras for each product (two are free, after adding more +10PLN to product price for each), (if available), (for premium panties extras are unlimited)
-- Get different discounts on cart total value (150PLN - 5%, 250PLN - 10%, 500PLN - 15%)
+- Get different discounts on cart value (150PLN - 5%, 250PLN - 10%, 500PLN - 15%), (some products are excluded from discount, still they cause discounts on other products that can be discounted)
 - Send your order (my wife will get all the informations about it via email) (links to product images from AWS, extras someone choose to each product and total cart value)
 - Image slider in every product
 - Auto Sesonal offer (tights and stockings only in winter)
