@@ -36,6 +36,18 @@ export const InfoButton = styled.button`
       }
     }
   }
+  &.active {
+    transition: 0.15s ease;
+    background: ${({ theme }) => theme.colors.active};
+    img {
+      &:nth-child(1) {
+        opacity: 0;
+      }
+      &:nth-child(2) {
+        opacity: 1;
+      }
+    }
+  }
   @media screen and (min-width: 1250px) {
     width: 55px;
     top: 0;

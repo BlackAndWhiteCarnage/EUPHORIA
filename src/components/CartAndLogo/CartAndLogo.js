@@ -33,7 +33,7 @@ const CartAndLogo = ({ cart }) => {
         <CartValue className={`${cart.length && 'show'} ${cartChange && 'change'}`} title='Łączna wartość koszyka'>
           RAZEM {cart.length && summary(cart)} ZŁ
         </CartValue>
-        {summary(cart, false, true) >= 150 && (
+        {summary(cart, false, true) >= 150 && summary(cart, true) && (
           <Discount className={cart.length && 'show'} title='Obecny rabat'>
             {summary(cart, false, true) < 250 ? '-5%' : summary(cart, false, true) >= 250 && summary(cart, false, true) < 500 ? '-10%' : '-15%'}
           </Discount>

@@ -49,6 +49,9 @@ export const StyledButton = styled(Button)`
   padding: 10px;
   margin: 15px 0;
   z-index: 15;
+  &.active {
+    background: ${({ theme }) => theme.colors.active};
+  }
   @media screen and (min-width: 1250px) {
     font-size: ${({ theme }) => theme.fontSize.s};
     margin: 0;

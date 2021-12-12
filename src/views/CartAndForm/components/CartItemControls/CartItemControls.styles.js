@@ -52,6 +52,10 @@ export const StyledButton = styled.button`
       }
     }
   }
+  &.active {
+    transition: 0.15s ease;
+    background: ${({ theme }) => theme.colors.active};
+  }
 `;
 
 export const StyledLink = styled(Link)`

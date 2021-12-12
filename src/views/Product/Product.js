@@ -67,6 +67,7 @@ const Product = ({ cart, setCart }) => {
                 <StyledButton
                   text={`${extrasData === undefined ? 'SPYTAJ KONIECZNIE O DODATKI PRZY SKŁADANIU ZAMÓWIENIA' : 'WYBIERZ DODATKI'}`}
                   click={toggleExtrasHandler}
+                  className={toggleExtras && 'active'}
                   id='extras'
                 />
               )}

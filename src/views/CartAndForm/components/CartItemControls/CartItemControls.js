@@ -10,19 +10,29 @@ import ExtrasIconWhite from 'assets/icons/extras-icon-white.svg';
 import XMarkIconWhite from 'assets/icons/xmark-icon-white.svg';
 import AlertIconWhite from 'assets/icons/alert-icon-white.svg';
 
-const CartItemControls = ({ item, togglePreviewExtrasHandler, toggleAlertHandler, deleteItemHandler }) => (
+const CartItemControls = ({ item, togglePreviewExtrasHandler, togglePreviewExtras, toggleAlertHandler, deleteItemHandler, toggleAlert }) => (
   <Wrapper>
     <StyledButton onClick={() => deleteItemHandler(item)} title='Usuń z koszyka' className='delete'>
       <Icon src={XMarkIcon} className='defaultIcon' />
       <Icon src={XMarkIconWhite} className='hoverIcon' />
     </StyledButton>
     {item.extrasNumber === null || item.extrasNumber === undefined ? null : item.pickedExtras.length !== 0 ? (
-      <StyledButton id='extras' onClick={() => togglePreviewExtrasHandler(item.id)} title='Wybrane dodatki' className='extras'>
+      <StyledButton
+        id='extras'
+        onClick={() => togglePreviewExtrasHandler(item.id)}
+        title='Wybrane dodatki'
+        className={`${togglePreviewExtras === item.id && 'active'} extras`}
+      >
         <Icon src={ExtrasIcon} id='extras' className='defaultIcon' />
         <Icon src={ExtrasIconWhite} id='extras' className='hoverIcon' />
       </StyledButton>
     ) : (
-      <StyledButton id='extras' onClick={() => toggleAlertHandler(item.id)} title='Nie wybrałeś żadnych dadatków' className='alert'>
+      <StyledButton
+        id='extras'
+        onClick={() => toggleAlertHandler(item.id)}
+        title='Nie wybrałeś żadnych dadatków'
+        className={`${toggleAlert === item.id && 'active'} alert`}
+      >
         <Icon src={AlertIcon} id='extras' className='defaultIcon' />
         <Icon src={AlertIconWhite} id='extras' className='hoverIcon' />
       </StyledButton>
@@ -37,6 +47,7 @@ const CartItemControls = ({ item, togglePreviewExtrasHandler, toggleAlertHandler
 CartItemControls.propTypes = {
   item: PropTypes.object.isRequired,
   togglePreviewExtrasHandler: PropTypes.func.isRequired,
+  togglePreviewExtras: PropTypes.string,
   toggleAlertHandler: PropTypes.func.isRequired,
   deleteItemHandler: PropTypes.func.isRequired,
 };

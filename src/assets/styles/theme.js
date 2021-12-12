@@ -11,6 +11,7 @@ export const theme = {
     main: getRandomMainColor(),
     darkGrey: '#2D2D2D',
     darkWhite: '#F9F9F9',
+    active: '#6C6C6C',
   },
   fontSize: {
     xl: '28px',

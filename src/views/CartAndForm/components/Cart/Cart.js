@@ -52,6 +52,8 @@ const Cart = ({ cart, setCart }) => {
             deleteItemHandler={deleteItemHandler}
             item={item}
             togglePreviewExtrasHandler={togglePreviewExtrasHandler}
+            togglePreviewExtras={togglePreviewExtras}
+            toggleAlert={toggleAlert}
             toggleAlertHandler={toggleAlertHandler}
           />
         </CartItem>
