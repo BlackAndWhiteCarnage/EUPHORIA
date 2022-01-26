@@ -39,14 +39,11 @@ const FormInfo = ({ isHomePage }) => {
               <br />
               <br />
               <br />
-              Sesje zdjęciowe TOPLESS oraz NAGIE nie wliczają się do rabatu, mimo to dzięki nim otrzymasz pewne 15% na inne produkty!
+              *Sesje zdjęciowe które są TOPLESS lub NAGIE nie wliczają się do rabatu, mimo to dzięki nim otrzymasz pewne 15% na inne produkty!
             </p>
             <p>
-              Chciałabym zaznaczyć iż swojej pełnej nagości nie udostępniam, zdażają się u mnie sesje topless. Mimo to poza nimi nie masz na co liczyć
-            </p>
-            <p>
-              Ps. Jeśli mi nie ufasz, myślę że dobrym potwierdzeniem na uczciwość mojej działalności będzie Allegro do którego link znajdziesz
-              powyżej.
+              Ps. Jeśli mi nie ufasz, myślę że dobrym potwierdzeniem na uczciwość mojej działalności będzie Allegro do którego link znajdziesz na
+              stronie.
             </p>
           </Info>
         </Wrapper>

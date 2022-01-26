@@ -76,6 +76,12 @@ export const ExtrasOption = styled.button`
   cursor: pointer;
   width: 100%;
   transition: 0.5s ease;
+  @media screen and (min-width: 1250px) {
+    &:hover,
+    &:focus-visible {
+      background:${({ theme }) => theme.colors.main};
+      color: ${({ theme }) => theme.colors.darkWhite};
+    }
   @media screen and (max-width: 680px) {
     padding: 15px;
     font-size: ${({ theme }) => theme.fontSize.s};

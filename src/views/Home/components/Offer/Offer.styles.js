@@ -90,7 +90,6 @@ export const OfferTitle = styled.h2`
   z-index: 2;
   transition: 0.3s ease;
   &.toggleTitle {
-    letter-spacing: 5px;
     white-space: pre-wrap;
     transition: 0.3s 0.5s ease;
     font-size: ${({ theme }) => theme.fontSize.l};
@@ -118,16 +117,5 @@ export const OfferImage = styled.img`
     top: 50%;
     left: 0;
     transform: translate(0, -50%);
-    /* @media screen and (max-width: 1250px) {
-      width: auto;
-      left: 50%;
-      transform: translate(-50%, 0) rotate(-90deg);
-    }
-    @media screen and (min-width: 1920px) {
-      width: 90%;
-    }
-    @media screen and (min-width: 2480px) {
-      width: 70%;
-    } */
   }
 `;
