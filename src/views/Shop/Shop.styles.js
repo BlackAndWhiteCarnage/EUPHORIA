@@ -18,6 +18,7 @@ export const Wrapper = styled(motion.section)`
 `;
 
 export const ProductWrapper = styled(motion.div)`
+  position: relative;
   width: 400px;
   height: 500px;
   margin: 50px 0;
@@ -136,4 +137,27 @@ export const SeasonOfferInfo = styled.div`
   text-align: center;
   letter-spacing: 5px;
   color: ${({ theme }) => theme.colors.darkGrey};
+`;
+
+export const NewestItem = styled.div`
+  position: absolute;
+  width: 120px;
+  height: 30px;
+  z-index: 25;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  white-space: nowrap;
+  background: ${({ theme }) => theme.colors.darkGrey};
+  color: ${({ theme }) => theme.colors.darkWhite};
+  font-size: ${({ theme }) => theme.fontSize.m};
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  @media screen and (max-width: 830px) {
+    font-size: ${({ theme }) => theme.fontSize.s};
+    padding: 10px;
+    width: 100px;
+  }
 `;

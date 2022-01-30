@@ -30,7 +30,7 @@ const CartItemControls = ({ item, togglePreviewExtrasHandler, togglePreviewExtra
       <StyledButton
         id='extras'
         onClick={() => toggleAlertHandler(item.id)}
-        title='Nie wybrałeś żadnych dadatków'
+        title='Nie wybrałeś żadnych dodatków'
         className={`${toggleAlert === item.id && 'active'} alert`}
       >
         <Icon src={AlertIcon} id='extras' className='defaultIcon' />
