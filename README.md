@@ -39,6 +39,7 @@ Also creating fully working shop with couple of nice features was pretty challen
 - Auto Sesonal offer (tights and stockings only in winter)
 - Following navigation after scrolling down
 - All produscts are connected to Strapi.js so adding and removing them is pretty simple
+- "Newest" items that was added in last 14 days are highlighted
 
 <br />
 
