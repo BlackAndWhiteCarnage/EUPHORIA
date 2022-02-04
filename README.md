@@ -11,9 +11,7 @@ https://euphorianoszonabielizna.pl/
 
 ### About Project
 
-The project is basically my wife's website, for a while she was only using Allegro for selling worn underwear until I've started learning programming. There are couple reasons why I've made this
-project but most important ones are: no commission on the sale and she doesnt care about their really stupid terms of use, by that I mean (all images on rgba(255,255,255) background) wich doesnt encourages clients at all.
-Also creating fully working shop with couple of nice features was pretty challenging and most important, FUN!.
+This project is basically my wife's website, for a while she was only using Allegro for selling worn underwear until I started learning programming. There are a couple reasons why I've made this project but most important ones are: no commission on the sale and she doesn't care about their stupid terms of use, by that I mean (all images on business account must be on rgba(255,255,255) background) which doesn't encourage clients at all. Creating a fully working shop with a couple of nice features was pretty and what is most exciting, GREAT FUN! Besides, I've learned lots of useful things and the project is still under development to meet the currently emerging needs.
 
 <br />
 
@@ -31,15 +29,16 @@ Also creating fully working shop with couple of nice features was pretty challen
 
 ## Features
 
-- Adding products to cart
-- Choosing extras for each product (two are free, after adding more +10PLN to product price for each), (if available), (for premium panties extras are unlimited)
-- Get different discounts on cart value (150PLN - 5%, 250PLN - 10%, 500PLN - 15%), (some products are excluded from discount, still they cause discounts on other products that can be discounted)
-- Send your order (my wife will get all the informations about it via email) (links to product images from AWS, extras someone choose to each product and total cart value)
-- Image slider in every product
-- Auto Sesonal offer (tights and stockings only in winter)
-- Following navigation after scrolling down
-- All produscts are connected to Strapi.js so adding and removing them is pretty simple
-- "Newest" items that was added in last 14 days are highlighted
+- Adding products to the cart
+- Choosing different extras for each product (two of them are for free, after adding more add 10PLN to product price for each), (if available), (for premium panties extras are unlimited and for free)
+- Get different discounts on cart value (150PLN - 5%, 250PLN - 10%, 500PLN - 15%), (some photo sessions are excluded from discounts, still they will cause discounts on other products that can be discounted)
+- Send your order via form with validation (my wife will get all the information about it via email) (links to products images from AWS, extras someone choose to each product and total cart value).
+- Images slider in every product
+- Auto seasonal offer (tights and stockings available only in certain months in winter)
+- Following sticky navigation after scrolling down in products list
+- All products are connected to Strapi.js, so adding and removing them is pretty simple (and much faster than on Allegro)
+- Custom cursor
+- "Newest" items that were added within 14 days are highlighted
 
 <br />
 
