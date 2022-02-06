@@ -19,15 +19,21 @@ const ProductImagesWrapper = ({ data, desktop }) => {
     }
   }, [data]);
 
+  const handleImages = () => {
+    if (data.images.length === 2) {
+      return data.images.map((item, index) => (
+        <Image className={index === current ? 'show' : 'hide'} src={data.images[index].url} alt={data.name} key={item.id} />
+      ));
+    } else if (data.images.length === 1) {
+      return <Image className='show' src={data.images[0].url} alt={data.name} />;
+    } else {
+      return <Image className='show' src={DefaultImage} alt='Fetysz Majtki Majteczki Noszone Używane' />;
+    }
+  };
+
   return (
     <ImageWrapper variants={matchMedia && fade}>
-      {data.images.length > 1 ? (
-        data.images.map((item, index) => (
-          <Image className={index === current ? 'show' : 'hide'} src={data.images[index].url} alt={data.name} key={item.id} />
-        ))
-      ) : (
-        <Image className='show' src={DefaultImage} alt='Fetysz Majtki Majteczki Noszone Używane' />
-      )}
+      {handleImages()}
       {!desktop && (
         <ScrollInfoWrapper>
           <Dot />
