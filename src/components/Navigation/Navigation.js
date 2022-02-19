@@ -5,7 +5,7 @@ import { matchMedia } from 'helpers/matchMedia';
 import SocialMediaWrapper from 'components/SocialMediaWrapper/SocialMediaWrapper';
 import HamburgerAndModal from 'components/HamburgerAndModal/HamburgerAndModal';
 import NavItem from 'components/NavItem/NavItem';
-import { Wrapper, NavItems, FakeWrapper } from './Navigation.styles';
+import { Wrapper, NavItems, FakeWrapper, SearchBar } from './Navigation.styles';
 import CartAndLogo from 'components/CartAndLogo/CartAndLogo';
 
 const Navigation = ({ cart }) => {

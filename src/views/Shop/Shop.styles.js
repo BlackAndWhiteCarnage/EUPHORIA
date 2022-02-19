@@ -102,7 +102,7 @@ export const ProductImage = styled.img`
   z-index: 5;
   @media screen and (min-width: 1200px) {
     &:hover {
-      opacity: 0;
+      opacity: 0.1;
       transition: 0.5s ease;
     }
   }
@@ -159,5 +159,55 @@ export const NewestItem = styled.div`
     font-size: ${({ theme }) => theme.fontSize.s};
     padding: 10px;
     width: 100px;
+  }
+`;
+
+export const SearchBarWrapper = styled.div`
+  z-index: 1;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  @media screen and (max-width: 620px) {
+    justify-content: center;
+    flex-direction: column;
+  }
+`;
+
+export const SearchBar = styled.input`
+  height: 40px;
+  width: 220px;
+  padding: 20px 15px;
+  background: ${({ theme }) => theme.colors.darkWhite};
+  border: 2px solid ${({ theme }) => theme.colors.main};
+  border-top: none;
+  transition: 0.25s ease;
+  text-transform: uppercase;
+  outline: none;
+  font-size: ${({ theme }) => theme.fontSize.m};
+  font-weight: bold;
+  :focus-visible {
+    background: ${({ theme }) => theme.colors.main};
+    transition: 0.25s ease;
+    color: ${({ theme }) => theme.colors.darkWhite};
+  }
+  @media screen and (max-width: 1250px) {
+    border: 2px solid ${({ theme }) => theme.colors.main};
+  }
+  @media screen and (max-width: 620px) {
+    width: 98%;
+  }
+`;
+
+export const SearchFeedback = styled.p`
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  transition: 0.25s ease;
+  &.show {
+    opacity: 1;
+    transition: 0.25s 0.5s ease;
   }
 `;
