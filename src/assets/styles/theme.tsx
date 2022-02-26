@@ -1,10 +1,12 @@
-const getRandomMainColor = () => {
+import { DefaultTheme } from "styled-components";
+
+const getRandomMainColor = (): string => {
   const randomColors = ['#B80202', '#ED9C00', '#F15524', '#BC47E5', '#CB1557', '#641E8E', '#469928', '#2B4890', '#55BFED'];
 
   return randomColors[Math.floor(Math.random() * 9)];
 };
 
-export const theme = {
+export const theme: DefaultTheme = {
   colors: {
     white: '#FFFFFF',
     black: '#000000',

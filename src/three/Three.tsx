@@ -11,7 +11,7 @@ const sizes = {
 const scene = new THREE.Scene();
 
 // Canvas
-const canvas = document.querySelector('.webgl');
+const canvas = document.querySelector('.webgl') as HTMLCanvasElement;
 
 // Camera
 const cameraGroup = new THREE.Group();
@@ -75,7 +75,7 @@ window.addEventListener('resize', () => {
 const clock = new THREE.Clock();
 let previousTime = 0;
 
-const tick = () => {
+const tick = (): void => {
   const elapsedTime = clock.getElapsedTime();
   const deltaTime = elapsedTime - previousTime;
   previousTime = elapsedTime;

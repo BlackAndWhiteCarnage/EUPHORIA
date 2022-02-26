@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     *::selection{
         background: ${({ theme }) => theme.colors.darkGrey};
-        color: ${({ theme }) => theme.colors.main}
+        color: ${({ theme }) => theme.colors.main};
     }
     body{
         font-weight: bolder;
