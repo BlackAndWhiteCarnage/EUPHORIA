@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Home from 'views/Home/Home';
@@ -7,8 +7,23 @@ import Product from 'views/Product/Product';
 import CartAndForm from 'views/CartAndForm/CartAndForm';
 import Provider from 'hoc/Provider';
 
+export interface CartType {
+  cart: {
+    extrasNumber: number
+    id: string
+    images: {
+      url: string
+    }[]
+    initialPrice: number
+    name: string
+    pickedExtras: string[]
+    price: number
+  }[] | []
+  setCart: React.Dispatch<React.SetStateAction<CartType['cart']>>
+}
+
 const Root = () => {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState<CartType['cart']>([]);
   const location = useLocation();
 
   return (

@@ -9,8 +9,15 @@ import Navigation from 'components/Navigation/Navigation';
 import { isTouchScreen } from 'helpers/checkIfTouchScreen';
 import ScrollTop from 'helpers/ScrollTop';
 import VerifyAge from 'components/VerifyAge/VerifyAge';
+import { CartType } from 'Root'
 
-const Provider = ({ children, cart, setCart }) => {
+interface ProviderProps {
+  children: React.ReactNode
+  cart: CartType['cart']
+  setCart: CartType['setCart']
+}
+
+const Provider: React.FC<ProviderProps> = ({ children, cart, setCart }) => {
   const [verifyAge, setVerifyAge] = useState(false);
 
   useEffect(() => {
@@ -21,7 +28,7 @@ const Provider = ({ children, cart, setCart }) => {
     if (localStorage.getItem('cartItem') === null) {
       localStorage.setItem('cartItem', JSON.stringify([]));
     } else {
-      let cartLocal = JSON.parse(localStorage.getItem('cartItem'));
+      let cartLocal = JSON.parse(localStorage.getItem('cartItem') || '');
       setCart(cartLocal);
     }
   }, []);

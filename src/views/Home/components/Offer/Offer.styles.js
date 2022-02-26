@@ -60,7 +60,6 @@ export const OfferWrapper = styled(Link)`
   @media screen and (min-width: 1250px) {
     &:hover,
     &:focus-visible {
-      transform: scale(1.015);
       transition: 0.8s ease;
       &::before {
         transition: 0.5s ease;

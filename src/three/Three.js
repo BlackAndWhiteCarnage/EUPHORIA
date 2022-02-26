@@ -83,10 +83,10 @@ const tick = () => {
   const parallaxX = mouse.x * 0.5;
   const parallaxY = -mouse.y * 0.5;
 
-  cameraGroup.position.x += (parallaxX - cameraGroup.position.x) * 0.15 * deltaTime;
-  cameraGroup.position.y += (parallaxY - cameraGroup.position.y) * 0.15 * deltaTime;
+  cameraGroup.position.x += (parallaxX - cameraGroup.position.x) * 0.04 * deltaTime;
+  cameraGroup.position.y += (parallaxY - cameraGroup.position.y) * 0.04 * deltaTime;
 
-  particles.rotation.z += 0.0005;
+  particles.rotation.z += 0.00025;
 
   renderer.render(scene, camera);
   window.requestAnimationFrame(tick);
