@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import SocialMediaWrapper from 'components/SocialMediaWrapper/SocialMediaWrapper';
 import NavItem from 'components/NavItem/NavItem';
 import { HamburgerMenuWrapper, Line, Modal, ModalLinksWrapper, StyledDot, NavWrapper, LinksWrapper, LinesWrapper } from './HamburgerAndModal.styles';
 
-const HamburgerAndModal = () => {
-  const [toggleModal, setToggleModal] = useState(false);
+interface ToggleModalType {
+  toggleModal: boolean
+  setToggleModal: React.Dispatch<React.SetStateAction<boolean>>
+}
 
-  const toggleModalHandler = () => {
+const HamburgerAndModal = () => {
+  const [toggleModal, setToggleModal] = useState<ToggleModalType['toggleModal']>(false);
+
+  const toggleModalHandler = (): void => {
     setToggleModal(!toggleModal);
 
     document.body.style.overflowY = `${!toggleModal ? 'hidden' : 'scroll'}`;
@@ -14,14 +19,14 @@ const HamburgerAndModal = () => {
 
   return (
     <>
-      <HamburgerMenuWrapper onClick={toggleModalHandler} className={toggleModal && 'toggle'}>
+      <HamburgerMenuWrapper onClick={toggleModalHandler} className={`${toggleModal && 'toggle'}`}>
         <LinesWrapper>
           <Line className={`${toggleModal && 'toggle'} first`} />
           <Line className={`${toggleModal && 'toggle'} second`} />
           <Line className={`${toggleModal && 'toggle'} third`} />
         </LinesWrapper>
       </HamburgerMenuWrapper>
-      <Modal className={toggleModal && 'toggle'}>
+      <Modal className={`${toggleModal && 'toggle'}`}>
         <ModalLinksWrapper onClick={toggleModalHandler}>
           <NavWrapper>
             <SocialMediaWrapper />
@@ -35,7 +40,7 @@ const HamburgerAndModal = () => {
               <NavItem to='/sklepik/fotki i nagrania' text='SESJE, FOTKI I NAGRANIA' className='modal' />
             </LinksWrapper>
           </NavWrapper>
-          <StyledDot className={toggleModal && 'toggle'} />
+          <StyledDot className={`${toggleModal && 'toggle'}`} />
         </ModalLinksWrapper>
       </Modal>
     </>

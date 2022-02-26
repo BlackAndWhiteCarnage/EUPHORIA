@@ -1,13 +1,22 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import PropTypes from 'prop-types';
 import infoIcon from 'assets/icons/info-icon.svg';
 import infoIconWhite from 'assets/icons/info-icon-white.svg';
 import { Wrapper, InfoButton, Info } from './FormInfo.styles';
 
-const FormInfo = ({ isHomePage }) => {
-  const [toggleInfo, setToggleInfo] = useState(false);
+interface FormInfoProps {
+  isHomePage: boolean
+}
 
-  const toggleInfoHandler = () => {
+interface ToggleInfoType {
+  toggleInfo: boolean
+  setToggleInfo: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const FormInfo = ({ isHomePage }: FormInfoProps) => {
+  const [toggleInfo, setToggleInfo] = useState<ToggleInfoType['toggleInfo']>(false);
+
+  const toggleInfoHandler = (): void => {
     setToggleInfo(!toggleInfo);
   };
 
@@ -15,11 +24,11 @@ const FormInfo = ({ isHomePage }) => {
     <>
       {!isHomePage && (
         <Wrapper>
-          <InfoButton onClick={toggleInfoHandler} id='active' title='Dodatkowe informacje' className={toggleInfo && 'active'}>
+          <InfoButton onClick={toggleInfoHandler} id='active' title='Dodatkowe informacje' className={`${toggleInfo && 'active'}`}>
             <img src={infoIcon} alt='info icon black' />
             <img src={infoIconWhite} alt='info icon white' />
           </InfoButton>
-          <Info className={toggleInfo && 'toggle'}>
+          <Info className={`${toggleInfo && 'toggle'}`}>
             <p>
               Dane które podasz w formularzu służą jedynie do kontaktu oraz dalszych ustaleń zamówienia. Sama bardzo cenię anonimowość także nasze
               sekrety pozostaną naszymi sekretami

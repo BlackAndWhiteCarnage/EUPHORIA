@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
@@ -11,10 +11,15 @@ const VectorSvg = styled.svg`
   transform: translate(-50%, -50%);
 `;
 
-const LoadingIcon = () => {
-  const [animate, setAnimate] = useState(false);
+interface AnimateType {
+  animate: boolean
+  setAnimate: React.Dispatch<React.SetStateAction<boolean>>
+}
 
-  setTimeout(() => {
+const LoadingIcon = () => {
+  const [animate, setAnimate] = useState<AnimateType['animate']>(false);
+
+  setTimeout((): void => {
     setAnimate(!animate);
   }, 500);
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import AllegroIcon from 'assets/icons/allegro-icon.svg';
 import WhatsAppIcon from 'assets/icons/whatsapp-icon.svg';
@@ -7,7 +6,11 @@ import EmailIcon from 'assets/icons/email-icon.svg';
 import EmailIconWhite from 'assets/icons/email-icon-white.svg';
 import { Wrapper, Icon } from './SocialMediaWrapper.styles';
 
-const SocialMediaWrapper = ({ desktop }) => (
+interface SocialMediaWrapperProps {
+  desktop?: boolean
+}
+
+const SocialMediaWrapper = ({ desktop }: SocialMediaWrapperProps) => (
   <Wrapper>
     <a
       href='https://allegro.pl/uzytkownik/EUPHORIA_2001?bmatch=cl-e2101-d3794-c3683-uni-1-1-0611'

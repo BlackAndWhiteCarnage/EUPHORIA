@@ -1,10 +1,15 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { useForm } from 'helpers/useForm';
 import FormInfo from 'components/FormInfo/FormInfo';
 import { FormWrapper, Label, Input, TextArea, Checkbox, CheckboxWrapper, StyledButton, AccualForm } from './Form.styles';
+import { CartType } from 'Root'
 
-const Form = ({ cart, isHomePage }) => {
+interface FormProps {
+  cart?: CartType['cart']
+  isHomePage: boolean
+}
+
+const Form = ({ cart, isHomePage }: FormProps) => {
   const {
     sendEmail,
     nameHandler,
@@ -21,8 +26,8 @@ const Form = ({ cart, isHomePage }) => {
   } = useForm(cart);
 
   return (
-    <FormWrapper className={isHomePage && 'homePage'}>
-      <AccualForm onSubmit={sendEmail} className={isHomePage && 'homePage'}>
+    <FormWrapper className={`${isHomePage && 'homePage'}`}>
+      <AccualForm onSubmit={sendEmail} className={`${isHomePage && 'homePage'}`}>
         <Label htmlFor='name'>IMIĘ</Label>
         <Input
           onChange={nameHandler}
@@ -42,15 +47,14 @@ const Form = ({ cart, isHomePage }) => {
           placeholder='Min. 20 zanków'
         />
         {!isHomePage && (
-          <CheckboxWrapper className={feedback === 2 && !validCart && 'ERROR'}>
+          <CheckboxWrapper className={`${feedback === 2 && !validCart && 'ERROR'}`}>
             <label htmlFor='checkbox'>WYRAŻAM ZGODĘ NA PRZETWAŻANIE MOJEGO KOSZYKA</label>
             <Checkbox type='checkbox' id='checkbox' onChange={cartItemsHandler} name='cart' />
           </CheckboxWrapper>
         )}
         <StyledButton
           text={!isHomePage ? 'ZAMAWIAM' : 'WYŚLIJ'}
-          className={emailSend ? 'OK' : feedback === 2 ? 'ERROR' : feedback === 1 && 'SENDING'}
-          type='submit'
+          className={`${emailSend ? 'OK' : feedback === 2 ? 'ERROR' : feedback === 1 && 'SENDING'}`}
           click={checkValid}
         />
         <FormInfo isHomePage={isHomePage} />

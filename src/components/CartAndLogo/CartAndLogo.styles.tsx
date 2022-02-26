@@ -73,7 +73,7 @@ export const Count = styled.div`
   align-items: center;
   justify-content: center;
   color: ${({ theme }) => theme.colors.darkWhite};
-  font-size: ${({ theme }) => theme.fontSize.M};
+  font-size: ${({ theme }) => theme.fontSize.m};
   transition: 0.5s ease;
   opacity: 0;
   &.show {
@@ -113,7 +113,7 @@ export const Discount = styled.div`
   align-items: center;
   justify-content: center;
   color: ${({ theme }) => theme.colors.darkGrey};
-  font-size: ${({ theme }) => theme.fontSize.M};
+  font-size: ${({ theme }) => theme.fontSize.m};
   transition: 0.5s ease;
   &.show {
     width: 50px;

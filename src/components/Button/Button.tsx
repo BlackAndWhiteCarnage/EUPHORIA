@@ -1,10 +1,19 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { isInCartHandler } from 'helpers/isInCartHandler';
 import { Wrapper } from './Button.styles';
+import { CartType } from 'Root'
 
-const Button = ({ text, className, click, id, itemID, cart, type }) => (
-  <Wrapper className={`${className} ${isInCartHandler(itemID, cart)}`} onClick={click} id={id} type={type}>
+interface ButtonProps {
+  text: string
+  className?: string
+  click: () => void
+  id?: string
+  itemID?: string
+  cart?: CartType['cart']
+}
+
+const Button = ({ text, className, click, id, itemID, cart }: ButtonProps) => (
+  <Wrapper className={`${className} ${isInCartHandler(itemID, cart)}`} onClick={click} id={id}>
     {text}
   </Wrapper>
 );
