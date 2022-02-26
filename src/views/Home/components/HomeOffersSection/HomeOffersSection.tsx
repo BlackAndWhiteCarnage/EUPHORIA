@@ -1,4 +1,3 @@
-import React from 'react';
 import Offer from 'views/Home/components/Offer/Offer';
 import SocksImage from 'assets/images/socks.png';
 import PantiesImage from 'assets/images/panties.png';

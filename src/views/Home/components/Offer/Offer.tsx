@@ -3,10 +3,23 @@ import PropTypes from 'prop-types';
 import { Wrapper, OfferWrapper, OfferTitle, OfferImage } from './Offer.styles';
 import { fade } from 'animations/animations';
 
-const Offer = ({ gridArea, content, image, linkTo, alt }) => {
-  const [toggleTitle, setToggleTitle] = useState(false);
+interface OfferProps {
+  gridArea: string
+  content: string
+  image: string
+  linkTo: string
+  alt: string
+}
 
-  const toggleTitleHandler = () => {
+interface ToggleTitleType {
+  toggleTitle: boolean
+  setToggleTitle: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const Offer = ({ gridArea, content, image, linkTo, alt }: OfferProps) => {
+  const [toggleTitle, setToggleTitle] = useState<ToggleTitleType['toggleTitle']>(false);
+
+  const toggleTitleHandler = (): void => {
     setToggleTitle(!toggleTitle);
   };
 
@@ -20,10 +33,10 @@ const Offer = ({ gridArea, content, image, linkTo, alt }) => {
         to={`sklepik/${linkTo}`}
         id='active'
       >
-        <OfferTitle className={toggleTitle && 'toggleTitle'} id='active'>
+        <OfferTitle className={`${toggleTitle && 'toggleTitle'}`} id='active'>
           {content}
         </OfferTitle>
-        <OfferImage src={image} className={gridArea === 'RAJSTOPY' && 'tights'} alt={alt} id='active' />
+        <OfferImage src={image} className={`${gridArea === 'RAJSTOPY' && 'tights'}`} alt={alt} id='active' />
       </OfferWrapper>
     </Wrapper>
   );

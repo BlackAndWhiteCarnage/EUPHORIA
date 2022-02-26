@@ -2,7 +2,11 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-export const Wrapper = styled(motion.div)`
+interface WrapperProps {
+  props: string
+}
+
+export const Wrapper = styled(motion.div)<WrapperProps>`
   margin: 12px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
   /* PROPS FROM OFFER SECTION TO DEFINE GRID BY OFFER NAME*/
