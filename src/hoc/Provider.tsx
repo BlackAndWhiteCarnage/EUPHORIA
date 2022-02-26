@@ -17,8 +17,13 @@ interface ProviderProps {
   setCart: CartType['setCart']
 }
 
+export interface VerifyAgeType {
+  verifyAge: boolean
+  setVerifyAge: React.Dispatch<React.SetStateAction<VerifyAgeType['verifyAge']>>
+}
+
 const Provider: React.FC<ProviderProps> = ({ children, cart, setCart }) => {
-  const [verifyAge, setVerifyAge] = useState(false);
+  const [verifyAge, setVerifyAge] = useState<VerifyAgeType['verifyAge']>(false);
 
   useEffect(() => {
     if (localStorage.getItem('ageConfirmed') !== null) {

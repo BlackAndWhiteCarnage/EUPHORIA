@@ -1,20 +1,24 @@
-import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import PropTypes from 'prop-types';
 import { matchMedia } from 'helpers/matchMedia';
 import SocialMediaWrapper from 'components/SocialMediaWrapper/SocialMediaWrapper';
 import HamburgerAndModal from 'components/HamburgerAndModal/HamburgerAndModal';
 import NavItem from 'components/NavItem/NavItem';
-import { Wrapper, NavItems, FakeWrapper, SearchBar } from './Navigation.styles';
+import { Wrapper, NavItems, FakeWrapper } from './Navigation.styles';
 import CartAndLogo from 'components/CartAndLogo/CartAndLogo';
+import { CartType } from 'Root'
 
-const Navigation = ({ cart }) => {
+interface NavigationProps {
+  cart: CartType['cart']
+}
+
+const Navigation = ({ cart }: NavigationProps) => {
   const [element, view] = useInView({ threshold: 0.5 });
 
   return (
     <nav>
-      {matchMedia.matches && <FakeWrapper ref={element} className={!view && 'changePosition'} />}
-      <Wrapper className={!view && matchMedia.matches && 'stickyNavbar'}>
+      {matchMedia.matches && <FakeWrapper ref={element} className={`${!view && 'changePosition'}`} />}
+      <Wrapper className={`${!view && matchMedia.matches && 'stickyNavbar'}`}>
         <CartAndLogo cart={cart} />
         <NavItems>
           <NavItem to='/' text='STRONA GŁÓWNA' className='desktop' />
