@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, ChangeEvent } from 'react';
 import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useInView } from 'react-intersection-observer';
@@ -22,13 +22,25 @@ import {
 import { fade } from 'animations/animations';
 import { useFetch } from 'helpers/useFetch';
 import { isNewestItemHandler } from 'helpers/isNewestItemHandler';
+import { CartType } from 'Root'
+import { DataType } from 'helpers/useFetch'
 
-const ShopItem = ({ name, id, images, cart, published_at }) => {
+interface ShopItemProps {
+  name: string
+  id: string
+  images: {
+    url: string
+  }[]
+  cart: CartType['cart']
+  published_at: string
+}
+
+const ShopItem = ({ name, id, images, cart, published_at }: ShopItemProps) => {
   const [element, inView] = useInView();
 
   return (
     <ProductWrapper variants={fade} animate={inView ? 'show' : 'hidden'} exit='exit' ref={element}>
-      <Product key={id} name={name} to={`/${id}`} className={isInCartHandler(id, cart)}>
+      <Product key={id} title={name} to={`/${id}`} className={isInCartHandler(id, cart)}>
         {images.length > 0 && <ProductImage src={images[0].url} id='active' />}
         <ProductName>{name}</ProductName>
         {isInCartHandler(id, cart) && <AddedIcon />}
@@ -38,18 +50,22 @@ const ShopItem = ({ name, id, images, cart, published_at }) => {
   );
 };
 
-const Shop = ({ cart }) => {
+interface ShopProps {
+  cart: CartType['cart']
+}
+
+const Shop = ({ cart }: ShopProps) => {
   const path = useLocation().pathname.replace('/sklepik/', '');
   const { data } = useFetch(process.env.REACT_APP_PRODUCTS_URL, path, true);
-  const [clonedData, setClonedData] = useState();
+  const [clonedData, setClonedData] = useState<DataType['data']>();
 
   useEffect(() => {
     setClonedData(data);
   }, [data]);
 
-  const searchBarHandler = (e) => {
-    if (e.target.value) {
-      setClonedData(data.filter((element) => element.name.includes(e.target.value.toUpperCase())));
+  const searchBarHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.value && data !== undefined) {
+      setClonedData(data.filter((element: {name: string}) => element.name.includes(e.target.value.toUpperCase())));
     } else {
       setClonedData(data);
     }
@@ -59,9 +75,9 @@ const Shop = ({ cart }) => {
     <Wrapper>
       <SearchBarWrapper>
         <SearchBar onChange={searchBarHandler} placeholder='Szukaj' />
-        {clonedData && <SearchFeedback className={!clonedData.length && 'show'}>Nic nie znalazłam 😢</SearchFeedback>}
+        {clonedData && <SearchFeedback className={`${!clonedData.length && 'show'}`}>Nic nie znalazłam 😢</SearchFeedback>}
       </SearchBarWrapper>
-      {path === 'rajstopy' && !handleSesonalOffer() && clonedData.length > 0 ? (
+      {path === 'rajstopy' && !handleSesonalOffer() && clonedData !== undefined ? (
         <SeasonOfferInfo>PRZYKRO MI, RAJSTOPKI WRÓCĄ JUŻ WE WRZEŚNIU 😉</SeasonOfferInfo>
       ) : clonedData ? (
         clonedData
