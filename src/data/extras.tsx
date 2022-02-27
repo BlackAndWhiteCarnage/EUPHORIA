@@ -1,4 +1,6 @@
-export const pantiesExtras = [
+type ExtrasType = string[]
+
+export const pantiesExtras: ExtrasType = [
   'Piss',
   'Spryskanie moimi perfumami',
   '10 Seksownych zdjęć w tych majteczkach',
@@ -12,7 +14,7 @@ export const pantiesExtras = [
   'Mam specjalne życzenie, dam znać w mailu!',
 ];
 
-export const socksExtras = [
+export const socksExtras: ExtrasType = [
   'Piss',
   'Spryskanie moimi perfumami',
   '10 Zdjęć moich ślicznych stópek',
@@ -22,7 +24,7 @@ export const socksExtras = [
   'Mam specjalne życzenie, dam znać w mailu!',
 ];
 
-export const premiumExtras = [
+export const premiumExtras: ExtrasType = [
   'Piss',
   'Spryskanie moimi perfumami',
   '10 Seksownych zdjęć w tych majteczkach',
@@ -36,7 +38,7 @@ export const premiumExtras = [
   'Mam specjalne życzenie, dam znać w mailu!',
 ];
 
-export const tightsExtras = [
+export const tightsExtras: ExtrasType = [
   'Piss na rajstopki (całe lub część)',
   'Spryskanie moimi perfumami',
   '10 Seksownych zdjęć w rajstopkach',

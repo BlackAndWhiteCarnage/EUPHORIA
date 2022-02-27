@@ -65,7 +65,7 @@ const Form = ({ cart, isHomePage }: FormProps) => {
 
 Form.propTypes = {
   cart: PropTypes.array,
-  isHomePage: PropTypes.bool,
+  isHomePage: PropTypes.bool.isRequired,
 };
 
 export default Form;

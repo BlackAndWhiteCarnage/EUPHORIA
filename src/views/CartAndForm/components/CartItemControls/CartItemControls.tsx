@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { Wrapper, StyledButton, StyledLink, Icon } from './CartItemControls.styles';
 import ArrowIcon from 'assets/icons/arrow-icon.svg';
@@ -9,10 +8,31 @@ import ArrowIconWhite from 'assets/icons/arrow-icon-white.svg';
 import ExtrasIconWhite from 'assets/icons/extras-icon-white.svg';
 import XMarkIconWhite from 'assets/icons/xmark-icon-white.svg';
 import AlertIconWhite from 'assets/icons/alert-icon-white.svg';
+import { TogglePreviewExtrasType, ToggleAlertType } from 'views/CartAndForm/components/Cart/Cart'
 
-const CartItemControls = ({ item, togglePreviewExtrasHandler, togglePreviewExtras, toggleAlertHandler, deleteItemHandler, toggleAlert }) => (
+
+interface CartItemControlsProps {
+  item: {
+    extrasNumber: number
+    id: string
+    images: {
+      url: string
+    }[]
+    initialPrice: number
+    name: string
+    pickedExtras: string[] | []
+    price: number
+  }
+  togglePreviewExtrasHandler: (id: string) => void
+  togglePreviewExtras: TogglePreviewExtrasType['togglePreviewExtras']
+  toggleAlertHandler: (id: string) => void
+  deleteItemHandler: (itemId: string) => void
+  toggleAlert: ToggleAlertType['toggleAlert']
+}
+
+const CartItemControls = ({ item, togglePreviewExtrasHandler, togglePreviewExtras, toggleAlertHandler, deleteItemHandler, toggleAlert }: CartItemControlsProps) => (
   <Wrapper>
-    <StyledButton onClick={() => deleteItemHandler(item)} title='Usuń z koszyka' className='delete'>
+    <StyledButton onClick={() => deleteItemHandler(item.id)} title='Usuń z koszyka' className='delete'>
       <Icon src={XMarkIcon} className='defaultIcon' />
       <Icon src={XMarkIconWhite} className='hoverIcon' />
     </StyledButton>
@@ -47,7 +67,7 @@ const CartItemControls = ({ item, togglePreviewExtrasHandler, togglePreviewExtra
 CartItemControls.propTypes = {
   item: PropTypes.object.isRequired,
   togglePreviewExtrasHandler: PropTypes.func.isRequired,
-  togglePreviewExtras: PropTypes.string,
+  togglePreviewExtras: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   toggleAlertHandler: PropTypes.func.isRequired,
   deleteItemHandler: PropTypes.func.isRequired,
 };

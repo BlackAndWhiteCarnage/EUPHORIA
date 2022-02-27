@@ -26,6 +26,9 @@ const Root = () => {
   const [cart, setCart] = useState<CartType['cart']>([]);
   const location = useLocation();
 
+  console.log(cart);
+
+
   return (
     <Provider cart={cart} setCart={setCart}>
       <AnimatePresence exitBeforeEnter>
