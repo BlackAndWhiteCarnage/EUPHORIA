@@ -1,6 +1,5 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import ImagesWrapper from 'views/Product/components/ProductImagesWrapper/ProductImagesWrapper';
+import ProductImagesWrapper from 'views/Product/components/ProductImagesWrapper/ProductImagesWrapper';
 import ExtrasWrapper from 'views/Product/components/ExtrasWrapper/ExtrasWrapper';
 import { matchMedia } from 'helpers/matchMedia';
 import {
@@ -15,6 +14,23 @@ import {
   StyledButton,
 } from './ProductInfoWrapper.styles';
 import { scaleUp, fade } from 'animations/animations';
+import { DataType } from 'helpers/useFetch'
+import {ExtrasDataType, ToggleExtrasType, PickExtrasType} from 'views/Product/Product'
+import {CartType} from 'Root'
+
+interface ProductInfoWrapperProps {
+  data: DataType['data']
+  extrasData: ExtrasDataType['extrasData']
+  toggleExtrasHandler: () => void
+  setExtrasData: ExtrasDataType['setExtrasData']
+  toggleExtras: ToggleExtrasType['toggleExtras']
+  setToggleExtras: ToggleExtrasType['setToggleExtras']
+  pickExtras: PickExtrasType['pickExtras']
+  setPickExtras: PickExtrasType['setPickExtras']
+  addToCartHandler: () => void
+  cart: CartType['cart']
+  setCart: CartType['setCart']
+}
 
 const ProductInfoWrapper = ({
   data,
@@ -28,9 +44,10 @@ const ProductInfoWrapper = ({
   addToCartHandler,
   cart,
   setCart,
-}) => (
+}: ProductInfoWrapperProps) => (
   <Wrapper variants={scaleUp} animate='show' initial='hidden' exit='exit'>
     <InfoWrapper>
+      {!Array.isArray(data) && (
       <Info>
         <ProductName variants={matchMedia && fade}>{data.name}</ProductName>
         <ProductDescription variants={matchMedia && fade}>{data.description}</ProductDescription>
@@ -55,9 +72,10 @@ const ProductInfoWrapper = ({
           </ButtonsWrapper>
         )}
       </Info>
+      )}
     </InfoWrapper>
-    <ImagesWrapper data={data} desktop />
-    <ExtrasWrapper
+    <ProductImagesWrapper data={data} desktop={true} />
+      <ExtrasWrapper
       cart={cart}
       setCart={setCart}
       data={data}
@@ -67,7 +85,7 @@ const ProductInfoWrapper = ({
       setToggleExtras={setToggleExtras}
       pickExtras={pickExtras}
       setPickExtras={setPickExtras}
-    />
+      />
   </Wrapper>
 );
 

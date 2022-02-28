@@ -57,17 +57,21 @@ interface ShopProps {
 const Shop = ({ cart }: ShopProps) => {
   const path = useLocation().pathname.replace('/sklepik/', '');
   const { data } = useFetch(process.env.REACT_APP_PRODUCTS_URL, path, true);
-  const [clonedData, setClonedData] = useState<DataType['data']>();
+  const [clonedData, setClonedData] = useState<DataType['data'][]>();
 
   useEffect(() => {
-    setClonedData(data);
+    if(Array.isArray(data)){
+      setClonedData(data);
+    }
   }, [data]);
 
   const searchBarHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value && data !== undefined) {
-      setClonedData(data.filter((element: {name: string}) => element.name.includes(e.target.value.toUpperCase())));
-    } else {
-      setClonedData(data);
+    if(Array.isArray(data) && data !== undefined){
+      if (e.target.value) {
+        setClonedData(data.filter((element: {name: string}) => element.name.includes(e.target.value.toUpperCase())));
+      } else {
+        setClonedData(data);
+      }
     }
   };
 
@@ -77,13 +81,13 @@ const Shop = ({ cart }: ShopProps) => {
         <SearchBar onChange={searchBarHandler} placeholder='Szukaj' />
         {clonedData && <SearchFeedback className={`${!clonedData.length && 'show'}`}>Nic nie znalazłam 😢</SearchFeedback>}
       </SearchBarWrapper>
-      {path === 'rajstopy' && !handleSesonalOffer() && clonedData !== undefined ? (
+      {path === 'rajstopy' && !handleSesonalOffer() ? (
         <SeasonOfferInfo>PRZYKRO MI, RAJSTOPKI WRÓCĄ JUŻ WE WRZEŚNIU 😉</SeasonOfferInfo>
       ) : clonedData ? (
         clonedData
           .slice(0)
           .reverse()
-          .map(({ name, id, images, published_at }) => <ShopItem name={name} id={id} images={images} cart={cart} published_at={published_at} />)
+          .map(({ name, id, images, published_at }: any): React.ReactNode => <ShopItem name={name} id={id} images={images} cart={cart} published_at={published_at} />)
       ) : (
         <LoadingIcon />
       )}

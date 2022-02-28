@@ -1,11 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { ImageWrapper, Image, ScrollInfoWrapper, Dot } from './ProductImagesWrapper.styles';
 import DefaultImage from 'assets/icons/default-icon.svg';
 import { fade } from 'animations/animations';
 import { matchMedia } from 'helpers/matchMedia';
+import { DataType } from 'helpers/useFetch';
 
-const ProductImagesWrapper = ({ data, desktop }) => {
+interface ProductImagesWrapperProps {
+  data: DataType['data']
+  desktop: boolean
+}
+
+const ProductImagesWrapper = ({ data, desktop }: ProductImagesWrapperProps) => {
   const [current, setCurrent] = useState(0);
   const [imagesLength, setImagesLength] = useState(0);
 
@@ -14,20 +20,22 @@ const ProductImagesWrapper = ({ data, desktop }) => {
   }, 2500);
 
   useEffect(() => {
-    if (data !== undefined) {
+    if (data !== undefined && !Array.isArray(data)) {
       setImagesLength(data.images.length);
     }
   }, [data]);
 
   const handleImages = () => {
-    if (data.images.length === 2) {
-      return data.images.map((item, index) => (
-        <Image className={index === current ? 'show' : 'hide'} src={data.images[index].url} alt={data.name} key={item.id} />
-      ));
-    } else if (data.images.length === 1) {
-      return <Image className='show' src={data.images[0].url} alt={data.name} />;
-    } else {
-      return <Image className='show' src={DefaultImage} alt='Fetysz Majtki Majteczki Noszone Używane' />;
+    if(!Array.isArray(data)){
+      if (data.images.length === 2) {
+        return data.images.map((item, index) => (
+          <Image className={index === current ? 'show' : 'hide'} src={data.images[index].url} alt={data.name} key={data.images[index].url} />
+          ));
+        } else if (data.images.length === 1) {
+          return <Image className='show' src={data.images[0].url} alt={data.name} />;
+        } else {
+          return <Image className='show' src={DefaultImage} alt='Fetysz Majtki Majteczki Noszone Używane' />;
+        }
     }
   };
 

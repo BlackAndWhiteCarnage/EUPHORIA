@@ -2,32 +2,51 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Wrapper, ExtrasInfoWrapper, ExtrasInfo, ExtrasOption } from './ExtrasWrapper.styles';
 import ExtrasProvider from 'hoc/ExtrasProvider';
+import {DataType} from 'helpers/useFetch'
+import { ToggleExtrasType, PickExtrasType} from 'views/Product/Product'
+import {CartType} from 'Root'
 
-const ExtrasWrapper = ({ data, setExtrasData, extrasData, toggleExtras, setToggleExtras, pickExtras, setPickExtras, cart, setCart }) => {
-  const [prevCartItem, setPrevCartItem] = useState();
+interface ExtrasWrapperProps {
+  data: DataType['data']
+  setExtrasData: any
+  extrasData: any
+  toggleExtras: ToggleExtrasType['toggleExtras']
+  setToggleExtras: ToggleExtrasType['setToggleExtras']
+  pickExtras: PickExtrasType['pickExtras']
+  setPickExtras: PickExtrasType['setPickExtras']
+  cart: CartType['cart']
+  setCart: CartType['setCart']
+}
 
-  const extrasToPickHandler = (extras) => {
-    // Add extras
-    setPickExtras({
-      ...pickExtras,
-      price: pickExtras.pickedExtras.length > extrasData.count && pickExtras.price + 10,
-      pickedExtras: [...pickExtras.pickedExtras, extras],
-    });
+export interface PrevCartType {
+  prevCartItem: {}[] | undefined
+  setPrevCartItem: React.Dispatch<React.SetStateAction<{}[] | undefined>>
+}
 
-    // Substract
-    if (pickExtras.pickedExtras.indexOf(extras) > -1) {
+const ExtrasWrapper = ({ data, setExtrasData, extrasData, toggleExtras, setToggleExtras, pickExtras, setPickExtras, cart, setCart }: ExtrasWrapperProps) => {
+  const [prevCartItem, setPrevCartItem] = useState<PrevCartType['prevCartItem']>();
+
+  const extrasToPickHandler = (extras: string) => {
+      // Add extras
       setPickExtras({
-        price: pickExtras.pickedExtras.length > extrasData.count && pickExtras.price - 10,
-        pickedExtras: pickExtras.pickedExtras.filter((item) => item !== extras),
+        ...pickExtras,
+        price: pickExtras.pickedExtras.length > extrasData.count && pickExtras.price + 10,
+        pickedExtras: [...pickExtras.pickedExtras, extras],
       });
-    }
+
+      // Substract
+      if(pickExtras.pickedExtras.indexOf(extras) > -1) {
+        setPickExtras({
+          price: pickExtras.pickedExtras.length > extrasData.count && pickExtras.price - 10,
+          pickedExtras: pickExtras.pickedExtras.filter((item) => item !== extras),
+        });
+      }
   };
 
   return (
-    <ExtrasProvider
+      <ExtrasProvider
       cart={cart}
       data={data}
-      extrasData={extrasData}
       setExtrasData={setExtrasData}
       setToggleExtras={setToggleExtras}
       setPickExtras={setPickExtras}
@@ -37,7 +56,7 @@ const ExtrasWrapper = ({ data, setExtrasData, extrasData, toggleExtras, setToggl
       prevCartItem={prevCartItem}
     >
       {extrasData !== null && extrasData !== undefined && (
-        <Wrapper className={toggleExtras && 'toggle'} id='extras'>
+        <Wrapper className={`${toggleExtras && 'toggle'}`} id='extras'>
           <ExtrasInfoWrapper id='extras'>
             {extrasData.count < 5 ? (
               <ExtrasInfo id='extras'>WYBIERZ {extrasData.count + 1} DODATKI, KAŻDY KOLEJNY DODATKOWO PŁATNY +10zł</ExtrasInfo>
@@ -48,10 +67,10 @@ const ExtrasWrapper = ({ data, setExtrasData, extrasData, toggleExtras, setToggl
               <ExtrasInfo id='extras'>DODATKOWO DO ZAPŁATY {pickExtras.price} zł</ExtrasInfo>
             )}
           </ExtrasInfoWrapper>
-          {extrasData.data.map((extras) => (
+          {extrasData.data.map((extras: string) => (
             <ExtrasOption
               onClick={() => extrasToPickHandler(extras)}
-              className={pickExtras.pickedExtras.includes(extras) && 'added'}
+              className={`${Array.isArray(pickExtras.pickedExtras) && pickExtras.pickedExtras.includes(extras) && 'added'}`}
               key={extras}
               id='extras'
               tabIndex={!toggleExtras ? -1 : 1}

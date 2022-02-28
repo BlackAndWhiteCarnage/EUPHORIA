@@ -8,7 +8,7 @@ interface ButtonProps {
   className?: string
   click: () => void
   id?: string
-  itemID?: string
+  itemID?: any
   cart?: CartType['cart']
 }
 
