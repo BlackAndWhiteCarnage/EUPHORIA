@@ -40,7 +40,7 @@ const ShopItem = ({ name, id, images, cart, published_at }: ShopItemProps) => {
 
   return (
     <ProductWrapper variants={fade} animate={inView ? 'show' : 'hidden'} exit='exit' ref={element}>
-      <Product key={id} title={name} to={`/${id}`} className={isInCartHandler(id, cart)}>
+      <Product key={id} title={name} to={`/${id}`} className={`${isInCartHandler(id, cart)}`}>
         {images.length > 0 && <ProductImage src={images[0].url} id='active' />}
         <ProductName>{name}</ProductName>
         {isInCartHandler(id, cart) && <AddedIcon />}

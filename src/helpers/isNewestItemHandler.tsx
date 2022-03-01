@@ -1,16 +1,16 @@
-export const isNewestItemHandler = (published_at) => {
+export const isNewestItemHandler = (published_at: string): boolean | void => {
   const date = new Date();
 
-  const currentYear = date.getFullYear();
-  const currentMonth = date.getMonth() + 1;
-  const currentDay = date.getDate();
+  const currentYear: number = date.getFullYear();
+  const currentMonth: number = date.getMonth() + 1;
+  const currentDay: number = date.getDate();
 
-  const itemAddedYear = +published_at.substring(0, 4);
-  const itemAddedMonth = +published_at.substring(5, 7);
-  const itemAddedDay = +published_at.substring(8, 10);
+  const itemAddedYear: number = +published_at.substring(0, 4);
+  const itemAddedMonth: number = +published_at.substring(5, 7);
+  const itemAddedDay: number = +published_at.substring(8, 10);
 
   // Check how many days is in month
-  function daysInMonth(month, year) {
+  function daysInMonth(month: number, year: number): number {
     return new Date(year, month, 0).getDate();
   }
 
