@@ -1,20 +1,26 @@
-import { useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import emailjs from 'emailjs-com';
 import { useLocation } from 'react-router-dom';
 import { summary } from 'helpers/summary';
+import { CartType } from 'Root';
 
-export const useForm = (cart) => {
+interface FeedbackType {
+  feedback: null | number
+  setFeedback: React.Dispatch<React.SetStateAction<null | number>>
+}
+
+export const useForm = (cart?: CartType['cart']) => {
   const [emailSend, setEmailSend] = useState(false);
   const [checkbox, setCheckbox] = useState(false);
   const [validEmail, setValidEmail] = useState(false);
   const [validName, setValidName] = useState(false);
   const [validMessage, setValidMessage] = useState(false);
   const [validCart, setValidCart] = useState(false);
-  const [feedback, setFeedback] = useState(null);
+  const [feedback, setFeedback] = useState<FeedbackType['feedback']>(null);
 
   const location = useLocation();
 
-  const emailHandler = (e) => {
+  const emailHandler = (e: ChangeEvent<HTMLInputElement>): void => {
     const valid = /\S+@\S+\.\S+/;
     if (valid.test(e.target.value)) {
       setValidEmail(true);
@@ -23,7 +29,7 @@ export const useForm = (cart) => {
     }
   };
 
-  const nameHandler = (e) => {
+  const nameHandler = (e: ChangeEvent<HTMLInputElement>): void => {
     if (e.target.value.length >= 5) {
       setValidName(true);
     } else {
@@ -31,7 +37,7 @@ export const useForm = (cart) => {
     }
   };
 
-  const messageHandler = (e) => {
+  const messageHandler = (e: ChangeEvent<HTMLTextAreaElement>): void => {
     if (e.target.value.length >= 20) {
       setValidMessage(true);
     } else {
@@ -39,14 +45,14 @@ export const useForm = (cart) => {
     }
   };
 
-  function sendEmail(e) {
+  function sendEmail(e: any): void {
     e.preventDefault();
 
     const serviceID = process.env.REACT_APP_SERVICE_ID;
     const templateID = process.env.REACT_APP_TEMPLATE_ID;
     const userID = process.env.REACT_APP_USER_ID;
 
-    const handleSendEmail = () => {
+    const handleSendEmail = (): void => {
       emailjs.sendForm(`${serviceID}`, `${templateID}`, e.target, `${userID}`).then(() => {
         setEmailSend(true);
         setFeedback(2);
@@ -64,7 +70,7 @@ export const useForm = (cart) => {
     }
   }
 
-  const checkValid = () => {
+  const checkValid = (): void => {
     if (location.pathname !== '/') {
       if (validEmail && validMessage && checkbox && validName && validCart) {
         setFeedback(1);
@@ -86,17 +92,19 @@ export const useForm = (cart) => {
     }
   };
 
-  const cartItemsHandler = (e) => {
+  const cartItemsHandler = (e: ChangeEvent<HTMLInputElement>): void => {
     setCheckbox(!checkbox);
     setValidCart(!validCart);
 
-    let ids = cart.map((item) => {
-      return item.images[0].url + ' + DODATKI:' + item.pickedExtras;
-    });
+    if(cart !== undefined){
+      let ids = cart.map((item): string => {
+        return item.images[0].url + ' + DODATKI:' + item.pickedExtras;
+      });
 
-    let sum = summary(cart);
+      let sum = summary(cart);
 
-    e.target.value = ids + ' cena ' + sum;
+      e.target.value = ids + ' cena ' + sum;
+    }
   };
 
   return {

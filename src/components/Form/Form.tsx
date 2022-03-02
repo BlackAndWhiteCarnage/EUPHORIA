@@ -10,20 +10,20 @@ interface FormProps {
 }
 
 const Form = ({ cart, isHomePage }: FormProps) => {
-  const {
-    sendEmail,
-    nameHandler,
-    validName,
-    feedback,
-    emailHandler,
-    validEmail,
-    messageHandler,
-    validMessage,
-    validCart,
-    cartItemsHandler,
-    checkValid,
-    emailSend,
-  } = useForm(cart);
+    const {
+      sendEmail,
+      nameHandler,
+      validName,
+      feedback,
+      emailHandler,
+      validEmail,
+      messageHandler,
+      validMessage,
+      validCart,
+      cartItemsHandler,
+      checkValid,
+      emailSend,
+    } = useForm(cart);
 
   return (
     <FormWrapper className={`${isHomePage && 'homePage'}`}>
