@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { ReactElement, useState } from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Home from 'views/Home/Home';
@@ -16,13 +16,13 @@ export interface CartType {
     }[]
     initialPrice: number
     name: string
-    pickedExtras: string[]
+    pickedExtras: string[] | []
     price: number
   }[] | []
   setCart: React.Dispatch<React.SetStateAction<CartType['cart']>>
 }
 
-const Root = () => {
+const Root = (): ReactElement => {
   const [cart, setCart] = useState<CartType['cart']>([]);
   const location = useLocation();
 

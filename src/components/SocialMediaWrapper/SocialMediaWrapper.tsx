@@ -5,12 +5,10 @@ import WhatsAppIconWhite from 'assets/icons/whatsapp-icon-white.svg';
 import EmailIcon from 'assets/icons/email-icon.svg';
 import EmailIconWhite from 'assets/icons/email-icon-white.svg';
 import { Wrapper, Icon } from './SocialMediaWrapper.styles';
+import { SocialMediaWrapperProps } from './SocialMediaWrapper.types';
+import { ReactElement } from 'react';
 
-interface SocialMediaWrapperProps {
-  desktop?: boolean
-}
-
-const SocialMediaWrapper = ({ desktop }: SocialMediaWrapperProps) => (
+const SocialMediaWrapper = ({ desktop }: SocialMediaWrapperProps): ReactElement => (
   <Wrapper>
     <a
       href='https://allegro.pl/uzytkownik/EUPHORIA_2001?bmatch=cl-e2101-d3794-c3683-uni-1-1-0611'

@@ -1,22 +1,9 @@
-import { useState } from 'react';
-import styled from 'styled-components';
+import { useState, ReactElement } from 'react';
 import { motion } from 'framer-motion';
+import { VectorSvg } from './LoadingIcon.styles';
+import { AnimateType } from './LoadingIcon.types';
 
-const VectorSvg = styled.svg`
-  position: fixed;
-  width: 90%;
-  max-height: 1000px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-`;
-
-interface AnimateType {
-  animate: boolean
-  setAnimate: React.Dispatch<React.SetStateAction<boolean>>
-}
-
-const LoadingIcon = () => {
+const LoadingIcon = (): ReactElement => {
   const [animate, setAnimate] = useState<AnimateType['animate']>(false);
 
   setTimeout((): void => {

@@ -1,8 +1,9 @@
 import { useTheme } from 'styled-components';
 import * as THREE from 'three';
-import styled from 'styled-components';
+import { ReactElement } from 'react';
+import { BlurBackground } from './Three.styles'
 
-const sizes = {
+const sizes: {width: number, height: number} = {
   width: window.innerWidth,
   height: window.innerHeight,
 };
@@ -94,18 +95,12 @@ const tick = (): void => {
 
 tick();
 
-const Three = () => {
+const Three = (): ReactElement => {
   const theme = useTheme();
   particlesMaterial.color.set(theme.colors.main);
   return <BlurBackground />;
 };
 
-const BlurBackground = styled.div`
-  position: fixed;
-  width: 100%;
-  height: 100vh;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(5px);
-`;
+
 
 export default Three;

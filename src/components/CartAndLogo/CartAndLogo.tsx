@@ -1,21 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, ReactElement } from 'react';
 import PropTypes from 'prop-types';
 import CartIcon from 'assets/icons/cart-icon.svg';
 import { summary } from 'helpers/summary';
 import { Link } from 'react-router-dom';
 import { Wrapper, StyledLogo, CartInfo, Cart, Icon, Count, CartValue, Discount } from './CartAndLogo.styles';
-import { CartType } from 'Root'
+import { CartAndLogoProps, CartChangeType } from './CartAndLogo.types';
 
-interface CartAndLogoProps {
-  cart: CartType['cart']
-}
-
-interface CartChangeType {
-  cartChange: boolean
-  setCartChange: React.Dispatch<React.SetStateAction<boolean>>
-}
-
-const CartAndLogo = ({ cart }: CartAndLogoProps) => {
+const CartAndLogo = ({ cart }: CartAndLogoProps): ReactElement => {
   const [cartChange, setCartChange] = useState<CartChangeType['cartChange']>(false);
 
   useEffect(() => {

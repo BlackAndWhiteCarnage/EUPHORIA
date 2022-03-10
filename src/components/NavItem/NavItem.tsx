@@ -1,13 +1,9 @@
 import PropTypes from 'prop-types';
+import { ReactElement } from 'react';
 import { Wrapper } from './NavItem.styles';
+import { NavItemProps } from './NavItem.types';
 
-interface NavItemProps {
-  className: string
-  text: string
-  to: string
-}
-
-const NavItem = ({ className, text, to }: NavItemProps) => (
+const NavItem = ({ className, text, to }: NavItemProps): ReactElement => (
   <Wrapper className={className} to={to} exact>
     {text}
   </Wrapper>

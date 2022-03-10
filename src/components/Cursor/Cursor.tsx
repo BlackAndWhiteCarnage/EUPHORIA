@@ -1,17 +1,8 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, ReactElement } from 'react';
 import { StyledCursor } from './Cursor.styles';
+import { PositionRefTypes } from './Cursor.types';
 
-interface PositionRefTypes {
-    mouseX: number,
-    mouseY: number,
-    destinationX: number,
-    destinationY: number,
-    distanceX: number,
-    distanceY: number,
-    key: number,
-}
-
-const Cursor = () => {
+const Cursor = (): ReactElement => {
   const mainCursor = useRef<HTMLDivElement>(null);
   const secondaryCursor = useRef<HTMLDivElement>(null);
   const positionRef = useRef<PositionRefTypes>({

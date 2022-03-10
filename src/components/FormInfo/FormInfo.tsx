@@ -1,19 +1,11 @@
-import  { useState } from 'react';
+import { ReactElement, useState } from 'react';
 import PropTypes from 'prop-types';
 import infoIcon from 'assets/icons/info-icon.svg';
 import infoIconWhite from 'assets/icons/info-icon-white.svg';
 import { Wrapper, InfoButton, Info } from './FormInfo.styles';
+import { FormInfoProps, ToggleInfoType } from './FormInfo.types';
 
-interface FormInfoProps {
-  isHomePage: boolean
-}
-
-interface ToggleInfoType {
-  toggleInfo: boolean
-  setToggleInfo: React.Dispatch<React.SetStateAction<boolean>>
-}
-
-const FormInfo = ({ isHomePage }: FormInfoProps) => {
+const FormInfo = ({ isHomePage }: FormInfoProps): ReactElement => {
   const [toggleInfo, setToggleInfo] = useState<ToggleInfoType['toggleInfo']>(false);
 
   const toggleInfoHandler = (): void => {

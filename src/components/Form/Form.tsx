@@ -2,14 +2,10 @@ import PropTypes from 'prop-types';
 import { useForm } from 'helpers/useForm';
 import FormInfo from 'components/FormInfo/FormInfo';
 import { FormWrapper, Label, Input, TextArea, Checkbox, CheckboxWrapper, StyledButton, AccualForm } from './Form.styles';
-import { CartType } from 'Root'
+import { FormProps } from './Form.types';
+import { ReactElement } from 'react';
 
-interface FormProps {
-  cart?: CartType['cart']
-  isHomePage: boolean
-}
-
-const Form = ({ cart, isHomePage }: FormProps) => {
+const Form = ({ cart, isHomePage }: FormProps): ReactElement => {
     const {
       sendEmail,
       nameHandler,

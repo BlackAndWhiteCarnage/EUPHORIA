@@ -1,10 +1,10 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'components/Button/Button';
 import { Wrapper } from './VerifyAge.styles';
 import { VerifyAgeType } from 'hoc/Provider'
+import { ReactElement } from 'react';
 
-const VerifyAge: React.FC<VerifyAgeType> = ({ verifyAge, setVerifyAge }) => {
+const VerifyAge = ({ verifyAge, setVerifyAge }: VerifyAgeType): ReactElement => {
   const confirmAgeHandler = (bool: boolean): void => {
     if (bool) {
       setVerifyAge(bool);

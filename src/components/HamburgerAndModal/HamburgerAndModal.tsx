@@ -1,14 +1,10 @@
-import { useState } from 'react';
+import { ReactElement, useState } from 'react';
 import SocialMediaWrapper from 'components/SocialMediaWrapper/SocialMediaWrapper';
 import NavItem from 'components/NavItem/NavItem';
 import { HamburgerMenuWrapper, Line, Modal, ModalLinksWrapper, StyledDot, NavWrapper, LinksWrapper, LinesWrapper } from './HamburgerAndModal.styles';
+import { ToggleModalType } from './HamburgerAndModal.types';
 
-interface ToggleModalType {
-  toggleModal: boolean
-  setToggleModal: React.Dispatch<React.SetStateAction<boolean>>
-}
-
-const HamburgerAndModal = () => {
+const HamburgerAndModal = (): ReactElement => {
   const [toggleModal, setToggleModal] = useState<ToggleModalType['toggleModal']>(false);
 
   const toggleModalHandler = (): void => {

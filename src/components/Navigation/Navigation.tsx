@@ -6,13 +6,10 @@ import HamburgerAndModal from 'components/HamburgerAndModal/HamburgerAndModal';
 import NavItem from 'components/NavItem/NavItem';
 import { Wrapper, NavItems, FakeWrapper } from './Navigation.styles';
 import CartAndLogo from 'components/CartAndLogo/CartAndLogo';
-import { CartType } from 'Root'
+import { NavigationProps } from './Navigation.types';
+import { ReactElement } from 'react';
 
-interface NavigationProps {
-  cart: CartType['cart']
-}
-
-const Navigation = ({ cart }: NavigationProps) => {
+const Navigation = ({ cart }: NavigationProps): ReactElement => {
   const [element, view] = useInView({ threshold: 0.5 });
 
   return (
