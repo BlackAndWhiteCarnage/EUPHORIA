@@ -5,8 +5,9 @@ import Step2 from 'assets/icons/2step.svg';
 import Step3 from 'assets/icons/3step.svg';
 import Step4 from 'assets/icons/4step.svg';
 import Step5 from 'assets/icons/5step.svg';
+import { ReactElement } from 'react';
 
-const HomeInfoSection = () => (
+const HomeInfoSection = (): ReactElement => (
   <Wrapper>
     <WhoAmI id='whoAmI'>
       <div>

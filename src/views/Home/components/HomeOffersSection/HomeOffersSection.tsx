@@ -7,8 +7,9 @@ import SetsImage from 'assets/images/sets.png';
 import SessionsImage from 'assets/images/sessions.png';
 import { Wrapper, OffersWrapper, Header } from './HomeOffersSection.styles';
 import { scaleUp } from 'animations/animations';
+import { ReactElement } from 'react';
 
-const HomeOfferSection = () => (
+const HomeOfferSection = (): ReactElement => (
   <Wrapper variants={scaleUp} initial='hidden' animate='show' exit='exit'>
     <Header>FETYSZ MAJTKI MAJTECZKI RAJSTOPY SKARPETKI NOSZONA UŻYWANA BIELIZNA</Header>
     <OffersWrapper id='offer'>

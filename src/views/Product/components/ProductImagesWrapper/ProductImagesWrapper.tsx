@@ -4,12 +4,7 @@ import { ImageWrapper, Image, ScrollInfoWrapper, Dot } from './ProductImagesWrap
 import DefaultImage from 'assets/icons/default-icon.svg';
 import { fade } from 'animations/animations';
 import { matchMedia } from 'helpers/matchMedia';
-import { DataType } from 'helpers/useFetch';
-
-interface ProductImagesWrapperProps {
-  data: DataType['data']
-  desktop: boolean
-}
+import { ProductImagesWrapperProps } from './ProductImagesWrapper.types';
 
 const ProductImagesWrapper = ({ data, desktop }: ProductImagesWrapperProps) => {
   const [current, setCurrent] = useState(0);

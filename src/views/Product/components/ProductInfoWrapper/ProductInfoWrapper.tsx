@@ -14,23 +14,7 @@ import {
   StyledButton,
 } from './ProductInfoWrapper.styles';
 import { scaleUp, fade } from 'animations/animations';
-import { DataType } from 'helpers/useFetch'
-import {ExtrasDataType, ToggleExtrasType, PickExtrasType} from 'views/Product/Product'
-import {CartType} from 'Root'
-
-interface ProductInfoWrapperProps {
-  data: DataType['data']
-  extrasData: ExtrasDataType['extrasData']
-  toggleExtrasHandler: () => void
-  setExtrasData: ExtrasDataType['setExtrasData']
-  toggleExtras: ToggleExtrasType['toggleExtras']
-  setToggleExtras: ToggleExtrasType['setToggleExtras']
-  pickExtras: PickExtrasType['pickExtras']
-  setPickExtras: PickExtrasType['setPickExtras']
-  addToCartHandler: () => void
-  cart: CartType['cart']
-  setCart: CartType['setCart']
-}
+import { ProductInfoWrapperProps } from './ProductInfoWrapper.types';
 
 const ProductInfoWrapper = ({
   data,

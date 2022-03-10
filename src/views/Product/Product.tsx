@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ProductInfoWrapper from 'views/Product/components/ProductInfoWrapper/ProductInfoWrapper';
@@ -9,33 +9,7 @@ import { matchMedia } from 'helpers/matchMedia';
 import { scaleUp } from 'animations/animations';
 import { useFetch } from 'helpers/useFetch';
 import { CartType } from 'Root';
-
-export interface ExtrasDataType {
-  extrasData:{
-    data: [] | string[] | null | undefined
-    count: number
-  }
-  setExtrasData: React.Dispatch<React.SetStateAction<{
-    data: [] | string[] | null | undefined
-    count: number
-}>>
-}
-
-export interface PickExtrasType {
-  pickExtras:{
-    price: any
-    pickedExtras: string[]
-  }
-  setPickExtras: React.Dispatch<React.SetStateAction<{
-    price: any
-    pickedExtras: string[]
-}>>
-}
-
-export interface ToggleExtrasType {
-  toggleExtras: boolean
-  setToggleExtras: React.Dispatch<React.SetStateAction<boolean>>
-}
+import { ExtrasDataType, PickExtrasType, ToggleExtrasType } from './Product.types';
 
 const Product = ({ cart, setCart }: CartType) => {
   const path = useLocation().pathname.replace('/', '');

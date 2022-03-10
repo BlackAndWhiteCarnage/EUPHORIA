@@ -45,7 +45,7 @@ export const useForm = (cart?: CartType['cart']) => {
     }
   };
 
-  function sendEmail(e: any): void {
+  function sendEmail(e: React.FormEvent<HTMLFormElement>): void {
     e.preventDefault();
 
     const serviceID = process.env.REACT_APP_SERVICE_ID;
@@ -53,7 +53,7 @@ export const useForm = (cart?: CartType['cart']) => {
     const userID = process.env.REACT_APP_USER_ID;
 
     const handleSendEmail = (): void => {
-      emailjs.sendForm(`${serviceID}`, `${templateID}`, e.target, `${userID}`).then(() => {
+      emailjs.sendForm(`${serviceID}`, `${templateID}`, e.target as HTMLFormElement, `${userID}`).then(() => {
         setEmailSend(true);
         setFeedback(2);
       });

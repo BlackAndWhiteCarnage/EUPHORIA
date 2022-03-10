@@ -1,27 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Wrapper, ExtrasInfoWrapper, ExtrasInfo, ExtrasOption } from './ExtrasWrapper.styles';
 import ExtrasProvider from 'providers/ExtrasProvider/ExtrasProvider';
-import {DataType} from 'helpers/useFetch'
-import { ToggleExtrasType, PickExtrasType} from 'views/Product/Product'
-import {CartType} from 'Root'
-
-interface ExtrasWrapperProps {
-  data: DataType['data']
-  setExtrasData: any
-  extrasData: any
-  toggleExtras: ToggleExtrasType['toggleExtras']
-  setToggleExtras: ToggleExtrasType['setToggleExtras']
-  pickExtras: PickExtrasType['pickExtras']
-  setPickExtras: PickExtrasType['setPickExtras']
-  cart: CartType['cart']
-  setCart: CartType['setCart']
-}
-
-export interface PrevCartType {
-  prevCartItem: {}[] | undefined
-  setPrevCartItem: React.Dispatch<React.SetStateAction<{}[] | undefined>>
-}
+import { PrevCartType, ExtrasWrapperProps } from './ExtrasWrapper.types';
 
 const ExtrasWrapper = ({ data, setExtrasData, extrasData, toggleExtras, setToggleExtras, pickExtras, setPickExtras, cart, setCart }: ExtrasWrapperProps) => {
   const [prevCartItem, setPrevCartItem] = useState<PrevCartType['prevCartItem']>();

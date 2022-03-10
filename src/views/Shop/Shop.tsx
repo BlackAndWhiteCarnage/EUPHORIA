@@ -22,18 +22,8 @@ import {
 import { fade } from 'animations/animations';
 import { useFetch } from 'helpers/useFetch';
 import { isNewestItemHandler } from 'helpers/isNewestItemHandler';
-import { CartType } from 'Root'
 import { DataType } from 'helpers/useFetch'
-
-interface ShopItemProps {
-  name: string
-  id: string
-  images: {
-    url: string
-  }[]
-  cart: CartType['cart']
-  published_at: string
-}
+import { ShopItemProps, ShopProps } from './Shop.types';
 
 const ShopItem = ({ name, id, images, cart, published_at }: ShopItemProps) => {
   const [element, inView] = useInView();
@@ -50,9 +40,6 @@ const ShopItem = ({ name, id, images, cart, published_at }: ShopItemProps) => {
   );
 };
 
-interface ShopProps {
-  cart: CartType['cart']
-}
 
 const Shop = ({ cart }: ShopProps) => {
   const path = useLocation().pathname.replace('/sklepik/', '');

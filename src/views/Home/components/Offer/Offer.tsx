@@ -1,22 +1,10 @@
-import React, { useState } from 'react';
+import { ReactElement, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Wrapper, OfferWrapper, OfferTitle, OfferImage } from './Offer.styles';
 import { fade } from 'animations/animations';
+import { OfferProps, ToggleTitleType } from './Offer.types';
 
-interface OfferProps {
-  gridArea: string
-  content: string
-  image: string
-  linkTo: string
-  alt: string
-}
-
-interface ToggleTitleType {
-  toggleTitle: boolean
-  setToggleTitle: React.Dispatch<React.SetStateAction<boolean>>
-}
-
-const Offer = ({ gridArea, content, image, linkTo, alt }: OfferProps) => {
+const Offer = ({ gridArea, content, image, linkTo, alt }: OfferProps): ReactElement => {
   const [toggleTitle, setToggleTitle] = useState<ToggleTitleType['toggleTitle']>(false);
 
   const toggleTitleHandler = (): void => {

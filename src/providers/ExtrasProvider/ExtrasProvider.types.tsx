@@ -1,8 +1,8 @@
 import React from 'react';
 import { DataType } from 'helpers/useFetch';
-import { ToggleExtrasType, PickExtrasType } from 'views/Product/Product';
+import { ToggleExtrasType, PickExtrasType } from 'views/Product/Product.types';
 import { CartType } from 'Root';
-import { PrevCartType } from 'views/Product/components/ExtrasWrapper/ExtrasWrapper';
+import { PrevCartType } from 'views/Product/components/ExtrasWrapper/ExtrasWrapper.types';
 
 export interface ExtrasProviderProps {
     children: React.ReactNode
