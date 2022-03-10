@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Wrapper, ExtrasInfoWrapper, ExtrasInfo, ExtrasOption } from './ExtrasWrapper.styles';
-import ExtrasProvider from 'hoc/ExtrasProvider';
+import ExtrasProvider from 'providers/ExtrasProvider/ExtrasProvider';
 import {DataType} from 'helpers/useFetch'
 import { ToggleExtrasType, PickExtrasType} from 'views/Product/Product'
 import {CartType} from 'Root'

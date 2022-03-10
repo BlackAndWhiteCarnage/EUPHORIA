@@ -1,23 +1,7 @@
-import React, { useEffect, useLayoutEffect } from 'react';
+import { ReactElement, useEffect, useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
 import { pantiesExtras, socksExtras, premiumExtras, tightsExtras } from 'data/extras';
-import {DataType} from 'helpers/useFetch'
-import { ToggleExtrasType, PickExtrasType } from 'views/Product/Product'
-import { CartType } from 'Root'
-import { PrevCartType } from 'views/Product/components/ExtrasWrapper/ExtrasWrapper'
-
-interface ExtrasProviderProps {
-  children: React.ReactNode
-  cart: CartType['cart']
-  data: DataType['data']
-  setExtrasData: any
-  setToggleExtras: ToggleExtrasType['setToggleExtras']
-  setPickExtras: PickExtrasType['setPickExtras']
-  setCart: CartType['setCart']
-  pickExtras: PickExtrasType['pickExtras']
-  setPrevCartItem: PrevCartType['setPrevCartItem']
-  prevCartItem: PrevCartType['prevCartItem']
-}
+import { ExtrasProviderProps } from './ExtrasProvider.types';
 
 const ExtrasProvider = ({
   children,
@@ -30,7 +14,7 @@ const ExtrasProvider = ({
   pickExtras,
   setPrevCartItem,
   prevCartItem,
-}: ExtrasProviderProps) => {
+}: ExtrasProviderProps): ReactElement => {
   const findInCart = !Array.isArray(data) && cart.find((item) => item.id === data.id);
 
   useEffect(() => {

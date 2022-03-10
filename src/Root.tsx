@@ -5,7 +5,7 @@ import Home from 'views/Home/Home';
 import Shop from 'views/Shop/Shop';
 import Product from 'views/Product/Product';
 import CartAndForm from 'views/CartAndForm/CartAndForm';
-import Provider from 'hoc/Provider';
+import MainProvider from 'providers/MainProvider/MainProvider';
 
 export interface CartType {
   cart: {
@@ -27,7 +27,7 @@ const Root = (): ReactElement => {
   const location = useLocation();
 
   return (
-    <Provider cart={cart} setCart={setCart}>
+    <MainProvider cart={cart} setCart={setCart}>
       <AnimatePresence exitBeforeEnter>
         <Switch location={location} key={location.pathname}>
           <Route exact path='/'>
@@ -44,7 +44,7 @@ const Root = (): ReactElement => {
           </Route>
         </Switch>
       </AnimatePresence>
-    </Provider>
+    </MainProvider>
   );
 };
 

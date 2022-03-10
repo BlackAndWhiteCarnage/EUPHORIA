@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import Button from 'components/Button/Button';
 import { Wrapper } from './VerifyAge.styles';
-import { VerifyAgeType } from 'hoc/Provider'
+import { VerifyAgeType } from 'providers/MainProvider/MainProvider.types';
 import { ReactElement } from 'react';
 
 const VerifyAge = ({ verifyAge, setVerifyAge }: VerifyAgeType): ReactElement => {

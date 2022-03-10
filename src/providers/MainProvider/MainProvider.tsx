@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { ReactElement, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { GlobalStyle } from 'assets/styles/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
@@ -9,20 +9,9 @@ import Navigation from 'components/Navigation/Navigation';
 import { isTouchScreen } from 'helpers/checkIfTouchScreen';
 import ScrollTop from 'helpers/ScrollTop';
 import VerifyAge from 'components/VerifyAge/VerifyAge';
-import { CartType } from 'Root'
+import { ProviderProps, VerifyAgeType } from './MainProvider.types';
 
-interface ProviderProps {
-  children: React.ReactNode
-  cart: CartType['cart']
-  setCart: CartType['setCart']
-}
-
-export interface VerifyAgeType {
-  verifyAge: boolean
-  setVerifyAge: React.Dispatch<React.SetStateAction<VerifyAgeType['verifyAge']>>
-}
-
-const Provider: React.FC<ProviderProps> = ({ children, cart, setCart }) => {
+const MainProvider: React.FC<ProviderProps> = ({ children, cart, setCart }): ReactElement => {
   const [verifyAge, setVerifyAge] = useState<VerifyAgeType['verifyAge']>(false);
 
   useEffect(() => {
@@ -55,10 +44,10 @@ const Provider: React.FC<ProviderProps> = ({ children, cart, setCart }) => {
   );
 };
 
-Provider.propTypes = {
+MainProvider.propTypes = {
   children: PropTypes.element.isRequired,
   cart: PropTypes.array.isRequired,
   setCart: PropTypes.func.isRequired,
 };
 
-export default Provider;
+export default MainProvider;
