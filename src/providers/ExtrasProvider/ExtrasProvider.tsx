@@ -88,7 +88,7 @@ const ExtrasProvider = ({
     }
   }, [pickExtras]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if(!Array.isArray(data) && findInCart !== undefined && typeof findInCart === 'object'){
       setPrevCartItem(cart.find((item) => item.id === data.id) && cart.find((item) => item.id === data.id)!.pickedExtras);
 

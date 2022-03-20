@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import emailjs from 'emailjs-com';
 import { useLocation } from 'react-router-dom';
 import { summary } from 'helpers/summary';
