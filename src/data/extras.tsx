@@ -8,7 +8,7 @@ export const pantiesExtras: ExtrasType = [
   'Zabawa w majteczkach',
   'Noszenie 2 dni',
   'Noszenie 3 dni',
-  'Sexy nagranie w tych majteczkach (20/30 sekund)',
+  'Sexy nagranie w tych majteczkach (20/30sekund)',
   'Uprawianie sportu',
   '3 Zdjęcia z Twoim nickiem lub imieniem na pupie',
   'Mam specjalne życzenie, dam znać w mailu!',
