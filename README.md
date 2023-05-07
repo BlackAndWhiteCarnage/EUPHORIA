@@ -1,3 +1,5 @@
+<img src="https://user-images.githubusercontent.com/71930296/236704060-48526c1d-6f78-4f5f-9863-1c7fcf5c86a6.jpg" alt="Euphoria logo" width='100%'/>
+
 <img src="./src/assets/icons/logo.svg" alt="Euphoria logo" width='100%'/>
 
 <br />
