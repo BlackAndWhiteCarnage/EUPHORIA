@@ -1,4 +1,4 @@
-<img src="https://github.com/BlackAndWhiteCarnage/EUPHORIA/assets/71930296/51cde26c-c403-4b18-bf41-81c3c7e7deab" alt="Euphoria logo" width='100%'/>
+<img src="https://github.com/BlackAndWhiteCarnage/Mrs.Sikorka/assets/71930296/62ae5014-c907-4232-a60d-e18650fabe3f" alt="Euphoria logo" width='100%'/>
 
 <br />
 <br />
@@ -10,8 +10,6 @@
 <br />
 
 # Euphoria - Shop for a used underwear fetishists 💋
-
-https://euphorianoszonabielizna.pl/
 
 <br />
 
